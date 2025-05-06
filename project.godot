@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="ShovelHustleJuego"
+run/main_scene="uid://c2smtu6kd3ejf"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"

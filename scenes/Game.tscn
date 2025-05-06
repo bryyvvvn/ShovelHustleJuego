@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2smtu6kd3ejf"]
+
+[ext_resource type="Script" uid="uid://cn63lfdvanlda" path="res://Scripts/Game.gd" id="1_qbsmt"]
+[ext_resource type="PackedScene" uid="uid://ccrti00jaa2ag" path="res://scenes/Tile.tscn" id="2_cpr0p"]
+[ext_resource type="PackedScene" uid="uid://cusymy6oehvy4" path="res://scenes/Player.tscn" id="3_cpr0p"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_qbsmt")
+tile_scene = ExtResource("2_cpr0p")
+player_scene = ExtResource("3_cpr0p")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
