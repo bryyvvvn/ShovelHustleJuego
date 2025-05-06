@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://de31tfeg2pjos"]
+
+[ext_resource type="Script" uid="uid://cvffunnljdgdg" path="res://Scripts/shovel.gd" id="1_lyedo"]
+
+[node name="shovel" type="Node"]
+script = ExtResource("1_lyedo")
