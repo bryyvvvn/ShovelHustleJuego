@@ -1,9 +1,6 @@
 res://Scenes/game.tscn
 res://Scenes/world.tscn
-res://Scripts/world.gd
 res://Scenes/player.tscn
-res://Scenes/game.gd
-res://Scripts/player.gd
 res://Scenes/shovel.tscn
 res://Scenes/Tile.tscn
-res://Scenes/tile.gd
+res://Scripts/world.gd
