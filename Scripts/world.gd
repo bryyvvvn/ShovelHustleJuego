@@ -25,3 +25,4 @@ func cuadros_alrededor(pos: Vector2i) -> void:
 				var tile = tile_scene.instantiate()
 				tile.position = tilemap.map_to_local(cell)
 				add_child(tile)
+#s
