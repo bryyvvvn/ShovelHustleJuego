@@ -1,12 +1,8 @@
-TextureButton
-Button
-TextureRect
-VBoxContainer
 ColorRect
-Control
+CollisionShape2D
+StaticBody2D
 Node
 TileMap
 Camera2D
-CollisionShape2D
 AnimatedSprite2D
 CharacterBody2D

@@ -1,10 +1,9 @@
-res://Scripts/Menú/menú.gd
-res://Scenes/Menú.tscn
 res://Scenes/game.tscn
-res://Scenes/player.tscn
-res://Scenes/shovel.tscn
 res://Scenes/world.tscn
-res://Scenes/menujugar.tscn
-res://Scripts/Menú/menujugar.gd
-res://Scenes/menuopciones.tscn
-res://Scripts/Menú/menuopciones.gd
+res://Scripts/world.gd
+res://Scenes/player.tscn
+res://Scenes/game.gd
+res://Scripts/player.gd
+res://Scenes/shovel.tscn
+res://Scenes/Tile.tscn
+res://Scenes/tile.gd
