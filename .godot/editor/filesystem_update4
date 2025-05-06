@@ -1,6 +1,3 @@
-res://character_body_2d.gd
-res://Scenes/player.tscn
 res://Scenes/game.tscn
-res://Scenes/world.tscn
-res://shovel.gd
-res://Scenes/shovel.tscn
+res://Scenes/player.tscn
+res://Scripts/player.gd
