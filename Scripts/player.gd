@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed := 100.0
 
 func _ready():
-	$Camera2D.zoom = Vector2(1, 1) 
+	$Camera2D.zoom = Vector2(0, 0) 
 
 var last_direction := Vector2.DOWN #la última dirección que tuvo el personaje (para play idle animations)	
 

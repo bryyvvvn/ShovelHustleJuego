@@ -1,8 +1,8 @@
+TileMap
 ColorRect
 CollisionShape2D
 StaticBody2D
 Node
-TileMap
 Camera2D
 AnimatedSprite2D
 CharacterBody2D
