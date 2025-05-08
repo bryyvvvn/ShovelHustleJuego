@@ -1,3 +1,9 @@
+TextureButton
+Button
+TextureRect
+VBoxContainer
+ColorRect
+Control
 Node
 TileMap
 Camera2D
