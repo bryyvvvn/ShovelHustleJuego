@@ -15,7 +15,7 @@ var ground_layer = 1
 var ground_1_layer = 2
 var ground_2_layer = 5
 var bloques_alrededor_layer = 3
-var excavacon_layer = 4
+var excavacion_layer = 4
 
 var grass_elements = [Vector2i(1,0), Vector2i(3,0), Vector2i(4,0), Vector2i(5,0), Vector2i(0,0)] #pastos
 var grass_1_elements = [Vector2i(11,1), Vector2i(12,1), Vector2i(13,1), Vector2(14,1), Vector2(15,6)] #arboles
@@ -69,7 +69,7 @@ func cuadros_alrededor(pos: Vector2i) -> void:
 
 
 func bloque_cavado(cell: Vector2i) -> void:
-	tilemap.set_cell(3,cell, 0, Vector2(13,0),0)
+	tilemap.set_cell(excavacion_layer,cell, 0, Vector2(13,0),0)
 	print(cell)
 
 
