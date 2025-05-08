@@ -1,6 +1,8 @@
-Node
 TileMap
-Camera2D
+ColorRect
 CollisionShape2D
+StaticBody2D
+Node
+Camera2D
 AnimatedSprite2D
 CharacterBody2D

@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
 @export var speed := 100.0
+
 func _ready():
-	$Camera2D.zoom = Vector2(1, 1) 
+	$Camera2D.zoom = Vector2(0, 0) 
 
 var last_direction := Vector2.DOWN #la última dirección que tuvo el personaje (para play idle animations)	
-func _physics_process(delta):
+
+func direccion()->Vector2:
 	var direction := Vector2.ZERO
 
 	if Input.is_action_pressed("ui_right"):
@@ -16,6 +18,11 @@ func _physics_process(delta):
 		direction.y += 1
 	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
+		
+	return direction
+
+func _physics_process(delta):
+	var direction = direccion()
 
 	if direction != Vector2.ZERO:
 		direction = direction.normalized()  # Diagonal speed fix
@@ -23,6 +30,8 @@ func _physics_process(delta):
 		move_and_slide()
 		
 		last_direction = direction
+		
+		
 		
 		if abs(direction.x) > abs(direction.y):
 			$AnimatedSprite2D.animation = "walk_right" if direction.x > 0 else "walk_left"

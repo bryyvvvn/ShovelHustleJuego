@@ -1,3 +1,10 @@
+res://Scenes/world.tscn
+res://Assets/tile_set.tres
 res://Scenes/game.tscn
 res://Scenes/player.tscn
+res://Scenes/shovel.tscn
+res://Scenes/Tile.tscn
+res://Scenes/minigame.tscn
+res://Scenes/proc_world.tscn
+res://Scripts/proc_world.gd
 res://Scripts/player.gd
