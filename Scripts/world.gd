@@ -11,9 +11,7 @@ var pos_anterior = Vector2i(0,0)
 func _ready():
 	tilemap = get_node("TileMap")
 	
-func bloque_cavado(cell: Vector2i) -> void:
-	tilemap.set_cell(3,cell, 0, Vector2(13,0),0)
-	print(cell)
+
 
 func cuadros_alrededor(pos: Vector2i) -> void:
 	
