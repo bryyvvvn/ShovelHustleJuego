@@ -1,0 +1,33 @@
+# Archivos y carpetas generadas automáticamente por Godot
+.import/
+.export/
+export_presets.cfg
+
+# Archivos específicos del sistema operativo
+.DS_Store         # macOS
+Thumbs.db         # Windows
+desktop.ini       # Windows
+
+# Archivos temporales comunes
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*.swo
+
+# Builds o archivos de exportación generados manualmente
+build/
+bin/
+*.exe
+*.apk
+*.zip
+*.pck
+*.x86_64
+*.x86
+*.dll
+*.dylib
+*.so
+
+# El siguiente archivo guarda cosas como posición de ventanas, historial, etc.
+.editor/

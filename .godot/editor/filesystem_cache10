@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1746646126
+animation_tree.gd::GDScript/GDScript::8610063718858587090::1746291087::0::1::::<>AnimationTree<><>0<>0<><>::
+icon.svg::CompressedTexture2D/CompressedTexture2D::4805958761835887765::1744319714::1744319745::1::::<><><>0<>0<>6cf78f1846476bb9b4d558a72b479c01<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+jugador.gd::GDScript/GDScript::6179942021441126169::1746488505::0::1::::<>CharacterBody2D<><>0<>0<><>::
+jugador.tscn::PackedScene::3428878643038648975::1746548918::0::1::::<><><>0<>0<><>::uid://cubu0h8ekefd6::::res://jugador.gd<>uid://cas233vmrgojg::::res://Assets/Idle.png<>uid://c2n6oibmh0vns::::res://Assets/Run.png<>uid://b2fy26mwkvv4s::::res://Assets/Walk.png
+::res://Assets/::1746323653
+Idle.png::CompressedTexture2D/CompressedTexture2D::4811691031656201584::1746320895::1746320896::1::::<><><>0<>0<>699260e48d775dbb159f697a05019136<>res://.godot/imported/Idle.png-40bd0c3a4ed83cab2e27207410ff79e4.ctex::
+Run.png::CompressedTexture2D/CompressedTexture2D::6696684706593474840::1746323652::1746323653::1::::<><><>0<>0<>782d0bc1d526b6d14c0b65789f0b3c32<>res://.godot/imported/Run.png-ecb43e407271895573f0f96742ce2f04.ctex::
+spunch bob.jpg::CompressedTexture2D/CompressedTexture2D::1832795745791213176::1744320001::1744320001::1::::<><><>0<>0<>dd6715840a8382e0c9d1d889278b2c63<>res://.godot/imported/spunch bob.jpg-561406684727c66fc4cd799b36dc3b0b.ctex::
+Walk.png::CompressedTexture2D/CompressedTexture2D::4293348422727402440::1746323563::1746323564::1::::<><><>0<>0<>f0a914c239aeca19833c5b42fcb68e59<>res://.godot/imported/Walk.png-44f58ac7d3e92e797c88cfc387183eaa.ctex::
