@@ -34,5 +34,6 @@ layer_2/z_index = 1
 layer_3/name = "bloque_alrededor"
 layer_3/z_index = 4
 layer_4/name = "excavacion"
+layer_4/z_index = 2
 layer_5/name = "ground_2"
 layer_5/z_index = 10
