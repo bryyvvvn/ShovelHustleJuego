@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://0dv4ja7gb2lg"]
+
+[ext_resource type="Script" uid="uid://kient5vkx126" path="res://Scripts/user_inteface.gd" id="1_ahmwa"]
+[ext_resource type="PackedScene" uid="uid://bac1lei5wm0v" path="res://Scenes/Inventory.tscn" id="2_sky2y"]
+
+[node name="userInteface" type="CanvasLayer"]
+script = ExtResource("1_ahmwa")
+
+[node name="Inventory" parent="." instance=ExtResource("2_sky2y")]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6vpf33mduou3"]
+
+[ext_resource type="Script" uid="uid://d0sn7vat0ra8v" path="res://Scripts/item.gd" id="1_ys0gr"]
+[ext_resource type="Texture2D" uid="uid://dgdkndwelaf2d" path="res://Assets/Sprites/Item_icon/shovel.png" id="2_76mu4"]
+
+[node name="Item" type="Node2D"]
+z_index = 1
+script = ExtResource("1_ys0gr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 100.0
+offset_bottom = 100.0
+mouse_filter = 2
+texture = ExtResource("2_76mu4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 56.0
+offset_top = 46.0
+offset_right = 75.0
+offset_bottom = 69.0
+scale = Vector2(3, 3)
+text = "99"

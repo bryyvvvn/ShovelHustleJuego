@@ -1,0 +1,12 @@
+{
+  "shovel":{
+   "ItemCategory": "Tool",
+   "StackSize": 99,
+   "Description": "herramienta perfecta para chambear"
+  },
+  "coin 2": {
+   "ItemCategory": "Resoruce",
+   "StackSize": 99,
+   "Description": "moneda usada para comprar"
+  }
+}

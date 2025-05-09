@@ -1,3 +1,11 @@
 res://Scenes/game.tscn
+res://Assets/tile_set.tres
 res://Scenes/player.tscn
+res://Scenes/Inventory.tscn
+res://Scenes/item.tscn
+res://Scenes/user_inteface.tscn
+res://Scenes/item_drop.tscn
+res://Scripts/item_drop.gd
+res://Scripts/inventory.gd
 res://Scripts/player.gd
+res://Scenes/proc_world.tscn
