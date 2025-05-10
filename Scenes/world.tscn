@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://diey6cm2f0hyi" path="res://Scripts/world.gd" id="1_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://cp3jbpbcxvee6" path="res://Scenes/player.tscn" id="2_8j60k"]
 [ext_resource type="PackedScene" uid="uid://ds2tl8xo4kx4v" path="res://Scenes/Tile.tscn" id="3_8j60k"]
-[ext_resource type="TileSet" uid="uid://8x3pmyj1syqb" path="res://Assets/tile_set.tres" id="4_8j60k"]
+[ext_resource type="TileSet" uid="uid://yd1io1bx6rcy" path="res://Assets/tile_set.tres" id="4_8j60k"]
 
 [node name="world" type="Node2D"]
 script = ExtResource("1_5a7ea")

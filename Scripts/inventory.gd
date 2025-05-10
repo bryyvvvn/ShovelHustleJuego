@@ -2,10 +2,10 @@ extends Node2D
 
 const SlotClass = preload("res://Scripts/slot.gd")
 @onready var inventory_slots = $GridContainer
-var holding_item = null
+var holding_item = null	
 
 func _ready():
-	visible = false
+	visible = true
 	for inv_slot in inventory_slots.get_children():
 		inv_slot.gui_input.connect(slot_gui_input.bind(inv_slot))
 		
