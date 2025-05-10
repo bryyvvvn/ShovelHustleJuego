@@ -13,3 +13,5 @@ res://Scripts/world.gd
 res://Scenes/world.tscn
 res://Scripts/game.gd
 res://Scripts/tile.gd
+res://Scenes/minigame.tscn
+res://Scenes/proc_world.tscn

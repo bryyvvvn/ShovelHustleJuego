@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed := 100.0
 
 func _ready():
-	$Camera2D.zoom = Vector2(1,1) 
+	$Camera2D.zoom = Vector2(0, 0) 
 
 var last_direction := Vector2.DOWN #la última dirección que tuvo el personaje (para play idle animations)	
 
@@ -52,5 +52,5 @@ func _physics_process(delta):
 	elif Input.is_action_just_pressed("zoom_out"):
 		$Camera2D.zoom *= 0.9
 		
-	$Camera2D.zoom.x = clamp($Camera2D.zoom.x, 1.5, 3)
-	$Camera2D.zoom.y = clamp($Camera2D.zoom.y, 1.5, 3)
+	$Camera2D.zoom.x = clamp($Camera2D.zoom.x, -1, 3)
+	$Camera2D.zoom.y = clamp($Camera2D.zoom.y, -1, 3)

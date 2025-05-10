@@ -3,15 +3,20 @@ extends Node2D
 @export var tile_map_scene : PackedScene
 @export var player_scene : PackedScene
 @export var shovel_scene : PackedScene
-@export var inventory_scene : PackedScene
-@export var ui_scene : PackedScene
+@export var objects_scene : PackedScene
 
 var player : CharacterBody2D
 var tile_map
 var shovel
 var mouse_pos 
-var inventory : Node2D
-var ui_canvas_layer : CanvasLayer
+
+func init_diamante()-> void:
+	var object = objects_scene.instantiate()
+	object.data = preload("res://Objects/diamante.tres")
+	object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/diamante.png")
+	
+	add_child(object)
+
 
 func init_world() -> void:
 	tile_map = tile_map_scene.instantiate() 
@@ -20,14 +25,7 @@ func init_world() -> void:
 func init_player() -> void:
 	player = player_scene.instantiate() 
 	add_child(player)
-
-func init_ui() -> void:
-	ui_canvas_layer = ui_scene.instantiate() 
-	add_child(ui_canvas_layer)
-	inventory = ui_canvas_layer.get_node("Inventory")
-	if inventory:
-		inventory.visible = false 
-
+	
 func init_shovel()->void:
 	shovel = shovel_scene.instantiate()
 	add_child(shovel)
@@ -36,7 +34,7 @@ func _ready() -> void:
 	init_world()
 	init_player()
 	init_shovel()
-	init_ui()
+	init_diamante()
 
 
 func _input(event):
@@ -58,8 +56,13 @@ func _input(event):
 		tile_map.bloque_cavado(tilemap.local_to_map(get_global_mouse_position()))
 
 func _physics_process(delta: float) -> void:
+	
 	var tile_pos = tile_map.get_node("TileMap").local_to_map(player.get_node("CollisionShape2D").global_position)
-	tile_map.cuadros_alrededor(tile_pos)
+	tile_map.tiles_arround(tile_pos)
+	
+	
+	
+	
 	
 	
 	

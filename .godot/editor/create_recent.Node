@@ -1,14 +1,10 @@
-AnimationPlayer
 CollisionShape2D
 Sprite2D
-CharacterBody2D
-CanvasLayer
-Label
-TextureRect
+Area2D
 TileMap
 ColorRect
 StaticBody2D
 Node
-TileMap
 Camera2D
 AnimatedSprite2D
+CharacterBody2D
