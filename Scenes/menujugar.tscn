@@ -116,5 +116,5 @@ stretch_mode = 0
 [connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_opciones_pressed"]
 [connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_multiplayer_pressed"]
 [connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_opciones_pressed"]
-[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_atrás_pressed"]
 [connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_atrás_pressed"]
