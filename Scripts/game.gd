@@ -46,7 +46,6 @@ func _ready() -> void:
 	init_diamante()
 	init_inventory()
 
-
 func _input(event):
 	
 	var tilemap = tile_map.get_node("TileMap")

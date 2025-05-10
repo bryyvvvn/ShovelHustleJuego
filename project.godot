@@ -15,10 +15,6 @@ run/main_scene="uid://dxm8su0t4j3b6"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-JsonData="*res://Scripts/JSONData.gd"
-
 [input]
 
 ui_left={

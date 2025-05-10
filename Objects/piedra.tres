@@ -9,4 +9,5 @@ tipo = "excavable"
 valor = 0
 rareza = 0.6
 descripcion = ""
-metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"
+indice = 0
+StackSize = 99
