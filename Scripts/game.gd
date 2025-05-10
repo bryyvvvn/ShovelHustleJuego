@@ -18,7 +18,6 @@ func init_diamante()-> void:
 	var object = objects_scene.instantiate()
 	object.data = preload("res://Objects/diamante.tres")
 	object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/diamante.png")
-	
 	add_child(object)
 
 
@@ -45,7 +44,6 @@ func _ready() -> void:
 	init_shovel()
 	init_diamante()
 	init_inventory()
-
 
 func _input(event):
 	

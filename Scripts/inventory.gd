@@ -24,7 +24,7 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 						slot.putIntoSlot(holding_item)
 						holding_item = temp_item
 					else:
-						var stack_size = int(JsonData.item_data[slot.item.item_name]["StackSize"])
+						var stack_size : int = slot.item.item_data_resource.StackSize
 						var able_to_add = stack_size - slot.item.item_quantity
 						if able_to_add >= holding_item.item_quantity:
 							slot.item.add_item_quantity(holding_item.item_quantity)

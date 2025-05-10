@@ -11,3 +11,14 @@ res://Scenes/game.tscn
 res://Assets/tile_1_set.tres
 res://Scripts/game.gd
 res://Scripts/inventory.gd
+res://Scenes/objectsPhysics.tscn
+res://Scripts/item.gd
+res://Objects/diamante.tres
+res://Objects/plata.tres
+res://Scripts/objectData.gd
+res://Objects/carbon.tres
+res://Objects/piedra.tres
+res://Objects/basura.tres
+res://Objects/hierro.tres
+res://Objects/oro.tres
+res://Scripts/Menú/menujugar.gd
