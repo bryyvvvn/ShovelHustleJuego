@@ -275,7 +275,7 @@ animations = [{
 radius = 6.0
 
 [node name="player" type="CharacterBody2D"]
-z_index = 9
+z_index = 11
 script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

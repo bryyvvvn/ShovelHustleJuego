@@ -9,3 +9,6 @@ res://Scenes/minigame.tscn
 res://Scenes/proc_world.tscn
 res://Scenes/menujugar.tscn
 res://Scenes/proc_world_2.tscn
+res://Scripts/Animaciones/animations.gd
+res://Scripts/game.gd
+res://Scripts/proc_world_2.gd

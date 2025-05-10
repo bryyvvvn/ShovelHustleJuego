@@ -1,20 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://das0ininogl2e"]
+[gd_scene load_steps=7 format=3 uid="uid://das0ininogl2e"]
 
 [ext_resource type="Script" uid="uid://p8kelysupw60" path="res://Scripts/proc_world_2.gd" id="1_svnwh"]
 [ext_resource type="TileSet" uid="uid://b7ge3x1h1aggc" path="res://Assets/tile_1_set.tres" id="2_nqiic"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_svnwh"]
+frequency = 0.008
+fractal_octaves = 1
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nqiic"]
 noise = SubResource("FastNoiseLite_svnwh")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nqiic"]
+noise_type = 0
+frequency = 0.3282
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l0xmv"]
+noise = SubResource("FastNoiseLite_nqiic")
+
 [node name="ProcWorld2" type="Node2D"]
 script = ExtResource("1_svnwh")
 noise_height_noise = SubResource("NoiseTexture2D_nqiic")
+noise_tree_text = SubResource("NoiseTexture2D_l0xmv")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_nqiic")
 format = 2
 layer_0/name = "sand"
-layer_1/name = "water"
+layer_1/name = "sand2"
 layer_1/z_index = 1
+layer_2/name = "water"
+layer_2/z_index = 1
+layer_3/name = "enviroment"
+layer_3/z_index = 5
+layer_4/name = "bloques_alrededor"
+layer_4/z_index = 10

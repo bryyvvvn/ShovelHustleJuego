@@ -9,6 +9,13 @@ var tile_map
 var shovel
 var mouse_pos 
 
+
+
+#func init_animations()-> void:
+	#Animations.instanciar_animaciones(1, tile_map.get_node("TileMap").tile_set)
+	#Animations.instanciar_animaciones(1)
+
+
 func init_world() -> void:
 	tile_map = tile_map_scene.instantiate() 
 	add_child(tile_map)
@@ -25,6 +32,7 @@ func init_shovel()->void:
 
 func _ready() -> void:
 	init_world()
+	#init_animations()
 	init_player()
 	init_shovel()
 
