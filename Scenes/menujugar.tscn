@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://buimqt415bwmt"]
 
 [ext_resource type="Script" uid="uid://byy3auevoboin" path="res://Scripts/Menú/menujugar.gd" id="1_tqyb3"]
-[ext_resource type="Texture2D" uid="uid://c4k4ucsbwd1sq" path="res://Imagenes/Fondo.png" id="2_lbxjh"]
-[ext_resource type="Texture2D" uid="uid://c71jpcqkfwkp8" path="res://Imagenes/jugar.png" id="3_56o6i"]
-[ext_resource type="Texture2D" uid="uid://6nm61u18ofgv" path="res://Imagenes/opciones.png" id="4_li6nv"]
+[ext_resource type="Texture2D" uid="uid://c4k4ucsbwd1sq" path="res://Imagenes/Menu/Fondo.png" id="2_lbxjh"]
+[ext_resource type="Texture2D" uid="uid://c71jpcqkfwkp8" path="res://Imagenes/Menu/jugar.png" id="3_56o6i"]
+[ext_resource type="Texture2D" uid="uid://6nm61u18ofgv" path="res://Imagenes/Menu/opciones.png" id="4_li6nv"]
 
 [node name="MenuJugar" type="Control"]
 layout_mode = 3
@@ -113,8 +113,8 @@ stretch_mode = 0
 
 [connection signal="pressed" from="VBoxContainer/Singleplayer" to="." method="_on_singleplayer_pressed"]
 [connection signal="pressed" from="VBoxContainer/Singleplayer" to="." method="_on_jugar_pressed"]
-[connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_multiplayer_pressed"]
 [connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_opciones_pressed"]
-[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_multiplayer_pressed"]
-[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_multiplayer_pressed"]
 [connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_atrás_pressed"]
+[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_multiplayer_pressed"]

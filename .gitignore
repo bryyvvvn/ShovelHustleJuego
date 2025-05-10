@@ -31,3 +31,6 @@ bin/
 
 # El siguiente archivo guarda cosas como posición de ventanas, historial, etc.
 .editor/
+.godot/uid_cache.bin
+.godot/uid_cache.bin
+/.godot

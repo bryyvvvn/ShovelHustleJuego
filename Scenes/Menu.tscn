@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dxm8su0t4j3b6"]
 
-[ext_resource type="Script" path="res://Scripts/Menú/menú.gd" id="1_r7quk"]
-[ext_resource type="Texture2D" uid="uid://c4k4ucsbwd1sq" path="res://Imagenes/Menu/Fondo.png" id="2_ao0aa"]
-[ext_resource type="Texture2D" uid="uid://c71jpcqkfwkp8" path="res://Imagenes/Menu/jugar.png" id="3_8mdum"]
-[ext_resource type="Texture2D" uid="uid://6nm61u18ofgv" path="res://Imagenes/Menu/opciones.png" id="4_qxn1j"]
-[ext_resource type="Texture2D" uid="uid://clgvkrdi6ruhi" path="res://Imagenes/Menu/salir.png" id="5_u82wc"]
+[ext_resource type="Script" uid="uid://c753k4crroeiy" path="res://Scripts/Menú/menú.gd" id="1_r7quk"]
+[ext_resource type="Texture2D" uid="uid://c4k4ucsbwd1sq" path="res://Imagenes/Fondo.png" id="2_ao0aa"]
+[ext_resource type="Texture2D" uid="uid://c71jpcqkfwkp8" path="res://Imagenes/jugar.png" id="3_8mdum"]
+[ext_resource type="Texture2D" uid="uid://6nm61u18ofgv" path="res://Imagenes/opciones.png" id="4_qxn1j"]
+[ext_resource type="Texture2D" uid="uid://clgvkrdi6ruhi" path="res://Imagenes/salir.png" id="5_u82wc"]
 
 [node name="Menú" type="Control"]
 layout_mode = 3
