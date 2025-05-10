@@ -1,14 +1,73 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbajsjkgnh1py"]
+[gd_scene load_steps=6 format=3 uid="uid://c85m5kfd2qj8t"]
 
-[ext_resource type="Script" uid="uid://diey6cm2f0hyi" path="res://Scripts/world.gd" id="1_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://cp3jbpbcxvee6" path="res://Scenes/player.tscn" id="2_8j60k"]
-[ext_resource type="PackedScene" uid="uid://ds2tl8xo4kx4v" path="res://Scenes/Tile.tscn" id="3_8j60k"]
 [ext_resource type="TileSet" uid="uid://8x3pmyj1syqb" path="res://Assets/tile_set.tres" id="4_8j60k"]
 
+[sub_resource type="GDScript" id="GDScript_go701"]
+script/source = "extends Node
+
+@export var player_scene : PackedScene
+@export var tile_scene : PackedScene
+
+var player : CharacterBody2D
+var tilemap : TileMap
+var pos_anterior = Vector2i(0,0)
+
+
+func _ready():
+	tilemap = get_node(\"TileMap\")
+	
+
+
+func cuadros_alrededor(pos: Vector2i) -> void:
+	
+	for i in range(-1, 2):
+		for j in range(-1, 2):
+			var offset = Vector2i(i, j)
+			var cell = pos_anterior + offset
+			var tile_id = tilemap.get_cell_source_id(0, cell)
+			if i!=0 or j != 0:
+				tilemap.set_cell(0,cell,-1)
+	
+	for i in range(-1, 2):
+		for j in range(-1, 2):
+			var offset = Vector2i(i, j)
+			var cell = pos + offset
+			var tile_id = tilemap.get_cell_source_id(0, cell)
+			if i!=0 or j != 0:
+				tilemap.set_cell(0,cell, 0, Vector2(11,0),0)
+	pos_anterior = pos
+				
+"
+
+[sub_resource type="GDScript" id="GDScript_5a7ea"]
+script/source = "extends Node2D
+
+
+func _ready():
+	$ColorRect.color = Color(0, 0, 0, 0.5) 
+
+func _physics_process(delta: float) -> void:   
+	$ColorRect.color = Color(0, 0, 0, 0.5) 
+"
+
+[sub_resource type="PackedScene" id="PackedScene_8j60k"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Tile", "script", "Node2D", "ColorRect", "offset_right", "offset_bottom"),
+"node_count": 2,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 3, 3, -1, 2, 4, 1, 5, 1, 0),
+"variants": [SubResource("GDScript_5a7ea"), 16.0],
+"version": 3
+}
+
 [node name="world" type="Node2D"]
-script = ExtResource("1_5a7ea")
+script = SubResource("GDScript_go701")
 player_scene = ExtResource("2_8j60k")
-tile_scene = ExtResource("3_8j60k")
+tile_scene = SubResource("PackedScene_8j60k")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("4_8j60k")

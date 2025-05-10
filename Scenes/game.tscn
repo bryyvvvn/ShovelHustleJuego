@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://de31tfeg2pjos" path="res://Scenes/shovel.tscn" id="4_3dryh"]
 
 [node name="game" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_wrm1d")
 tile_map_scene = ExtResource("2_3dryh")
 player_scene = ExtResource("1_ebmjs")
