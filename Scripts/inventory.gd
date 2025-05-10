@@ -5,7 +5,7 @@ const SlotClass = preload("res://Scripts/slot.gd")
 var holding_item = null	
 
 func _ready():
-	visible = true
+	visible = false
 	for inv_slot in inventory_slots.get_children():
 		inv_slot.gui_input.connect(slot_gui_input.bind(inv_slot))
 		
