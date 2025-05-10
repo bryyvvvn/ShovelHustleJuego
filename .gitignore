@@ -31,3 +31,15 @@ bin/
 
 # El siguiente archivo guarda cosas como posición de ventanas, historial, etc.
 .editor/
+.godot/uid_cache.bin
+.godot/uid_cache.bin
+/.godot
+
+# Archivos del editor de Godot (no necesarios en Git)
+.godot/editor/*-editstate-*.cfg
+.godot/editor/editor_layout.cfg
+.godot/editor/filesystem_cache*
+.godot/editor/filesystem_update*
+.godot/editor/recent_dirs
+.godot/editor/script_editor_cache.cfg
+.godot/uid_cache.bin
