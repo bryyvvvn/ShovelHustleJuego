@@ -1,5 +1,7 @@
 res://Scenes/player.tscn
 res://Assets/tile_set.tres
+res://Assets/tile_1_set.tres
+res://Scripts/game.gd
 res://Scenes/Inventory.tscn
 res://Scenes/item.tscn
 res://Scenes/user_inteface.tscn
@@ -8,6 +10,5 @@ res://Scenes/world.tscn
 res://Scenes/Menu.tscn
 res://Scenes/menujugar.tscn
 res://Scenes/game.tscn
-res://Assets/tile_1_set.tres
-res://Scripts/game.gd
-res://Scripts/inventory.gd
+res://Scenes/proc_world_2.tscn
+res://Scenes/Tile.tscn

@@ -18,7 +18,7 @@ func init_diamante()-> void:
 	var object = objects_scene.instantiate()
 	object.data = preload("res://Objects/diamante.tres")
 	object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/diamante.png")
-	
+	object.position = player.position + Vector2(0,5)*16
 	add_child(object)
 
 
