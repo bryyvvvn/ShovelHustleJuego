@@ -5,3 +5,4 @@ class_name objectData
 @export var valor : int
 @export var rareza : float
 @export var descripcion : String
+@export var indice : int

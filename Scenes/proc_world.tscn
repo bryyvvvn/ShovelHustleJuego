@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dw6qhi0rj40s8"]
 
-[ext_resource type="Script" uid="uid://hajdbffxgamv" path="res://Scripts/proc_world.gd" id="1_07mij"]
+[ext_resource type="Script" uid="uid://hajdbffxgamv" path="res://Scripts/world/proc_world.gd" id="1_07mij"]
 [ext_resource type="TileSet" uid="uid://8x3pmyj1syqb" path="res://Assets/tile_set.tres" id="2_bidx6"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6nnxm"]

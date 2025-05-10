@@ -52,5 +52,5 @@ func _physics_process(delta):
 	elif Input.is_action_just_pressed("zoom_out"):
 		$Camera2D.zoom *= 0.9
 		
-	$Camera2D.zoom.x = clamp($Camera2D.zoom.x, 1.5, 3)
-	$Camera2D.zoom.y = clamp($Camera2D.zoom.y, 1.5, 3)
+	$Camera2D.zoom.x = clamp($Camera2D.zoom.x, -1, 3)
+	$Camera2D.zoom.y = clamp($Camera2D.zoom.y, -1, 3)

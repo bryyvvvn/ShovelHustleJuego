@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var data: objectData 
+var data: objectData 
 
 func _ready():
 	if data:
