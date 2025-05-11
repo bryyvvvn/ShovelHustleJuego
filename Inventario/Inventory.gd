@@ -7,7 +7,7 @@ signal update
 @export var slots: Array[InvSlot]
 
 func insert(item: objectData): 
-	var itemslots = slots.filter(func(slot): return slot.item == item)
+	var itemslots = slots.filter(func(slot): return slot.item == item && slot.amount < slot.item.StackSize)
 	if !itemslots.is_empty():
 		itemslots[0].amount += 1
 	else:
@@ -15,5 +15,13 @@ func insert(item: objectData):
 		if !emptyslots.is_empty():
 			emptyslots[0].item = item
 			emptyslots[0].amount = 1
-			print("aqui tambien lo hace")
 	update.emit()
+
+func removeSlot(inventorySlot: InvSlot):
+	var index = slots.find(inventorySlot)
+	if index < 0: return
+	
+	slots[index] = InvSlot.new()
+
+func InsertSlot(index: int, inventorySlot: InvSlot):
+	slots[index] = inventorySlot

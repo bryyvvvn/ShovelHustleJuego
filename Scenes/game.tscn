@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5q7r24fnv3r1"]
+[gd_scene load_steps=7 format=3 uid="uid://c5q7r24fnv3r1"]
 
 [ext_resource type="PackedScene" uid="uid://cp3jbpbcxvee6" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://cwkl3xsv42ugb" path="res://Scripts/game.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://das0ininogl2e" path="res://Scenes/proc_world_2.tscn" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://de31tfeg2pjos" path="res://Scenes/shovel.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://c2r1k72wia4f3" path="res://Inventario/diamond_collectable.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://dmluqwgn7s8kv" path="res://Inventario/gold_collectable.tscn" id="6_i6g32"]
 
 [node name="game" type="Node2D"]
 y_sort_enabled = true
@@ -13,3 +14,4 @@ tile_map_scene = ExtResource("2_3dryh")
 player_scene = ExtResource("1_ebmjs")
 shovel_scene = ExtResource("4_3dryh")
 objects_scene = ExtResource("5_wowpa")
+gold_scene = ExtResource("6_i6g32")

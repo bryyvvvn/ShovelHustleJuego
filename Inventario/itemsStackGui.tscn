@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdg3kcvsfxvsi"]
+
+[ext_resource type="Script" uid="uid://d3vpmg4uf0ybk" path="res://Inventario/items_stack_gui.gd" id="1_lriyo"]
+
+[node name="Panel" type="Panel"]
+script = ExtResource("1_lriyo")
+
+[node name="item_display" type="Sprite2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 0
+offset_left = -3.0
+offset_top = -4.0
+offset_right = 16.0
+offset_bottom = 19.0
+text = "99"

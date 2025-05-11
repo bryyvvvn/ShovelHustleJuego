@@ -95,3 +95,51 @@ layout_mode = 2
 [node name="inv_UI_slot12" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
 custom_minimum_size = Vector2(34, 34)
 layout_mode = 2
+
+[node name="inv_UI_slot13" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+
+[node name="inv_UI_slot14" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+
+[node name="inv_UI_slot15" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+
+[node name="inv_UI_slot16" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+
+[node name="inv_UI_slot17" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+
+[node name="inv_UI_slot18" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+
+[node name="inv_UI_slot19" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+
+[node name="inv_UI_slot20" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+
+[node name="inv_UI_slot21" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+
+[node name="inv_UI_slot22" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+
+[node name="inv_UI_slot23" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+
+[node name="inv_UI_slot24" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
