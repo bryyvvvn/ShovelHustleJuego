@@ -153,3 +153,37 @@ func _ready() -> void:
 	tree_noise = noise_tree_text.noise
 	
 	generate_world()
+
+
+
+
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			try_dig()
+			
+func try_dig():
+	var tilemap = get_parent().get_node("Scenes/proc_world_2/TileMap") 
+	var mouse_pos = get_global_mouse_position()
+	var tile_pos = tilemap.local_to_map(mouse_pos)
+
+	if puede_excavar(tile_pos):
+		iniciar_minijuego(tile_pos)
+
+func puede_excavar(tile_pos: Vector2i) -> bool:
+	var tilemap = get_parent().get_node("Scenes/proc_world_2/TileMap") 
+	var tile_id = tilemap.get_cell_source_id(0, tile_pos)
+	return tile_id != -1  # agregar la lógica para detectar tiles no cavables
+	
+func iniciar_minijuego(tile_pos: Vector2i):
+	var minigame = preload("res://scenes/minigame.tscn").instantiate()
+	minigame.setup(1, 1) 
+	minigame.connect("minigame_result", Callable(self, "_on_minigame_result").bind(tile_pos))
+	get_tree().current_scene.add_child(minigame)
+
+func _on_minigame_result(success: bool, tile_pos: Vector2i):
+	if success:
+		print("✅ Excavación exitosa en ", tile_pos)
+	else:
+		print("❌ Fallo la excavación en ", tile_pos)

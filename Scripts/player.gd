@@ -54,3 +54,30 @@ func _physics_process(delta):
 		
 	$Camera2D.zoom.x = clamp($Camera2D.zoom.x, -1, 3)
 	$Camera2D.zoom.y = clamp($Camera2D.zoom.y, -1, 3)
+
+
+@onready var tilemap = get_parent().get_node("Scenes/proc_world_2/TileMap")
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			try_dig()
+
+func try_dig():
+	var mouse_pos = get_global_mouse_position()
+	var tile_pos = tilemap.local_to_map(mouse_pos)
+
+	if tilemap.puede_excavar(tile_pos):
+		iniciar_minijuego(tile_pos)
+
+func iniciar_minijuego(tile_pos: Vector2i):
+	var minigame = preload("res://scenes/minigame.tscn").instantiate()
+	minigame.setup(1, 1)  # You can replace with day, shovel upgrade, etc.
+	minigame.connect("minigame_result", Callable(self, "_on_minigame_result").bind(tile_pos))
+	get_tree().current_scene.add_child(minigame)
+
+func _on_minigame_result(success: bool, tile_pos: Vector2i):
+	if success:
+		tilemap.excavar(tile_pos)
+	else:
+		print("❌ Fallo la excavación en ", tile_pos)

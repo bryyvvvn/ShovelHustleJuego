@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://buimqt415bwmt"]
 
-[ext_resource type="Script" uid="uid://byy3auevoboin" path="res://Scripts/Menú/menujugar.gd" id="1_tqyb3"]
-[ext_resource type="Texture2D" uid="uid://c4k4ucsbwd1sq" path="res://Imagenes/Menu/Fondo.png" id="2_lbxjh"]
-[ext_resource type="Texture2D" uid="uid://c71jpcqkfwkp8" path="res://Imagenes/Menu/jugar.png" id="3_56o6i"]
-[ext_resource type="Texture2D" uid="uid://6nm61u18ofgv" path="res://Imagenes/Menu/opciones.png" id="4_li6nv"]
+[ext_resource type="Script" uid="uid://byy3auevoboin" path="res://Scripts/Menú/menujugar.gd" id="1_t445n"]
+[ext_resource type="Texture2D" uid="uid://c4k4ucsbwd1sq" path="res://Imagenes/Menu/Fondo.png" id="2_cprkf"]
+[ext_resource type="Texture2D" uid="uid://c71jpcqkfwkp8" path="res://Imagenes/Menu/jugar.png" id="3_a1b8s"]
+[ext_resource type="Texture2D" uid="uid://6nm61u18ofgv" path="res://Imagenes/Menu/opciones.png" id="4_n2ow0"]
 
 [node name="MenuJugar" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_tqyb3")
+script = ExtResource("1_t445n")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -34,7 +34,7 @@ offset_right = 34.0
 offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_lbxjh")
+texture = ExtResource("2_cprkf")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -65,7 +65,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("3_56o6i")
+texture_normal = ExtResource("3_a1b8s")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -86,7 +86,7 @@ offset_right = 25.868
 offset_bottom = 60.6664
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("4_li6nv")
+texture_normal = ExtResource("4_n2ow0")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -107,14 +107,14 @@ offset_right = 25.868
 offset_bottom = 60.6664
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("4_li6nv")
+texture_normal = ExtResource("4_n2ow0")
 ignore_texture_size = true
 stretch_mode = 0
 
-[connection signal="pressed" from="VBoxContainer/Singleplayer" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Singleplayer" to="." method="_on_singleplayer_pressed"]
-[connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/Singleplayer" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_multiplayer_pressed"]
-[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_opciones_pressed"]
 [connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_multiplayer_pressed"]
 [connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_atrás_pressed"]
+[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_opciones_pressed"]

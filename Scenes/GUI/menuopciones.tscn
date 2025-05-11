@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dknqu0chyx5b3"]
 
 [ext_resource type="Script" uid="uid://ye4ixsy8gu7u" path="res://Scripts/Menú/menuopciones.gd" id="1_iemow"]
-[ext_resource type="Texture2D" uid="uid://c4k4ucsbwd1sq" path="res://Imagenes/Fondo.png" id="2_5luem"]
-[ext_resource type="Texture2D" uid="uid://c71jpcqkfwkp8" path="res://Imagenes/jugar.png" id="3_c6tic"]
-[ext_resource type="Texture2D" uid="uid://6nm61u18ofgv" path="res://Imagenes/opciones.png" id="4_0h5vj"]
-[ext_resource type="Texture2D" uid="uid://clgvkrdi6ruhi" path="res://Imagenes/salir.png" id="5_f0tn5"]
+[ext_resource type="Texture2D" uid="uid://c4k4ucsbwd1sq" path="res://Imagenes/Menu/Fondo.png" id="2_5luem"]
+[ext_resource type="Texture2D" uid="uid://c71jpcqkfwkp8" path="res://Imagenes/Menu/jugar.png" id="3_c6tic"]
+[ext_resource type="Texture2D" uid="uid://6nm61u18ofgv" path="res://Imagenes/Menu/opciones.png" id="4_0h5vj"]
+[ext_resource type="Texture2D" uid="uid://clgvkrdi6ruhi" path="res://Imagenes/Menu/salir.png" id="5_f0tn5"]
 
 [node name="MenuOpciones" type="Control"]
 layout_mode = 3
@@ -114,7 +114,7 @@ stretch_mode = 0
 
 [connection signal="pressed" from="VBoxContainer/Volumen" to="." method="_on_volumen_pressed"]
 [connection signal="pressed" from="VBoxContainer/Volumen" to="." method="_on_jugar_pressed"]
-[connection signal="pressed" from="VBoxContainer/Resolución" to="." method="_on_opciones_pressed"]
 [connection signal="pressed" from="VBoxContainer/Resolución" to="." method="_on_resolución_pressed"]
-[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="VBoxContainer/Resolución" to="." method="_on_opciones_pressed"]
 [connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_atrás_pressed"]
+[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_salir_pressed"]
