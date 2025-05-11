@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://doqqigkspqyv1"]
+
+[ext_resource type="Texture2D" uid="uid://cqiu0grr2dj00" path="res://Assets/Sprites/Inventory/item_slot_empty_background.png" id="1_an6a3"]
+[ext_resource type="Script" uid="uid://det1do0wxhj3l" path="res://Inventario/inv_ui_slot.gd" id="1_jev3t"]
+
+[node name="inv_UI_slot" type="Panel"]
+offset_right = 34.0
+offset_bottom = 34.0
+scale = Vector2(5, 5.049)
+script = ExtResource("1_jev3t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17.3607, 17.3938)
+scale = Vector2(1.84882, 1.85248)
+texture = ExtResource("1_an6a3")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_left = 0.399998
+offset_top = 0.396118
+offset_right = 34.4
+offset_bottom = 34.3961
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item_display" type="Sprite2D" parent="CenterContainer/Panel"]
+
+[node name="Label" type="Label" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 0
+offset_left = -3.0
+offset_top = -4.0
+offset_right = 16.0
+offset_bottom = 19.0
+text = "99"

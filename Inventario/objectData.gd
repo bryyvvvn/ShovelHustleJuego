@@ -1,4 +1,5 @@
 extends Resource
+
 class_name objectData
 @export var nombre : String
 @export var tipo : String
@@ -7,3 +8,4 @@ class_name objectData
 @export var descripcion : String
 @export var indice : int
 @export var StackSize: int
+@export var texture: Texture2D

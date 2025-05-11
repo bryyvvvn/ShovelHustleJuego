@@ -1,2 +1,4 @@
+InvSlot
+Inv
 objectData
 TileSet

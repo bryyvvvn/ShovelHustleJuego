@@ -1,16 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx25plwhja0ss"]
+[gd_scene load_steps=4 format=3 uid="uid://be5wgrhik11kq"]
 
-[ext_resource type="Script" path="res://Scripts/area_2d.gd" id="1_aig4j"]
+[ext_resource type="Texture2D" uid="uid://dukvvd7dkyts" path="res://Assets/Sprites/objects/diamante.png" id="2_8uid1"]
+
+[sub_resource type="GDScript" id="GDScript_aig4j"]
+script/source = "extends Area2D
+
+var data: objectData 
+
+func _ready():
+	if data:
+		$Sprite2D.texture = get_texture_for(data.nombre)
+
+func get_texture_for(tipo: String) -> Texture2D:
+	match tipo:
+		\"diamante\": return preload(\"res://Assets/Sprites/objects/diamante.png\")
+		\"carbon\": return preload(\"res://Assets/Sprites/objects/carbon.png\")
+		\"oro\": return preload(\"res://Assets/Sprites/objects/oro.png\")
+		\"plata\": return preload(\"res://Assets/Sprites/objects/plata.png\")
+		\"hierro\": return preload(\"res://Assets/Sprites/objects/hierro.png\")
+		\"diamante\": return preload(\"res://Assets/Sprites/objects/diamante.png\")
+		\"diamante\": return preload(\"res://Assets/Sprites/objects/diamante.png\")
+		\"diamante\": return preload(\"res://Assets/Sprites/objects/diamante.png\")
+		_:
+			return preload(\"res://Assets/Sprites/objects/piedra.png\")
+
+func _on_body_entered(body: Node2D) -> void:
+	queue_free()
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pqgly"]
-radius = 5.09902
 
 [node name="Area2D" type="Area2D"]
-script = ExtResource("1_aig4j")
+z_index = 10
+y_sort_enabled = true
+script = SubResource("GDScript_aig4j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 7
 scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_8uid1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 10
+y_sort_enabled = true
 shape = SubResource("CircleShape2D_pqgly")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
