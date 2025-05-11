@@ -1,7 +1,8 @@
-res://Scenes/game.tscn
+res://Scenes/proc_world_3.tscn
 res://Assets/tile_1_set.tres
 res://Assets/tile_set.tres
-res://Scripts/game.gd
+res://Scripts/proc_world_3.gd
+res://Scenes/game.tscn
 res://Scenes/world.tscn
 res://Scenes/player.tscn
 res://Scenes/shovel.tscn
@@ -10,3 +11,12 @@ res://Scenes/proc_world.tscn
 res://Scenes/menujugar.tscn
 res://Scenes/proc_world_2.tscn
 res://Scenes/objectsPhysics.tscn
+res://Scenes/Menu.tscn
+res://Scenes/menuopciones.tscn
+res://Scenes/proc_world_3.gd
+res://Scripts/proc_world_4.gd
+res://Scripts/world/proc_world_2.gd
+res://Scenes/world/proc_world_3.tscn
+res://Scripts/world/proc_world_4.gd
+res://Scripts/world/proc_world_3.gd
+res://Scripts/Menú/menú.gd
