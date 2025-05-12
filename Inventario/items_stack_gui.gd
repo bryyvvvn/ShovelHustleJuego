@@ -8,7 +8,7 @@ var InventorySlot: InvSlot
 
 func update():
 	if !InventorySlot || !InventorySlot.item: return
-
+	
 	item_visual.visible = true
 	item_visual.texture = InventorySlot.item.texture
 		

@@ -1,5 +1,4 @@
 extends Resource
-
 class_name objectData
 @export var nombre : String
 @export var tipo : String

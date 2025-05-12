@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Inv" load_steps=28 format=3 uid="uid://ccm4h0afnl3q5"]
+[gd_resource type="Resource" script_class="Inv" load_steps=29 format=3 uid="uid://ccm4h0afnl3q5"]
 
 [ext_resource type="Script" uid="uid://dibsaksm62olj" path="res://Inventario/Inventory.gd" id="1_ap0y4"]
 [ext_resource type="Script" uid="uid://ce5k5ajfuxijh" path="res://Inventario/Inv_slot.gd" id="2_2tgk5"]
-[ext_resource type="Resource" uid="uid://ohgfsgwxf6r8" path="res://Inventario/Objects/diamante.tres" id="3_1xdcg"]
+[ext_resource type="Resource" uid="uid://ohgfsgwxf6r8" path="res://Objects/diamante.tres" id="3_1xdcg"]
+[ext_resource type="Resource" uid="uid://dfjf8u313dlxv" path="res://Objects/oro.tres" id="4_41l4c"]
 
 [sub_resource type="Resource" id="Resource_1xdcg"]
 script = ExtResource("2_2tgk5")
@@ -51,7 +52,8 @@ metadata/_custom_type_script = "uid://ce5k5ajfuxijh"
 
 [sub_resource type="Resource" id="Resource_vrnu5"]
 script = ExtResource("2_2tgk5")
-amount = 0
+item = ExtResource("4_41l4c")
+amount = 1
 metadata/_custom_type_script = "uid://ce5k5ajfuxijh"
 
 [sub_resource type="Resource" id="Resource_28ldy"]
