@@ -284,7 +284,7 @@ script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8erm5")
-animation = &"idle_up"
+animation = &"idle_down"
 autoplay = "idle_down"
 offset = Vector2(0, -10)
 

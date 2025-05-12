@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 @export var speed := 100.0
-
+var is_active := true
 func _ready():
+	
 	$Camera2D.zoom = Vector2(0, 0) 
 
 var last_direction := Vector2.DOWN #la última dirección que tuvo el personaje (para play idle animations)	
@@ -22,6 +23,8 @@ func direccion()->Vector2:
 	return direction
 
 func _physics_process(delta):
+	if !is_active: #bloqueo de movimiento cuando minigame lod esactive
+		return
 	var direction = direccion()
 
 	if direction != Vector2.ZERO:

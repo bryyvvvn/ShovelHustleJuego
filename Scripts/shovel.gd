@@ -16,6 +16,8 @@ func show_minigame()->bool:
 	#minigame.setup(dia, pala)
 	#get_tree().current_scene.add_child(minigame)
 	get_tree().current_scene.get_node("UI").add_child(minigame)
-	
+	get_tree().current_scene.get_node("player").is_active = false
+	get_tree().current_scene.get_node("player").get_node("AnimatedSprite2D").play("idle_down")
 	var result = await minigame.minigame_result
+	get_tree().current_scene.get_node("player").is_active = true
 	return result

@@ -1,11 +1,10 @@
-res://Scenes/minigame.tscn
+res://Scenes/game.tscn
 res://Assets/tile_1_set.tres
 res://Assets/tile_set.tres
-res://Scenes/game.tscn
+res://Scenes/minigame.tscn
 res://Scenes/world/world.tscn
 res://Scenes/world/proc_world_3.tscn
 res://Scenes/shovel.tscn
-res://Scenes/minigame.gd
-res://Scripts/shovel.gd
 res://Scenes/player.tscn
-res://Scenes/ui.gd
+res://Scripts/player.gd
+res://Scripts/shovel.gd
