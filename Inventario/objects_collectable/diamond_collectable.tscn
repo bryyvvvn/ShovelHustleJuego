@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2r1k72wia4f3"]
+
+[ext_resource type="Resource" uid="uid://ohgfsgwxf6r8" path="res://Inventario/Objects/diamante.tres" id="1_c4ux1"]
+[ext_resource type="Texture2D" uid="uid://dukvvd7dkyts" path="res://Assets/Sprites/objects/diamante.png" id="1_csl0e"]
+
+[sub_resource type="GDScript" id="GDScript_csl0e"]
+script/source = "extends Node2D
+
+var player_in_area = null
+@export var item: objectData
+var player = null
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_method(\"player\"):
+		player_in_area == true
+		player = body
+		player.collect(item)
+		self.queue_free()
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.has_method(\"player\"):
+		player_in_area == false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csl0e"]
+
+[node name="diamond" type="Node2D"]
+z_index = 1
+script = SubResource("GDScript_csl0e")
+item = ExtResource("1_c4ux1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_csl0e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_csl0e")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

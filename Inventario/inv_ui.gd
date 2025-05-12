@@ -1,5 +1,5 @@
 extends Control
-#falta agregar el el item siga el mouse
+
 @onready var inv: Inv = preload("res://Inventario/playerInv.tres")
 @onready var slots: Array =  $NinePatchRect/GridContainer.get_children() 
 @onready var ItemStackGuiClass = preload("res://Inventario/itemsStackGui.tscn")
