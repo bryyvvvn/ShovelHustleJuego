@@ -14,6 +14,8 @@ func show_minigame()->bool:
 	var minigame = minigame_scene.instantiate()
 	minigame.setup(1, 1)  
 	#minigame.setup(dia, pala)
-	get_tree().current_scene.add_child(minigame)
+	#get_tree().current_scene.add_child(minigame)
+	get_tree().current_scene.get_node("UI").add_child(minigame)
+	
 	var result = await minigame.minigame_result
 	return result

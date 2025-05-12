@@ -5,11 +5,12 @@
 
 [node name="minigame" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1142.0
-offset_bottom = -588.0
+anchor_top = 0.25
+anchor_bottom = 0.25
+offset_left = 8.0
+offset_top = -120.0
+offset_right = 43.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s7wve")
@@ -17,27 +18,19 @@ script = ExtResource("1_s7wve")
 [node name="Bar" type="Panel" parent="."]
 z_index = 11
 layout_mode = 0
-offset_right = 10.0
-offset_bottom = 60.0
+offset_right = 35.0
+offset_bottom = 240.0
 
 [node name="zonaOro" type="ColorRect" parent="Bar"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -9.0
-offset_top = 1.0
-offset_right = -1.0
-offset_bottom = 59.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 2.4
+offset_top = 2.35
+offset_right = 32.4
+offset_bottom = 237.35
 color = Color(0.796078, 0.607843, 0, 1)
 
 [node name="pala" type="TextureRect" parent="Bar"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 2.0
-offset_right = 43.0
-offset_bottom = 42.0
-scale = Vector2(0.2, 0.2)
+offset_right = 32.0
+offset_bottom = 32.0
 texture = ExtResource("1_ij8rg")

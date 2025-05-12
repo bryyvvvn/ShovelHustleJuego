@@ -13,3 +13,7 @@ tile_map_scene = ExtResource("2_wowpa")
 player_scene = ExtResource("1_ebmjs")
 shovel_scene = ExtResource("4_3dryh")
 objects_scene = ExtResource("5_wowpa")
+
+[node name="UI" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
