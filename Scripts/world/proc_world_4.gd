@@ -73,6 +73,12 @@ func _ready():
 		suavizar()
 	aplicar_mapa()
 
+#marca el tile cavado
+func bloque_cavado(cell: Vector2i) -> void:
+	#tilemap.set_cell(excavacion_layer,cell, 5, Vector2(13,0),0)
+	print(cell)
+
+
 func generar_mapa_base():
 	mapa.resize(map_height)
 	for y in range(map_height):

@@ -1,3 +1,43 @@
-[gd_scene format=3 uid="uid://46j6id02c05q"]
+[gd_scene load_steps=3 format=3 uid="uid://bgujmjo1k0jg5"]
 
-[node name="Minigame" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://c6y0pb2j3sx77" path="res://Assets/Sprites/objects/minipala.png" id="1_ij8rg"]
+[ext_resource type="Script" uid="uid://d1ank4lgfbwqy" path="res://Scenes/minigame.gd" id="1_s7wve"]
+
+[node name="minigame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1142.0
+offset_bottom = -588.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s7wve")
+
+[node name="Bar" type="Panel" parent="."]
+z_index = 11
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 60.0
+
+[node name="zonaOro" type="ColorRect" parent="Bar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -9.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.796078, 0.607843, 0, 1)
+
+[node name="pala" type="TextureRect" parent="Bar"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 43.0
+offset_bottom = 42.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ij8rg")

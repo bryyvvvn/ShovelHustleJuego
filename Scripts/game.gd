@@ -52,8 +52,8 @@ func _input(event):
 					posiciones.append(cell)
 	
 	if tilemap.local_to_map(get_global_mouse_position()) in posiciones:
-		shovel.cavar(tilemap.local_to_map(get_global_mouse_position()))
-		tile_map.bloque_cavado(tilemap.local_to_map(get_global_mouse_position()))
+		if await shovel.cavar(tilemap.local_to_map(get_global_mouse_position())):
+			tile_map.bloque_cavado(tilemap.local_to_map(get_global_mouse_position()))
 
 func _physics_process(delta: float) -> void:
 	
