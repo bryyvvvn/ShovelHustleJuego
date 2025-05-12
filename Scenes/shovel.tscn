@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://de31tfeg2pjos"]
 
 [ext_resource type="Script" uid="uid://cvffunnljdgdg" path="res://Scripts/shovel.gd" id="1_lyedo"]
-[ext_resource type="PackedScene" uid="uid://bgujmjo1k0jg5" path="res://Scenes/minigame.tscn" id="2_o1hr1"]
+[ext_resource type="PackedScene" uid="uid://46j6id02c05q" path="res://Scenes/minigame.tscn" id="2_o1hr1"]
 
 [node name="shovel" type="Node"]
 script = ExtResource("1_lyedo")
