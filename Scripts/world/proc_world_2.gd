@@ -23,11 +23,10 @@ extends Node2D
 #var grass_elements = [Vector2i(1,0), Vector2i(3,0), Vector2i(4,0), Vector2i(5,0), Vector2i(0,0)] #pastos
 #var grass_1_elements = [Vector2i(11,1), Vector2i(12,1), Vector2i(13,1), Vector2(14,1), Vector2(15,6)] #arboles
 var sand_elements = [Vector2i(1,4), Vector2i(5,4), Vector2i(13,4)] #arenas
-var sand_id = 0
+
 
 var sand_1_elements = [Vector2i(9,1), Vector2i(11,1), Vector2i(9,3), Vector2i(11,3), Vector2(9,5), Vector2(11,5)]
 var sand_2_elements = [Vector2i(1,3), Vector2i(2,3), Vector2i(3,5), Vector2i(0,5), Vector2(4,4), Vector2(5,1), Vector2(0,6)] #palmeras
-var sand_1_id = 4
 
 ##Tamaño mapa procedural
 var widht : int = 400
@@ -119,7 +118,7 @@ func generate_world() -> void:
 			noise_val = noise.get_noise_2d(x,y)
 			tree_noise_value = tree_noise.get_noise_2d(x,y)
 			
-			sand_tile_map_layer.set_cell(Vector2i(x,y), sand_id, sand_elements.pick_random())
+			sand_tile_map_layer.set_cell(Vector2i(x,y), atlas_id_arena, sand_elements.pick_random())
 				
 				
 			if  noise_val <= -0.7*min_noise_val :
@@ -132,10 +131,10 @@ func generate_world() -> void:
 				water_1_tiles_arr.append(Vector2(x,y))
 			
 			if noise_val > 0.6*min_noise_val and noise_val < 0.78*max_noise_val and  tree_noise_value >= 0.97*max_noise_tree_val:
-				enviroment_tile_map_layer.set_cell(Vector2i(x,y), sand_1_id, sand_1_elements.pick_random())
+				enviroment_tile_map_layer.set_cell(Vector2i(x,y), atlas_id_dessert_staff, sand_1_elements.pick_random())
 				
 			if noise_val > -0.71*min_noise_val and noise_val < 0.59*max_noise_val and  tree_noise_value >= 0.79*max_noise_tree_val and tree_noise_value <= 0.8*max_noise_tree_val :
-				enviroment_tile_map_layer.set_cell(Vector2i(x,y), sand_1_id, sand_2_elements.pick_random())
+				enviroment_tile_map_layer.set_cell(Vector2i(x,y), atlas_id_dessert_staff, sand_2_elements.pick_random())
 			
 			
 	water_tile_map_layer.set_cells_terrain_connect(water_tiles_arr, terrain_water_int, 0)

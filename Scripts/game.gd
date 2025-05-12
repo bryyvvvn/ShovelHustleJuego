@@ -4,7 +4,6 @@ extends Node2D
 @export var player_scene : PackedScene
 @export var shovel_scene : PackedScene
 @export var objects_scene : PackedScene
-@export var gold_scene : PackedScene
 
 var player : CharacterBody2D
 var tile_map
@@ -13,19 +12,11 @@ var mouse_pos
 
 func init_diamante()-> void:
 	var object = objects_scene.instantiate()
-	object.position = player.position + Vector2(0,5)*16 
-	var object2 = objects_scene.instantiate()
-	object2.position = player.position + Vector2(0,5)*18 
+	object.data = preload("res://Objects/diamante.tres")
+	object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/diamante.png")
+	
 	add_child(object)
-	add_child(object2)
 
-func init_gold()-> void:
-	var gold = gold_scene.instantiate()
-	gold.position = player.position + Vector2(0,5)*26
-	var gold2 = gold_scene.instantiate()
-	gold2.position = player.position + Vector2(0,5)*28
-	add_child(gold)
-	add_child(gold2)
 
 func init_world() -> void:
 	tile_map = tile_map_scene.instantiate() 
@@ -44,7 +35,7 @@ func _ready() -> void:
 	init_player()
 	init_shovel()
 	init_diamante()
-	init_gold()
+
 
 func _input(event):
 	
@@ -61,8 +52,8 @@ func _input(event):
 					posiciones.append(cell)
 	
 	if tilemap.local_to_map(get_global_mouse_position()) in posiciones:
-		shovel.cavar(tilemap.local_to_map(get_global_mouse_position()))
-		tile_map.bloque_cavado(tilemap.local_to_map(get_global_mouse_position()))
+		if await shovel.cavar(tilemap.local_to_map(get_global_mouse_position())):
+			tile_map.bloque_cavado(tilemap.local_to_map(get_global_mouse_position()))
 
 func _physics_process(delta: float) -> void:
 	

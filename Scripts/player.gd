@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
 @export var speed := 100.0
-
-@export var inv: Inv
-
+var is_active := true
 func _ready():
+	
 	$Camera2D.zoom = Vector2(0, 0) 
 
 var last_direction := Vector2.DOWN #la última dirección que tuvo el personaje (para play idle animations)	
@@ -24,6 +23,8 @@ func direccion()->Vector2:
 	return direction
 
 func _physics_process(delta):
+	if !is_active: #bloqueo de movimiento cuando minigame lod esactive
+		return
 	var direction = direccion()
 
 	if direction != Vector2.ZERO:
@@ -32,6 +33,8 @@ func _physics_process(delta):
 		move_and_slide()
 		
 		last_direction = direction
+		
+		
 		
 		if abs(direction.x) > abs(direction.y):
 			$AnimatedSprite2D.animation = "walk_right" if direction.x > 0 else "walk_left"
@@ -54,9 +57,3 @@ func _physics_process(delta):
 		
 	$Camera2D.zoom.x = clamp($Camera2D.zoom.x, -1, 3)
 	$Camera2D.zoom.y = clamp($Camera2D.zoom.y, -1, 3)
-
-func player():
-	pass
-
-func collect(item):
-	inv.insert(item)

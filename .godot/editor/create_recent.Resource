@@ -1,4 +1,0 @@
-InvSlot
-Inv
-objectData
-TileSet

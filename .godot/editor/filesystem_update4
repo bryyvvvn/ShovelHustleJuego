@@ -1,9 +1,0 @@
-res://Scenes/player.tscn
-res://Inventario/playerInv.tres
-res://Assets/tile_1_set.tres
-res://Inventario/inv_ui.tscn
-res://Scenes/game.tscn
-res://Inventario/inv_ui_slot.tscn
-res://Inventario/diamond_collectable.tscn
-res://Inventario/itemsStackGui.tscn
-res://Inventario/gold_collectable.tscn
