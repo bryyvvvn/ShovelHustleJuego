@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dibsaksm62olj" path="res://Inventario/Inventory.gd" id="1_ap0y4"]
 [ext_resource type="Script" uid="uid://ce5k5ajfuxijh" path="res://Inventario/Inv_slot.gd" id="2_2tgk5"]
-[ext_resource type="Resource" uid="uid://ohgfsgwxf6r8" path="res://Inventario/Objects/diamante.tres" id="3_fbgwv"]
-[ext_resource type="Resource" uid="uid://uv8r0gffrpkb" path="res://Inventario/Objects/basura.tres" id="4_fbgwv"]
-[ext_resource type="Resource" uid="uid://u3uvahb1mhct" path="res://Inventario/Objects/carbon.tres" id="5_dpbmh"]
-[ext_resource type="Resource" uid="uid://c2s885el88ig3" path="res://Inventario/Objects/hierro.tres" id="6_vrnu5"]
-[ext_resource type="Resource" uid="uid://dfjf8u313dlxv" path="res://Inventario/Objects/oro.tres" id="7_28ldy"]
-[ext_resource type="Resource" uid="uid://cqseixhab8fsl" path="res://Inventario/Objects/piedra.tres" id="8_v2mm1"]
-[ext_resource type="Resource" uid="uid://c5w70ulodty3w" path="res://Inventario/Objects/plata.tres" id="9_hxxf5"]
+[ext_resource type="Resource" uid="uid://ohgfsgwxf6r8" path="res://Objects/diamante.tres" id="3_fbgwv"]
+[ext_resource type="Resource" uid="uid://uv8r0gffrpkb" path="res://Objects/basura.tres" id="4_fbgwv"]
+[ext_resource type="Resource" uid="uid://u3uvahb1mhct" path="res://Objects/carbon.tres" id="5_dpbmh"]
+[ext_resource type="Resource" uid="uid://c2s885el88ig3" path="res://Objects/hierro.tres" id="6_vrnu5"]
+[ext_resource type="Resource" uid="uid://dfjf8u313dlxv" path="res://Objects/oro.tres" id="7_28ldy"]
+[ext_resource type="Resource" uid="uid://cqseixhab8fsl" path="res://Objects/piedra.tres" id="8_v2mm1"]
+[ext_resource type="Resource" uid="uid://c5w70ulodty3w" path="res://Objects/plata.tres" id="9_hxxf5"]
 
 [sub_resource type="Resource" id="Resource_1xdcg"]
 script = ExtResource("2_2tgk5")

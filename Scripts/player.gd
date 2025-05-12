@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed := 100.0
+@export var inv: Inv
 
 func _ready():
 	$Camera2D.zoom = Vector2(0, 0) 
@@ -54,3 +55,9 @@ func _physics_process(delta):
 		
 	$Camera2D.zoom.x = clamp($Camera2D.zoom.x, -1, 3)
 	$Camera2D.zoom.y = clamp($Camera2D.zoom.y, -1, 3)
+	
+func player():
+	pass
+
+func collect(item):
+	inv.insert(item)

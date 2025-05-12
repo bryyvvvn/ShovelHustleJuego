@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bhr4ct7ftcqqi"]
 
 [ext_resource type="Resource" uid="uid://u3uvahb1mhct" path="res://Inventario/Objects/carbon.tres" id="1_3acu6"]
-[ext_resource type="Texture2D" uid="uid://u3uvahb1mhct" path="res://Inventario/Objects/carbon.tres" id="2_3acu6"]
+[ext_resource type="Texture2D" uid="uid://dfhixovou5jaf" path="res://Assets/Sprites/objects/carbon.png" id="2_3acu6"]
 
 [sub_resource type="GDScript" id="GDScript_csl0e"]
 script/source = "extends Node2D
