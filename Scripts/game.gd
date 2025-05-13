@@ -48,10 +48,10 @@ func _input(event):
 			for j in range(-1, 2):
 				var offset = Vector2i(i, j)
 				var cell = pos + offset
-				if i!=0 or j != 0:
+				if i!=0 or j != 0 :
 					posiciones.append(cell)
 	
-	if tilemap.local_to_map(get_global_mouse_position()) in posiciones:
+	if tilemap.local_to_map(get_global_mouse_position()) in posiciones and tile_map.enabled_dig(tilemap.local_to_map(get_global_mouse_position())):
 		if await shovel.cavar(tilemap.local_to_map(get_global_mouse_position())):
 			tile_map.bloque_cavado(tilemap.local_to_map(get_global_mouse_position()))
 
