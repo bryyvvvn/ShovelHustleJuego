@@ -10,6 +10,13 @@ var tile_map
 var shovel
 var mouse_pos 
 
+#energía en el juego
+var energy := 100.0
+var max_energy := 100.0
+
+#tiempo en el juego
+
+
 func init_diamante()-> void:
 	var object = objects_scene.instantiate()
 	object.data = preload("res://Objects/diamante.tres")
@@ -54,14 +61,23 @@ func _input(event):
 	if tilemap.local_to_map(get_global_mouse_position()) in posiciones and tile_map.enabled_dig(tilemap.local_to_map(get_global_mouse_position())):
 		if await shovel.cavar(tilemap.local_to_map(get_global_mouse_position())):
 			tile_map.bloque_cavado(tilemap.local_to_map(get_global_mouse_position()))
+		else: 
+			energy -= 8
+
+func nextday(bool) -> void:
+	print("fin de día")
+	#algo pasará
 
 func _physics_process(delta: float) -> void:
 	
 	var tile_pos = tile_map.get_node("TileMap").local_to_map(player.get_node("CollisionShape2D").global_position)
 	tile_map.tiles_arround(tile_pos)
 	
+	energy -= 0.1389 * delta  #agota la energia en un periodo de 12 minutos
+	$UI/energia.set_energy(energy / max_energy)
 	
-	
+	if energy <= 0:
+		nextday(true)  # perdido por agotamiento
 	
 	
 	

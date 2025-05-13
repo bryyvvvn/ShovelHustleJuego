@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://sds50rx7d78f"]
+
+[node name="time" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="clockContainer" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 87.0
+offset_bottom = 32.0
+
+[node name="hora" type="Label" parent="clockContainer"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 78.0
+offset_bottom = 27.0
+text = "HORA"
+horizontal_alignment = 1

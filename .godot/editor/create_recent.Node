@@ -1,8 +1,10 @@
-TileMapLayer
+Label
 Panel
+ColorRect
+Control
+TileMapLayer
 CanvasLayer
 TextureRect
-ColorRect
 CollisionShape2D
 Sprite2D
 Area2D
@@ -10,5 +12,3 @@ TileMap
 StaticBody2D
 Node
 Camera2D
-AnimatedSprite2D
-CharacterBody2D
