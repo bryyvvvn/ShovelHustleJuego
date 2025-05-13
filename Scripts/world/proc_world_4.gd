@@ -71,6 +71,7 @@ func tiles_arround(pos: Vector2i) -> void:
 #marca el tile cavado
 func bloque_cavado(cell: Vector2i) -> void:
 	excavacion_tile_map_layer.set_cell(cell, atlas_id_bloques_alrededor, Vector2(13,0))
+	disabled_dig[cell] = 0
 	print(cell)
 
 
