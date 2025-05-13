@@ -15,7 +15,12 @@ var energy := 100.0
 var max_energy := 100.0
 
 #tiempo en el juego
-var time := 0.0
+const total_seconds := 720.0  #12 minutos
+const morning := 8.0  #comienza a las 8:00
+var time_elapsed : float = 0.0
+var day: int = 1
+var max_days: int = 7
+var day_ended: bool = false
 
 #entre 0 y 0.35 -> nada
 var nada : float = 0.35
@@ -94,6 +99,7 @@ func init_world() -> void:
 func init_player() -> void:
 	player = player_scene.instantiate() 
 	add_child(player)
+	$UI/money/Panel/moneylabel.player_ref = player
 	
 func init_shovel()->void:
 	shovel = shovel_scene.instantiate()
@@ -127,9 +133,17 @@ func _input(event):
 		else:
 			energy -= 8
 
-func nextday(bool) -> void:
-	print("fin de día")
-	#algo pasará
+func nextday(force : bool = false) -> void:
+	day_ended = true
+
+	#if not player.is_in_bed or force:
+		#player.money -= randi_range(10, 30)  # quitar dinero si no se acostó
+	if force: 
+		player.money -= randi_range(10,30)
+	# transición de día
+	#var transition = preload("res://scenes/DayTransition.tscn").instantiate()
+	#transition.setup(day, player.money, cuota_diaria, player.money >= cuota_diaria)
+	#$UI.add_child(transition)
 
 func _physics_process(delta: float) -> void:
 	
@@ -142,7 +156,18 @@ func _physics_process(delta: float) -> void:
 	if energy <= 0:
 		nextday(true)  # perdido por agotamiento
 	
-	
+	if day_ended:
+		return
+	#calcular tiempo segun delta
+	time_elapsed += delta
+	if time_elapsed >= total_seconds:
+		nextday(true)
+	var ratio : float = clamp(time_elapsed / total_seconds, 0.0, 1.0)
+	var simulated_minutes: float = morning * 60 + ratio * (24 * 60 - morning * 60)
+	var hours := int(simulated_minutes) / 60
+	var minutes := int(simulated_minutes) % 60
+
+	$UI/time/clockContainer/hora.text = "%02d:%02dHRS" % [hours, minutes]
 	
 	
 	

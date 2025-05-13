@@ -1,6 +1,7 @@
 res://Scenes/game.tscn
 res://Assets/tile_set.tres
 res://Assets/tile_1_set.tres
+res://Scripts/game.gd
 res://Scenes/minigame.tscn
 res://Scenes/world/world.tscn
 res://Scenes/world/proc_world.tscn
@@ -8,4 +9,8 @@ res://Scenes/shovel.tscn
 res://Scenes/player.tscn
 res://Scenes/objectsPhysics.tscn
 res://Scenes/energia.tscn
-res://Scripts/game.gd
+res://Scenes/time.tscn
+res://Scripts/player.gd
+res://Scenes/Menu/Menu.tscn
+res://Scenes/money.tscn
+res://Scenes/label.gd

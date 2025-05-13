@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed := 100.0
 var is_active := true
+var money := 150
 func _ready():
 	
 	$Camera2D.zoom = Vector2(0, 0) 

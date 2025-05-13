@@ -1,7 +1,8 @@
-TileMapLayer
-Panel
-CanvasLayer
 TextureRect
+Label
+Panel
+TileMapLayer
+CanvasLayer
 ColorRect
 CollisionShape2D
 Sprite2D
@@ -11,4 +12,3 @@ StaticBody2D
 Node
 Camera2D
 AnimatedSprite2D
-CharacterBody2D

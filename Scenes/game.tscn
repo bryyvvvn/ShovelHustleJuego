@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5q7r24fnv3r1"]
+[gd_scene load_steps=9 format=3 uid="uid://c5q7r24fnv3r1"]
 
 [ext_resource type="PackedScene" uid="uid://cp3jbpbcxvee6" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://cwkl3xsv42ugb" path="res://Scripts/game.gd" id="1_wrm1d"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cx25plwhja0ss" path="res://Scenes/objectsPhysics.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://bn0cf2f1oh5r1" path="res://Scenes/energia.tscn" id="6_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://sds50rx7d78f" path="res://Scenes/time.tscn" id="7_v158k"]
+[ext_resource type="PackedScene" uid="uid://dbe2ymyiloo68" path="res://Scenes/money.tscn" id="8_v158k"]
 
 [node name="game" type="Node2D"]
 y_sort_enabled = true
@@ -21,5 +22,22 @@ scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
 
 [node name="energia" parent="UI" instance=ExtResource("6_1l0tm")]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 5.0
+offset_left = 0.0
+offset_right = -22.0
+offset_bottom = -620.0
 
 [node name="time" parent="UI" instance=ExtResource("7_v158k")]
+anchors_preset = -1
+offset_left = 310.0
+offset_top = 6.0
+offset_right = -1150.0
+offset_bottom = -620.0
+
+[node name="money" parent="UI" instance=ExtResource("8_v158k")]
+anchors_preset = -1
+anchor_left = 0.02
+offset_left = -15.0
+offset_top = 6.0
