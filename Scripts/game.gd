@@ -10,6 +10,13 @@ var tile_map
 var shovel
 var mouse_pos 
 
+#energía en el juego
+var energy := 100.0
+var max_energy := 100.0
+
+#tiempo en el juego
+var time := 0.0
+
 #entre 0 y 0.35 -> nada
 var nada : float = 0.35
 #entre 0.35 y 0.6 -> piedra
@@ -117,14 +124,23 @@ func _input(event):
 		if await shovel.cavar(mouse_pos):
 			tile_map.bloque_cavado(mouse_pos)
 			init_mineral()
-			
+		else:
+			energy -= 8
+
+func nextday(bool) -> void:
+	print("fin de día")
+	#algo pasará
 
 func _physics_process(delta: float) -> void:
 	
 	var tile_pos = tile_map.get_node("TileMap").local_to_map(player.get_node("CollisionShape2D").global_position)
 	tile_map.tiles_arround(tile_pos)
 	
+	energy -= 0.1389 * delta  #agota la energia en un periodo de 12 minutos
+	$UI/energia.set_energy(energy / max_energy)
 	
+	if energy <= 0:
+		nextday(true)  # perdido por agotamiento
 	
 	
 	
