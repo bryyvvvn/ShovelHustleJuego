@@ -52,16 +52,17 @@ use_parent_material = true
 tile_set = ExtResource("2_x28km")
 
 [node name="enviroment" type="TileMapLayer" parent="TileMap"]
-z_index = 10
+z_index = 5
 y_sort_enabled = true
 use_parent_material = true
 tile_set = ExtResource("2_x28km")
 
 [node name="bloques_alrededor" type="TileMapLayer" parent="TileMap"]
-z_index = 10
+z_index = 4
 y_sort_enabled = true
 use_parent_material = true
 tile_set = ExtResource("2_x28km")
 
 [node name="excavacion" type="TileMapLayer" parent="TileMap"]
+z_index = 2
 tile_set = ExtResource("2_x28km")

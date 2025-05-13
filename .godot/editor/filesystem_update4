@@ -8,3 +8,4 @@ res://Scenes/world/world.tscn
 res://Scenes/shovel.tscn
 res://Scenes/player.tscn
 res://Scripts/game.gd
+res://Scenes/objectsPhysics.tscn

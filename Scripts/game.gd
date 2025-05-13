@@ -10,13 +10,75 @@ var tile_map
 var shovel
 var mouse_pos 
 
-func init_diamante()-> void:
-	var object = objects_scene.instantiate()
-	object.data = preload("res://Objects/diamante.tres")
-	object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/diamante.png")
-	
-	add_child(object)
+#entre 0 y 0.35 -> nada
+var nada : float = 0.35
+#entre 0.35 y 0.6 -> piedra
+var piedra : float = 0.6
+#entre 0.6 y 0.75 -> carbon
+var carbon : float = 0.75
+#entre 0.75 y 0.85 -> hierro
+var hierro : float = 0.85
+#entre 0.85 y 0.925 -> plata
+var plata : float = 0.925
+#entre 0.925 y 0.975 -> oro
+var oro : float = 0.975
+#mayor a 0.975 -> diamante
 
+	
+	
+func init_mineral() -> void:
+	randomize()
+	var object = objects_scene.instantiate()
+	var mineral : float = randf()
+	var tilemap = tile_map.get_node("TileMap")
+	var mouse_pos = get_global_mouse_position()
+	var dir_x : int
+	var dir_y : int
+	
+	if randf() < 0.5: dir_x = -1
+	else: dir_x = 1
+	if randf() < 0.5: dir_y = -1
+	else: dir_y = 1
+	
+	if mineral < nada:
+		pass
+	elif mineral > nada and mineral <= piedra:
+		object.data = preload("res://Objects/piedra.tres")
+		object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/piedra.png")
+	elif mineral > piedra and mineral <= carbon:
+		object.data = preload("res://Objects/carbon.tres")
+		object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/carbon.png")
+	elif mineral > carbon and mineral <= hierro:
+		object.data = preload("res://Objects/hierro.tres")
+		object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/hierro.png")
+	elif mineral > hierro and mineral <= plata:
+		object.data = preload("res://Objects/plata.tres")
+		object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/plata.png")
+	elif mineral > plata and mineral <= oro:
+		object.data = preload("res://Objects/oro.tres")
+		object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/oro.png")
+	elif mineral > oro:
+		object.data = preload("res://Objects/diamante.tres")
+		object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/diamante.png")
+
+		
+	var dir = Vector2(dir_x,dir_y)  # o cualquier dirección (arriba, abajo, etc.)
+	var end_pos = mouse_pos - dir*16
+
+	add_child(object)
+	object.global_position = mouse_pos
+
+	var tween = create_tween()
+	var altura_max = -50.0  # altura del salto en píxeles (negativo porque Y crece hacia abajo)
+
+	tween.tween_method(
+		func(t): 
+			var t1 = t
+			var x = lerp(mouse_pos.x, end_pos.x, t1)
+			var y = lerp(mouse_pos.y, end_pos.y, t1) + sin(t1 * PI) * altura_max
+			object.global_position = Vector2(x, y),
+		0.0, 1.0, 0.4
+	)
 
 func init_world() -> void:
 	tile_map = tile_map_scene.instantiate() 
@@ -34,7 +96,6 @@ func _ready() -> void:
 	init_world()
 	init_player()
 	init_shovel()
-	init_diamante()
 
 
 func _input(event):
@@ -51,9 +112,12 @@ func _input(event):
 				if i!=0 or j != 0 :
 					posiciones.append(cell)
 	
-	if tilemap.local_to_map(get_global_mouse_position()) in posiciones and tile_map.enabled_dig(tilemap.local_to_map(get_global_mouse_position())):
-		if await shovel.cavar(tilemap.local_to_map(get_global_mouse_position())):
-			tile_map.bloque_cavado(tilemap.local_to_map(get_global_mouse_position()))
+	var mouse_pos = tilemap.local_to_map(get_global_mouse_position())
+	if mouse_pos in posiciones and tile_map.enabled_dig(mouse_pos):
+		if await shovel.cavar(mouse_pos):
+			tile_map.bloque_cavado(mouse_pos)
+			init_mineral()
+			
 
 func _physics_process(delta: float) -> void:
 	
