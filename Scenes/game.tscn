@@ -41,3 +41,5 @@ anchors_preset = -1
 anchor_left = 0.02
 offset_left = -15.0
 offset_top = 6.0
+
+[node name="Inv_UI" parent="UI" instance=ExtResource("7_1l0tm")]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="objectData" load_steps=3 format=3 uid="uid://c5w70ulodty3w"]
+
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Inventario/objectData.gd" id="1_nsvns"]
+[ext_resource type="Texture2D" uid="uid://hxjcua07xbeo" path="res://Assets/Sprites/objects/plata.png" id="2_5w6oo"]
+
+[resource]
+script = ExtResource("1_nsvns")
+nombre = "plata"
+tipo = "excavable"
+valor = 0
+rareza = 0.3
+descripcion = ""
+indice = 0
+StackSize = 99
+texture = ExtResource("2_5w6oo")

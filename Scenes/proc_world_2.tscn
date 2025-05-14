@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://das0ininogl2e"]
+
+[ext_resource type="Script" uid="uid://p8kelysupw60" path="res://Scripts/world/proc_world_2.gd" id="1_svnwh"]
+[ext_resource type="TileSet" uid="uid://b7ge3x1h1aggc" path="res://Assets/tile_1_set.tres" id="2_nqiic"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_svnwh"]
+frequency = 0.003
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nqiic"]
+noise = SubResource("FastNoiseLite_svnwh")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nqiic"]
+noise_type = 0
+frequency = 0.3282
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l0xmv"]
+noise = SubResource("FastNoiseLite_nqiic")
+
+[node name="ProcWorld2" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_svnwh")
+noise_height_noise = SubResource("NoiseTexture2D_nqiic")
+noise_tree_text = SubResource("NoiseTexture2D_l0xmv")
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("2_nqiic")
+format = 2
+
+[node name="sand" type="TileMapLayer" parent="TileMap"]
+y_sort_enabled = true
+use_parent_material = true
+tile_set = ExtResource("2_nqiic")
+
+[node name="sand2" type="TileMapLayer" parent="TileMap"]
+z_index = 1
+y_sort_enabled = true
+use_parent_material = true
+tile_set = ExtResource("2_nqiic")
+
+[node name="water" type="TileMapLayer" parent="TileMap"]
+z_index = 1
+y_sort_enabled = true
+use_parent_material = true
+tile_set = ExtResource("2_nqiic")
+
+[node name="enviroment" type="TileMapLayer" parent="TileMap"]
+z_index = 10
+y_sort_enabled = true
+use_parent_material = true
+tile_set = ExtResource("2_nqiic")
+
+[node name="bloques_alrededor" type="TileMapLayer" parent="TileMap"]
+z_index = 10
+y_sort_enabled = true
+use_parent_material = true
+tile_set = ExtResource("2_nqiic")

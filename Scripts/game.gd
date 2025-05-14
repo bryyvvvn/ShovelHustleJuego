@@ -91,6 +91,21 @@ func init_mineral() -> void:
 			object.global_position = Vector2(x, y),
 		0.0, 1.0, 0.4
 	)
+func init_diamante()-> void:
+	var object = diamond_scene.instantiate()
+	object.position = player.position + Vector2(0,5)*16 
+	var object2 = diamond_scene.instantiate()
+	object2.position = player.position + Vector2(0,5)*18 
+	add_child(object)
+	add_child(object2)
+
+func init_gold()-> void:
+	var gold = gold_scene.instantiate()
+	gold.position = player.position + Vector2(0,5)*26
+	var gold2 = gold_scene.instantiate()
+	gold2.position = player.position + Vector2(0,5)*28
+	add_child(gold)
+	add_child(gold2)
 
 func init_world() -> void:
 	tile_map = tile_map_scene.instantiate() 
@@ -109,6 +124,8 @@ func _ready() -> void:
 	init_world()
 	init_player()
 	init_shovel()
+	init_diamante()
+	init_gold()
 
 
 func _input(event):

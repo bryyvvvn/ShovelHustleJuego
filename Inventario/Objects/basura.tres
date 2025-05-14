@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="objectData" load_steps=3 format=3 uid="uid://uv8r0gffrpkb"]
+
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Inventario/objectData.gd" id="1_04t0f"]
+[ext_resource type="Texture2D" uid="uid://c1wc0ctio546m" path="res://Assets/Sprites/objects/lentes.png" id="2_t0e3u"]
+
+[resource]
+script = ExtResource("1_04t0f")
+nombre = "basura"
+tipo = "excavable"
+valor = 0
+rareza = 0.0
+descripcion = ""
+indice = 0
+StackSize = 99
+texture = ExtResource("2_t0e3u")
+metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"

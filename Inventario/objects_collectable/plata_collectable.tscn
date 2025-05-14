@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7wctga0bmds"]
+
+[ext_resource type="Resource" uid="uid://c5w70ulodty3w" path="res://Inventario/Objects/plata.tres" id="1_lt51e"]
+[ext_resource type="Texture2D" uid="uid://hxjcua07xbeo" path="res://Assets/Sprites/objects/plata.png" id="2_aap2c"]
+
+[sub_resource type="GDScript" id="GDScript_csl0e"]
+script/source = "extends Node2D
+
+var player_in_area = null
+@export var item: objectData
+var player = null
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_method(\"player\"):
+		player_in_area == true
+		player = body
+		player.collect(item)
+		self.queue_free()
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.has_method(\"player\"):
+		player_in_area == false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csl0e"]
+
+[node name="plata_collectable" type="Node2D"]
+z_index = 1
+script = SubResource("GDScript_csl0e")
+item = ExtResource("1_lt51e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_aap2c")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_csl0e")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
