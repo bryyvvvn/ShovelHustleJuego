@@ -1,10 +1,10 @@
 extends Button
 
 @onready var container: CenterContainer = $CenterContainer
-@onready var inventory = preload("res://Inventario/playerInv.tres")
 
 var itemStackGui: ItemStackGui
 var index: int
+var inventory: Inv 
 
 func insert(isg: ItemStackGui):
 	itemStackGui = isg

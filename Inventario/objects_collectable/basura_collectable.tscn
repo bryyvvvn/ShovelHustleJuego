@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://q52272krb1a2"]
+[gd_scene load_steps=4 format=3 uid="uid://q52272krb1a2"]
 
-[ext_resource type="Resource" uid="uid://uv8r0gffrpkb" path="res://Inventario/Objects/basura.tres" id="1_o0r0w"]
 [ext_resource type="Texture2D" uid="uid://c1wc0ctio546m" path="res://Assets/Sprites/objects/lentes.png" id="2_o0r0w"]
 
 [sub_resource type="GDScript" id="GDScript_csl0e"]
@@ -28,7 +27,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 [node name="Basura_collectable" type="Node2D"]
 z_index = 1
 script = SubResource("GDScript_csl0e")
-item = ExtResource("1_o0r0w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_o0r0w")

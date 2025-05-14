@@ -4,11 +4,14 @@ extends Node2D
 @export var player_scene : PackedScene
 @export var shovel_scene : PackedScene
 @export var objects_scene : PackedScene
+@export var inventory_Scene : PackedScene
+@export var inventory_inv : Inv
 
 var player : CharacterBody2D
 var tile_map
 var shovel
 var mouse_pos 
+var inventory
 
 #energía en el juego
 var energy := 100.0
@@ -53,31 +56,40 @@ func init_mineral() -> void:
 	else: dir_y = 1
 	
 	if mineral < nada:
-		pass
+		object.data = preload("res://Objects/basura.tres")
+		object.get_node("Sprite2D").texture = object.data.get_texture()
+		
 	elif mineral > nada and mineral <= piedra:
 		object.data = preload("res://Objects/piedra.tres")
-		object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/piedra.png")
+		object.get_node("Sprite2D").texture = object.data.get_texture()
+		
 	elif mineral > piedra and mineral <= carbon:
 		object.data = preload("res://Objects/carbon.tres")
-		object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/carbon.png")
+		object.get_node("Sprite2D").texture = object.data.get_texture()
+		
 	elif mineral > carbon and mineral <= hierro:
 		object.data = preload("res://Objects/hierro.tres")
-		object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/hierro.png")
+		object.get_node("Sprite2D").texture = object.data.get_texture()
+
 	elif mineral > hierro and mineral <= plata:
 		object.data = preload("res://Objects/plata.tres")
-		object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/plata.png")
+		object.get_node("Sprite2D").texture = object.data.get_texture()
+
 	elif mineral > plata and mineral <= oro:
 		object.data = preload("res://Objects/oro.tres")
-		object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/oro.png")
+		object.get_node("Sprite2D").texture = object.data.get_texture()
+
 	elif mineral > oro:
 		object.data = preload("res://Objects/diamante.tres")
-		object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/diamante.png")
+		object.get_node("Sprite2D").texture = object.data.get_texture()
+
 
 		
 	var dir = Vector2(dir_x,dir_y)  # o cualquier dirección (arriba, abajo, etc.)
 	var end_pos = mouse_pos - dir*16
 
 	add_child(object)
+	
 	object.global_position = mouse_pos
 
 	var tween = create_tween()
@@ -91,23 +103,10 @@ func init_mineral() -> void:
 			object.global_position = Vector2(x, y),
 		0.0, 1.0, 0.4
 	)
-func init_diamante()-> void:
-	var object = diamond_scene.instantiate()
-	object.position = player.position + Vector2(0,5)*16 
-	var object2 = diamond_scene.instantiate()
-	object2.position = player.position + Vector2(0,5)*18 
-	add_child(object)
-	add_child(object2)
 
-func init_gold()-> void:
-	var gold = gold_scene.instantiate()
-	gold.position = player.position + Vector2(0,5)*26
-	var gold2 = gold_scene.instantiate()
-	gold2.position = player.position + Vector2(0,5)*28
-	add_child(gold)
-	add_child(gold2)
 
 func init_world() -> void:
+	print("entre aca")
 	tile_map = tile_map_scene.instantiate() 
 	add_child(tile_map)
 
@@ -119,13 +118,32 @@ func init_player() -> void:
 func init_shovel()->void:
 	shovel = shovel_scene.instantiate()
 	add_child(shovel)
+	
+func init_inventory() -> void:
+	var pala = preload("res://Objects/pala.tres").duplicate()
+	inventory = inventory_Scene.instantiate()
+	$UI.add_child(inventory)
+	
+	var item = pala
+	
+	inventory_inv.insert(item)
+	
+	
+	#var inv = Inv.new()
+	#inventory.set_inventory(inv)  # Aquí lo conectas
+	#inventory.inv.slots[0].item = pala
+	#inventory.inv.slots[0].amount = 1
+	#inventory.inv.update.emit()
+	
+	
+	
+	
 
 func _ready() -> void:
 	init_world()
 	init_player()
 	init_shovel()
-	init_diamante()
-	init_gold()
+	init_inventory()
 
 
 func _input(event):
@@ -141,6 +159,9 @@ func _input(event):
 				var cell = pos + offset
 				if i!=0 or j != 0 :
 					posiciones.append(cell)
+					
+	#if Input.is_action_just_pressed("inventory"):  # Usa la acción configurada en Input Map
+		#inventory.toggle()  # Alterna entre abrir y cerrar el inventario
 	
 	var mouse_pos = tilemap.local_to_map(get_global_mouse_position())
 	if mouse_pos in posiciones and tile_map.enabled_dig(mouse_pos):

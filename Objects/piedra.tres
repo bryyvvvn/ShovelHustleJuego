@@ -1,12 +1,17 @@
-[gd_resource type="Resource" script_class="objectData" load_steps=2 format=3 uid="uid://cqseixhab8fsl"]
+[gd_resource type="Resource" script_class="objectData" load_steps=3 format=3 uid="uid://cqseixhab8fsl"]
 
-[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/objectData.gd" id="1_kb3cm"]
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_c625a"]
+[ext_resource type="Texture2D" uid="uid://b7fhxu2hnmgrh" path="res://Assets/Sprites/objects/piedra.png" id="2_lhl1u"]
 
 [resource]
-script = ExtResource("1_kb3cm")
+script = ExtResource("1_c625a")
 nombre = "piedra"
 tipo = "excavable"
 valor = 0
 rareza = 0.6
 descripcion = ""
+indice = 0
+texture = ExtResource("2_lhl1u")
+texture_inventory = ExtResource("2_lhl1u")
+StackSize = 99
 metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"

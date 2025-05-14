@@ -1,12 +1,17 @@
-[gd_resource type="Resource" script_class="objectData" load_steps=2 format=3 uid="uid://dfjf8u313dlxv"]
+[gd_resource type="Resource" script_class="objectData" load_steps=3 format=3 uid="uid://dfjf8u313dlxv"]
 
-[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/objectData.gd" id="1_yk5vw"]
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_f1wrc"]
+[ext_resource type="Texture2D" uid="uid://bk3a1xk1vim3w" path="res://Assets/Sprites/objects/oro.png" id="2_1byod"]
 
 [resource]
-script = ExtResource("1_yk5vw")
+script = ExtResource("1_f1wrc")
 nombre = "oro"
 tipo = "excavable"
 valor = 0
 rareza = 0.1
 descripcion = ""
+indice = 0
+texture = ExtResource("2_1byod")
+texture_inventory = ExtResource("2_1byod")
+StackSize = 99
 metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"

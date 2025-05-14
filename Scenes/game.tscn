@@ -1,21 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5q7r24fnv3r1"]
+[gd_scene load_steps=11 format=3 uid="uid://c5q7r24fnv3r1"]
 
 [ext_resource type="PackedScene" uid="uid://cp3jbpbcxvee6" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://cwkl3xsv42ugb" path="res://Scripts/game.gd" id="1_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://dw6qhi0rj40s8" path="res://Scenes/world/proc_world_desuso1.tscn" id="2_wowpa"]
+[ext_resource type="PackedScene" uid="uid://dw6qhi0rj40s8" path="res://Scenes/world/proc_world.tscn" id="2_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://de31tfeg2pjos" path="res://Scenes/shovel.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://cx25plwhja0ss" path="res://Scenes/objectsPhysics.tscn" id="5_wowpa"]
-[ext_resource type="PackedScene" uid="uid://bn0cf2f1oh5r1" path="res://Scenes/energia.tscn" id="6_1l0tm"]
-[ext_resource type="PackedScene" uid="uid://sds50rx7d78f" path="res://Scenes/time.tscn" id="7_v158k"]
-[ext_resource type="PackedScene" uid="uid://dbe2ymyiloo68" path="res://Scenes/money.tscn" id="8_v158k"]
+[ext_resource type="PackedScene" uid="uid://bn0cf2f1oh5r1" path="res://Scenes/in_game/energia.tscn" id="6_1l0tm"]
+[ext_resource type="Resource" uid="uid://ccm4h0afnl3q5" path="res://Inventario/playerInv.tres" id="6_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://b85177o806qdv" path="res://Inventario/inv_ui.tscn" id="6_o5yvi"]
+[ext_resource type="PackedScene" uid="uid://sds50rx7d78f" path="res://Scenes/in_game/time.tscn" id="7_v158k"]
+[ext_resource type="PackedScene" uid="uid://dbe2ymyiloo68" path="res://Scenes/in_game/money.tscn" id="8_v158k"]
 
 [node name="game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_wrm1d")
-tile_map_scene = ExtResource("2_wowpa")
+tile_map_scene = ExtResource("2_h4fw4")
 player_scene = ExtResource("1_ebmjs")
 shovel_scene = ExtResource("4_3dryh")
 objects_scene = ExtResource("5_wowpa")
+inventory_Scene = ExtResource("6_o5yvi")
+inventory_inv = ExtResource("6_ldgsr")
 
 [node name="UI" type="CanvasLayer" parent="."]
 scale = Vector2(2, 2)
@@ -41,5 +45,3 @@ anchors_preset = -1
 anchor_left = 0.02
 offset_left = -15.0
 offset_top = 6.0
-
-[node name="Inv_UI" parent="UI" instance=ExtResource("7_1l0tm")]

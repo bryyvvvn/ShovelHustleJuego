@@ -1,12 +1,17 @@
-[gd_resource type="Resource" script_class="objectData" load_steps=2 format=3 uid="uid://c2s885el88ig3"]
+[gd_resource type="Resource" script_class="objectData" load_steps=3 format=3 uid="uid://c2s885el88ig3"]
 
-[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/objectData.gd" id="1_btw0d"]
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_eycmi"]
+[ext_resource type="Texture2D" uid="uid://ja8yj02pn81q" path="res://Assets/Sprites/objects/hierro.png" id="2_o26ak"]
 
 [resource]
-script = ExtResource("1_btw0d")
+script = ExtResource("1_eycmi")
 nombre = "hierro"
 tipo = "excavable"
 valor = 0
 rareza = 0.0
 descripcion = ""
+indice = 0
+texture = ExtResource("2_o26ak")
+texture_inventory = ExtResource("2_o26ak")
+StackSize = 99
 metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"

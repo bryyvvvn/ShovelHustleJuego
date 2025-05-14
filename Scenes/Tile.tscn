@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://ds2tl8xo4kx4v"]
+[gd_scene load_steps=2 format=3 uid="uid://3dq8kd8pllay"]
 
-[ext_resource type="Script" uid="uid://fljicn81mpgo" path="res://Scripts/tile.gd" id="1_t0yj4"]
+[sub_resource type="GDScript" id="GDScript_5v3qr"]
+script/source = "extends Node2D
+
+func _ready():
+	$ColorRect.color = Color(0, 0, 0, 0.5) 
+
+func _physics_process(delta: float) -> void:   
+	$ColorRect.color = Color(0, 0, 0, 0.5) 
+"
 
 [node name="Tile" type="Node2D"]
-script = ExtResource("1_t0yj4")
+script = SubResource("GDScript_5v3qr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 16.0

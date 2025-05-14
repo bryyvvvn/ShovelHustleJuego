@@ -9,18 +9,25 @@ var itemInHand: ItemStackGui
 var oldIndex: int = -1
 
 func _ready():
+	inv.clear_inventory()
 	connectSlots()
 	inv.update.connect(update_slots)
 	update_slots()
 	close()
+	
+
+func set_inventory(new_inv: Inv):
+	inv = new_inv
+	inv.update.connect(update_slots)
+	update_slots()
+
 
 func connectSlots():
 	for i in range(slots.size()):
 		var slot = slots[i]
 		slot.index = i
-		var callable = Callable(onSlotClicked)
-		callable = callable.bind(slot)
-		slot.pressed.connect(callable)
+		slot.inventory = inv
+		slot.pressed.connect(Callable(self, "onSlotClicked").bind(slot))
 
 func update_slots():
 	for i in range(min(inv.slots.size(), slots.size())):

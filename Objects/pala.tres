@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="objectData" load_steps=3 format=3 uid="uid://b8w65cus5q2yg"]
+
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_v0hq0"]
+[ext_resource type="Texture2D" uid="uid://1hvm4aer8qxo" path="res://Assets/Sprites/objects/pala.png" id="2_pj4ah"]
+
+[resource]
+script = ExtResource("1_v0hq0")
+nombre = "pala"
+tipo = "pala"
+valor = 0
+rareza = 0.0
+descripcion = "pala"
+indice = 0
+texture = ExtResource("2_pj4ah")
+texture_inventory = ExtResource("2_pj4ah")
+metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="objectData" load_steps=3 format=3 uid="uid://ohgfsgwxf6r8"]
 
-[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Inventario/objectData.gd" id="1_g8r3u"]
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_g8r3u"]
 [ext_resource type="Texture2D" uid="uid://dukvvd7dkyts" path="res://Assets/Sprites/objects/diamante.png" id="2_fbcj0"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b85177o806qdv"]
 
-[ext_resource type="Script" uid="uid://d3t7x1b8ar0j2" path="res://Inventario/inv_ui.gd" id="1_slfx1"]
+[ext_resource type="Script" uid="uid://d3t7x1b8ar0j2" path="res://Scripts/inv_ui.gd" id="1_slfx1"]
 [ext_resource type="Texture2D" uid="uid://b4jiyuklxpkbb" path="res://Assets/Sprites/Inventory/inventarioCapa.png" id="2_mp2oe"]
 [ext_resource type="PackedScene" uid="uid://doqqigkspqyv1" path="res://Inventario/inv_ui_slot.tscn" id="3_xwfiy"]
 
@@ -10,10 +10,10 @@ anchor_left = 0.15
 anchor_top = 0.25
 anchor_right = 0.35
 anchor_bottom = 0.25
-offset_left = 220.0
-offset_top = 13.0
-offset_right = -220.0
-offset_bottom = -12.0
+offset_left = 115.2
+offset_top = 1.0
+offset_right = -115.2
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_slfx1")

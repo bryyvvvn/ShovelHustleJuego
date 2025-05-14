@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://doqqigkspqyv1"]
 
 [ext_resource type="Texture2D" uid="uid://cqiu0grr2dj00" path="res://Assets/Sprites/Inventory/item_slot_empty_background.png" id="1_an6a3"]
-[ext_resource type="Script" uid="uid://det1do0wxhj3l" path="res://Inventario/inv_ui_slot.gd" id="1_jev3t"]
+[ext_resource type="Script" uid="uid://det1do0wxhj3l" path="res://Scripts/inv_ui_slot.gd" id="1_jev3t"]
 
 [node name="inv_UI_slot" type="Button"]
 offset_right = 34.0

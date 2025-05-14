@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bn0cf2f1oh5r1"]
 
-[ext_resource type="Script" uid="uid://c7w2g418vbxmv" path="res://Scenes/energia.gd" id="1_fbaw7"]
+[ext_resource type="Script" uid="uid://c7w2g418vbxmv" path="res://Scripts/in_game/energia.gd" id="1_fbaw7"]
 
 [node name="energia" type="Control"]
 layout_mode = 3

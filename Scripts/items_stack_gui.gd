@@ -10,7 +10,7 @@ func update():
 	if !InventorySlot || !InventorySlot.item: return
 
 	item_visual.visible = true
-	item_visual.texture = InventorySlot.item.texture
+	item_visual.texture = InventorySlot.item.texture_inventory
 		
 	if InventorySlot.amount >= 1: 
 		amount_text.visible = true
