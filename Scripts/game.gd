@@ -4,20 +4,17 @@ extends Node2D
 @export var player_scene : PackedScene
 @export var shovel_scene : PackedScene
 @export var objects_scene : PackedScene
-@export var inventory_scene : PackedScene
-@export var ui_scene : PackedScene
 
 var player : CharacterBody2D
 var tile_map
 var shovel
 var mouse_pos 
-var inventory: Node2D
-var ui_player : CanvasLayer
 
 func init_diamante()-> void:
 	var object = objects_scene.instantiate()
 	object.data = preload("res://Objects/diamante.tres")
 	object.get_node("Sprite2D").texture = preload("res://Assets/Sprites/objects/diamante.png")
+	
 	add_child(object)
 
 
@@ -33,17 +30,12 @@ func init_shovel()->void:
 	shovel = shovel_scene.instantiate()
 	add_child(shovel)
 
-func init_inventory()->void:
-	ui_player = ui_scene.instantiate()
-	add_child(ui_player)
-	inventory = ui_player.get_node("Inventory")
-
 func _ready() -> void:
 	init_world()
 	init_player()
 	init_shovel()
 	init_diamante()
-	init_inventory()
+
 
 func _input(event):
 	

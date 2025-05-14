@@ -6,4 +6,3 @@ class_name objectData
 @export var rareza : float
 @export var descripcion : String
 @export var indice : int
-@export var StackSize: int
