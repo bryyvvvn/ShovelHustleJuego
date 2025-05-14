@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cp3jbpbcxvee6" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://cwkl3xsv42ugb" path="res://Scripts/game.gd" id="1_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://dw6qhi0rj40s8" path="res://Scenes/world/proc_world.tscn" id="2_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://dw6qhi0rj40s8" path="res://Scenes/world/proc_world.tscn" id="2_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://de31tfeg2pjos" path="res://Scenes/shovel.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://cx25plwhja0ss" path="res://Scenes/objectsPhysics.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://bn0cf2f1oh5r1" path="res://Scenes/in_game/energia.tscn" id="6_1l0tm"]
@@ -14,7 +14,7 @@
 [node name="game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_wrm1d")
-tile_map_scene = ExtResource("2_h4fw4")
+tile_map_scene = ExtResource("2_ldgsr")
 player_scene = ExtResource("1_ebmjs")
 shovel_scene = ExtResource("4_3dryh")
 objects_scene = ExtResource("5_wowpa")
