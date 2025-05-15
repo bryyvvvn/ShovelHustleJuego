@@ -2,9 +2,13 @@ extends CharacterBody2D
 
 @export var inv: Inv
 @export var speed := 100.0
+@export var tienda_scene : PackedScene
+
+var tienda
+var game_scene : Node2D
 
 var is_active := true
-var money := 150
+var money := 0
 
 
 func _ready():
@@ -26,6 +30,8 @@ func direccion()->Vector2:
 		direction.y -= 1
 		
 	return direction
+	
+
 
 func _physics_process(delta):
 	if !is_active: #bloqueo de movimiento cuando minigame lod esactive
@@ -68,3 +74,6 @@ func player():
 
 func collect(item):
 	inv.insert(item)
+	
+func update_money(in_money: int)->void:
+	money += in_money

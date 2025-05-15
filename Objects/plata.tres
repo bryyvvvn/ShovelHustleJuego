@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="objectData" load_steps=4 format=3 uid="uid://c5w70ulodty3w"]
+[gd_resource type="Resource" script_class="objectData" load_steps=5 format=3 uid="uid://c5w70ulodty3w"]
 
 [ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_x27b4"]
+[ext_resource type="AudioStream" uid="uid://dubknxxnf4tn1" path="res://Assets/Sonidos/Sonido_minerales/silver_dig.wav" id="2_cnnxk"]
 [ext_resource type="Texture2D" uid="uid://bubi2mi5rw5qj" path="res://Assets/Sprites/objects/objects_16/plata.png" id="2_oenlo"]
 [ext_resource type="Texture2D" uid="uid://dmxu6fxka753c" path="res://Assets/Sprites/objects/objects_32/plata.png" id="3_cnnxk"]
 
@@ -8,7 +9,7 @@
 script = ExtResource("1_x27b4")
 nombre = "plata"
 tipo = "excavable"
-valor = 0
+valor = 12
 rareza = 0.3
 descripcion = ""
 indice = 0
@@ -16,4 +17,5 @@ texture = ExtResource("2_oenlo")
 texture_inventory = ExtResource("3_cnnxk")
 StackSize = 99
 intervalo = Vector2(95, 98)
+sonido = ExtResource("2_cnnxk")
 metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"

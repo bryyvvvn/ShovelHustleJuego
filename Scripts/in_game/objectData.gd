@@ -11,6 +11,7 @@ class_name objectData
 @export var texture_inventory : Texture2D
 @export var StackSize: int
 @export var intervalo: Vector2
+@export var sonido: AudioStream
 
 func get_texture()->Texture2D:
 	return texture

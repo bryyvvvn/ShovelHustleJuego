@@ -25,13 +25,13 @@ anchor_left = 0.88
 anchor_top = 0.814
 anchor_right = 0.88
 anchor_bottom = 0.814
-offset_left = -220.704
-offset_top = -98.992
-offset_right = 228.296
-offset_bottom = 99.008
+offset_left = -159.0
+offset_top = -71.0
+offset_right = 290.0
+offset_bottom = 127.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.983, 1)
+scale = Vector2(0.7, 0.713)
 texture = ExtResource("2_mp2oe")
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect"]

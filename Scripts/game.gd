@@ -7,6 +7,7 @@ extends Node2D
 @export var inventory_Scene : PackedScene
 @export var tienda_scene : PackedScene
 @export var inventory_inv : Inv
+@export var tienda_ui_scene: PackedScene
 
 
 var player : CharacterBody2D
@@ -15,6 +16,7 @@ var shovel
 var mouse_pos 
 var inventory
 var tienda
+var tienda_ui
 
 #energía en el juego
 var energy := 100.0
@@ -111,6 +113,8 @@ func init_mineral() -> void:
 			object.global_position = Vector2(x, y),
 		0.0, 1.0, 0.4
 	)
+	get_node("mineral_sound").stream = object.data.sonido
+	get_node("mineral_sound").play()
 
 	# Reactivar collider cuando termine
 	tween.finished.connect(func(): shape.disabled = false)
@@ -142,6 +146,10 @@ func init_inventory() -> void:
 	
 	inventory_inv.insert(item)
 
+func init_tienda_ui() -> void:
+	tienda_ui = tienda_ui_scene.instantiate()
+	$UI.add_child(tienda_ui)
+
 
 
 	#var inv = Inv.new()
@@ -153,11 +161,15 @@ func init_inventory() -> void:
 
 @onready var trans = $UI/dayTransition
 func _ready() -> void:
+	$"AudioStreamPlayer2D"
+	$"AudioStreamPlayer2D".play()
 	init_world()
 	init_player()
 	init_shovel()
-	init_inventory()
 	init_tienda()
+	init_tienda_ui()
+	init_inventory()
+	
 	trans.connect("transition_done", Callable(self, "_on_transition_done"))
 
 func _input(event):
@@ -178,9 +190,11 @@ func _input(event):
 	var mouse_pos = tilemap.local_to_map(get_global_mouse_position())
 	if mouse_pos in posiciones and tile_map.enabled_dig(mouse_pos):
 		if await shovel.cavar(mouse_pos):
+			shovel.get_node("succesfull_dig").play()
 			tile_map.bloque_cavado(mouse_pos)
 			init_mineral()
 		else:
+			shovel.get_node("fail_dig").play()
 			energy -= 8
 
 func nextday(force : bool = false) -> void:
@@ -196,6 +210,7 @@ func nextday(force : bool = false) -> void:
 	trans.visible = true
 	trans.setup(day, player.money, cuota_diaria, tiene_dinero, moni)
 	day_ended = true
+	shovel.day =+1
 	
 func _on_transition_done(success: bool):
 	if success:

@@ -28,6 +28,9 @@ func connectSlots():
 		slot.index = i
 		slot.inventory = inv
 		slot.pressed.connect(Callable(self, "onSlotClicked").bind(slot))
+	for j in get_parent().get_node("TiendaUi/NinePatchRect/GridContainer").get_children():
+		j.pressed.connect(Callable(get_parent().get_node("TiendaUi/NinePatchRect/GridContainer"), "onSlotClicked").bind(j))
+		
 
 func update_slots():
 	for i in range(min(inv.slots.size(), slots.size())):
@@ -59,6 +62,8 @@ func close():
 	is_open = false
 
 func onSlotClicked(slot):
+	print(slot.get_parent().get_parent().get_parent().name)
+	
 	if slot.isEmpty():
 		if !itemInHand: return
 		insertItemInSlot(slot)
@@ -134,3 +139,8 @@ func _input(event: InputEvent) -> void:
 	if itemInHand && Input.is_action_just_pressed("rightClick"):
 		putItemBack()
 	updateItemInHand()
+	
+func removeItemInHandFromInventory():
+	if itemInHand:
+		inv.removeSlot(itemInHand.InventorySlot)
+		update_slots()

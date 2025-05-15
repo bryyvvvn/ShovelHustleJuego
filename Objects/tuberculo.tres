@@ -8,7 +8,7 @@
 script = ExtResource("1_hbpag")
 nombre = "tuberculo"
 tipo = "excavable"
-valor = 0
+valor = 1
 rareza = 0.0
 descripcion = ""
 indice = 0

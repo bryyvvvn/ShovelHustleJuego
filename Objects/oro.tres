@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="objectData" load_steps=4 format=3 uid="uid://dfjf8u313dlxv"]
+[gd_resource type="Resource" script_class="objectData" load_steps=5 format=3 uid="uid://dfjf8u313dlxv"]
 
 [ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_f1wrc"]
 [ext_resource type="Texture2D" uid="uid://ca5s40fcwm477" path="res://Assets/Sprites/objects/objects_16/oro.png" id="2_1byod"]
+[ext_resource type="AudioStream" uid="uid://d1q4r7rwv3ayh" path="res://Assets/Sonidos/Sonido_minerales/gold_dig.wav" id="2_n5xbi"]
 [ext_resource type="Texture2D" uid="uid://bnjg05s1kw3k3" path="res://Assets/Sprites/objects/objects_32/oro.png" id="3_n5xbi"]
 
 [resource]
 script = ExtResource("1_f1wrc")
 nombre = "oro"
 tipo = "excavable"
-valor = 0
+valor = 35
 rareza = 0.1
 descripcion = ""
 indice = 0
@@ -16,4 +17,5 @@ texture = ExtResource("2_1byod")
 texture_inventory = ExtResource("3_n5xbi")
 StackSize = 99
 intervalo = Vector2(97, 99)
+sonido = ExtResource("2_n5xbi")
 metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"
