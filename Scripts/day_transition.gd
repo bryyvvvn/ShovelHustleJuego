@@ -15,6 +15,9 @@ var jugador_tiene_dinero := true
 var dinero_actual := 0
 var dinero_final := 0
 
+func _ready():
+	pass
+	
 func setup(dia: int, dinero: int, cuota: int, tiene_dinero: bool):
 	dia_label.text = "Día %d" % dia
 	cuota_label.text = "Cuota diaria: $%d" % cuota

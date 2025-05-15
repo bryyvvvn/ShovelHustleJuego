@@ -1,7 +1,8 @@
-res://Scenes/day_transition.tscn
+res://Scenes/game.tscn
 res://Inventario/playerInv.tres
 res://Scripts/world/proc_world_4.gd
 res://Assets/tile_1_set.tres
+res://Scenes/day_transition.tscn
+res://Scenes/player.tscn
 res://Scripts/day_transition.gd
-res://Scenes/Menu/Menu.tscn
-res://Scenes/game.tscn
+res://Scripts/game.gd

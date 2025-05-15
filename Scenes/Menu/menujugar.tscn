@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://buimqt415bwmt"]
+[gd_scene load_steps=8 format=3 uid="uid://buimqt415bwmt"]
 
 [ext_resource type="Script" uid="uid://byy3auevoboin" path="res://Scripts/Menú/menujugar.gd" id="1_tqyb3"]
-[ext_resource type="Texture2D" uid="uid://c4k4ucsbwd1sq" path="res://Imagenes/Menu/Fondo.png" id="2_lbxjh"]
-[ext_resource type="Texture2D" uid="uid://c71jpcqkfwkp8" path="res://Imagenes/Menu/jugar.png" id="3_56o6i"]
-[ext_resource type="Texture2D" uid="uid://6nm61u18ofgv" path="res://Imagenes/Menu/opciones.png" id="4_li6nv"]
+[ext_resource type="Texture2D" uid="uid://c4k4ucsbwd1sq" path="res://Imagenes/Fondo.png" id="2_lbxjh"]
+[ext_resource type="Texture2D" uid="uid://c71jpcqkfwkp8" path="res://Imagenes/jugar.png" id="3_56o6i"]
+[ext_resource type="FontFile" uid="uid://bvdg76kuywl8q" path="res://Assets/Fuentes/Kenney Pixel.ttf" id="3_wk4fv"]
+[ext_resource type="Texture2D" uid="uid://6nm61u18ofgv" path="res://Imagenes/opciones.png" id="4_li6nv"]
+[ext_resource type="PackedScene" uid="uid://csy3btsxv5ajf" path="res://Scenes/Menu/FpsLabel.tscn" id="5_jgx7b"]
+[ext_resource type="Texture2D" uid="uid://clgvkrdi6ruhi" path="res://Imagenes/salir.png" id="6_5hai5"]
 
 [node name="MenuJugar" type="Control"]
 layout_mode = 3
@@ -37,27 +40,27 @@ grow_vertical = 2
 texture = ExtResource("2_lbxjh")
 expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -186.5
-offset_top = -50.0
-offset_right = 186.5
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 390.0
+offset_top = 309.0
+offset_right = 696.0
+offset_bottom = 530.0
+scale = Vector2(1.03894, 1.0321)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 theme_override_constants/separation = 19
 
-[node name="Singleplayer" type="Button" parent="VBoxContainer"]
+[node name="Singleplayer" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_hover_color = Color(0.252168, 0.611433, 0.826381, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_wk4fv")
+theme_override_font_sizes/font_size = 70
 text = "SINGLEPLAYER"
+flat = true
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Singleplayer"]
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/Singleplayer"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -69,12 +72,16 @@ texture_normal = ExtResource("3_56o6i")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Multiplayer" type="Button" parent="VBoxContainer"]
+[node name="Multiplayer" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_hover_color = Color(0.25098, 0.611765, 0.827451, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_wk4fv")
+theme_override_font_sizes/font_size = 70
 text = "MULTIPLAYER"
+flat = true
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Multiplayer"]
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/Multiplayer"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -90,31 +97,36 @@ texture_normal = ExtResource("4_li6nv")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Atrás" type="Button" parent="VBoxContainer"]
+[node name="Atrás" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "ATRÁS"
+theme_override_colors/font_hover_color = Color(0.25098, 0.611765, 0.827451, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_wk4fv")
+theme_override_font_sizes/font_size = 70
+text = "ATRAS"
+flat = true
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Atrás"]
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/Atrás"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -23.132
-offset_top = -58.3336
-offset_right = 25.868
-offset_bottom = 60.6664
+offset_left = -27.0
+offset_top = -47.0
+offset_right = 35.0
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("4_li6nv")
+texture_normal = ExtResource("6_5hai5")
 ignore_texture_size = true
 stretch_mode = 0
 
-[connection signal="pressed" from="VBoxContainer/Singleplayer" to="." method="_on_jugar_pressed"]
-[connection signal="pressed" from="VBoxContainer/Singleplayer" to="." method="_on_singleplayer_pressed"]
-[connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_opciones_pressed"]
-[connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_multiplayer_pressed"]
-[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_opciones_pressed"]
-[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_atrás_pressed"]
-[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_multiplayer_pressed"]
+[node name="FpsLabel" parent="." instance=ExtResource("5_jgx7b")]
+layout_mode = 0
+offset_right = 35.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 35
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Atrás" to="." method="_on_atrás_pressed"]
