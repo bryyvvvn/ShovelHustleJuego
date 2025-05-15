@@ -15,4 +15,5 @@ indice = 0
 texture = ExtResource("2_tkqbh")
 texture_inventory = ExtResource("3_bh4vk")
 StackSize = 99
+intervalo = Vector2(80, 90)
 metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"
