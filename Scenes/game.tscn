@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bn0cf2f1oh5r1" path="res://Scenes/in_game/energia.tscn" id="6_1l0tm"]
 [ext_resource type="Resource" uid="uid://ccm4h0afnl3q5" path="res://Inventario/playerInv.tres" id="6_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://b85177o806qdv" path="res://Inventario/inv_ui.tscn" id="6_o5yvi"]
+[ext_resource type="PackedScene" uid="uid://ocokf3c3wtcp" path="res://Scenes/world/Tienda.tscn" id="7_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://sds50rx7d78f" path="res://Scenes/in_game/time.tscn" id="7_v158k"]
 [ext_resource type="PackedScene" uid="uid://dbe2ymyiloo68" path="res://Scenes/in_game/money.tscn" id="8_v158k"]
 [ext_resource type="PackedScene" uid="uid://csy3btsxv5ajf" path="res://Scenes/Menu/FpsLabel.tscn" id="11_o5yvi"]
@@ -20,6 +21,7 @@ player_scene = ExtResource("1_ebmjs")
 shovel_scene = ExtResource("4_3dryh")
 objects_scene = ExtResource("5_wowpa")
 inventory_Scene = ExtResource("6_o5yvi")
+tienda_scene = ExtResource("7_o5yvi")
 inventory_inv = ExtResource("6_ldgsr")
 
 [node name="UI" type="CanvasLayer" parent="."]

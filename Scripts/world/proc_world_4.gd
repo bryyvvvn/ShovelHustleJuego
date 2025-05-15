@@ -158,13 +158,13 @@ func aplicar_mapa():
 				disabled_dig[pos] = 0
 			else:
 				# Árboles sobre arena
-				if noise_tree_val < 0.8 and  noise_tree_val > 0.7 and noise_lake_val < 0.43 :
+				if noise_tree_val < 0.8 and  noise_tree_val > 0.78 and noise_lake_val < 0.43 :
 					disabled_dig[pos] = 0
-					enviroment_tile_map_layer.set_cell(pos, atlas_id_dessert_staff, sand_2_elements.pick_random())
+					enviroment_tile_map_layer.set_cell(pos/2, atlas_id_dessert_staff, sand_2_elements.pick_random())
 					
-				if noise_tree_val > 0.9  and noise_lake_val < 0.43 :
+				if noise_tree_val > 0.915  and noise_lake_val < 0.43 :
 					disabled_dig[pos] = 0
-					enviroment_tile_map_layer.set_cell(pos, atlas_id_dessert_staff, sand_1_elements.pick_random())
+					enviroment_tile_map_layer.set_cell(pos/2, atlas_id_dessert_staff, sand_1_elements.pick_random())
 				
 				# Lagos internos
 				var max_dist = min(map_width, map_height) / 2.0
@@ -191,6 +191,7 @@ func _ready():
 	noise_lakes.seed = randi()
 	tree_noise = noise_tree_text.noise
 	tree_noise.seed = randi()
+	enviroment_tile_map_layer.scale = Vector2(2, 2)  # escala al doble
 
 	generar_mapa_base()
 	for i in range(smoothing_passes):

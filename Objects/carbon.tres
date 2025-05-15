@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="objectData" load_steps=3 format=3 uid="uid://u3uvahb1mhct"]
+[gd_resource type="Resource" script_class="objectData" load_steps=4 format=3 uid="uid://u3uvahb1mhct"]
 
 [ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_878fi"]
-[ext_resource type="Texture2D" uid="uid://dfhixovou5jaf" path="res://Assets/Sprites/objects/carbon.png" id="2_tkqbh"]
+[ext_resource type="Texture2D" uid="uid://bm0qnb2xs6edd" path="res://Assets/Sprites/objects/objects_16/carbon.png" id="2_tkqbh"]
+[ext_resource type="Texture2D" uid="uid://cjc0pd2ribmm8" path="res://Assets/Sprites/objects/objects_32/carbon.png" id="3_bh4vk"]
 
 [resource]
 script = ExtResource("1_878fi")
@@ -12,6 +13,7 @@ rareza = 0.0
 descripcion = ""
 indice = 0
 texture = ExtResource("2_tkqbh")
-texture_inventory = ExtResource("2_tkqbh")
+texture_inventory = ExtResource("3_bh4vk")
 StackSize = 99
+intervalo = Vector2(80, 90)
 metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"
