@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cfkl6v6enrmb3"
+path="res://.godot/imported/desert_background.mp3-db34c4a2184084a00938cc7aa38a9a0f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sonidos/Background Music/desert_background.mp3"
+dest_files=["res://.godot/imported/desert_background.mp3-db34c4a2184084a00938cc7aa38a9a0f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
