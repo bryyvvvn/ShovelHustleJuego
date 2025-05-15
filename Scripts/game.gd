@@ -151,14 +151,14 @@ func init_inventory() -> void:
 	#inventory.inv.update.emit()
 
 
-
+@onready var trans = $UI/dayTransition
 func _ready() -> void:
 	init_world()
 	init_player()
 	init_shovel()
 	init_inventory()
 	init_tienda()
-
+	trans.connect("transition_done", Callable(self, "_on_transition_done"))
 
 func _input(event):
 	
@@ -190,19 +190,18 @@ func nextday(force : bool = false) -> void:
 		player.money -= randi_range(10,30)
 	# transición de día
 	var tiene_dinero = player.money >= cuota_diaria
-	var trans = preload("res://Scenes/day_transition.tscn").instantiate()
-	$UI.add_child(trans)
-	await get_tree().process_frame  # Espera 1 frame para que _ready() corra
+	trans.visible = true
 	trans.setup(day, player.money, cuota_diaria, tiene_dinero)
-	trans.connect("transition_done", Callable(self, "_on_transition_done"))
-	#trans.call_deferred("setup", day, player.money, cuota_diaria, tiene_dinero)s
+	day_ended = true
 	
 func _on_transition_done(success: bool):
 	if success:
 		day += 1
 		time_elapsed = 0.0
-		day_ended = false
 		energy = max_energy
+		player.money -= cuota_diaria
+		cuota_diaria = cuota_diaria*1.8
+		
 func _physics_process(delta: float) -> void:
 	
 	if day_ended:

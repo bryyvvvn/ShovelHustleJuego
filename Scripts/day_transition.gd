@@ -8,6 +8,7 @@ signal transition_done(success: bool)
 @onready var resultado_label := $dayInfo/resultLabel
 @onready var continuar_btn := $dayInfo/continuarBtn
 @onready var money_label := $dayInfo/dineroAnimado/moneyLabel
+@onready var coin := $dayInfo/dineroAnimado/TextureRect
 
 var jugador_tiene_dinero := true
 
@@ -38,23 +39,37 @@ func setup(dia: int, dinero: int, cuota: int, tiene_dinero: bool):
 		continuar_btn.text = "Continuar"
 
 	# fundido a negro
-	fade.color.a = 1.0
+	fade.color.a = 0
+	dia_label.modulate.a = 0
+	cuota_label.modulate.a = 0
+	resultado_label.modulate.a = 0
+	continuar_btn.modulate.a = 0
+	money_label.modulate.a = 0
+	coin.modulate.a = 0
+	
 	var tween = create_tween()
-	tween.tween_property(fade, "color:a", 0.0, 1.5)
-
-func _on_continuarBtn_pressed():
-	if jugador_tiene_dinero:
-		emit_signal("transition_done", true)
-		queue_free()
-	else:
-		get_tree().quit()
-		
+	tween.tween_property(fade, "color:a", 1.0, 1.5)
+	tween.tween_property(dia_label, "modulate:a", 1.0, 1.5)
+	tween.tween_property(cuota_label, "modulate:a", 1.0, 1.5)
+	tween.tween_property(money_label, "modulate:a", 1.0, 1.5)
+	tween.tween_property(coin,"modulate:a",1.0,1.5)
+	tween.tween_property(resultado_label, "modulate:a", 1.0, 1.5)
+	tween.tween_property(continuar_btn, "modulate:a", 1.0, 1.5)
+	
 func animar_descuento():
 	var tween = create_tween()
 	tween.set_parallel(false)  
 
-	var duracion := 1.5
+	var duracion := 8
 	tween.tween_method(
 		func(valor): money_label.text = "$%d" % valor,
 		dinero_actual, dinero_final, duracion
 	)
+
+
+func _on_continuar_Btn_pressed() -> void:
+	if jugador_tiene_dinero:
+		emit_signal("transition_done", true)
+		visible = false
+	else:
+		get_tree().quit()

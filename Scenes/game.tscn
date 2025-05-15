@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c5q7r24fnv3r1"]
+[gd_scene load_steps=14 format=3 uid="uid://c5q7r24fnv3r1"]
 
 [ext_resource type="PackedScene" uid="uid://cp3jbpbcxvee6" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://cwkl3xsv42ugb" path="res://Scripts/game.gd" id="1_wrm1d"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://sds50rx7d78f" path="res://Scenes/in_game/time.tscn" id="7_v158k"]
 [ext_resource type="PackedScene" uid="uid://dbe2ymyiloo68" path="res://Scenes/in_game/money.tscn" id="8_v158k"]
 [ext_resource type="PackedScene" uid="uid://csy3btsxv5ajf" path="res://Scenes/Menu/FpsLabel.tscn" id="11_o5yvi"]
+[ext_resource type="PackedScene" uid="uid://bkfu1g7h1acj5" path="res://Scenes/day_transition.tscn" id="12_rfjv2"]
 
 [node name="game" type="Node2D"]
 y_sort_enabled = true
@@ -48,6 +49,13 @@ anchors_preset = -1
 anchor_left = 0.02
 offset_left = -15.0
 offset_top = 6.0
+
+[node name="dayTransition" parent="UI" instance=ExtResource("12_rfjv2")]
+visible = false
+anchor_right = 0.496
+anchor_bottom = 0.509
+offset_right = -0.392029
+offset_bottom = 0.167999
 
 [node name="FpsLabel" parent="." instance=ExtResource("11_o5yvi")]
 visible = false
