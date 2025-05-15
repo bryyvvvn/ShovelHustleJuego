@@ -9,6 +9,7 @@ region = Rect2(0, 0, 80, 80)
 
 [node name="dayTransition" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -53,6 +54,14 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="cuotaLabel" type="Label" parent="dayInfo"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="robo" type="Label" parent="dayInfo"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "

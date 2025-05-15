@@ -52,6 +52,7 @@ offset_top = 6.0
 
 [node name="dayTransition" parent="UI" instance=ExtResource("12_rfjv2")]
 visible = false
+anchors_preset = -1
 anchor_right = 0.496
 anchor_bottom = 0.509
 offset_right = -0.392029

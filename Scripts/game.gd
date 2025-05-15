@@ -184,14 +184,17 @@ func _input(event):
 			energy -= 8
 
 func nextday(force : bool = false) -> void:
+	var moni = player.money
 	#if not player.is_in_bed or force:
 		#player.money -= randi_range(10, 30)  # quitar dinero si no se acostó
+		#victima_robo = true
 	if force: 
 		player.money -= randi_range(10,30)
 	# transición de día
 	var tiene_dinero = player.money >= cuota_diaria
+	moni -= player.money
 	trans.visible = true
-	trans.setup(day, player.money, cuota_diaria, tiene_dinero)
+	trans.setup(day, player.money, cuota_diaria, tiene_dinero, moni)
 	day_ended = true
 	
 func _on_transition_done(success: bool):
@@ -201,6 +204,9 @@ func _on_transition_done(success: bool):
 		energy = max_energy
 		player.money -= cuota_diaria
 		cuota_diaria = cuota_diaria*1.8
+		day_ended = false
+	else:
+		get_tree().change_scene_to_file("res://Scenes/Menu/Menu.tscn")
 		
 func _physics_process(delta: float) -> void:
 	
