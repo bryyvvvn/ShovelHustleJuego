@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkfu1g7h1acj5"]
+
+[ext_resource type="Script" uid="uid://boa4h8hb5dml7" path="res://Scripts/day_transition.gd" id="1_3potr"]
+[ext_resource type="Texture2D" uid="uid://cp8vyuosugyhr" path="res://Assets/Sprites/objects/coin_spin-Sheet.png" id="2_faaq4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxco6"]
+atlas = ExtResource("2_faaq4")
+region = Rect2(0, 0, 80, 80)
+
+[node name="dayTransition" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3potr")
+
+[node name="fade" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -605.0
+offset_top = -347.0
+offset_right = 623.0
+offset_bottom = 351.0
+color = Color(0, 0, 0, 1)
+
+[node name="dayInfo" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="diaLabel" type="Label" parent="dayInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "
+"
+
+[node name="cuotaLabel" type="Label" parent="dayInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "
+"
+
+[node name="resultLabel" type="Label" parent="dayInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "
+"
+
+[node name="dineroAnimado" type="HBoxContainer" parent="dayInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="dayInfo/dineroAnimado"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_mxco6")
+expand_mode = 1
+
+[node name="moneyLabel" type="Label" parent="dayInfo/dineroAnimado"]
+layout_mode = 2
+text = "
+"
+
+[node name="continuarBtn" type="Button" parent="dayInfo"]
+layout_mode = 2

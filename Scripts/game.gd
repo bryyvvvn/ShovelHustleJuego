@@ -26,8 +26,8 @@ const morning := 8.0  #comienza a las 8:00
 var time_elapsed : float = 0.0
 var day: int = 1
 var max_days: int = 7
-var day_ended: bool = false
-
+var cuota_diaria = 550
+var day_ended = false
 
 func init_tienda()-> void:
 	randomize()
@@ -184,18 +184,29 @@ func _input(event):
 			energy -= 8
 
 func nextday(force : bool = false) -> void:
-	day_ended = true
-
 	#if not player.is_in_bed or force:
 		#player.money -= randi_range(10, 30)  # quitar dinero si no se acostó
 	if force: 
 		player.money -= randi_range(10,30)
 	# transición de día
-	#var transition = preload("res://scenes/DayTransition.tscn").instantiate()
-	#transition.setup(day, player.money, cuota_diaria, player.money >= cuota_diaria)
-	#$UI.add_child(transition)
-
+	var tiene_dinero = player.money >= cuota_diaria
+	var trans = preload("res://Scenes/day_transition.tscn").instantiate()
+	$UI.add_child(trans)
+	await get_tree().process_frame  # Espera 1 frame para que _ready() corra
+	trans.setup(day, player.money, cuota_diaria, tiene_dinero)
+	trans.connect("transition_done", Callable(self, "_on_transition_done"))
+	#trans.call_deferred("setup", day, player.money, cuota_diaria, tiene_dinero)s
+	
+func _on_transition_done(success: bool):
+	if success:
+		day += 1
+		time_elapsed = 0.0
+		day_ended = false
+		energy = max_energy
 func _physics_process(delta: float) -> void:
+	
+	if day_ended:
+		return
 	
 	var tile_pos = tile_map.get_node("TileMap").local_to_map(player.get_node("CollisionShape2D").global_position)
 	tile_map.tiles_arround(tile_pos)
@@ -206,8 +217,9 @@ func _physics_process(delta: float) -> void:
 	if energy <= 0:
 		nextday(true)  # perdido por agotamiento
 	
-	if day_ended:
-		return
+	#if player.is_in_bed:
+		
+	
 	#calcular tiempo segun delta
 	time_elapsed += delta
 	if time_elapsed >= total_seconds:
