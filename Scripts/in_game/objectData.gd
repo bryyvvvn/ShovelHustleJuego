@@ -10,6 +10,7 @@ class_name objectData
 @export var texture : Texture2D
 @export var texture_inventory : Texture2D
 @export var StackSize: int
+@export var intervalo: Vector2
 
 func get_texture()->Texture2D:
 	return texture

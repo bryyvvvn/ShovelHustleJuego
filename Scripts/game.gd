@@ -28,19 +28,6 @@ var day: int = 1
 var max_days: int = 7
 var day_ended: bool = false
 
-#entre 0 y 0.35 -> nada
-var nada : float = 0.35
-#entre 0.35 y 0.6 -> piedra
-var piedra : float = 0.6
-#entre 0.6 y 0.75 -> carbon
-var carbon : float = 0.75
-#entre 0.75 y 0.85 -> hierro
-var hierro : float = 0.85
-#entre 0.85 y 0.925 -> plata
-var plata : float = 0.925
-#entre 0.925 y 0.975 -> oro
-var oro : float = 0.975
-#mayor a 0.975 -> diamante
 
 func init_tienda()-> void:
 	randomize()
@@ -56,36 +43,51 @@ func init_tienda()-> void:
 func init_mineral() -> void:
 	randomize()
 	var object = objects_scene.instantiate()
-	var mineral : float = randf()
+	var mineral : float = randf() * 100
 	var tilemap = tile_map.get_node("TileMap")
 	var mouse_pos = get_global_mouse_position()
 	
-	if mineral < nada:
-		object.data = preload("res://Objects/basura.tres")
+	var basura : objectData = preload("res://Objects/basura.tres")
+	var tuberculo : objectData= preload("res://Objects/tuberculo.tres")
+	var piedra : objectData= preload("res://Objects/piedra.tres")
+	var carbon : objectData= preload("res://Objects/carbon.tres")
+	var hierro : objectData= preload("res://Objects/hierro.tres")
+	var plata : objectData= preload("res://Objects/plata.tres")
+	var oro : objectData= preload("res://Objects/oro.tres")
+	var diamante : objectData= preload("res://Objects/diamante.tres")
+	
+	
+	if mineral < basura.intervalo.y:
+		object.data = basura
 		object.get_node("Sprite2D").texture = object.data.get_texture()
 		
-	elif mineral > nada and mineral <= piedra:
-		object.data = preload("res://Objects/piedra.tres")
+	elif mineral > tuberculo.intervalo.x and mineral <= tuberculo.intervalo.y:
+		object.data = tuberculo
 		object.get_node("Sprite2D").texture = object.data.get_texture()
 		
-	elif mineral > piedra and mineral <= carbon:
-		object.data = preload("res://Objects/carbon.tres")
+	elif mineral > piedra.intervalo.x and mineral <= piedra.intervalo.y:
+		object.data = piedra
 		object.get_node("Sprite2D").texture = object.data.get_texture()
 		
-	elif mineral > carbon and mineral <= hierro:
-		object.data = preload("res://Objects/hierro.tres")
+	elif mineral > carbon.intervalo.x and mineral <= carbon.intervalo.y:
+		object.data = carbon
 		object.get_node("Sprite2D").texture = object.data.get_texture()
 
-	elif mineral > hierro and mineral <= plata:
-		object.data = preload("res://Objects/plata.tres")
+	elif mineral > hierro.intervalo.x and mineral <= hierro.intervalo.y:
+		object.data = hierro
 		object.get_node("Sprite2D").texture = object.data.get_texture()
 
-	elif mineral > plata and mineral <= oro:
-		object.data = preload("res://Objects/oro.tres")
+	elif mineral > plata.intervalo.x and mineral <= plata.intervalo.y:
+		object.data = plata
 		object.get_node("Sprite2D").texture = object.data.get_texture()
 
-	elif mineral > oro:
-		object.data = preload("res://Objects/diamante.tres")
+	elif mineral > oro.intervalo.x and mineral <= oro.intervalo.y :
+		object.data = oro
+		object.get_node("Sprite2D").texture = object.data.get_texture()
+	
+	elif mineral > diamante.intervalo.x:
+		print(diamante.intervalo.x)
+		object.data = diamante
 		object.get_node("Sprite2D").texture = object.data.get_texture()
 		
 	var angulo = deg_to_rad(randi() % 361)
