@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="objectData" load_steps=3 format=3 uid="uid://ohgfsgwxf6r8"]
 
 [ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_ls8k8"]
-[ext_resource type="Texture2D" uid="uid://dukvvd7dkyts" path="res://Assets/Sprites/objects/diamante.png" id="2_npo3k"]
+[ext_resource type="Texture2D" uid="uid://b5scgheawgyl" path="res://Assets/Sprites/objects/objects_32/diamante.png" id="2_ls8k8"]
 
 [resource]
 script = ExtResource("1_ls8k8")
@@ -11,7 +11,7 @@ valor = 0
 rareza = 0.0
 descripcion = ""
 indice = 0
-texture = ExtResource("2_npo3k")
-texture_inventory = ExtResource("2_npo3k")
+texture = ExtResource("2_ls8k8")
+texture_inventory = ExtResource("2_ls8k8")
 StackSize = 99
 metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"

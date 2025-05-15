@@ -5,13 +5,16 @@ extends Node2D
 @export var shovel_scene : PackedScene
 @export var objects_scene : PackedScene
 @export var inventory_Scene : PackedScene
+@export var tienda_scene : PackedScene
 @export var inventory_inv : Inv
+
 
 var player : CharacterBody2D
 var tile_map
 var shovel
 var mouse_pos 
 var inventory
+var tienda
 
 #energía en el juego
 var energy := 100.0
@@ -39,6 +42,15 @@ var plata : float = 0.925
 var oro : float = 0.975
 #mayor a 0.975 -> diamante
 
+func init_tienda()-> void:
+	randomize()
+	var angulo = deg_to_rad(randi() % 361) ## el resto de una division siempre sera un numero entre 0 y el divisor
+	var modulo = 320
+	var tienda_pos = Vector2(int(320*cos(angulo)), int(320*sin(angulo)))
+	
+	tienda = tienda_scene.instantiate()
+	tienda.position = tienda_pos
+	add_child(tienda)
 	
 	
 func init_mineral() -> void:
@@ -47,13 +59,6 @@ func init_mineral() -> void:
 	var mineral : float = randf()
 	var tilemap = tile_map.get_node("TileMap")
 	var mouse_pos = get_global_mouse_position()
-	var dir_x : int
-	var dir_y : int
-	
-	if randf() < 0.5: dir_x = -1
-	else: dir_x = 1
-	if randf() < 0.5: dir_y = -1
-	else: dir_y = 1
 	
 	if mineral < nada:
 		object.data = preload("res://Objects/basura.tres")
@@ -82,27 +87,31 @@ func init_mineral() -> void:
 	elif mineral > oro:
 		object.data = preload("res://Objects/diamante.tres")
 		object.get_node("Sprite2D").texture = object.data.get_texture()
-
-
 		
-	var dir = Vector2(dir_x,dir_y)  # o cualquier dirección (arriba, abajo, etc.)
-	var end_pos = mouse_pos - dir*16
+	var angulo = deg_to_rad(randi() % 361)
+	var dir = Vector2(cos(angulo),sin(angulo))  # o cualquier dirección (arriba, abajo, etc.)
+	var end_pos = mouse_pos - dir*25
 
 	add_child(object)
+	object.get_node("CollisionShape2D").disabled = true
 	
+	var shape = object.get_node("CollisionShape2D")
+	shape.disabled = true
 	object.global_position = mouse_pos
 
 	var tween = create_tween()
-	var altura_max = -50.0  # altura del salto en píxeles (negativo porque Y crece hacia abajo)
+	var altura_max = -30.0
 
 	tween.tween_method(
 		func(t): 
-			var t1 = t
-			var x = lerp(mouse_pos.x, end_pos.x, t1)
-			var y = lerp(mouse_pos.y, end_pos.y, t1) + sin(t1 * PI) * altura_max
+			var x = lerp(mouse_pos.x, end_pos.x, t)
+			var y = lerp(mouse_pos.y, end_pos.y, t) + sin(t * PI) * altura_max
 			object.global_position = Vector2(x, y),
 		0.0, 1.0, 0.4
 	)
+
+	# Reactivar collider cuando termine
+	tween.finished.connect(func(): shape.disabled = false)
 
 
 func init_world() -> void:
@@ -110,15 +119,18 @@ func init_world() -> void:
 	tile_map = tile_map_scene.instantiate() 
 	add_child(tile_map)
 
+
 func init_player() -> void:
 	player = player_scene.instantiate() 
 	add_child(player)
 	$UI/money/Panel/moneylabel.player_ref = player
-	
+
+
 func init_shovel()->void:
 	shovel = shovel_scene.instantiate()
 	add_child(shovel)
-	
+
+
 func init_inventory() -> void:
 	var pala = preload("res://Objects/pala.tres").duplicate()
 	inventory = inventory_Scene.instantiate()
@@ -127,23 +139,23 @@ func init_inventory() -> void:
 	var item = pala
 	
 	inventory_inv.insert(item)
-	
-	
+
+
+
 	#var inv = Inv.new()
 	#inventory.set_inventory(inv)  # Aquí lo conectas
 	#inventory.inv.slots[0].item = pala
 	#inventory.inv.slots[0].amount = 1
 	#inventory.inv.update.emit()
-	
-	
-	
-	
+
+
 
 func _ready() -> void:
 	init_world()
 	init_player()
 	init_shovel()
 	init_inventory()
+	init_tienda()
 
 
 func _input(event):
@@ -160,8 +172,6 @@ func _input(event):
 				if i!=0 or j != 0 :
 					posiciones.append(cell)
 					
-	#if Input.is_action_just_pressed("inventory"):  # Usa la acción configurada en Input Map
-		#inventory.toggle()  # Alterna entre abrir y cerrar el inventario
 	
 	var mouse_pos = tilemap.local_to_map(get_global_mouse_position())
 	if mouse_pos in posiciones and tile_map.enabled_dig(mouse_pos):

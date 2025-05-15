@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgujmjo1k0jg5"]
 
-[ext_resource type="Texture2D" uid="uid://c6y0pb2j3sx77" path="res://Assets/Sprites/objects/minipala.png" id="1_ij8rg"]
 [ext_resource type="Script" uid="uid://d1ank4lgfbwqy" path="res://Scripts/in_game/minigame.gd" id="1_s7wve"]
+[ext_resource type="Texture2D" uid="uid://1hvm4aer8qxo" path="res://Assets/Sprites/objects/objects_32/pala.png" id="2_8vfwj"]
 
 [node name="minigame" type="Control"]
 layout_mode = 3
@@ -33,4 +33,4 @@ color = Color(0.796078, 0.607843, 0, 1)
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
-texture = ExtResource("1_ij8rg")
+texture = ExtResource("2_8vfwj")
