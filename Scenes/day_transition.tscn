@@ -9,65 +9,88 @@ region = Rect2(0, 0, 80, 80)
 
 [node name="dayTransition" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_3potr")
-
-[node name="fade" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -605.0
-offset_top = -347.0
-offset_right = 623.0
-offset_bottom = 351.0
-color = Color(0, 0, 0, 1)
-
-[node name="dayInfo" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_3potr")
+
+[node name="fade" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.471
+anchor_top = 0.458
+anchor_right = 0.471
+anchor_bottom = 0.458
+offset_left = -577.759
+offset_top = -326.12
+offset_right = 626.241
+offset_bottom = 354.88
+color = Color(0, 0, 0, 1)
+
+[node name="dayInfo" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.492
+anchor_top = 0.062
+anchor_right = 0.5
+anchor_bottom = 0.934
+offset_left = -242.636
+offset_top = 0.163998
+offset_right = 234.5
+offset_bottom = 0.14801
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
 [node name="diaLabel" type="Label" parent="dayInfo"]
 layout_mode = 2
-size_flags_vertical = 3
-text = "
-"
+size_flags_stretch_ratio = 4.33
+text = "dia"
+horizontal_alignment = 1
+uppercase = true
 
 [node name="cuotaLabel" type="Label" parent="dayInfo"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 1
 text = "
 "
-
-[node name="resultLabel" type="Label" parent="dayInfo"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "
-"
+horizontal_alignment = 1
+uppercase = true
 
 [node name="dineroAnimado" type="HBoxContainer" parent="dayInfo"]
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="TextureRect" type="TextureRect" parent="dayInfo/dineroAnimado"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
 texture = SubResource("AtlasTexture_mxco6")
 expand_mode = 1
 
 [node name="moneyLabel" type="Label" parent="dayInfo/dineroAnimado"]
 layout_mode = 2
+size_flags_horizontal = 6
+text = "
+horizontal"
+uppercase = true
+
+[node name="resultLabel" type="Label" parent="dayInfo"]
+layout_mode = 2
+size_flags_vertical = 1
 text = "
 "
+horizontal_alignment = 1
+uppercase = true
 
 [node name="continuarBtn" type="Button" parent="dayInfo"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "boton
+"
+
+[connection signal="pressed" from="dayInfo/continuarBtn" to="." method="_on_continuar_Btn_pressed"]
