@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvalq00tnq0o7"
-path="res://.godot/imported/uiEnergia.png-e8a28d6b6646500ad2e00ac526f4ba65.ctex"
+uid="uid://cdnowlftsaara"
+path="res://.godot/imported/barra_pala.png-4346cd7829754815960d3a8e9667644f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/uiEnergia.png"
-dest_files=["res://.godot/imported/uiEnergia.png-e8a28d6b6646500ad2e00ac526f4ba65.ctex"]
+source_file="res://Assets/Sprites/UI/barra_pala.png"
+dest_files=["res://.godot/imported/barra_pala.png-4346cd7829754815960d3a8e9667644f.ctex"]
 
 [params]
 

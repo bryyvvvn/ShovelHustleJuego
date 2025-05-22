@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://73y50qdldl5u"
-path="res://.godot/imported/Ban.png-9ed03d65d2aad454d90f83349212b64e.ctex"
+uid="uid://js521fea51yd"
+path="res://.godot/imported/completo_pescado.png-b48f40ee685c6631f2da0e45574529b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Ban.png"
-dest_files=["res://.godot/imported/Ban.png-9ed03d65d2aad454d90f83349212b64e.ctex"]
+source_file="res://Assets/Sprites/objects/objects_32/completo_pescado.png"
+dest_files=["res://.godot/imported/completo_pescado.png-b48f40ee685c6631f2da0e45574529b9.ctex"]
 
 [params]
 
