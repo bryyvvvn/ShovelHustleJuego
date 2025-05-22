@@ -1,1 +1,10 @@
-res://jugador.tscn
+res://Scenes/Menu/Menu.tscn
+res://Inventario/playerInv.tres
+res://Assets/tile_1_set.tres
+res://Scenes/game.tscn
+res://Scenes/in_game/Music.tscn
+res://Scripts/Music.gd
+res://Scenes/Music.tscn
+res://Scripts/music.gd
+res://Scripts/Menú/menú.gd
+res://Scripts/MusicPlayer.gd

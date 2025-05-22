@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://de31tfeg2pjos"]
+
+[ext_resource type="Script" uid="uid://cvffunnljdgdg" path="res://Scripts/in_game/shovel.gd" id="1_lyedo"]
+[ext_resource type="PackedScene" uid="uid://bgujmjo1k0jg5" path="res://Scenes/in_game/minigame.tscn" id="2_o1hr1"]
+[ext_resource type="AudioStream" uid="uid://cyln83yvlonrq" path="res://Assets/Sonidos/shovel_dig_fail.mp3" id="3_m4ff3"]
+[ext_resource type="AudioStream" uid="uid://bfvnuw7fgrs5x" path="res://Assets/Sonidos/shovel_dig6.wav" id="4_tthjg"]
+
+[node name="shovel" type="Node"]
+script = ExtResource("1_lyedo")
+minigame_scene = ExtResource("2_o1hr1")
+
+[node name="fail_dig" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m4ff3")
+
+[node name="succesfull_dig" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tthjg")

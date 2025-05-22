@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="objectData" load_steps=4 format=3 uid="uid://ohgfsgwxf6r8"]
+
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_ls8k8"]
+[ext_resource type="Texture2D" uid="uid://b5scgheawgyl" path="res://Assets/Sprites/objects/objects_32/diamante.png" id="2_ls8k8"]
+[ext_resource type="AudioStream" uid="uid://cn4uqha35as4t" path="res://Assets/Sonidos/Sonido_minerales/diamond_dig.wav" id="2_npo3k"]
+
+[resource]
+script = ExtResource("1_ls8k8")
+nombre = "diamante"
+tipo = "excavable"
+valor = 100
+rareza = 0.0
+descripcion = ""
+indice = 0
+texture = ExtResource("2_ls8k8")
+texture_inventory = ExtResource("2_ls8k8")
+StackSize = 99
+intervalo = Vector2(99, 0)
+sonido = ExtResource("2_npo3k")
+metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"
