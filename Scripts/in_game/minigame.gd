@@ -12,15 +12,19 @@ var active := true
 var direction := 1
 var zone_speed := 80.0
 
-func setup(dia: int, pala: float):
-	var dificultad_dia = clamp((dia - 1) * 0.1, 0.0, 0.6)  
-	var poder_total = pala - dificultad_dia                
-	var exito = clamp(poder_total, 0.1, 1.0)       
-	zone_speed = 80.0 + (1.0 - exito) * 60.0       
+func setup(dia: int, pala: int):
+	var dificultad_dia :float = (dia - 1)/6 #min-max scaling
+	var poder_pala: float = (dia - 1)/6 #min-max scaling
+	
+	var speed_param = 1 - dificultad_dia
+	var height_param = poder_pala - dificultad_dia
+		 
+	zone_speed = 80.0 + (1.0 - speed_param) * 200.0
+	##       
 
-	green_zone_height = clamp(29 * exito, 10, 100)
-	gravity = 140.0 + (1.0 - exito) * 200.0
-	lift_speed = 100.0 - (1.0 - exito) * 100.0
+	green_zone_height = clamp(29 * (1-height_param), 10, 100)
+	gravity = 140.0 + (height_param) * 200.0
+	lift_speed = 140.0 - (height_param) * 100.0
 
 	$Bar/zonaOro.size.y = green_zone_height
 	$Bar/pala.position.y = 99
@@ -35,9 +39,12 @@ func _process(delta):
 	
 	var cursor = $Bar/pala
 	var y = cursor.position.y
+	
+	velocity = gravity
 
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		velocity = -lift_speed
+		
 	else:
 		if int(Time.get_ticks_msec() / 100) % 2 == 0:
 			velocity = gravity
@@ -72,3 +79,9 @@ func cursor_in_green_zone() -> bool:
 	var green_y = $Bar/zonaOro.global_position.y
 	var green_h = $Bar/zonaOro.size.y
 	return cursor_y >= green_y and cursor_y <= green_y + green_h
+	
+func bombing():
+	var time = Time.get_ticks_msec()
+	while (Time.get_ticks_msec() - time)< 1000:
+		velocity = -lift_speed
+	velocity = gravity

@@ -189,7 +189,7 @@ func _input(event):
 	
 	var mouse_pos = tilemap.local_to_map(get_global_mouse_position())
 	if mouse_pos in posiciones and tile_map.enabled_dig(mouse_pos):
-		if await shovel.cavar(mouse_pos):
+		if await shovel.cavar(mouse_pos, day):
 			shovel.get_node("succesfull_dig").play()
 			tile_map.bloque_cavado(mouse_pos)
 			init_mineral()
@@ -210,7 +210,6 @@ func nextday(force : bool = false) -> void:
 	trans.visible = true
 	trans.setup(day, player.money, cuota_diaria, tiene_dinero, moni)
 	day_ended = true
-	shovel.day =+1
 	
 func _on_transition_done(success: bool):
 	if success:
