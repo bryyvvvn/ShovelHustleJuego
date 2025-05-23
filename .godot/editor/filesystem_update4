@@ -1,9 +1,6 @@
-res://Scenes/in_game/minigame.tscn
+res://Scenes/game.tscn
 res://Inventario/playerInv.tres
 res://Assets/tile_1_set.tres
+res://Scripts/in_game/minigame.gd
+res://Scenes/in_game/minigame.tscn
 res://Scenes/Menu/Menu.tscn
-res://Scenes/shovel.tscn
-res://Scenes/game.tscn
-res://Scenes/player.tscn
-res://Scenes/in_game/energia.tscn
-res://Scenes/objectsPhysics.tscn

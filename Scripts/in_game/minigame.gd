@@ -2,7 +2,7 @@ extends Control
 
 signal minigame_result(success: bool)
 
-@export var gravity := 140
+@export var gravity := 100
 @export var lift_speed := 100
 @export var green_zone_height := 29 
 
@@ -11,6 +11,7 @@ var active := true
 
 var direction := 1
 var zone_speed := 80.0
+var vali = true
 
 func setup(dia: int, pala: int):
 	var dificultad_dia :float = (dia - 1)/6 #min-max scaling
@@ -23,8 +24,8 @@ func setup(dia: int, pala: int):
 	##       
 
 	green_zone_height = clamp(29 * (1-height_param), 10, 100)
-	gravity = 140.0 + (height_param) * 200.0
-	lift_speed = 140.0 - (height_param) * 100.0
+	gravity += (height_param) * 200.0
+	lift_speed = speed_param*7
 
 	$Bar/zonaOro.size.y = green_zone_height
 	$Bar/pala.position.y = 99
@@ -41,15 +42,26 @@ func _process(delta):
 	var y = cursor.position.y
 	
 	velocity = gravity
+	if Input.is_action_just_pressed('right_click') and vali:
+		vali = false
+		var tween = create_tween()
 
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		velocity = -lift_speed
+		tween.tween_method(
+			func(t): 
+				var y_p = lerp(cursor.position.y, cursor.position.y -lift_speed, t)
+				cursor.position = Vector2(cursor.position.x, y_p),
+			0.0, 1.0, 0.4
+		)
+		tween.connect("finished", Callable(self, "_on_tween_finished"))
+
+	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		#velocity = -lift_speed
 		
-	else:
-		if int(Time.get_ticks_msec() / 100) % 2 == 0:
-			velocity = gravity
-		else:
-			velocity = 0
+	#else:
+		#if int(Time.get_ticks_msec() / 100) % 2 == 0:
+			#velocity = gravity
+		#else:
+			#velocity = 0
 
 	y += velocity * delta
 	y = clamp(y, 0, $Bar.size.y - cursor.size.y)
@@ -80,8 +92,5 @@ func cursor_in_green_zone() -> bool:
 	var green_h = $Bar/zonaOro.size.y
 	return cursor_y >= green_y and cursor_y <= green_y + green_h
 	
-func bombing():
-	var time = Time.get_ticks_msec()
-	while (Time.get_ticks_msec() - time)< 1000:
-		velocity = -lift_speed
-	velocity = gravity
+func _on_tween_finished():
+	vali = true
