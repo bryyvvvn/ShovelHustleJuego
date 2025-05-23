@@ -28,11 +28,12 @@ func setup(dia: int, pala: int):
 	lift_speed = speed_param*7
 
 	$Bar/zonaOro.size.y = green_zone_height
-	$Bar/pala.position.y = 99
 
 func _ready():
 	$Bar/zonaOro.size.y = green_zone_height
-	$Bar/pala.position.y = 99
+	#$Bar/zonaOro.position.y = 
+	$Bar/pala.position.y = 210
+	
 
 func _process(delta):
 	if !active:
@@ -75,6 +76,7 @@ func _process(delta):
 		direction = 1
 	elif zone.position.y + zone.size.y >= 205:
 		direction = -1
+	print(zone.position.y)
 	
 	
 
