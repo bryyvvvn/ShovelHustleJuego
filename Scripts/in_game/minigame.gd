@@ -12,6 +12,7 @@ var active := true
 var direction := 1
 var zone_speed := 80.0
 var vali = true
+var posisiones_arr: Array[float]
 
 func setup(dia: int, pala: int):
 	var dificultad_dia :float = (dia - 1)/6 #min-max scaling
@@ -76,7 +77,7 @@ func _process(delta):
 		direction = 1
 	elif zone.position.y + zone.size.y >= 205:
 		direction = -1
-	print(zone.position.y)
+	posisiones_arr.append(zone.position.y)
 	
 	
 
