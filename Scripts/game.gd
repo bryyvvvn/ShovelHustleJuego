@@ -31,6 +31,8 @@ var max_days: int = 7
 var cuota_diaria = 550
 var day_ended = false
 
+var mineral_sound : int
+
 func init_tienda()-> void:
 	randomize()
 	var angulo = deg_to_rad(randi() % 361) ## el resto de una division siempre sera un numero entre 0 y el divisor
@@ -59,38 +61,47 @@ func init_mineral() -> void:
 	var diamante : objectData= preload("res://Objects/diamante.tres")
 	
 	
+	
 	if mineral < basura.intervalo.y:
 		object.data = basura
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 0
 		
 	elif mineral > tuberculo.intervalo.x and mineral <= tuberculo.intervalo.y:
 		object.data = tuberculo
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 1
 		
 	elif mineral > piedra.intervalo.x and mineral <= piedra.intervalo.y:
 		object.data = piedra
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 2
 		
 	elif mineral > carbon.intervalo.x and mineral <= carbon.intervalo.y:
 		object.data = carbon
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 3
 
 	elif mineral > hierro.intervalo.x and mineral <= hierro.intervalo.y:
 		object.data = hierro
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 4
 
 	elif mineral > plata.intervalo.x and mineral <= plata.intervalo.y:
 		object.data = plata
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 5
 
 	elif mineral > oro.intervalo.x and mineral <= oro.intervalo.y :
 		object.data = oro
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 6
 	
 	elif mineral > diamante.intervalo.x:
 		print(diamante.intervalo.x)
 		object.data = diamante
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 7
 		
 	var angulo = deg_to_rad(randi() % 361)
 	var dir = Vector2(cos(angulo),sin(angulo))  # o cualquier dirección (arriba, abajo, etc.)
@@ -113,11 +124,11 @@ func init_mineral() -> void:
 			object.global_position = Vector2(x, y),
 		0.0, 1.0, 0.4
 	)
-	get_node("mineral_sound").stream = object.data.sonido
-	get_node("mineral_sound").play()
+	
 
 	# Reactivar collider cuando termine
 	tween.finished.connect(func(): shape.disabled = false)
+	
 
 
 func init_world() -> void:
@@ -161,16 +172,16 @@ func init_tienda_ui() -> void:
 
 @onready var trans = $UI/dayTransition
 func _ready() -> void:
-	$"AudioStreamPlayer2D"
-	$"AudioStreamPlayer2D".play()
+	
 	init_world()
 	init_player()
 	init_shovel()
 	init_tienda()
 	init_tienda_ui()
 	init_inventory()
-	
 	trans.connect("transition_done", Callable(self, "_on_transition_done"))
+	
+	Music.play_track(1)
 
 func _input(event):
 	
@@ -193,6 +204,7 @@ func _input(event):
 			shovel.get_node("succesfull_dig").play()
 			tile_map.bloque_cavado(mouse_pos)
 			init_mineral()
+			Vfx.play_mineral(mineral_sound)
 		else:
 			shovel.get_node("fail_dig").play()
 			energy -= 8

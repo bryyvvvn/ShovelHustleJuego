@@ -13,3 +13,12 @@ func play_track(index: int):
 		player.play()
 	else:
 		print("Índice de música fuera de rango.")
+
+func stop_music():
+	player.stop()
+
+func is_playing() -> bool:
+	if player.playing:
+		return true
+	else:
+		return false
