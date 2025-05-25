@@ -8,7 +8,7 @@ extends Node2D
 @export var tienda_scene : PackedScene
 @export var inventory_inv : Inv
 @export var tienda_ui_scene: PackedScene
-
+@export var money_ref : Node
 
 var player : CharacterBody2D
 var tile_map
@@ -173,6 +173,12 @@ func _ready() -> void:
 	trans.connect("transition_done", Callable(self, "_on_transition_done"))
 
 func _input(event):
+	#para el menú de pausa
+	if event.is_action_pressed("ui_cancel"):  # generalmente la tecla Esc
+		if get_tree().paused:
+			unpause_game()
+		else:
+			pause_game()
 	
 	var tilemap = tile_map.get_node("TileMap")
 	var pos = tilemap.local_to_map(player.get_node("CollisionShape2D").global_position)
@@ -218,10 +224,23 @@ func _on_transition_done(success: bool):
 		energy = max_energy
 		player.money -= cuota_diaria
 		cuota_diaria = cuota_diaria*1.8
+		money_ref.set_bounty(cuota_diaria)
 		day_ended = false
+		
 	else:
 		get_tree().change_scene_to_file("res://Scenes/Menu/Menu.tscn")
-		
+
+func pause_game():
+	get_tree().paused = true
+	var pause_menu = preload("res://scenes/pause_menu.tscn").instantiate()
+	pause_menu.name = "PauseMenu"
+	add_child(pause_menu)
+
+func unpause_game():
+	get_tree().paused = false
+	var existing = get_node_or_null("PauseMenu")
+	if existing:
+		existing.queue_free()
 func _physics_process(delta: float) -> void:
 	
 	if day_ended:
