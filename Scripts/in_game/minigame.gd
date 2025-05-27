@@ -26,7 +26,7 @@ func setup(dia: int, pala: int):
 
 	green_zone_height = clamp(29 * (1-height_param), 10, 100)
 	gravity += (height_param) * 200.0
-	lift_speed = speed_param*7
+	lift_speed = speed_param*6
 
 	$Bar/zonaOro.size.y = green_zone_height
 

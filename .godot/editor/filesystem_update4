@@ -1,6 +1,4 @@
-res://Scenes/game.tscn
+res://Scenes/Menu/Menu.tscn
 res://Inventario/playerInv.tres
-res://Assets/tile_1_set.tres
 res://Scripts/in_game/minigame.gd
 res://Scenes/in_game/minigame.tscn
-res://Scenes/Menu/Menu.tscn
