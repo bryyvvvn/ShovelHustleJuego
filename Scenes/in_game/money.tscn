@@ -17,7 +17,7 @@ grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 69.0
+offset_right = 147.0
 offset_bottom = 23.0
 
 [node name="moneylabel" type="Label" parent="Panel"]
