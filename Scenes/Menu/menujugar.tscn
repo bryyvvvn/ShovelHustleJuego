@@ -41,6 +41,7 @@ texture = ExtResource("2_lbxjh")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
 offset_left = 390.0
 offset_top = 309.0
 offset_right = 696.0

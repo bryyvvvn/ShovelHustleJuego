@@ -48,6 +48,8 @@ func _on_slot_pressed(slot):
 func onSlotClicked(slot):
 	var player_inventory_ui := get_parent().get_node("Inv_UI")
 	itemInHand = player_inventory_ui.itemInHand
+	if itemInHand == null:
+		return
 	var precio = itemInHand.InventorySlot.item.valor
 	var cantidad = itemInHand.InventorySlot.amount
 	get_parent().get_parent().get_node("player").update_money(precio*cantidad)
