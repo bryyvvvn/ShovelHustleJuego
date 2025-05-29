@@ -1,9 +1,12 @@
 res://Scenes/Menu/Menu.tscn
 res://Inventario/playerInv.tres
 res://Assets/tile_1_set.tres
-res://Scripts/Menú/menujugar.gd
+res://Scripts/inv_ui_slot.gd
 res://Scenes/game.tscn
 res://Scenes/game2.tscn
 res://Scenes/Menu/menujugar.tscn
 res://Scenes/in_game/minigame.tscn
-res://Scripts/in_game/minigame.gd
+res://Scenes/objectsPhysics.tscn
+res://Inventario/inv_ui_slot.tscn
+res://Inventario/inv_ui.tscn
+res://Scripts/inv_ui.gd

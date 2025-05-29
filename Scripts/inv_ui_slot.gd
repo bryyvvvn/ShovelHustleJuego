@@ -26,3 +26,8 @@ func takeItem():
 
 func isEmpty():
 	return !itemStackGui
+	
+func _gui_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			get_parent().get_parent().get_parent().onSlotClicked_R(self)

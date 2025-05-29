@@ -12,6 +12,7 @@ class_name objectData
 @export var StackSize: int
 @export var intervalo: Vector2
 @export var sonido: AudioStream
+@export var alimentacion: int
 
 func get_texture()->Texture2D:
 	return texture

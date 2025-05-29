@@ -61,6 +61,15 @@ func close():
 	visible = false 
 	is_open = false
 
+func onSlotClicked_R(slot):
+	if slot.isEmpty():
+		return
+		
+	if !itemInHand and slot.itemStackGui.InventorySlot.item.tipo == "alimento":
+		get_parent().get_parent().energy += 10
+		return
+
+
 func onSlotClicked(slot):
 	print(slot.get_parent().get_parent().get_parent().name)
 	

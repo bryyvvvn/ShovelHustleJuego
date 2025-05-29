@@ -58,8 +58,9 @@ func init_mineral() -> void:
 	var oro : objectData= preload("res://Objects/oro.tres")
 	var diamante : objectData= preload("res://Objects/diamante.tres")
 	
-	
-	if mineral < basura.intervalo.y:
+	if mineral < basura.intervalo.x:
+		return
+	elif mineral < basura.intervalo.y and mineral > basura.intervalo.x:
 		object.data = basura
 		object.get_node("Sprite2D").texture = object.data.get_texture()
 		

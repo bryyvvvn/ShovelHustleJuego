@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_hbpag")
 nombre = "tuberculo"
-tipo = "excavable"
+tipo = "alimento"
 valor = 1
 rareza = 0.0
 descripcion = ""
@@ -16,4 +16,5 @@ texture = ExtResource("2_hbpag")
 texture_inventory = ExtResource("3_b6cfj")
 StackSize = 99
 intervalo = Vector2(50, 57)
+alimentacion = 0
 metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"
