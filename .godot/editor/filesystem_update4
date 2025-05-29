@@ -1,4 +1,8 @@
 res://Scenes/Menu/Menu.tscn
 res://Inventario/playerInv.tres
+res://Assets/tile_1_set.tres
+res://Scenes/pause_menu.tscn
+res://Scenes/game.tscn
+res://Scenes/day_transition.tscn
+res://Scripts/day_transition.gd
 res://Scripts/inv_ui.gd
-res://Scripts/game.gd

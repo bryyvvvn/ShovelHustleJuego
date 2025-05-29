@@ -118,6 +118,7 @@ func eraseItem(slot):
 	slotItem.InventorySlot.amount -= 1
 	if slotItem.InventorySlot.amount == 0:
 		slots[index].itemStackGui.InventorySlot.item = null
+		slotItem.queue_free()
 	slotItem.update()
 
 
