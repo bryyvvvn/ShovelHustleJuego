@@ -1,11 +1,9 @@
-res://Scenes/game.tscn
-res://Inventario/playerInv.tres
-res://Scripts/world/proc_world_4.gd
-res://Assets/tile_1_set.tres
-res://Scripts/day_transition.gd
 res://Scenes/Menu/Menu.tscn
+res://Inventario/playerInv.tres
+res://Assets/tile_1_set.tres
+res://Scripts/Menú/menujugar.gd
+res://Scenes/game.tscn
+res://Scenes/game2.tscn
 res://Scenes/Menu/menujugar.tscn
-res://Scenes/world/proc_world.tscn
-res://Scenes/Tienda/tienda_ui.gd
 res://Scenes/in_game/minigame.tscn
 res://Scripts/in_game/minigame.gd
