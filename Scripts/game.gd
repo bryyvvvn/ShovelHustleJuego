@@ -122,7 +122,6 @@ func init_mineral() -> void:
 
 
 func init_world() -> void:
-	print("entre aca")
 	tile_map = tile_map_scene.instantiate() 
 	add_child(tile_map)
 
@@ -152,14 +151,6 @@ func init_tienda_ui() -> void:
 	$UI.add_child(tienda_ui)
 
 
-
-	#var inv = Inv.new()
-	#inventory.set_inventory(inv)  # Aquí lo conectas
-	#inventory.inv.slots[0].item = pala
-	#inventory.inv.slots[0].amount = 1
-	#inventory.inv.update.emit()
-
-
 @onready var trans = $UI/dayTransition
 func _ready() -> void:
 	$"AudioStreamPlayer2D"
@@ -170,6 +161,9 @@ func _ready() -> void:
 	init_tienda()
 	init_tienda_ui()
 	init_inventory()
+	var object = objects_scene.instantiate()
+	object.data = preload("res://Objects/tuberculo.tres")
+	add_child(object)
 	
 	trans.connect("transition_done", Callable(self, "_on_transition_done"))
 
