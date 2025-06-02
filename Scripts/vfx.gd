@@ -16,12 +16,13 @@ var mineral = [
 
 var sounds = [
 	preload("res://Assets/Sonidos/menu_click.wav"),
-	preload("res://Assets/Sonidos/sand_walking.wav")
+	preload("res://Assets/Sonidos/sand_walking.wav"),
+	preload("res://Assets/Sonidos/item_sold.mp3")
 ]
 
 func play_mineral(index: int):
 	if index >= 0 and index < mineral.size():
-		player.pitch_scale = randf_range(0.9, 1.2)
+		player.pitch_scale = randf_range(0.8, 1.3)
 		player.stream = mineral[index]
 		player.play()
 	else:
@@ -29,6 +30,7 @@ func play_mineral(index: int):
 
 func play_vfx(index: int):
 	if index >= 0 and index < sounds.size():
+		player2.pitch_scale = randf_range(0.9, 1.2)
 		player2.stream = sounds[index]
 		player2.play()
 	else:

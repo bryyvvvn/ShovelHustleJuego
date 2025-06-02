@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgujmjo1k0jg5"]
+[gd_scene load_steps=4 format=3 uid="uid://bgujmjo1k0jg5"]
 
 [ext_resource type="Script" uid="uid://d1ank4lgfbwqy" path="res://Scripts/in_game/minigame.gd" id="1_s7wve"]
+[ext_resource type="Texture2D" uid="uid://cdnowlftsaara" path="res://Assets/Sprites/UI/barra_pala.png" id="2_08ty3"]
 [ext_resource type="Texture2D" uid="uid://1hvm4aer8qxo" path="res://Assets/Sprites/objects/objects_32/pala.png" id="2_8vfwj"]
 
 [node name="minigame" type="Control"]
@@ -28,6 +29,11 @@ offset_top = 2.35
 offset_right = 32.4
 offset_bottom = 237.35
 color = Color(0.796078, 0.607843, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bar"]
+position = Vector2(17, 129)
+scale = Vector2(1.08375, 1.05083)
+texture = ExtResource("2_08ty3")
 
 [node name="pala" type="TextureRect" parent="Bar"]
 layout_mode = 0

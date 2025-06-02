@@ -39,7 +39,6 @@ func _physics_process(delta):
 	var direction = direccion()
 
 	if direction != Vector2.ZERO:
-		
 		direction = direction.normalized()  # Diagonal speed fix
 		velocity = direction * speed
 		move_and_slide()
@@ -77,6 +76,7 @@ func player():
 	pass
 
 func collect(item):
+	
 	inv.insert(item)
 	
 func update_money(in_money: int)->void:

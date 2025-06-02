@@ -8,7 +8,7 @@ signal transition_done(success: bool)
 @onready var resultado_label := $dayInfo/resultLabel
 @onready var continuar_btn := $dayInfo/continuarBtn
 @onready var money_label := $dayInfo/dineroAnimado/moneyLabel
-@onready var coin := $dayInfo/dineroAnimado/TextureRect
+@onready var coin := $TextureRect
 @onready var robo := $dayInfo/robo
 
 var jugador_tiene_dinero := true
@@ -28,7 +28,7 @@ func setup(dia: int, dinero: int, cuota: int, tiene_dinero: bool, perdida: int):
 	dinero_final = max(dinero - cuota, 0)
 	
 	money_label.text = "$%d" % dinero_actual
-	animar_descuento()
+	#animar_descuento()
 	
 	jugador_tiene_dinero = tiene_dinero
 
@@ -49,6 +49,7 @@ func setup(dia: int, dinero: int, cuota: int, tiene_dinero: bool, perdida: int):
 	resultado_label.modulate.a = 0
 	continuar_btn.modulate.a = 0
 	money_label.modulate.a = 0
+	animar_descuento()
 	coin.modulate.a = 0
 	robo.modulate.a = 0
 	
@@ -67,7 +68,7 @@ func animar_descuento():
 	var tween = create_tween()
 	tween.set_parallel(false)  
 
-	var duracion := 8
+	var duracion := 5
 	tween.tween_method(
 		func(valor): money_label.text = "$%d" % valor,
 		dinero_actual, dinero_final, duracion

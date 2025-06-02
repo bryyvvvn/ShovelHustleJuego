@@ -14,6 +14,9 @@ func _on_salir_pressed() -> void:
 func _on_opciones_pressed() -> void:
 	Vfx.play_vfx(0)
 	$OpcionesMenu.popup()
+	
+
+	
 
 
 func _on_jugar_pressed() -> void:

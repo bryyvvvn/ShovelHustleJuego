@@ -1,0 +1,78 @@
+[gd_scene load_steps=16 format=3 uid="uid://bpwuorkta4saq"]
+
+[ext_resource type="Script" uid="uid://cwkl3xsv42ugb" path="res://Scripts/game.gd" id="1_1umn5"]
+[ext_resource type="PackedScene" uid="uid://dw6qhi0rj40s8" path="res://Scenes/world/proc_world.tscn" id="2_aurdq"]
+[ext_resource type="PackedScene" uid="uid://cp3jbpbcxvee6" path="res://Scenes/player.tscn" id="3_er416"]
+[ext_resource type="PackedScene" uid="uid://de31tfeg2pjos" path="res://Scenes/shovel.tscn" id="4_3x3uv"]
+[ext_resource type="PackedScene" uid="uid://cx25plwhja0ss" path="res://Scenes/objectsPhysics.tscn" id="5_eci52"]
+[ext_resource type="PackedScene" uid="uid://b85177o806qdv" path="res://Inventario/inv_ui.tscn" id="6_70r5o"]
+[ext_resource type="PackedScene" uid="uid://ocokf3c3wtcp" path="res://Scenes/Tienda/Tienda.tscn" id="7_1to4e"]
+[ext_resource type="Resource" uid="uid://ccm4h0afnl3q5" path="res://Inventario/playerInv.tres" id="8_0qt2u"]
+[ext_resource type="PackedScene" uid="uid://c8pokw5frmagu" path="res://Scenes/Tienda/tienda_ui.tscn" id="9_vgcvg"]
+[ext_resource type="PackedScene" uid="uid://bn0cf2f1oh5r1" path="res://Scenes/in_game/energia.tscn" id="10_2xxo2"]
+[ext_resource type="PackedScene" uid="uid://sds50rx7d78f" path="res://Scenes/in_game/time.tscn" id="11_bes73"]
+[ext_resource type="PackedScene" uid="uid://dbe2ymyiloo68" path="res://Scenes/in_game/money.tscn" id="12_45jfu"]
+[ext_resource type="PackedScene" uid="uid://bkfu1g7h1acj5" path="res://Scenes/day_transition.tscn" id="13_gfkvf"]
+[ext_resource type="PackedScene" uid="uid://csy3btsxv5ajf" path="res://Scenes/Menu/FpsLabel.tscn" id="14_4psf1"]
+[ext_resource type="AudioStream" uid="uid://cfkl6v6enrmb3" path="res://Assets/Sonidos/Background Music/desert_background.mp3" id="15_rv8rv"]
+
+[node name="game" type="Node2D" node_paths=PackedStringArray("money_ref")]
+y_sort_enabled = true
+script = ExtResource("1_1umn5")
+tile_map_scene = ExtResource("2_aurdq")
+player_scene = ExtResource("3_er416")
+shovel_scene = ExtResource("4_3x3uv")
+objects_scene = ExtResource("5_eci52")
+inventory_Scene = ExtResource("6_70r5o")
+tienda_scene = ExtResource("7_1to4e")
+inventory_inv = ExtResource("8_0qt2u")
+tienda_ui_scene = ExtResource("9_vgcvg")
+money_ref = NodePath("UI/money")
+
+[node name="UI" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="energia" parent="UI" instance=ExtResource("10_2xxo2")]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 5.0
+offset_left = 0.0
+offset_right = -22.0
+offset_bottom = -620.0
+
+[node name="time" parent="UI" instance=ExtResource("11_bes73")]
+anchors_preset = -1
+offset_left = 310.0
+offset_top = 6.0
+offset_right = -1150.0
+offset_bottom = -620.0
+
+[node name="money" parent="UI" instance=ExtResource("12_45jfu")]
+anchors_preset = -1
+anchor_left = 0.02
+offset_left = -15.0
+offset_top = 6.0
+
+[node name="dayTransition" parent="UI" instance=ExtResource("13_gfkvf")]
+visible = false
+anchors_preset = -1
+anchor_right = 0.496
+anchor_bottom = 0.509
+offset_right = -0.392029
+offset_bottom = 0.167999
+
+[node name="FpsLabel" parent="." instance=ExtResource("14_4psf1")]
+visible = false
+offset_left = 1100.0
+offset_right = 1116.0
+offset_bottom = 12.0
+scale = Vector2(2.8905, 2.60165)
+horizontal_alignment = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_rv8rv")
+volume_db = -10.0
+
+[node name="mineral_sound" type="AudioStreamPlayer2D" parent="."]
+volume_db = 20.0

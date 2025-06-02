@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4k4ucsbwd1sq"
-path="res://.godot/imported/Fondo.png-d1eaeff9fe4d015fe636fb9a433be538.ctex"
+uid="uid://da2y35vgl7puk"
+path="res://.godot/imported/cama.png-e296b6e9c51627d761984f6d12f25465.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/Menu/Fondo.png"
-dest_files=["res://.godot/imported/Fondo.png-d1eaeff9fe4d015fe636fb9a433be538.ctex"]
+source_file="res://Assets/Sprites/objects/objects_32/cama.png"
+dest_files=["res://.godot/imported/cama.png-e296b6e9c51627d761984f6d12f25465.ctex"]
 
 [params]
 

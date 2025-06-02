@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clgvkrdi6ruhi"
-path="res://.godot/imported/salir.png-bd5c473a43b22bbcbb61f07d32e4e17d.ctex"
+uid="uid://js521fea51yd"
+path="res://.godot/imported/completo_pescado.png-b48f40ee685c6631f2da0e45574529b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/Menu/salir.png"
-dest_files=["res://.godot/imported/salir.png-bd5c473a43b22bbcbb61f07d32e4e17d.ctex"]
+source_file="res://Assets/Sprites/objects/objects_32/completo_pescado.png"
+dest_files=["res://.godot/imported/completo_pescado.png-b48f40ee685c6631f2da0e45574529b9.ctex"]
 
 [params]
 

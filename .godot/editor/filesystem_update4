@@ -4,5 +4,8 @@ res://Assets/tile_1_set.tres
 res://Scenes/game.tscn
 res://Scenes/Music.tscn
 res://Scenes/Vfx.tscn
-res://Scripts/in_game/player.gd
-res://Scripts/Menú/menuopciones.gd
+res://Scenes/Tienda/Tienda.tscn
+res://Scenes/Menu/OpcionesMenu.tscn
+res://Scenes/pause_menu.tscn
+res://Scenes/in_game/money.tscn
+res://Scenes/in_game/time.tscn

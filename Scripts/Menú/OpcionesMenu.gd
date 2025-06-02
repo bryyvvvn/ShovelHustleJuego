@@ -21,6 +21,7 @@ func _ready() -> void:
 
 # VIDEO
 func _on_option_button_item_selected(index: int) -> void:
+	Vfx.play_vfx(0)
 	# Si el botón tiene 2 opciones, 0: ventana, 1: fullscreen
 	GlobalSettings.change_displayMode(index)
 

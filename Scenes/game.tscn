@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bkfu1g7h1acj5" path="res://Scenes/day_transition.tscn" id="12_rfjv2"]
 [ext_resource type="AudioStream" uid="uid://cfkl6v6enrmb3" path="res://Assets/Sonidos/Background Music/desert_background.mp3" id="15_nb51f"]
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" node_paths=PackedStringArray("money_ref")]
 y_sort_enabled = true
 script = ExtResource("1_wrm1d")
 tile_map_scene = ExtResource("2_ldgsr")
@@ -27,6 +27,7 @@ inventory_Scene = ExtResource("6_o5yvi")
 tienda_scene = ExtResource("7_o5yvi")
 inventory_inv = ExtResource("6_ldgsr")
 tienda_ui_scene = ExtResource("9_1phco")
+money_ref = NodePath("UI/money")
 
 [node name="UI" type="CanvasLayer" parent="."]
 scale = Vector2(2, 2)
@@ -55,6 +56,7 @@ offset_top = 6.0
 
 [node name="dayTransition" parent="UI" instance=ExtResource("12_rfjv2")]
 visible = false
+z_index = 100
 anchors_preset = -1
 anchor_right = 0.496
 anchor_bottom = 0.509

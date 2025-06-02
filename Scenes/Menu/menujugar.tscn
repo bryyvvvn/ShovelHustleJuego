@@ -41,6 +41,7 @@ texture = ExtResource("2_lbxjh")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
 offset_left = 390.0
 offset_top = 309.0
 offset_right = 696.0
@@ -129,4 +130,5 @@ offset_bottom = 27.0
 theme_override_font_sizes/font_size = 35
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Multiplayer" to="." method="_on_multiplayer_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Atrás" to="." method="_on_atrás_pressed"]

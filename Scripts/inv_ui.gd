@@ -61,6 +61,17 @@ func close():
 	visible = false 
 	is_open = false
 
+func onSlotClicked_R(slot):
+	if slot.isEmpty():
+		return
+		
+	if !itemInHand and slot.itemStackGui.InventorySlot.item != null:
+		if slot.itemStackGui.InventorySlot.item.tipo == "alimento":
+			get_parent().get_parent().energy += 10
+			eraseItem(slot)
+			return
+
+
 func onSlotClicked(slot):
 	print(slot.get_parent().get_parent().get_parent().name)
 	
@@ -100,6 +111,16 @@ func swapItems(slot):
 	itemInHand = tempItem
 	add_child(itemInHand)
 	updateItemInHand()
+
+func eraseItem(slot):
+	var index = slots.find(slot)
+	var slotItem: ItemStackGui = slot.itemStackGui
+	slotItem.InventorySlot.amount -= 1
+	if slotItem.InventorySlot.amount == 0:
+		slots[index].itemStackGui.InventorySlot.item = null
+		slotItem.queue_free()
+	slotItem.update()
+
 
 func stackItems(slot):
 	var slotItem: ItemStackGui = slot.itemStackGui

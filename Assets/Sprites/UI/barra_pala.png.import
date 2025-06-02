@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6nm61u18ofgv"
-path="res://.godot/imported/opciones.png-d33b35a59b6c019bec4254fa9fc12e8d.ctex"
+uid="uid://cdnowlftsaara"
+path="res://.godot/imported/barra_pala.png-4346cd7829754815960d3a8e9667644f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/Menu/opciones.png"
-dest_files=["res://.godot/imported/opciones.png-d33b35a59b6c019bec4254fa9fc12e8d.ctex"]
+source_file="res://Assets/Sprites/UI/barra_pala.png"
+dest_files=["res://.godot/imported/barra_pala.png-4346cd7829754815960d3a8e9667644f.ctex"]
 
 [params]
 
