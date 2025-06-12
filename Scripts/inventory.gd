@@ -1,43 +1,39 @@
-extends Node2D
+extends Resource
 
-const SlotClass = preload("res://Scripts/slot.gd")
-@onready var inventory_slots = $GridContainer
-var holding_item = null	
+class_name Inv
 
-func _ready():
-	visible = false
-	for inv_slot in inventory_slots.get_children():
-		inv_slot.gui_input.connect(slot_gui_input.bind(inv_slot))
-		
-func slot_gui_input(event: InputEvent, slot: SlotClass):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-			if holding_item != null:
-				if !slot.item:
-					slot.putIntoSlot(holding_item)
-					holding_item = null
-				else:
-					if holding_item.item_name != slot.item.item_name:
-						var temp_item = slot.item
-						slot.pickFromSlot()
-						temp_item.global_position = event.global_position
-						slot.putIntoSlot(holding_item)
-						holding_item = temp_item
-					else:
-						var stack_size : int = slot.item.item_data_resource.StackSize
-						var able_to_add = stack_size - slot.item.item_quantity
-						if able_to_add >= holding_item.item_quantity:
-							slot.item.add_item_quantity(holding_item.item_quantity)
-							holding_item.queue_free()
-							holding_item = null
-						else:
-							slot.item.add_item_quantity(able_to_add)
-							holding_item.decrease_item_quantity(able_to_add)
-			elif slot.item:
-				holding_item = slot.item
-				slot.pickFromSlot()
-				holding_item.global_position = get_global_mouse_position()
+signal update
 
-func _input(_event):
-	if holding_item:
-		holding_item.global_position = get_global_mouse_position()
+@export var slots: Array[InvSlot]
+
+func insert(item: objectData): 
+	var itemslots = slots.filter(func(slot): return !slot.is_empty() and slot.item == item and slot.amount < slot.item.StackSize)
+	
+	if !itemslots.is_empty():
+		itemslots[0].amount += 1
+	else:
+		var emptyslots = slots.filter(func(slot): return slot.is_empty())
+		if !emptyslots.is_empty():
+			emptyslots[0].item = item
+			emptyslots[0].amount = 1
+	
+	update.emit()
+
+func removeSlot(inventorySlot: InvSlot):
+	var index = slots.find(inventorySlot)
+	if index < 0: return
+	
+	slots[index] = InvSlot.new()
+
+func InsertSlot(index: int, inventorySlot: InvSlot):
+	slots[index] = inventorySlot
+	
+func clear_inventory():
+	slots.clear()
+	# Crear 24 slots vacíos correctamente inicializados
+	for i in range(24):
+		var slot = InvSlot.new()
+		slot.item = null  # Esto asegura que cada slot está vacío inicialmente
+		slot.amount = 0  # Inicializar la cantidad a 0
+		slots.append(slot)
+	print(slots)

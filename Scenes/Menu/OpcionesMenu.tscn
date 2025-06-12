@@ -1,0 +1,133 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddcw54fd42gtd"]
+
+[ext_resource type="Script" uid="uid://dypelbxr3v7ba" path="res://Scripts/Menú/OpcionesMenu.gd" id="1_qfvuh"]
+
+[node name="OpcionesMenu" type="Popup"]
+initial_position = 1
+size = Vector2i(1150, 650)
+visible = true
+script = ExtResource("1_qfvuh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 736.0
+offset_bottom = 499.0
+scale = Vector2(1.56419, 1.30359)
+size_flags_horizontal = 4
+color = Color(0.328179, 0.325362, 0.0610197, 1)
+
+[node name="SettingsTabs" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 40.0
+offset_bottom = 40.0
+current_tab = 0
+
+[node name="Video" type="TabBar" parent="SettingsTabs"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsTabs/Video"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VideoSettings" type="GridContainer" parent="SettingsTabs/Video/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Modo Pantalla" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+text = "Modo de pantalla"
+
+[node name="OptionButton" type="OptionButton" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+size_flags_horizontal = 10
+item_count = 2
+popup/item_0/text = "Ventana"
+popup/item_0/id = 0
+popup/item_1/text = "Pantalla completa"
+popup/item_1/id = 1
+
+[node name="FPS" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+text = "Mostrar FPS"
+
+[node name="CheckButton" type="CheckButton" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+
+[node name="Brillo" type="Label" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+text = "Brillo"
+
+[node name="BrilloContainer" type="HBoxContainer" parent="SettingsTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HSlider" type="HSlider" parent="SettingsTabs/Video/MarginContainer/VideoSettings/BrilloContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="Audio" type="TabBar" parent="SettingsTabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsTabs/Audio"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="SettingsTabs/Audio/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Volumen maestro" type="Label" parent="SettingsTabs/Audio/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Volumen total"
+
+[node name="HSlider4" type="HSlider" parent="SettingsTabs/Audio/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+min_value = -50.0
+max_value = 0.0
+value = -15.0
+
+[node name="Volumen música" type="Label" parent="SettingsTabs/Audio/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Volumen música"
+
+[node name="HSlider5" type="HSlider" parent="SettingsTabs/Audio/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+min_value = -50.0
+max_value = 0.0
+value = -15.0
+
+[node name="Volumen efectos" type="Label" parent="SettingsTabs/Audio/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Volumen efectos de sonido"
+
+[node name="HSlider6" type="HSlider" parent="SettingsTabs/Audio/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+min_value = -50.0
+max_value = 0.0
+value = -15.0
+
+[connection signal="item_selected" from="SettingsTabs/Video/MarginContainer/VideoSettings/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="toggled" from="SettingsTabs/Video/MarginContainer/VideoSettings/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="value_changed" from="SettingsTabs/Video/MarginContainer/VideoSettings/BrilloContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="SettingsTabs/Audio/MarginContainer/GridContainer/HSlider4" to="." method="_on_h_slider_4_value_changed"]
+[connection signal="value_changed" from="SettingsTabs/Audio/MarginContainer/GridContainer/HSlider5" to="." method="_on_h_slider_5_value_changed"]
+[connection signal="value_changed" from="SettingsTabs/Audio/MarginContainer/GridContainer/HSlider6" to="." method="_on_h_slider_6_value_changed"]

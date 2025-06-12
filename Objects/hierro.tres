@@ -1,12 +1,21 @@
-[gd_resource type="Resource" script_class="objectData" load_steps=2 format=3 uid="uid://c2s885el88ig3"]
+[gd_resource type="Resource" script_class="objectData" load_steps=5 format=3 uid="uid://c2s885el88ig3"]
 
-[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/objectData.gd" id="1_btw0d"]
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_eycmi"]
+[ext_resource type="AudioStream" uid="uid://dn2n2inf7t70w" path="res://Assets/Sonidos/Sonido_minerales/iron_dig.wav" id="2_885ad"]
+[ext_resource type="Texture2D" uid="uid://bwjwl7fdkmh31" path="res://Assets/Sprites/objects/objects_16/hierro.png" id="2_o26ak"]
+[ext_resource type="Texture2D" uid="uid://b52g262xggmc1" path="res://Assets/Sprites/objects/objects_32/hierro.png" id="3_885ad"]
 
 [resource]
-script = ExtResource("1_btw0d")
+script = ExtResource("1_eycmi")
 nombre = "hierro"
 tipo = "excavable"
-valor = 0
+valor = 7
 rareza = 0.0
 descripcion = ""
+indice = 0
+texture = ExtResource("2_o26ak")
+texture_inventory = ExtResource("3_885ad")
+StackSize = 99
+intervalo = Vector2(90, 95)
+sonido = ExtResource("2_885ad")
 metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"
