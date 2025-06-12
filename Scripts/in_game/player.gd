@@ -15,9 +15,9 @@ func _ready():
 	
 	$Camera2D.zoom = Vector2(1, 1) 
 
-var last_direction := Vector2.DOWN #la última dirección que tuvo el personaje (para play idle animations)	
+var last_direction := Vector2.DOWN #la última dirección que tuvo el personaje (para play idle animations)
 
-func direccion()->Vector2:
+func direccion() -> Vector2:
 	var direction := Vector2.ZERO
 
 	if Input.is_action_pressed("ui_right"):
@@ -28,25 +28,25 @@ func direccion()->Vector2:
 		direction.y += 1
 	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
-		
-	return direction
 	
+	return direction
+
+
 
 
 func _physics_process(delta):
 	if !is_active: #bloqueo de movimiento cuando minigame lod esactive
 		return
 	var direction = direccion()
-
 	if direction != Vector2.ZERO:
 		direction = direction.normalized()  # Diagonal speed fix
 		velocity = direction * speed
 		move_and_slide()
 		
 		last_direction = direction
+		
+		
 		Vfx.stop_music()
-		
-		
 		if abs(direction.x) > abs(direction.y):
 			$AnimatedSprite2D.animation = "walk_right" if direction.x > 0 else "walk_left"
 		else:
@@ -54,7 +54,8 @@ func _physics_process(delta):
 		
 		
 	else:
-		Vfx.play_vfx(1)
+		if !Vfx.is_playing():
+			Vfx.play_vfx(1)
 		
 		velocity = Vector2.ZERO
 		

@@ -15,7 +15,7 @@ func _ready() -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	# Asegura que la ventana sea redimensionable (por si vuelves a modo ventana)
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_RESIZE_DISABLED, false)
-	print("Pantalla completa activada al inicio.")
+	
 	FPS.button_pressed = true
 	GlobalSettings.change_fps(true)
 
@@ -33,11 +33,27 @@ func _on_h_slider_value_changed(value: float) -> void:
 	GlobalSettings.update_brillo(value)
 
 # AUDIO
+var prev_value = 0
+var plus = 0
+var music_db = 0
+var vfx_db = 0
 func _on_h_slider_4_value_changed(value: float) -> void:
+	if prev_value > value:
+		plus -= 1
+		Music.change_volume(music_db + plus)
+		Vfx.change_volume(vfx_db + plus)
+	else:
+		plus += 1
+		Music.change_volume(music_db + plus)
+		Vfx.change_volume(vfx_db + plus)
+	prev_value = value
 	pass # Replace with function body.
-
 func _on_h_slider_5_value_changed(value: float) -> void:
+	music_db = value + 15
+	Music.change_volume(music_db + plus)
 	pass # Replace with function body.
 
 func _on_h_slider_6_value_changed(value: float) -> void:
+	vfx_db = value + 15
+	Vfx.change_volume(vfx_db + plus)
 	pass # Replace with function body.

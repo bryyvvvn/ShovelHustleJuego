@@ -18,6 +18,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("tienda"): 
+		
 		if cerrado:
 			if enabled:
 				open()
@@ -25,6 +26,7 @@ func _input(event: InputEvent) -> void:
 			close()
 
 func open():
+	
 	visible = true
 	cerrado = false
 
@@ -34,6 +36,7 @@ func close():
 
 
 func _on_slot_pressed(slot):
+	
 	var player_inventory_ui := get_parent().get_node("Inv_UI")
 	var item = player_inventory_ui.itemInHand
 	
@@ -42,7 +45,7 @@ func _on_slot_pressed(slot):
 		
 		item.InventorySlot.amount = 0
 		item.queue_free()
-		Vfx.play_vfx(2)
+		
 		# Limpiar mano del jugador
 		player_inventory_ui.itemInHand = null
 		player_inventory_ui.oldIndex = -1
@@ -53,7 +56,7 @@ func onSlotClicked(slot):
 	itemInHand = player_inventory_ui.itemInHand
 	if itemInHand == null:
 		return
-	Vfx.play_vfx(0)
+	Vfx.play_sfx(0)
 	var precio = itemInHand.InventorySlot.item.valor
 	var cantidad = itemInHand.InventorySlot.amount
 	get_parent().get_parent().get_node("player").update_money(precio*cantidad)
@@ -61,9 +64,7 @@ func onSlotClicked(slot):
 	if slot.isEmpty():
 		if !itemInHand:
 			return
-
+		
 		slot.insert(itemInHand)  # Este ya destruye el item
 		player_inventory_ui.itemInHand = null
 		player_inventory_ui.oldIndex = -1
-	else:
-		pass

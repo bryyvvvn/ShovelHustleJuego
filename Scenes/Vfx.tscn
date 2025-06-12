@@ -9,3 +9,5 @@ script = ExtResource("1_5exor")
 volume_db = -5.622
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]

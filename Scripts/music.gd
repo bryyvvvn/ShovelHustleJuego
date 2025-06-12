@@ -17,6 +17,9 @@ func play_track(index: int):
 func stop_music():
 	player.stop()
 
+func change_volume(db: float):
+	player.volume_db = db
+	
 func is_playing() -> bool:
 	if player.playing:
 		return true
