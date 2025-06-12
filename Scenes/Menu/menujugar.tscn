@@ -1,0 +1,220 @@
+[gd_scene load_steps=17 format=3 uid="uid://buimqt415bwmt"]
+
+[ext_resource type="Script" uid="uid://byy3auevoboin" path="res://Scripts/Menú/menujugar.gd" id="1_tqyb3"]
+[ext_resource type="Texture2D" uid="uid://ddv52jfifid6n" path="res://Assets/Sprites/Menu/parallax/1b.png" id="2_uwxr5"]
+[ext_resource type="Texture2D" uid="uid://r1fc2wm8tsg7" path="res://Assets/Sprites/Menu/parallax/3b.png" id="3_nqsey"]
+[ext_resource type="FontFile" uid="uid://bvdg76kuywl8q" path="res://Assets/Fuentes/Kenney Pixel.ttf" id="3_wk4fv"]
+[ext_resource type="Texture2D" uid="uid://5yejdgcp00wf" path="res://Assets/Sprites/Menu/parallax/2b.png" id="3_wlpt7"]
+[ext_resource type="Texture2D" uid="uid://31iqbm1v34d1" path="res://Assets/Sprites/Menu/parallax/4b.png" id="4_wlpt7"]
+[ext_resource type="Script" uid="uid://brel7w8xiomi1" path="res://Scenes/Menu/camera_2d.gd" id="4_x34wt"]
+[ext_resource type="Texture2D" uid="uid://n227lv2nhixr" path="res://Assets/Sprites/Menu/parallax/5b.png" id="5_h8b27"]
+[ext_resource type="PackedScene" uid="uid://csy3btsxv5ajf" path="res://Scenes/Menu/FpsLabel.tscn" id="5_jgx7b"]
+[ext_resource type="Texture2D" uid="uid://cg0t0shxqhewh" path="res://Assets/Sprites/Menu/parallax/6b.png" id="6_pr1df"]
+[ext_resource type="Texture2D" uid="uid://dbxc41abk0stc" path="res://Assets/Sprites/Menu/parallax/7b.png" id="7_gfgmx"]
+[ext_resource type="Texture2D" uid="uid://dexgw2lnbk4er" path="res://Assets/Sprites/Menu/parallax/8b.png" id="8_g5f6n"]
+[ext_resource type="Texture2D" uid="uid://cmdxxvk6f4bon" path="res://Assets/Sprites/Menu/parallax/9b.png" id="9_ybo1w"]
+[ext_resource type="Texture2D" uid="uid://doode1riygl2f" path="res://Assets/Sprites/Menu/parallax/10b.png" id="10_orye5"]
+[ext_resource type="Texture2D" uid="uid://crylm2o01o6q2" path="res://Assets/Sprites/Menu/parallax/9.png" id="12_pr1df"]
+[ext_resource type="Script" uid="uid://dlpnak8tke828" path="res://Scripts/Menú/BotonHover.gd" id="14_h8b27"]
+
+[node name="MenuJugar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tqyb3")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1080, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(579, 338)
+scale = Vector2(3.66875, 3.85556)
+texture = ExtResource("2_uwxr5")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(568, 325)
+scale = Vector2(3.75, 3.74444)
+texture = ExtResource("3_wlpt7")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.02, 0.02)
+motion_mirroring = Vector2(1160, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(576.5, 328.5)
+scale = Vector2(3.68438, 3.72778)
+texture = ExtResource("3_nqsey")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(1150, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(573, 323.5)
+scale = Vector2(3.61875, 3.69444)
+texture = ExtResource("4_wlpt7")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.001, 0.001)
+motion_mirroring = Vector2(1150, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(572.5, 332.5)
+scale = Vector2(3.64687, 3.70556)
+texture = ExtResource("5_h8b27")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+position = Vector2(588, 307.5)
+scale = Vector2(4.00625, 4.06111)
+texture = ExtResource("6_pr1df")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.01, 0.01)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+position = Vector2(576.5, 320.5)
+scale = Vector2(3.65313, 3.71667)
+texture = ExtResource("7_gfgmx")
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
+position = Vector2(574.5, 324.5)
+scale = Vector2(3.60313, 3.63889)
+texture = ExtResource("8_g5f6n")
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1180, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9"]
+position = Vector2(581.5, 326)
+scale = Vector2(3.62812, 3.65556)
+texture = ExtResource("9_ybo1w")
+
+[node name="ParallaxLayer10" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1180, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer10"]
+position = Vector2(583, 330.5)
+scale = Vector2(3.76875, 3.72778)
+texture = ExtResource("10_orye5")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(574, 324.5)
+scale = Vector2(3.63125, 3.63889)
+texture = ExtResource("12_pr1df")
+
+[node name="ParallaxLayer11" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="ParallaxBackground/ParallaxLayer11"]
+offset_left = 58.0
+offset_top = 124.0
+offset_right = 684.0
+offset_bottom = 524.0
+scale = Vector2(1.03894, 1.0321)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer11/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 19
+
+[node name="Singleplayer" type="Button" parent="ParallaxBackground/ParallaxLayer11/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.252168, 0.611433, 0.826381, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_wk4fv")
+theme_override_font_sizes/font_size = 70
+text = "SINGLEPLAYER"
+flat = true
+script = ExtResource("14_h8b27")
+tamano_fuente_extra = 10
+
+[node name="TextureButton" type="TextureButton" parent="ParallaxBackground/ParallaxLayer11/MarginContainer/VBoxContainer/Singleplayer"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Multiplayer" type="Button" parent="ParallaxBackground/ParallaxLayer11/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.25098, 0.611765, 0.827451, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_wk4fv")
+theme_override_font_sizes/font_size = 70
+text = "MULTIPLAYER"
+flat = true
+script = ExtResource("14_h8b27")
+
+[node name="TextureButton" type="TextureButton" parent="ParallaxBackground/ParallaxLayer11/MarginContainer/VBoxContainer/Multiplayer"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.132
+offset_top = -58.3336
+offset_right = 25.868
+offset_bottom = 60.6664
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Atrás" type="Button" parent="ParallaxBackground/ParallaxLayer11/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.25098, 0.611765, 0.827451, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_wk4fv")
+theme_override_font_sizes/font_size = 70
+text = "ATRAS"
+flat = true
+script = ExtResource("14_h8b27")
+
+[node name="TextureButton" type="TextureButton" parent="ParallaxBackground/ParallaxLayer11/MarginContainer/VBoxContainer/Atrás"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -47.0
+offset_right = 35.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="FpsLabel" parent="ParallaxBackground/ParallaxLayer11" instance=ExtResource("5_jgx7b")]
+offset_right = 35.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 35
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(570, 327)
+script = ExtResource("4_x34wt")
+
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer11/MarginContainer/VBoxContainer/Singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer11/MarginContainer/VBoxContainer/Singleplayer" to="ParallaxBackground/ParallaxLayer11/MarginContainer/VBoxContainer/Singleplayer" method="_on_pressed"]
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer11/MarginContainer/VBoxContainer/Multiplayer" to="." method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer11/MarginContainer/VBoxContainer/Atrás" to="." method="_on_atrás_pressed"]

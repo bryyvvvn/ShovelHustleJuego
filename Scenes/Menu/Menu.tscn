@@ -1,0 +1,244 @@
+[gd_scene load_steps=20 format=3 uid="uid://dxm8su0t4j3b6"]
+
+[ext_resource type="Script" uid="uid://c753k4crroeiy" path="res://Scripts/Menú/menú.gd" id="1_r7quk"]
+[ext_resource type="Texture2D" uid="uid://b6nxmootuqdcc" path="res://Assets/Sprites/Menu/parallax/1.png" id="2_et8ab"]
+[ext_resource type="Texture2D" uid="uid://rwcicmqv7fof" path="res://Assets/Sprites/Menu/parallax/2.png" id="3_7fq4t"]
+[ext_resource type="Texture2D" uid="uid://c71jpcqkfwkp8" path="res://Assets/Sprites/Menu/jugar.png" id="3_8mdum"]
+[ext_resource type="FontFile" uid="uid://bvdg76kuywl8q" path="res://Assets/Fuentes/Kenney Pixel.ttf" id="3_l7xyq"]
+[ext_resource type="Texture2D" uid="uid://d3o46q81aeiwn" path="res://Assets/Sprites/Menu/parallax/3.png" id="4_c61og"]
+[ext_resource type="Texture2D" uid="uid://6nm61u18ofgv" path="res://Assets/Sprites/Menu/opciones.png" id="4_qxn1j"]
+[ext_resource type="Texture2D" uid="uid://dwklgk6ksp1ab" path="res://Assets/Sprites/Menu/parallax/4.png" id="5_kqh14"]
+[ext_resource type="Texture2D" uid="uid://clgvkrdi6ruhi" path="res://Assets/Sprites/Menu/salir.png" id="5_u82wc"]
+[ext_resource type="Texture2D" uid="uid://bsqu4iwj02gd6" path="res://Assets/Sprites/Menu/parallax/6.png" id="6_7fq4t"]
+[ext_resource type="Texture2D" uid="uid://cpanr6p6pl6fu" path="res://Assets/Sprites/Menu/parallax/5.png" id="6_kqh14"]
+[ext_resource type="Texture2D" uid="uid://b35hg6w4wj4l4" path="res://Assets/Sprites/Menu/parallax/7.png" id="6_ooplh"]
+[ext_resource type="PackedScene" uid="uid://ddcw54fd42gtd" path="res://Scenes/Menu/OpcionesMenu.tscn" id="7_h7084"]
+[ext_resource type="Script" uid="uid://brel7w8xiomi1" path="res://Scenes/Menu/camera_2d.gd" id="8_c61og"]
+[ext_resource type="PackedScene" uid="uid://csy3btsxv5ajf" path="res://Scenes/Menu/FpsLabel.tscn" id="8_uw0ty"]
+[ext_resource type="Texture2D" uid="uid://crylm2o01o6q2" path="res://Assets/Sprites/Menu/parallax/9.png" id="9_i80xk"]
+[ext_resource type="Texture2D" uid="uid://kf3x3fdmhngl" path="res://Assets/Sprites/Menu/parallax/8.png" id="9_o0fcc"]
+[ext_resource type="Script" uid="uid://dlpnak8tke828" path="res://Scripts/Menú/BotonHover.gd" id="10_1upnj"]
+[ext_resource type="Texture2D" uid="uid://blf7lcg0en1xn" path="res://Assets/Sprites/Menu/parallax/10.png" id="10_o0fcc"]
+
+[node name="Menú" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r7quk")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1080, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(567, 328)
+scale = Vector2(5.11875, 4.71667)
+texture = ExtResource("2_et8ab")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(14, 79)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(546, 338)
+scale = Vector2(5.63438, 4.53889)
+texture = ExtResource("3_7fq4t")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-5, 35)
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(1250, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(567, 325)
+scale = Vector2(4.08437, 3.78333)
+texture = ExtResource("4_c61og")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(-6, -6)
+texture = ExtResource("5_kqh14")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-7, -199)
+motion_scale = Vector2(0.07, 0.07)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(604, 538)
+scale = Vector2(4, 4)
+texture = ExtResource("6_kqh14")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-10, -9)
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+position = Vector2(601, 354)
+scale = Vector2(4, 4)
+texture = ExtResource("6_7fq4t")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+position = Vector2(565, 358.5)
+scale = Vector2(3.75625, 3.79444)
+texture = ExtResource("6_ooplh")
+
+[node name="MarginContainer" type="MarginContainer" parent="ParallaxBackground/ParallaxLayer7"]
+offset_left = 440.0
+offset_top = 315.0
+offset_right = 649.0
+offset_bottom = 536.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer7/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 19
+
+[node name="Jugar" type="Button" parent="ParallaxBackground/ParallaxLayer7/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.252168, 0.611433, 0.826381, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_l7xyq")
+theme_override_font_sizes/font_size = 70
+text = "JUGAR"
+flat = true
+script = ExtResource("10_1upnj")
+
+[node name="TextureButton" type="TextureButton" parent="ParallaxBackground/ParallaxLayer7/MarginContainer/VBoxContainer/Jugar"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_8mdum")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Opciones" type="Button" parent="ParallaxBackground/ParallaxLayer7/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.25098, 0.611765, 0.827451, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_l7xyq")
+theme_override_font_sizes/font_size = 70
+text = "OPCIONES"
+flat = true
+script = ExtResource("10_1upnj")
+
+[node name="TextureButton" type="TextureButton" parent="ParallaxBackground/ParallaxLayer7/MarginContainer/VBoxContainer/Opciones"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -58.0
+offset_right = 26.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_qxn1j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Salir" type="Button" parent="ParallaxBackground/ParallaxLayer7/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.25098, 0.611765, 0.827451, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_l7xyq")
+theme_override_font_sizes/font_size = 70
+text = "SALIR"
+flat = true
+script = ExtResource("10_1upnj")
+
+[node name="TextureButton" type="TextureButton" parent="ParallaxBackground/ParallaxLayer7/MarginContainer/VBoxContainer/Salir"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -47.0
+offset_right = 31.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_u82wc")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(4, 18)
+motion_scale = Vector2(0.001, 0.001)
+motion_mirroring = Vector2(1700, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
+position = Vector2(616, 297)
+scale = Vector2(4, 4)
+texture = ExtResource("9_o0fcc")
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(400, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9"]
+position = Vector2(570, 330)
+scale = Vector2(3.7, 3.7)
+texture = ExtResource("9_i80xk")
+
+[node name="ParallaxLayer10" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer10"]
+position = Vector2(562, 369)
+scale = Vector2(4, 4)
+texture = ExtResource("10_o0fcc")
+
+[node name="ParallaxLayer11" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer11"]
+
+[node name="Camera2D" type="Camera2D" parent="ParallaxBackground"]
+position = Vector2(573, 326)
+script = ExtResource("8_c61og")
+
+[node name="ParallaxLayer12" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ParallaxBackground/ParallaxLayer12"]
+offset_left = 431.0
+offset_top = 591.0
+offset_right = 829.0
+offset_bottom = 649.0
+
+[node name="Label" type="Label" parent="ParallaxBackground/ParallaxLayer12/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("3_l7xyq")
+theme_override_font_sizes/font_size = 50
+text = "Fruna Games Inc."
+horizontal_alignment = 1
+
+[node name="FpsLabel" parent="ParallaxBackground/ParallaxLayer12" instance=ExtResource("8_uw0ty")]
+offset_right = 35.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 35
+
+[node name="OpcionesMenu" parent="." instance=ExtResource("7_h7084")]
+visible = false
+
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer7/MarginContainer/VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer7/MarginContainer/VBoxContainer/Opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer7/MarginContainer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

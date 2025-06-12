@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx25plwhja0ss"]
+
+[ext_resource type="Script" uid="uid://c2bgwk0rodg2c" path="res://Scripts/in_game/area_2d.gd" id="1_aig4j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqgly"]
+radius = 5.09902
+
+[node name="Area2D" type="Area2D"]
+z_index = 5
+y_sort_enabled = true
+collision_layer = 2
+script = ExtResource("1_aig4j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pqgly")
+
+[node name="sonido" type="AudioStreamPlayer3D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
