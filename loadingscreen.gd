@@ -1,5 +1,5 @@
 extends Control
-
+ #0ola
 @export var next_scene_path := "res://Scenes/game.tscn"
 
 func _ready():
