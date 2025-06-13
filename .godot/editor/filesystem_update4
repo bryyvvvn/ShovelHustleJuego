@@ -9,3 +9,5 @@ res://Scenes/game.tscn
 res://Scenes/quick_bar.gd
 res://Inventario/quick_bar_slot.gd
 res://Scripts/Inventory.gd
+res://Inventario/inv_ui.tscn
+res://Scripts/inv_ui.gd

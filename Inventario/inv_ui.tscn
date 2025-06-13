@@ -40,48 +40,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 56.8301
-offset_top = 25.824
-offset_right = -50.1699
-offset_bottom = -23.176
+offset_left = 56.0
+offset_top = 74.0
+offset_right = -51.0
+offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.992725, 0.995736)
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 20
 columns = 8
-
-[node name="inv_UI_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
-custom_minimum_size = Vector2(34, 34)
-layout_mode = 2
-
-[node name="inv_UI_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="inv_UI_slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="inv_UI_slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="inv_UI_slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="inv_UI_slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="inv_UI_slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="inv_UI_slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
 
 [node name="inv_UI_slot9" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
 custom_minimum_size = Vector2(34, 34)
@@ -145,4 +113,44 @@ layout_mode = 2
 
 [node name="inv_UI_slot24" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xwfiy")]
 custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 25.0
+offset_right = 394.0
+offset_bottom = 59.0
+theme_override_constants/separation = 11
+
+[node name="inv_UI_slot" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+
+[node name="inv_UI_slot2" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="inv_UI_slot3" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="inv_UI_slot4" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="inv_UI_slot5" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="inv_UI_slot6" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="inv_UI_slot7" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="inv_UI_slot8" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_xwfiy")]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
