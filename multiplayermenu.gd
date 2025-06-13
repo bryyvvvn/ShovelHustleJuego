@@ -30,7 +30,7 @@ func _on_message_received(message: String):
 	match msg.event:
 		"connected-to-server":
 			_my_id = msg.data.id  #agregar forma de ponerse nombre
-			status_label.text = "Connected as %s" % _my_id
+			status_label.text = "Conectado como %s" % _my_id
 		"get-connected-players":
 			_update_player_list(msg.data)
 		"player-connected":
@@ -40,7 +40,7 @@ func _on_message_received(message: String):
 		"match-invite":
 			_show_invite_popup(msg.data.from)
 		"match-start":
-			status_label.text = "Match starting with %s" % msg.data.opponent
+			status_label.text = "Match con %s" % msg.data.opponent
 			get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func _send_get_user_list():
@@ -73,10 +73,14 @@ func _show_invite_popup(from_id: String):
 	popup.dialog_text = "%s challenged you to a match!" % from_id
 	popup.confirmed.connect(func():
 		var msg = {
-			"event": "match-accepted", #AGREGAR LA REAL INTERACCIÓN. SE ABRE JUEGO Y SE EMPIEZAN A MANDAR MENSAJES CONSTANTEMENTE
+			"event": "match-accepted", #AGREGAR LA REAL INTERACCIÓN. SE ABRE JUEGO Y SE EMPIEZAN A MANDAR MENSAJES CONSTANTEMENTE EN ESTE MISMO FORMATO var msg = { "event" : "ataque.ejemplo" } y data del jugador blabla
 			"data": { "opponent": from_id }
 		}
 		_client.send(JSON.stringify(msg))
 	)
 	add_child(popup)
 	popup.popup_centered()
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Menu/menujugar.tscn")
