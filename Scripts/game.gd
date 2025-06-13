@@ -182,6 +182,7 @@ func _ready() -> void:
 	trans.connect("transition_done", Callable(self, "_on_transition_done"))
 	
 	Music.play_track(1)
+	Music.start_random_music()
 
 func _input(event):
 	#para el menú de pausa
@@ -278,6 +279,8 @@ func _physics_process(delta: float) -> void:
 	var simulated_minutes: float = morning * 60 + ratio * (24 * 60 - morning * 60)
 	var hours := int(simulated_minutes) / 60
 	var minutes := int(simulated_minutes) % 60
+	
+	
 
 	$UI/time/clockContainer/hora.text = "%02d:%02dHRS" % [hours, minutes]
 	

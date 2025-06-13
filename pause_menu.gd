@@ -16,5 +16,6 @@ func _on_Guardar_pressed():
 	
 func _on_Salir_pressed():
 	Vfx.play_vfx(0)
+	Music.stop_song()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/Menu/Menu.tscn")

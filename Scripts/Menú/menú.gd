@@ -9,7 +9,7 @@ func _ready():
 func _on_salir_pressed() -> void:
 	Vfx.play_vfx(0)
 	Music.stop_music()
-	get_tree().quit()	
+	get_tree().quit()
 	
 func _on_opciones_pressed() -> void:
 	Vfx.play_vfx(0)
