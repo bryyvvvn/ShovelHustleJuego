@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3bljqjqx3jos"]
+
+[ext_resource type="Script" uid="uid://c6lpmg26l8v6v" path="res://Scenes/quick_bar.gd" id="1_6n63m"]
+[ext_resource type="PackedScene" uid="uid://0obgegn8ur61" path="res://Inventario/QuickBarSlot.tscn" id="1_a5pxt"]
+
+[node name="QuickBar" type="HBoxContainer"]
+offset_right = 191.0
+offset_bottom = 34.0
+script = ExtResource("1_6n63m")
+
+[node name="QuickBarSlot" parent="." instance=ExtResource("1_a5pxt")]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="QuickBarSlot2" parent="." instance=ExtResource("1_a5pxt")]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="QuickBarSlot3" parent="." instance=ExtResource("1_a5pxt")]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="QuickBarSlot4" parent="." instance=ExtResource("1_a5pxt")]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="QuickBarSlot5" parent="." instance=ExtResource("1_a5pxt")]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2

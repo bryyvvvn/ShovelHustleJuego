@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5q7r24fnv3r1"]
+[gd_scene load_steps=17 format=3 uid="uid://c5q7r24fnv3r1"]
 
 [ext_resource type="PackedScene" uid="uid://cp3jbpbcxvee6" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://cwkl3xsv42ugb" path="res://Scripts/game.gd" id="1_wrm1d"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c8pokw5frmagu" path="res://Scenes/Tienda/tienda_ui.tscn" id="9_1phco"]
 [ext_resource type="PackedScene" uid="uid://csy3btsxv5ajf" path="res://Scenes/Menu/FpsLabel.tscn" id="11_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://bkfu1g7h1acj5" path="res://Scenes/day_transition.tscn" id="12_rfjv2"]
+[ext_resource type="PackedScene" uid="uid://b3bljqjqx3jos" path="res://Scenes/quick_bar.tscn" id="14_nnt18"]
 [ext_resource type="AudioStream" uid="uid://cfkl6v6enrmb3" path="res://Assets/Sonidos/Background Music/desert_background.mp3" id="15_nb51f"]
 
 [node name="game" type="Node2D" node_paths=PackedStringArray("money_ref")]
@@ -62,6 +63,12 @@ anchor_right = 0.496
 anchor_bottom = 0.509
 offset_right = -0.392029
 offset_bottom = 0.167999
+
+[node name="QuickBar" parent="UI" instance=ExtResource("14_nnt18")]
+offset_left = 179.0
+offset_top = 257.0
+offset_right = 410.0
+offset_bottom = 291.0
 
 [node name="FpsLabel" parent="." instance=ExtResource("11_o5yvi")]
 visible = false
