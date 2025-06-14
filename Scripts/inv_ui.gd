@@ -149,19 +149,29 @@ func updateItemInHand():
 	itemInHand.global_position = get_global_mouse_position() - itemInHand.size / 2
 
 func putItemBack():
-	if oldIndex < 0:
-		var emptySlots = slots.filter(func (s): return s.isEmpty())
-		if emptySlots.is_empty(): return
-		oldIndex = emptySlots[0].index
+	if not itemInHand:
+		print("no item")
+		return
+	var player_node = get_tree().get_first_node_in_group("player")
+	if not player_node:
+		print("no player")
+		return
 	
-	var targetSlot = slots[oldIndex]
-	insertItemInSlot(targetSlot)
+	var item_data_to_drop = itemInHand.InventorySlot.item
+	var amount_to_drop = itemInHand.InventorySlot.amount
+	
+	inv.drop_loose_item(item_data_to_drop, amount_to_drop, player_node.global_position)
+	remove_child(itemInHand)
+	itemInHand.queue_free()
+	itemInHand = null # Asegúrate de limpiar la referencia
+	oldIndex = -1 # Reseteamos el índice antiguo
 
 func _input(event: InputEvent) -> void:
 	if itemInHand && Input.is_action_just_pressed("rightClick"):
 		putItemBack()
 	updateItemInHand()
 	
+
 func removeItemInHandFromInventory():
 	if itemInHand:
 		inv.removeSlot(itemInHand.InventorySlot)

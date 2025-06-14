@@ -3,6 +3,7 @@ extends Resource
 class_name Inv
 
 signal update
+signal item_dropped(item_data: objectData, amount: int, drop_position: Vector2) # <-- Add this line!
 
 @export var slots: Array[InvSlot]
 
@@ -30,6 +31,7 @@ func InsertSlot(index: int, inventorySlot: InvSlot):
 	slots[index] = inventorySlot
 	update.emit()
 	
+
 func clear_inventory():
 	slots.clear()
 	# Crear 24 slots vacíos correctamente inicializados
@@ -39,3 +41,12 @@ func clear_inventory():
 		slot.amount = 0  # Inicializar la cantidad a 0
 		slots.append(slot)
 	print(slots)
+
+func drop_loose_item(item_data: objectData, amount: int, drop_position: Vector2):
+	if not item_data:
+		print("no item data")
+		return
+	if amount <= 0:
+		return
+	
+	item_dropped.emit(item_data, amount, drop_position)
