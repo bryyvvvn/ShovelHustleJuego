@@ -10,6 +10,7 @@ extends Node2D
 @export var tienda_ui_scene: PackedScene
 @export var money_ref : Node
 
+
 var player : CharacterBody2D
 var tile_map
 var shovel

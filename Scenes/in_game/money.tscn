@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbe2ymyiloo68"]
+[gd_scene load_steps=5 format=3 uid="uid://dbe2ymyiloo68"]
 
 [ext_resource type="Script" uid="uid://cxjh5corcs5j" path="res://Scripts/in_game/label.gd" id="1_63yw1"]
+[ext_resource type="Script" uid="uid://b7rnnpjhslwrd" path="res://Scenes/in_game/money.gd" id="1_ehrwl"]
 [ext_resource type="Texture2D" uid="uid://cp8vyuosugyhr" path="res://Assets/Sprites/objects/coin_spin-Sheet.png" id="1_no3si"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_63yw1"]
@@ -14,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ehrwl")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0

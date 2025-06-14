@@ -8,7 +8,7 @@ var tienda
 var game_scene : Node2D
 
 var is_active := true
-var money := 0
+var money := 1000
 
 
 func _ready():
