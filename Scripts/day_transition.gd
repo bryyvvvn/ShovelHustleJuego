@@ -49,30 +49,32 @@ func setup(dia: int, dinero: int, cuota: int, tiene_dinero: bool, perdida: int):
 	resultado_label.modulate.a = 0
 	continuar_btn.modulate.a = 0
 	money_label.modulate.a = 0
-	animar_descuento()
 	coin.modulate.a = 0
 	robo.modulate.a = 0
 	
-	var tween = create_tween()
-	tween.tween_property(fade, "color:a", 1.0, 1.5)
-	tween.tween_property(dia_label, "modulate:a", 1.0, 1.5)
-	tween.tween_property(cuota_label, "modulate:a", 1.0, 1.5)
+	var tween = create_tween().set_parallel(false)
+	tween.tween_property(fade, "color:a", 1.0, 1)
+	tween.tween_property(dia_label, "modulate:a", 1.0, 1)
+	tween.tween_property(cuota_label, "modulate:a", 1.0, 1)
 	if perdida > 0:
-		tween.tween_property(robo, "modulate:a", 1.0, 1.5)
-	tween.tween_property(money_label, "modulate:a", 1.0, 1.5)
-	tween.tween_property(coin,"modulate:a",1.0,0.8)
-	tween.tween_property(resultado_label, "modulate:a", 1.0, 1.5)
-	tween.tween_property(continuar_btn, "modulate:a", 1.0, 1.5)
+		tween.tween_property(robo, "modulate:a", 1.0, 1)
+	tween.tween_property(money_label, "modulate:a", 1.0, 1)
+	await tween.finished
+	animar_descuento()
+
 	
 func animar_descuento():
-	var tween = create_tween()
-	tween.set_parallel(false)  
+	var atween = create_tween()
+	atween.set_parallel(false)  
 
-	var duracion := 5
-	tween.tween_method(
+	var duracion := 2
+	atween.tween_method(
 		func(valor): money_label.text = "$%d" % valor,
 		dinero_actual, dinero_final, duracion
 	)
+	atween.tween_property(coin,"modulate:a",1.0,0.8)
+	atween.tween_property(resultado_label, "modulate:a", 1.0, 1)
+	atween.tween_property(continuar_btn, "modulate:a", 1.0, 1)
 
 var menu_scene := preload("res://Scenes/Menu/Menu.tscn")
 func _on_continuar_Btn_pressed() -> void:
