@@ -214,6 +214,7 @@ func nextday(force : bool = false) -> void:
 	day_ended = true
 	
 func _on_transition_done(success: bool):
+	self.set_process(true)
 	if success:
 		day += 1
 		time_elapsed = 0.0
@@ -250,7 +251,7 @@ func _physics_process(delta: float) -> void:
 	
 	if energy <= 0:
 		nextday(true)  # perdido por agotamiento
-	
+		self.set_process(false)
 	#if player.is_in_bed:
 		
 	
@@ -258,6 +259,7 @@ func _physics_process(delta: float) -> void:
 	time_elapsed += delta
 	if time_elapsed >= total_seconds:
 		nextday(true)
+		self.set_process(false)
 	var ratio : float = clamp(time_elapsed / total_seconds, 0.0, 1.0)
 	var simulated_minutes: float = morning * 60 + ratio * (24 * 60 - morning * 60)
 	var hours := int(simulated_minutes) / 60
