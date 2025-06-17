@@ -33,10 +33,10 @@ func _on_h_slider_value_changed(value: float) -> void:
 
 # AUDIO
 func _on_h_slider_4_value_changed(value: float) -> void:
-	pass # Replace with function body.
+	pass 
 
 func _on_h_slider_5_value_changed(value: float) -> void:
-	pass # Replace with function body.
+	pass 
 
 func _on_h_slider_6_value_changed(value: float) -> void:
-	pass # Replace with function body.
+	pass 
