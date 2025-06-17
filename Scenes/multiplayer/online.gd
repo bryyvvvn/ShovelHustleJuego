@@ -1,14 +1,16 @@
 extends Control
 
 # URL de conexión
-var _host = "ws://ucn-game-server.martux.cl:4010/"
-@onready var _client: WebSocketClient = $WebSocketClient
 
-# Señales
-# Cuando se cierra la conexión
-func _on_web_socket_client_connection_closed():
-	var ws = _client.get_socket()
-	_sendToChatDisplay("Client just disconnected with code: %s, reason: %s" % [ws.get_close_code(), ws.get_close_reason()])
+@onready var _client = WebSocketClient
+
+
+var _host = "ws://ucn-game-server.martux.cl:4010/"
+var _my_id = ""
+
+func _ready():
+	GlobalSettings.change_displayMode(0)
+	var err = _client.connect_to_url(_host)
 
 # Cuando se conecta al servidor
 func _on_web_socket_client_connected_to_server():
@@ -19,23 +21,10 @@ func _on_web_socket_client_message_received(message: String):
 	var response = JSON.parse_string(message)
 	
 	match(response.event):
-		"connected-to-server":
-			_sendToChatDisplay("You are connected to the server!")
-		"public-message":
-			_sendToChatDisplay("%s: %s" % [response.data.id, response.data.msg])
-		"get-connected-players":
-			_updateUserList(response.data)
-		"player-connected":
-			_addUserToList(response.data.id)
 		"player-disconnected":
-			_deleteUserFromList(response.data.id)
+			pass
 
 
-# Funciones de la clase
-# Agrega un mensaje en la pantalla de chat
-func _sendToChatDisplay(msg):
-	print(msg)
-	chat_display.text += str(msg) + "\n"
 
 # Envía un mensaje a un usuario o al chat grupal y manda la solicitud al servidor
 func _sendMessage(message: String, userId: String = ''):
@@ -60,21 +49,3 @@ func _sendGetUserListEvent():
 		"event": 'get-connected-players'
 	}
 	_client.send(JSON.stringify(dataToSend))
-
-# Actualiza la lista de usuarios de la interfaz gráfica
-func _updateUserList(users: Array):
-	player_list.clear()
-	for user in users:
-		player_list.add_item(user)
-
-# Agrega un jugador al listado
-func _addUserToList(user: String):
-	player_list.add_item(user)
-
-# Elimina un jugador del listado
-func _deleteUserFromList(userId: String):
-	var playerListCount = player_list.item_count
-	for i in range(0, playerListCount):
-		if(player_list.get_item_text(i) == userId):
-			player_list.remove_item(i)
-			return

@@ -142,6 +142,8 @@ func init_inventory() -> void:
 
 @onready var trans = $UI/dayTransition
 func _ready() -> void:
+	$"AudioStreamPlayer2D"
+	$"AudioStreamPlayer2D".play()
 	init_world()
 	init_player()
 	init_shovel()
@@ -179,6 +181,7 @@ func _input(event):
 			shovel.get_node("succesfull_dig").play()
 			tile_map.bloque_cavado(mouse_pos)
 			init_mineral()
+			online._sendMessage("succesful_dig",'')
 		else:
 			shovel.get_node("fail_dig").play()
 			energy -= 8
