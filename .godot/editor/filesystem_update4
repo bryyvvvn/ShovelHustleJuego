@@ -1,7 +1,0 @@
-res://Scenes/Menu/Menu.tscn
-res://Inventario/playerInv.tres
-res://Scripts/inv_ui.gd
-res://Assets/tile_1_set.tres
-res://Scripts/world/proc_world_4.gd
-res://Scripts/Menú/menujugar.gd
-res://Assets/tile_set.tres
