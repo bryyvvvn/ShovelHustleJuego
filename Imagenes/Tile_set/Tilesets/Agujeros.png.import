@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4k4ucsbwd1sq"
-path="res://.godot/imported/Fondo.png-f70fddc52b2ce5f8778f299744904cb4.ctex"
+uid="uid://bqeqbem6bwdw7"
+path="res://.godot/imported/Agujeros.png-0eee66c370462332615b4bc1040944f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/Fondo.png"
-dest_files=["res://.godot/imported/Fondo.png-f70fddc52b2ce5f8778f299744904cb4.ctex"]
+source_file="res://Imagenes/Tile_set/Tilesets/Agujeros.png"
+dest_files=["res://.godot/imported/Agujeros.png-0eee66c370462332615b4bc1040944f6.ctex"]
 
 [params]
 
