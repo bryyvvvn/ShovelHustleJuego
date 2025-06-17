@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqcmrnxxoym73"]
+
+[ext_resource type="Script" uid="uid://bmg0640khngqi" path="res://Scripts/vfx.gd" id="1_5exor"]
+
+[node name="Vfx" type="Node"]
+script = ExtResource("1_5exor")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -5.622
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]

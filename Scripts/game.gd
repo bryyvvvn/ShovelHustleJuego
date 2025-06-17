@@ -32,6 +32,8 @@ var max_days: int = 7
 var cuota_diaria = 550
 var day_ended = false
 
+var mineral_sound : int
+
 func init_tienda()-> void:
 	randomize()
 	var angulo = deg_to_rad(randi() % 361) ## el resto de una division siempre sera un numero entre 0 y el divisor
@@ -64,35 +66,43 @@ func init_mineral() -> void:
 	elif mineral < basura.intervalo.y and mineral > basura.intervalo.x:
 		object.data = basura
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 0
 		
 	elif mineral > tuberculo.intervalo.x and mineral <= tuberculo.intervalo.y:
 		object.data = tuberculo
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 1
 		
 	elif mineral > piedra.intervalo.x and mineral <= piedra.intervalo.y:
 		object.data = piedra
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 2
 		
 	elif mineral > carbon.intervalo.x and mineral <= carbon.intervalo.y:
 		object.data = carbon
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 3
 
 	elif mineral > hierro.intervalo.x and mineral <= hierro.intervalo.y:
 		object.data = hierro
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 4
 
 	elif mineral > plata.intervalo.x and mineral <= plata.intervalo.y:
 		object.data = plata
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 5
 
 	elif mineral > oro.intervalo.x and mineral <= oro.intervalo.y :
 		object.data = oro
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 6
 	
 	elif mineral > diamante.intervalo.x:
 		print(diamante.intervalo.x)
 		object.data = diamante
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 7
 		
 	var angulo = deg_to_rad(randi() % 361)
 	var dir = Vector2(cos(angulo),sin(angulo))  # o cualquier dirección (arriba, abajo, etc.)
@@ -152,21 +162,27 @@ func init_tienda_ui() -> void:
 	$UI.add_child(tienda_ui)
 
 
+
+	#var inv = Inv.new()
+	#inventory.set_inventory(inv)  # Aquí lo conectas
+	#inventory.inv.slots[0].item = pala
+	#inventory.inv.slots[0].amount = 1
+	#inventory.inv.update.emit()
+
+
 @onready var trans = $UI/dayTransition
 func _ready() -> void:
-	$"AudioStreamPlayer2D"
-	$"AudioStreamPlayer2D".play()
+	
 	init_world()
 	init_player()
 	init_shovel()
 	init_tienda()
 	init_tienda_ui()
 	init_inventory()
-	var object = objects_scene.instantiate()
-	object.data = preload("res://Objects/tuberculo.tres")
-	add_child(object)
-	
 	trans.connect("transition_done", Callable(self, "_on_transition_done"))
+	
+	Music.play_track(1)
+	Music.start_random_music()
 
 func _input(event):
 	#para el menú de pausa
@@ -195,6 +211,7 @@ func _input(event):
 			shovel.get_node("succesfull_dig").play()
 			tile_map.bloque_cavado(mouse_pos)
 			init_mineral()
+			Vfx.play_mineral(mineral_sound)
 		else:
 			shovel.get_node("fail_dig").play()
 			energy -= 8
@@ -264,6 +281,8 @@ func _physics_process(delta: float) -> void:
 	var simulated_minutes: float = morning * 60 + ratio * (24 * 60 - morning * 60)
 	var hours := int(simulated_minutes) / 60
 	var minutes := int(simulated_minutes) % 60
+	
+	
 
 	$UI/time/clockContainer/hora.text = "%02d:%02dHRS" % [hours, minutes]
 	

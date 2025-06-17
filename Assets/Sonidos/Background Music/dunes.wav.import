@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bm86jge40oc65"
+path="res://.godot/imported/dunes.wav-ca520b25ade9eabcbb5aed6b0cbb55fa.sample"
+
+[deps]
+
+source_file="res://Assets/Sonidos/Background Music/dunes.wav"
+dest_files=["res://.godot/imported/dunes.wav-ca520b25ade9eabcbb5aed6b0cbb55fa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
