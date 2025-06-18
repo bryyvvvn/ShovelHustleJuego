@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=3 uid="uid://dablr6wjoqw87"]
+
+[ext_resource type="Script" uid="uid://cf88gyi41lm0m" path="res://Scripts/in_game/loadingscreen.gd" id="1_wpi8d"]
+[ext_resource type="Texture2D" uid="uid://cp8vyuosugyhr" path="res://Assets/Sprites/objects/coin_spin-Sheet.png" id="2_wpi8d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m1o2"]
+atlas = ExtResource("2_wpi8d")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fm0r"]
+atlas = ExtResource("2_wpi8d")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gckle"]
+atlas = ExtResource("2_wpi8d")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4oxw"]
+atlas = ExtResource("2_wpi8d")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rqmf"]
+atlas = ExtResource("2_wpi8d")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phjai"]
+atlas = ExtResource("2_wpi8d")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kangi"]
+atlas = ExtResource("2_wpi8d")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kg8d"]
+atlas = ExtResource("2_wpi8d")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgvtp"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_8m1o2")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_3fm0r")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_gckle")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_r4oxw")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_2rqmf")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_phjai")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_kangi")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7kg8d")
+}],
+"loop": true,
+"name": &"coin",
+"speed": 6.0
+}]
+
+[node name="loadingscreen" type="Control"]
+top_level = true
+z_index = 40
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wpi8d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0690867, 0.0420558, 0.0143656, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -11.5
+offset_right = 45.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "CARGANDO"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+process_mode = 3
+position = Vector2(578, 254)
+sprite_frames = SubResource("SpriteFrames_hgvtp")
+animation = &"coin"
+frame_progress = 0.019355

@@ -15,7 +15,7 @@ func _on_atrás_pressed() -> void:
 
 func _on_singleplayer_pressed() -> void:
 	Vfx.play_vfx(0)
-	var loading = preload("res://Scenes/loadingscreen.tscn").instantiate()
+	var loading = preload("res://Scenes/in_game/loadingscreen.tscn").instantiate()
 	loading.process_mode = Node.PROCESS_MODE_ALWAYS  
 	get_tree().root.add_child(loading)
-	get_tree().change_scene_to_file("res://Scenes/loadingscreen.tscn") 
+	get_tree().change_scene_to_file("res://Scenes/in_game/loadingscreen.tscn") 
