@@ -12,8 +12,4 @@ res://Scenes/in_game/time.tscn
 res://Scenes/Tienda/tienda_ui.tscn
 res://Scenes/player.tscn
 res://Scenes/Tile.tscn
-res://Scripts/Menú/menujugar.gd
-res://Scripts/Menú/menú.gd
-res://Scripts/game.gd
 res://Scripts/music.gd
-res://pause_menu.gd

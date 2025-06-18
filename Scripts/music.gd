@@ -35,9 +35,9 @@ func play_track(index: int):
 		player.play()
 
 func stop_music():
+	continuar = false
 	player.stop()
 	timer.stop()
-	continuar = false
 
 func stop_song():
 	song_player.stop()
