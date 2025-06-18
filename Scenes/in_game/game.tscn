@@ -1,19 +1,21 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5q7r24fnv3r1"]
+[gd_scene load_steps=18 format=3 uid="uid://c5q7r24fnv3r1"]
 
 [ext_resource type="PackedScene" uid="uid://cp3jbpbcxvee6" path="res://Scenes/player.tscn" id="1_ebmjs"]
-[ext_resource type="Script" uid="uid://cwkl3xsv42ugb" path="res://Scripts/in_game/game.gd" id="1_wrm1d"]
+[ext_resource type="Script" uid="uid://cwkl3xsv42ugb" path="res://Scripts/game.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://dw6qhi0rj40s8" path="res://Scenes/world/proc_world.tscn" id="2_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://de31tfeg2pjos" path="res://Scenes/shovel.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://cx25plwhja0ss" path="res://Scenes/objectsPhysics.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://bn0cf2f1oh5r1" path="res://Scenes/in_game/energia.tscn" id="6_1l0tm"]
-[ext_resource type="Resource" uid="uid://ccm4h0afnl3q5" path="res://Scenes/Inventario/playerInv.tres" id="6_ldgsr"]
-[ext_resource type="PackedScene" uid="uid://b85177o806qdv" path="res://Scenes/Inventario/inv_ui.tscn" id="6_o5yvi"]
+[ext_resource type="Resource" uid="uid://ccm4h0afnl3q5" path="res://Inventario/playerInv.tres" id="6_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://b85177o806qdv" path="res://Inventario/inv_ui.tscn" id="6_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://ocokf3c3wtcp" path="res://Scenes/Tienda/Tienda.tscn" id="7_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://sds50rx7d78f" path="res://Scenes/in_game/time.tscn" id="7_v158k"]
 [ext_resource type="PackedScene" uid="uid://dbe2ymyiloo68" path="res://Scenes/in_game/money.tscn" id="8_v158k"]
 [ext_resource type="PackedScene" uid="uid://c8pokw5frmagu" path="res://Scenes/Tienda/tienda_ui.tscn" id="9_1phco"]
 [ext_resource type="PackedScene" uid="uid://csy3btsxv5ajf" path="res://Scenes/Menu/FpsLabel.tscn" id="11_o5yvi"]
-[ext_resource type="PackedScene" uid="uid://bkfu1g7h1acj5" path="res://Scenes/in_game/day_transition.tscn" id="12_rfjv2"]
+[ext_resource type="PackedScene" uid="uid://bkfu1g7h1acj5" path="res://Scenes/day_transition.tscn" id="12_rfjv2"]
+[ext_resource type="PackedScene" uid="uid://b3bljqjqx3jos" path="res://Scenes/quick_bar.tscn" id="14_nnt18"]
+[ext_resource type="PackedScene" uid="uid://c7av25r4rxq5" path="res://Scenes/ventana_controles.tscn" id="15_ewbju"]
 [ext_resource type="AudioStream" uid="uid://cfkl6v6enrmb3" path="res://Assets/Sonidos/Background Music/desert_background.mp3" id="15_nb51f"]
 
 [node name="game" type="Node2D" node_paths=PackedStringArray("money_ref")]
@@ -62,6 +64,18 @@ anchor_right = 0.496
 anchor_bottom = 0.509
 offset_right = -0.392029
 offset_bottom = 0.167999
+
+[node name="QuickBar" parent="UI" instance=ExtResource("14_nnt18")]
+offset_left = 179.0
+offset_top = 257.0
+offset_right = 410.0
+offset_bottom = 291.0
+
+[node name="VentanaControles" parent="UI" instance=ExtResource("15_ewbju")]
+offset_left = 12.5
+offset_top = 40.0
+offset_right = -1078.5
+offset_bottom = -577.0
 
 [node name="FpsLabel" parent="." instance=ExtResource("11_o5yvi")]
 visible = false

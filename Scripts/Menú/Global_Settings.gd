@@ -14,6 +14,7 @@ func change_fps(toggle: bool):
 func update_brillo(value):
 	emit_signal("brillo_updated", value)
 
+
 #Audio
 #func update_volumen_maestro(bus_idx, vol):
 #	AudioServer.set_bus_volume_db(bus_idx,vol if vol > -50 else AudioServer.set_bus_mute(bus_idx,true))

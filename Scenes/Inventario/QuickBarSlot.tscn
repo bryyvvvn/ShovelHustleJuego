@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://0obgegn8ur61"]
+
+[ext_resource type="Script" uid="uid://b3wwghqv6aego" path="res://Inventario/quick_bar_slot.gd" id="1_p4wmo"]
+[ext_resource type="Texture2D" uid="uid://cqiu0grr2dj00" path="res://Assets/Sprites/Inventory/item_slot_empty_background.png" id="2_p4wmo"]
+[ext_resource type="PackedScene" uid="uid://cdg3kcvsfxvsi" path="res://Inventario/itemsStackGui.tscn" id="3_p4wmo"]
+
+[node name="QuickBarSlot" type="Button"]
+offset_right = 34.0
+offset_bottom = 34.0
+scale = Vector2(5, 5.049)
+script = ExtResource("1_p4wmo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17.3607, 17.3938)
+scale = Vector2(1.84882, 1.85248)
+texture = ExtResource("2_p4wmo")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 34.0
+offset_bottom = 34.0
+
+[node name="Panel" parent="CenterContainer" instance=ExtResource("3_p4wmo")]
+layout_mode = 2
