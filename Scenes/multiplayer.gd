@@ -25,14 +25,12 @@ var energy := 100.0
 var max_energy := 100.0
 
 #tiempo en el juego
-const total_seconds := 720.0  #12 minutos
-const startingTime := 0  #comienza a las 8:00
 var time_elapsed : float = 0.0
 var day: int = 1
 var max_days: int = 7
 var cuota_diaria = 550
 var day_ended = false
-	
+var mineral_sound : int
 	
 func init_mineral() -> void:
 	randomize()
@@ -41,49 +39,57 @@ func init_mineral() -> void:
 	var tilemap = tile_map.get_node("TileMap")
 	var mouse_pos = get_global_mouse_position()
 	
-	var basura : objectData = preload("res://Objects/basura.tres")
-	var tuberculo : objectData= preload("res://Objects/tuberculo.tres")
-	var piedra : objectData= preload("res://Objects/piedra.tres")
-	var carbon : objectData= preload("res://Objects/carbon.tres")
-	var hierro : objectData= preload("res://Objects/hierro.tres")
-	var plata : objectData= preload("res://Objects/plata.tres")
-	var oro : objectData= preload("res://Objects/oro.tres")
-	var diamante : objectData= preload("res://Objects/diamante.tres")
+	var basura : objectData = preload("res://Assets/Recursos/Objects/basura.tres")
+	var tuberculo : objectData= preload("res://Assets/Recursos/Objects/tuberculo.tres")
+	var piedra : objectData= preload("res://Assets/Recursos/Objects/piedra.tres")
+	var carbon : objectData= preload("res://Assets/Recursos/Objects/carbon.tres")
+	var hierro : objectData= preload("res://Assets/Recursos/Objects/hierro.tres")
+	var plata : objectData= preload("res://Assets/Recursos/Objects/plata.tres")
+	var oro : objectData= preload("res://Assets/Recursos/Objects/oro.tres")
+	var diamante : objectData= preload("res://Assets/Recursos/Objects/diamante.tres")
 	
 	if mineral < basura.intervalo.x:
 		return
 	elif mineral < basura.intervalo.y and mineral > basura.intervalo.x:
 		object.data = basura
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 0
 		
 	elif mineral > tuberculo.intervalo.x and mineral <= tuberculo.intervalo.y:
 		object.data = tuberculo
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 1
 		
 	elif mineral > piedra.intervalo.x and mineral <= piedra.intervalo.y:
 		object.data = piedra
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 2
 		
 	elif mineral > carbon.intervalo.x and mineral <= carbon.intervalo.y:
 		object.data = carbon
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 3
 
 	elif mineral > hierro.intervalo.x and mineral <= hierro.intervalo.y:
 		object.data = hierro
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 4
 
 	elif mineral > plata.intervalo.x and mineral <= plata.intervalo.y:
 		object.data = plata
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 5
 
 	elif mineral > oro.intervalo.x and mineral <= oro.intervalo.y :
 		object.data = oro
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 6
 	
 	elif mineral > diamante.intervalo.x:
 		print(diamante.intervalo.x)
 		object.data = diamante
 		object.get_node("Sprite2D").texture = object.data.get_texture()
+		mineral_sound = 7
 		
 	var angulo = deg_to_rad(randi() % 361)
 	var dir = Vector2(cos(angulo),sin(angulo))  # o cualquier dirección (arriba, abajo, etc.)
@@ -113,6 +119,7 @@ func init_mineral() -> void:
 	tween.finished.connect(func(): shape.disabled = false)
 
 
+
 func init_world() -> void:
 	tile_map = tile_map_scene.instantiate() 
 	add_child(tile_map)
@@ -130,7 +137,7 @@ func init_shovel()->void:
 
 
 func init_inventory() -> void:
-	var pala = preload("res://Objects/pala.tres").duplicate()
+	var pala = preload("res://Assets/Recursos/Objects/pala.tres").duplicate()
 	inventory = inventory_Scene.instantiate()
 	$UI.add_child(inventory)
 	
@@ -149,7 +156,7 @@ func _ready() -> void:
 	init_shovel()
 	init_inventory()
 	var object = objects_scene.instantiate()
-	object.data = preload("res://Objects/tuberculo.tres")
+	object.data = preload("res://Assets/Recursos/Objects/tuberculo.tres")
 	add_child(object)
 	
 	trans.connect("transition_done", Callable(self, "_on_transition_done"))
@@ -244,11 +251,12 @@ func _physics_process(delta: float) -> void:
 	
 	#calcular tiempo segun delta
 	time_elapsed += delta
-	var simulated_minutes: float = startingTime * 60 + (24 * 60 - startingTime * 60)
-	var mins := int(simulated_minutes) / 60
-	var secs := int(simulated_minutes) % 60
+	
+	var total_seconds := int(time_elapsed)
+	var mins := total_seconds / 60
+	var secs := total_seconds % 60
 
-	$UI/time/clockContainer/hora.text = "%02d:%02dHRS" % [mins, secs]
+	$UI/time/clockContainer/hora.text = "%02d:%02d" % [mins, secs]
 	
 	
 	

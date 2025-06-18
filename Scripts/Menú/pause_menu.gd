@@ -9,10 +9,6 @@ func _on_Reanudar_pressed():
 	Vfx.play_vfx(0)
 	queue_free()
 
-func _on_Guardar_pressed():
-	Vfx.play_vfx(0)
-	#SaveSystem.save_game()
-	print("pendiente: guardar juego")
 	
 func _on_Salir_pressed():
 	Vfx.play_vfx(0)

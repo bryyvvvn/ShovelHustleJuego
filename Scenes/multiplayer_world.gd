@@ -20,15 +20,16 @@ var tree_noise : Noise
 @onready var excavacion_tile_map_layer := $TileMap/excavacion
 
 #Tamaño del mapa y ciclos para suavizar bordes del mapa
-var map_width = 100
-var map_height = 100
-var smoothing_passes = 4
+var map_width = 500
+var map_height = 500
+var smoothing_passes = 5
 
 
 #arena, palmeras y decoraciones
 var sand_elements = [Vector2i(1,4), Vector2i(5,4), Vector2i(13,4)]#arenas
 var sand_1_elements = [Vector2i(9,1), Vector2i(11,1), Vector2i(9,3), Vector2i(11,3), Vector2(9,5), Vector2(11,5)]#palmeras
 var sand_2_elements = [Vector2i(1,3), Vector2i(2,3), Vector2i(3,5), Vector2i(0,5), Vector2(4,4), Vector2(5,1), Vector2(0,6)]#decoraciones
+var hole_elements = [Vector2i(0,0), Vector2i(1,0), Vector2i(2,0)]
 
 #source de cada tileset
 var atlas_id_arena = 0
@@ -36,7 +37,7 @@ var atlas_id_water1 = 1
 var atlas_id_water2 = 2
 var atlas_id_ground_staff = 3
 var atlas_id_dessert_staff = 4
-var atlas_id_bloques_alrededor = 5
+var atlas_id_bloques_alrededor = 6
 
 #calcula la mitad del mapa
 var map_mid_width = map_width / 2
@@ -64,13 +65,13 @@ func tiles_arround(pos: Vector2i) -> void:
 			var offset = Vector2i(i, j)
 			var cell = pos + offset
 			if i != 0 or j != 0:
-				tiles_arround_tile_map_layer.set_cell(cell, atlas_id_bloques_alrededor, Vector2(11,0))
+				tiles_arround_tile_map_layer.set_cell(cell, atlas_id_bloques_alrededor, Vector2(3,0))
 	pos_anterior = pos
 
 
 #marca el tile cavado
 func bloque_cavado(cell: Vector2i) -> void:
-	excavacion_tile_map_layer.set_cell(cell, atlas_id_bloques_alrededor, Vector2(13,0))
+	excavacion_tile_map_layer.set_cell(cell, atlas_id_bloques_alrededor, hole_elements.pick_random())
 	disabled_dig[cell] = 0
 	print(cell)
 

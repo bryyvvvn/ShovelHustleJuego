@@ -9,7 +9,6 @@ var _host = "ws://ucn-game-server.martux.cl:4010/"
 var _my_id = ""
 
 func _ready():
-	GlobalSettings.change_displayMode(0)
 	var err = _client.connect_to_url(_host)
 
 # Cuando se conecta al servidor
