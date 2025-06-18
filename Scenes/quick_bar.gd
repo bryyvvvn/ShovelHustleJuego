@@ -1,6 +1,6 @@
 extends Panel
 
-@onready var inventory: Inv = preload("res://Inventario/playerInv.tres")
+@onready var inventory: Inv = preload("res://Scenes/Inventario/playerInv.tres")
 @onready var slots: Array = $Container.get_children()
 @onready var selector: Sprite2D = $Selector
 

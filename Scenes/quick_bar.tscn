@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3bljqjqx3jos"]
 
 [ext_resource type="Script" uid="uid://c6lpmg26l8v6v" path="res://Scenes/quick_bar.gd" id="1_6n63m"]
-[ext_resource type="PackedScene" uid="uid://0obgegn8ur61" path="res://Inventario/QuickBarSlot.tscn" id="1_a5pxt"]
+[ext_resource type="PackedScene" uid="uid://0obgegn8ur61" path="res://Scenes/Inventario/QuickBarSlot.tscn" id="1_a5pxt"]
 
 [node name="QuickBar" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
