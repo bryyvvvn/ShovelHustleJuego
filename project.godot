@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 GlobalSettings="*res://Scripts/Menú/Global_Settings.gd"
 WebSocketClient="*res://WebSocketClient.gd"
+Music="*res://Scenes/Music.tscn"
+Vfx="*res://Scenes/Vfx.tscn"
 
 [display]
 

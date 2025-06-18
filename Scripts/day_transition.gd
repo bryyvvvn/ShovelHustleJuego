@@ -8,7 +8,7 @@ signal transition_done(success: bool)
 @onready var resultado_label := $dayInfo/resultLabel
 @onready var continuar_btn := $dayInfo/continuarBtn
 @onready var money_label := $dayInfo/dineroAnimado/moneyLabel
-@onready var coin := $TextureRect
+@onready var coin := $dayInfo/dineroAnimado/TextureRect
 @onready var robo := $dayInfo/robo
 
 var jugador_tiene_dinero := true
@@ -18,6 +18,7 @@ var dinero_actual := 0
 var dinero_final := 0
 
 func _ready():
+	
 	pass
 	
 func setup(dia: int, dinero: int, cuota: int, tiene_dinero: bool, perdida: int):
@@ -78,6 +79,7 @@ func animar_descuento():
 
 var menu_scene := preload("res://Scenes/Menu/Menu.tscn")
 func _on_continuar_Btn_pressed() -> void:
+
 	if jugador_tiene_dinero:
 		emit_signal("transition_done", true)
 		visible = false

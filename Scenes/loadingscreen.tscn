@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://c5h7o0f36fquo"]
+[gd_scene load_steps=12 format=3 uid="uid://dablr6wjoqw87"]
 
-[ext_resource type="Script" uid="uid://cf88gyi41lm0m" path="res://loadingscreen.gd" id="1_0y2bn"]
+[ext_resource type="Script" uid="uid://cf88gyi41lm0m" path="res://Scenes/loadingscreen.gd" id="1_wpi8d"]
 [ext_resource type="Texture2D" uid="uid://cp8vyuosugyhr" path="res://Assets/Sprites/objects/coin_spin-Sheet.png" id="2_wpi8d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8m1o2"]
@@ -77,7 +77,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0y2bn")
+script = ExtResource("1_wpi8d")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

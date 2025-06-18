@@ -31,19 +31,6 @@ offset_right = 626.241
 offset_bottom = 354.88
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = 2
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-offset_left = 489.0
-offset_top = 200.005
-offset_right = 509.0
-offset_bottom = 220.005
-size_flags_horizontal = 8
-size_flags_vertical = 8
-texture = SubResource("AtlasTexture_mxco6")
-expand_mode = 1
-
 [node name="dayInfo" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -84,6 +71,16 @@ uppercase = true
 
 [node name="dineroAnimado" type="HBoxContainer" parent="dayInfo"]
 layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="dayInfo/dineroAnimado"]
+z_index = 2
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_mxco6")
+expand_mode = 1
 
 [node name="moneyLabel" type="Label" parent="dayInfo/dineroAnimado"]
 layout_mode = 2

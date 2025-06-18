@@ -6,6 +6,8 @@ signal minigame_result(success: bool)
 @export var lift_speed := 100
 @export var green_zone_height := 29 
 
+
+
 var velocity := 0.0
 var active := true
 
@@ -15,20 +17,27 @@ var vali = true
 var posisiones_arr: Array[float]
 
 func setup(dia: int, pala: int):
-	var dificultad_dia :float = (dia - 1)/6 #min-max scaling
-	var poder_pala: float = (dia - 1)/6 #min-max scaling
-	
-	var speed_param = 1 - dificultad_dia
-	var height_param = poder_pala - dificultad_dia
-		 
-	zone_speed = 80.0 + (1.0 - speed_param) * 200.0
-	##       
+	dia = 1
+	var min_dia: int = 1
+	var max_dia: int = 10
 
-	green_zone_height = clamp(29 * (1-height_param), 10, 100)
-	gravity += (height_param) * 200.0
-	lift_speed = speed_param*6
+	var dificultad_dia: float = clamp((dia - min_dia) / float(max_dia - min_dia), 0.0, 1.0)
+	var poder_pala: float = clamp((pala - min_dia) / float(max_dia - min_dia), 0.0, 1.0)
 
+	var speed_param: float = 1.0 - dificultad_dia
+	var height_param: float = clamp(poder_pala - dificultad_dia, -1.0, 1.0)
+
+	zone_speed = 80.0 + dificultad_dia * 200.0
+
+	green_zone_height = clamp(29.0 * (1.0 - height_param), 10.0, 100.0)
 	$Bar/zonaOro.size.y = green_zone_height
+
+	gravity = lerp(150.0, 500.0, dificultad_dia)
+	lift_speed = lerp(30.0, 80.0, dificultad_dia)
+
+	gravity = lerp(150.0, 500.0, dificultad_dia)  
+
+	lift_speed = lerp(200.0, 600.0, dificultad_dia)  
 
 func _ready():
 	$Bar/zonaOro.size.y = green_zone_height
@@ -44,18 +53,18 @@ func _process(delta):
 	var y = cursor.position.y
 	
 	velocity = gravity
+
 	if Input.is_action_just_pressed('right_click') and vali:
 		vali = false
+		var start_y: float = cursor.position.y
+		var end_y: float = clamp(start_y - lift_speed, 0.0, $Bar.size.y - cursor.size.y)
+
 		var tween = create_tween()
-
 		tween.tween_method(
-			func(t): 
-				var y_p = lerp(cursor.position.y, cursor.position.y -lift_speed, t)
-				cursor.position = Vector2(cursor.position.x, y_p),
-			0.0, 1.0, 0.4
-		)
+			func(t): cursor.position.y = lerp(start_y, end_y, t),
+				0.0, 1.0, 0.25  # ← adjust duration to your liking
+			)
 		tween.connect("finished", Callable(self, "_on_tween_finished"))
-
 	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		#velocity = -lift_speed
 		
