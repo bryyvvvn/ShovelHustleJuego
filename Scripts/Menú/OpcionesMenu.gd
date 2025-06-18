@@ -57,3 +57,4 @@ func _on_h_slider_6_value_changed(value: float) -> void:
 	vfx_db = value + 15
 	Vfx.change_volume(vfx_db + plus)
 	pass # Replace with function body.
+	pass 
