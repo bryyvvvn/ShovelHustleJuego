@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdg3kcvsfxvsi"]
+
+[ext_resource type="Script" uid="uid://d3vpmg4uf0ybk" path="res://Scripts/Inventario/items_stack_gui.gd" id="1_lriyo"]
+[ext_resource type="Texture2D" uid="uid://cd2rttiafnriy" path="res://Assets/Sprites/Inventory/item_slot_default_background.png" id="2_n84er"]
+
+[node name="Panel" type="Panel"]
+script = ExtResource("1_lriyo")
+
+[node name="item_display" type="Sprite2D" parent="."]
+texture = ExtResource("2_n84er")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 26.0
+offset_bottom = 27.0
+scale = Vector2(0.5, 0.5)
+text = "99"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhsjhm5o4ppys"]
 
-[ext_resource type="Script" uid="uid://fodic1ibfc67" path="res://Scripts/music.gd" id="1_fghhr"]
+[ext_resource type="Script" uid="uid://fodic1ibfc67" path="res://Scripts/Musica/music.gd" id="1_fghhr"]
 [ext_resource type="AudioStream" uid="uid://cg6d8ckqjicss" path="res://Assets/Sonidos/Background Music/beach_sound.mp3" id="2_pcohf"]
 
 [node name="Music" type="Node"]

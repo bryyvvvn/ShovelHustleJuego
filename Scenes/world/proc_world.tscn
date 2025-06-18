@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dw6qhi0rj40s8"]
 
 [ext_resource type="Script" uid="uid://x4dpoan1eegu" path="res://Scripts/world/proc_world_4.gd" id="1_36cwu"]
-[ext_resource type="TileSet" uid="uid://b7ge3x1h1aggc" path="res://Assets/tile_1_set.tres" id="2_x28km"]
+[ext_resource type="TileSet" uid="uid://b7ge3x1h1aggc" path="res://Assets/Recursos/tile_1_set.tres" id="2_x28km"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_36cwu"]
 frequency = 0.0022
