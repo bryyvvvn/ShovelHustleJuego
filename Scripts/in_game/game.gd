@@ -52,14 +52,14 @@ func init_mineral() -> void:
 	var tilemap = tile_map.get_node("TileMap")
 	var mouse_pos = get_global_mouse_position()
 	
-	var basura : objectData = preload("res://Objects/basura.tres")
-	var tuberculo : objectData= preload("res://Objects/tuberculo.tres")
-	var piedra : objectData= preload("res://Objects/piedra.tres")
-	var carbon : objectData= preload("res://Objects/carbon.tres")
-	var hierro : objectData= preload("res://Objects/hierro.tres")
-	var plata : objectData= preload("res://Objects/plata.tres")
-	var oro : objectData= preload("res://Objects/oro.tres")
-	var diamante : objectData= preload("res://Objects/diamante.tres")
+	var basura : objectData = preload("res://Assets/Recursos/Objects/basura.tres")
+	var tuberculo : objectData= preload("res://Assets/Recursos/Objects/tuberculo.tres")
+	var piedra : objectData= preload("res://Assets/Recursos/Objects/piedra.tres")
+	var carbon : objectData= preload("res://Assets/Recursos/Objects/carbon.tres")
+	var hierro : objectData= preload("res://Assets/Recursos/Objects/hierro.tres")
+	var plata : objectData= preload("res://Assets/Recursos/Objects/plata.tres")
+	var oro : objectData= preload("res://Assets/Recursos/Objects/oro.tres")
+	var diamante : objectData= preload("res://Assets/Recursos/Objects/diamante.tres")
 	
 	if mineral < basura.intervalo.x:
 		return
@@ -149,7 +149,7 @@ func init_shovel()->void:
 
 
 func init_inventory() -> void:
-	var pala = preload("res://Objects/pala.tres").duplicate()
+	var pala = preload("res://Assets/Recursos/Objects/pala.tres").duplicate()
 	inventory = inventory_Scene.instantiate()
 	$UI.add_child(inventory)
 	

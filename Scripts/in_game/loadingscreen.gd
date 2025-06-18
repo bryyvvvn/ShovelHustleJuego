@@ -1,6 +1,6 @@
 extends Control
 
-@export var next_scene_path := "res://Scenes/game.tscn"
+@export var next_scene_path := "res://Scenes/in_game/game.tscn"
 
 func _ready():
 	$AnimatedSprite2D.play("coin")
