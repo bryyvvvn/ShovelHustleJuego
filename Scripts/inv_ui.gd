@@ -29,8 +29,8 @@ func connectSlots():
 		slot.index = i
 		slot.inventory = inv
 		slot.pressed.connect(Callable(self, "onSlotClicked").bind(slot))
-	for j in get_parent().get_node("TiendaUi/NinePatchRect/GridContainer").get_children():
-		j.pressed.connect(Callable(get_parent().get_node("TiendaUi/NinePatchRect/GridContainer"), "onSlotClicked").bind(j))
+	#for j in get_parent().get_node("TiendaUi/NinePatchRect/GridContainer").get_children():
+	#	j.pressed.connect(Callable(get_parent().get_node("TiendaUi/NinePatchRect/GridContainer"), "onSlotClicked").bind(j))
 		
 
 func update_slots():

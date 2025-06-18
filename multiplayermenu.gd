@@ -8,6 +8,7 @@ var _host = "ws://ucn-game-server.martux.cl:4010/"
 var _my_id = ""
 
 func _ready():
+	GlobalSettings.change_displayMode(0)
 	_client.connected_to_server.connect(_on_connected)
 	_client.connection_closed.connect(_on_disconnected)
 	_client.message_received.connect(_on_message_received)
@@ -37,11 +38,11 @@ func _on_message_received(message: String):
 			player_list.add_item(msg.data.id)
 		"player-disconnected":
 			_remove_player(msg.data.id)
-		"match-invite":
+		"match-request-received":
 			_show_invite_popup(msg.data.from)
-		"match-start":
+		"match-accepted":
 			status_label.text = "Match con %s" % msg.data.opponent
-			get_tree().change_scene_to_file("res://scenes/game.tscn")
+			get_tree().change_scene_to_file("res://scenes/multiplayer/multiplayer.tscn")
 
 func _send_get_user_list():
 	var msg = { "event": "get-connected-players" }
