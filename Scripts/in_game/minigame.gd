@@ -2,107 +2,82 @@ extends Control
 
 signal minigame_result(success: bool)
 
-@export var gravity := 100
-@export var lift_speed := 100
-@export var green_zone_height := 29 
+@export var base_gravity := 500.0
+@export var base_lift := -300.0
+@export var green_zone_base_height := 30.0
 
+var right_click_pressed: bool = false
+var velocity: float = 0.0
+@export var gravity := 400.0
+@export var lift_force := 300.0
+var direction: int = 1
+@export var zone_speed: float = 80.0
+var active: bool = true
+var zone_direction: int = 1
 
+var gravedad: float
+var impulso: float
+var green_zone_height: float
+var dificultad: float
 
-var velocity := 0.0
-var active := true
+@onready var cursor := $Bar/pala
+@onready var green_zone := $Bar/zonaOro
+@onready var bar := $Bar
 
-var direction := 1
-var zone_speed := 80.0
-var vali = true
-var posisiones_arr: Array[float]
+func setup(dia: int, pala: int) -> void:
+	await ready  
+	dificultad = clamp((dia - 1) / 9.0, 0.0, 1.0)
 
-func setup(dia: int, pala: int):
-	dia = 1
-	var min_dia: int = 1
-	var max_dia: int = 10
+	gravedad = lerp(base_gravity, base_gravity * 1.5, dificultad)
+	impulso = lerp(base_lift, base_lift * 0.05, dificultad)
 
-	var dificultad_dia: float = clamp((dia - min_dia) / float(max_dia - min_dia), 0.0, 1.0)
-	var poder_pala: float = clamp((pala - min_dia) / float(max_dia - min_dia), 0.0, 1.0)
+	green_zone_height = clamp(green_zone_base_height * (1.0 - dificultad), 10.0, 100.0)
+	green_zone.size = Vector2(green_zone.size.x, green_zone_height)
 
-	var speed_param: float = 1.0 - dificultad_dia
-	var height_param: float = clamp(poder_pala - dificultad_dia, -1.0, 1.0)
-
-	zone_speed = 80.0 + dificultad_dia * 200.0
-
-	green_zone_height = clamp(29.0 * (1.0 - height_param), 10.0, 100.0)
-	$Bar/zonaOro.size.y = green_zone_height
-
-	gravity = lerp(150.0, 500.0, dificultad_dia)
-	lift_speed = lerp(30.0, 80.0, dificultad_dia)
-
-	gravity = lerp(150.0, 500.0, dificultad_dia)  
-
-	lift_speed = lerp(200.0, 600.0, dificultad_dia)  
-
-func _ready():
-	$Bar/zonaOro.size.y = green_zone_height
-	#$Bar/zonaOro.position.y = 
-	$Bar/pala.position.y = 210
-	
+	cursor.position.y = 210
+	green_zone.position.y = 60
 
 func _process(delta):
 	if !active:
 		return
-	
+
 	var cursor = $Bar/pala
 	var y = cursor.position.y
-	
-	velocity = gravity
 
-	if Input.is_action_just_pressed('right_click') and vali:
-		vali = false
-		var start_y: float = cursor.position.y
-		var end_y: float = clamp(start_y - lift_speed, 0.0, $Bar.size.y - cursor.size.y)
-
-		var tween = create_tween()
-		tween.tween_method(
-			func(t): cursor.position.y = lerp(start_y, end_y, t),
-				0.0, 1.0, 0.25  # ← adjust duration to your liking
-			)
-		tween.connect("finished", Callable(self, "_on_tween_finished"))
-	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		#velocity = -lift_speed
-		
-	#else:
-		#if int(Time.get_ticks_msec() / 100) % 2 == 0:
-			#velocity = gravity
-		#else:
-			#velocity = 0
+	# Right click makes the shovel go up
+	if right_click_pressed:
+		velocity = -lift_force
+	else:
+		velocity += gravity * delta*1.5  
 
 	y += velocity * delta
 	y = clamp(y, 0, $Bar.size.y - cursor.size.y)
 	cursor.position.y = y
+
 	
 	var zone = $Bar/zonaOro
-	#movimiento vertical
 	zone.position.y += direction * zone_speed * delta
 
 	if zone.position.y <= 0:
 		direction = 1
-	elif zone.position.y + zone.size.y >= 205:
+	elif zone.position.y + zone.size.y >= $Bar.size.y:
 		direction = -1
-	posisiones_arr.append(zone.position.y)
-	
-	
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
+		# Right click controls lift
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			right_click_pressed = event.pressed
+
+		# Left click ends game when released
+		elif event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
 			active = false
 			var success = cursor_in_green_zone()
 			emit_signal("minigame_result", success)
 			queue_free()
 
 func cursor_in_green_zone() -> bool:
-	var cursor_y = $Bar/pala.global_position.y
-	var green_y = $Bar/zonaOro.global_position.y
-	var green_h = $Bar/zonaOro.size.y
-	return cursor_y >= green_y and cursor_y <= green_y + green_h
-	
-func _on_tween_finished():
-	vali = true
+	var cursor_center_y = cursor.global_position.y + cursor.size.y / 2
+	var zone_y = green_zone.global_position.y
+	var zone_h = green_zone.size.y
+	return cursor_center_y >= zone_y and cursor_center_y <= zone_y + zone_h

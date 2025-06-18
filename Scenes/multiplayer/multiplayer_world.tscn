@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://itan8ubbvmkd"]
+
+[ext_resource type="Script" uid="uid://dsihhhubejyho" path="res://Scenes/multiplayer_world.gd" id="1_8itkl"]
+[ext_resource type="TileSet" uid="uid://b7ge3x1h1aggc" path="res://Assets/tile_1_set.tres" id="1_vwywi"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_36cwu"]
+frequency = 0.0022
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7rljq"]
+noise = SubResource("FastNoiseLite_36cwu")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ikx8o"]
+frequency = 0.0087
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j1cug"]
+noise = SubResource("FastNoiseLite_ikx8o")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wvkwt"]
+frequency = 1.0
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uol15"]
+noise = SubResource("FastNoiseLite_wvkwt")
+
+[node name="multiplayerWorld" type="Node2D"]
+script = ExtResource("1_8itkl")
+noise_height_noise = SubResource("NoiseTexture2D_7rljq")
+noise_lakes_noise = SubResource("NoiseTexture2D_j1cug")
+noise_tree_text = SubResource("NoiseTexture2D_uol15")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_vwywi")
+format = 2
+
+[node name="sand" type="TileMapLayer" parent="TileMap"]
+tile_set = ExtResource("1_vwywi")
+
+[node name="sand2" type="TileMapLayer" parent="TileMap"]
+tile_set = ExtResource("1_vwywi")
+
+[node name="water" type="TileMapLayer" parent="TileMap"]
+tile_set = ExtResource("1_vwywi")
+
+[node name="enviroment" type="TileMapLayer" parent="TileMap"]
+tile_set = ExtResource("1_vwywi")
+
+[node name="bloques_alrededor" type="TileMapLayer" parent="TileMap"]
+tile_set = ExtResource("1_vwywi")
+
+[node name="excavacion" type="TileMapLayer" parent="TileMap"]
+y_sort_enabled = true
+tile_set = ExtResource("1_vwywi")
