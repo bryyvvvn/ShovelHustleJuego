@@ -163,13 +163,6 @@ func init_tienda_ui() -> void:
 
 
 
-	#var inv = Inv.new()
-	#inventory.set_inventory(inv)  # Aquí lo conectas
-	#inventory.inv.slots[0].item = pala
-	#inventory.inv.slots[0].amount = 1
-	#inventory.inv.update.emit()
-
-
 @onready var trans = $UI/dayTransition
 func _ready() -> void:
 	
@@ -255,6 +248,10 @@ func unpause_game():
 	var existing = get_node_or_null("PauseMenu")
 	if existing:
 		existing.queue_free()
+		
+		
+		
+		
 func _physics_process(delta: float) -> void:
 	
 	if day_ended:

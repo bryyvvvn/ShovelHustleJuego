@@ -21,8 +21,7 @@ func _on_body_entered(body: Node2D) -> void:
 		player_in_area == true
 		player = body
 		player.collect(data)
-		self.visible = false
-		self.set_process(false)
+		self.queue_free()
 
 
 """func _on_body_exited(body: Node2D) -> void:
