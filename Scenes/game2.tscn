@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bpwuorkta4saq"]
+[gd_scene load_steps=18 format=3 uid="uid://bpwuorkta4saq"]
 
 [ext_resource type="Script" uid="uid://cwkl3xsv42ugb" path="res://Scripts/game.gd" id="1_1umn5"]
 [ext_resource type="PackedScene" uid="uid://dw6qhi0rj40s8" path="res://Scenes/world/proc_world.tscn" id="2_aurdq"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bkfu1g7h1acj5" path="res://Scenes/day_transition.tscn" id="13_gfkvf"]
 [ext_resource type="PackedScene" uid="uid://csy3btsxv5ajf" path="res://Scenes/Menu/FpsLabel.tscn" id="14_4psf1"]
 [ext_resource type="PackedScene" uid="uid://b3bljqjqx3jos" path="res://Scenes/quick_bar.tscn" id="14_aurdq"]
+[ext_resource type="PackedScene" uid="uid://c7av25r4rxq5" path="res://Scenes/ventana_controles.tscn" id="15_er416"]
 [ext_resource type="AudioStream" uid="uid://cfkl6v6enrmb3" path="res://Assets/Sonidos/Background Music/desert_background.mp3" id="15_rv8rv"]
 
 [node name="game" type="Node2D" node_paths=PackedStringArray("money_ref")]
@@ -68,6 +69,12 @@ offset_left = 179.0
 offset_top = 257.0
 offset_right = 410.0
 offset_bottom = 291.0
+
+[node name="VentanaControles" parent="UI" instance=ExtResource("15_er416")]
+offset_left = 6.5
+offset_top = 95.5
+offset_right = -1084.5
+offset_bottom = -521.5
 
 [node name="FpsLabel" parent="." instance=ExtResource("14_4psf1")]
 visible = false
