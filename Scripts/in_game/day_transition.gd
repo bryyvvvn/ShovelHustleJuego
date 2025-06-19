@@ -21,12 +21,12 @@ func _ready():
 	
 	pass
 	
-func setup(dia: int, dinero: int, cuota: int, tiene_dinero: bool, perdida: int):
+func setup(dia: int, dinero: int, cuota: int, tiene_dinero: bool, perdida: int, descuento: int):
 	dia_label.text = "Día %d" % dia
 	cuota_label.text = "Cuota diaria: $%d" % cuota
 	
 	dinero_actual = dinero
-	dinero_final = max(dinero - cuota, 0)
+	dinero_final = max(dinero - descuento, 0)
 	
 	money_label.text = "$%d" % dinero_actual
 	#animar_descuento()
