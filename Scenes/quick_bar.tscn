@@ -34,5 +34,3 @@ layout_mode = 2
 [node name="QuickBarSlot5" parent="Container" instance=ExtResource("1_a5pxt")]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
-
-[node name="Selector" type="Sprite2D" parent="."]
