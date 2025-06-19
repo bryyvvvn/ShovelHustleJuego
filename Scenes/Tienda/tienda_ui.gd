@@ -1,7 +1,7 @@
 extends Control
 
 @onready var slots := $NinePatchRect/GridContainer.get_children()
-@onready var ItemStackGuiClass = preload("res://Inventario/itemsStackGui.tscn")
+@onready var ItemStackGuiClass = preload("res://Scenes/Inventario/itemsStackGui.tscn")
 
 # Referencia al inventario del jugador (para leer itemInHand)
 

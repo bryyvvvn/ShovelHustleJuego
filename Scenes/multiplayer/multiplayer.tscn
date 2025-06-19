@@ -1,0 +1,59 @@
+[gd_scene load_steps=14 format=3 uid="uid://wicjarahvlgm"]
+
+[ext_resource type="Script" uid="uid://okehnsyh83a2" path="res://Scenes/multiplayer.gd" id="1_kapfi"]
+[ext_resource type="PackedScene" uid="uid://itan8ubbvmkd" path="res://Scenes/multiplayer/multiplayer_world.tscn" id="2_lfuhp"]
+[ext_resource type="PackedScene" uid="uid://cp3jbpbcxvee6" path="res://Scenes/player.tscn" id="3_a0vfj"]
+[ext_resource type="PackedScene" uid="uid://de31tfeg2pjos" path="res://Scenes/shovel.tscn" id="4_ib52u"]
+[ext_resource type="PackedScene" uid="uid://cx25plwhja0ss" path="res://Scenes/objectsPhysics.tscn" id="5_4wkfa"]
+[ext_resource type="PackedScene" uid="uid://b85177o806qdv" path="res://Scenes/Inventario/inv_ui.tscn" id="6_y6r0j"]
+[ext_resource type="Resource" uid="uid://ccm4h0afnl3q5" path="res://Scenes/Inventario/playerInv.tres" id="7_1qdgp"]
+[ext_resource type="PackedScene" uid="uid://bn0cf2f1oh5r1" path="res://Scenes/in_game/energia.tscn" id="8_ux10c"]
+[ext_resource type="PackedScene" uid="uid://dbe2ymyiloo68" path="res://Scenes/in_game/money.tscn" id="9_lssr4"]
+[ext_resource type="PackedScene" uid="uid://bkfu1g7h1acj5" path="res://Scenes/in_game/day_transition.tscn" id="10_68pri"]
+[ext_resource type="PackedScene" uid="uid://sds50rx7d78f" path="res://Scenes/in_game/time.tscn" id="11_lfuhp"]
+[ext_resource type="Script" uid="uid://dfuqiquiy7aqi" path="res://Scenes/multiplayer/online.gd" id="12_a0vfj"]
+[ext_resource type="AudioStream" uid="uid://cfkl6v6enrmb3" path="res://Assets/Sonidos/Background Music/desert_background.mp3" id="13_ib52u"]
+
+[node name="multiplayer" type="Node2D"]
+script = ExtResource("1_kapfi")
+tile_map_scene = ExtResource("2_lfuhp")
+player_scene = ExtResource("3_a0vfj")
+shovel_scene = ExtResource("4_ib52u")
+objects_scene = ExtResource("5_4wkfa")
+inventory_Scene = ExtResource("6_y6r0j")
+inventory_inv = ExtResource("7_1qdgp")
+
+[node name="UI" type="CanvasLayer" parent="."]
+offset = Vector2(10.04, 10)
+scale = Vector2(1.645, 1.645)
+transform = Transform2D(1.645, 0, 0, 1.645, 10.04, 10)
+
+[node name="energia" parent="UI" instance=ExtResource("8_ux10c")]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 5.0
+offset_left = -22.0
+offset_right = -22.0
+offset_bottom = 2619.35
+
+[node name="money" parent="UI" instance=ExtResource("9_lssr4")]
+
+[node name="dayTransition" parent="UI" instance=ExtResource("10_68pri")]
+visible = false
+offset_bottom = 6.10352e-05
+
+[node name="time" parent="UI" instance=ExtResource("11_lfuhp")]
+
+[node name="online" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_a0vfj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_ib52u")
+volume_db = -10.0
+
+[node name="mineral_sound" type="AudioStreamPlayer2D" parent="."]
+volume_db = 20.0

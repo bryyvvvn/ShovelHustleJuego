@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b4jiyuklxpkbb" path="res://Assets/Sprites/Inventory/inventarioCapa.png" id="1_aa703"]
 [ext_resource type="Script" uid="uid://dk0iqrj6v8v54" path="res://Scenes/Tienda/tienda_ui.gd" id="1_q2nur"]
-[ext_resource type="PackedScene" uid="uid://doqqigkspqyv1" path="res://Inventario/inv_ui_slot.tscn" id="3_q2nur"]
-[ext_resource type="Script" uid="uid://q26us2fd6f3w" path="res://Inventario/tienda_ui_slot.gd" id="4_haok0"]
+[ext_resource type="PackedScene" uid="uid://doqqigkspqyv1" path="res://Scenes/Inventario/inv_ui_slot.tscn" id="3_q2nur"]
+[ext_resource type="Script" uid="uid://q26us2fd6f3w" path="res://Scripts/Inventario/tienda_ui_slot.gd" id="4_haok0"]
 
 [node name="TiendaUi" type="Control"]
 layout_mode = 3

@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7av25r4rxq5"]
+
+[ext_resource type="Script" uid="uid://bd8ns5hysdkbj" path="res://Scripts/ventana_controles.gd" id="1_dkbt4"]
+[ext_resource type="Texture2D" uid="uid://b4jiyuklxpkbb" path="res://Assets/Sprites/Inventory/inventarioCapa.png" id="2_eoj6b"]
+
+[node name="VentanaControles" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1091.0
+offset_bottom = -617.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ayuda"
+script = ExtResource("1_dkbt4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(263, 126)
+scale = Vector2(0.38855, 0.439527)
+texture = ExtResource("2_eoj6b")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -962.0
+offset_top = -486.5
+offset_right = -524.0
+offset_bottom = -280.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "Movimiento Wasd
+
+abrir inventario con E
+
+para el minijuego, manten presionado en algunos de los 
+circulos al lado del pesonaje, para iniciar. Haz click derecho
+para hacer que la pala llegue a lo alto, trata de hacer 
+que caiga en el rectangulo amarillo"

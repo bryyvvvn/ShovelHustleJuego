@@ -112,9 +112,9 @@ texture_normal = ExtResource("5_f0tn5")
 ignore_texture_size = true
 stretch_mode = 0
 
-[connection signal="pressed" from="VBoxContainer/Volumen" to="." method="_on_volumen_pressed"]
 [connection signal="pressed" from="VBoxContainer/Volumen" to="." method="_on_jugar_pressed"]
-[connection signal="pressed" from="VBoxContainer/Resolución" to="." method="_on_resolución_pressed"]
+[connection signal="pressed" from="VBoxContainer/Volumen" to="." method="_on_volumen_pressed"]
 [connection signal="pressed" from="VBoxContainer/Resolución" to="." method="_on_opciones_pressed"]
-[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_atrás_pressed"]
+[connection signal="pressed" from="VBoxContainer/Resolución" to="." method="_on_resolución_pressed"]
 [connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_atrás_pressed"]

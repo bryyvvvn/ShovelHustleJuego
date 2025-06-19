@@ -9,3 +9,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func set_bounty(a : int):
+	get_node("Panel/moneylabel").set_bounty(a)
