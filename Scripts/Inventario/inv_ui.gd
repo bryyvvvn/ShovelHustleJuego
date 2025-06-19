@@ -68,7 +68,7 @@ func onSlotClicked_R(slot):
 		
 	if !itemInHand and slot.itemStackGui.InventorySlot.item != null:
 		if slot.itemStackGui.InventorySlot.item.tipo == "alimento":
-			get_parent().get_parent().energy += 10
+			get_parent().get_parent().get_node("player").energy += 10
 			eraseItem(slot)
 			return
 

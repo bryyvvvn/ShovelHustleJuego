@@ -21,6 +21,7 @@ var hierro : objectData= preload("res://Assets/Recursos/Objects/hierro.tres")
 var plata : objectData= preload("res://Assets/Recursos/Objects/plata.tres")
 var oro : objectData= preload("res://Assets/Recursos/Objects/oro.tres")
 var diamante : objectData= preload("res://Assets/Recursos/Objects/diamante.tres")
+var nada : objectData= preload("res://Assets/Recursos/Objects/nada.tres")
 
 
 var player : CharacterBody2D
@@ -42,7 +43,6 @@ var max_days: int = 7
 var cuota_diaria = 550
 var day_ended = false
 
-var mineral_sound : int
 
 func init_tienda()-> void:
 	randomize()
@@ -76,25 +76,17 @@ func init_mineral() -> void:
 	var mouse_pos = get_global_mouse_position()
 	
 	
-	var minerales = [
-	{ "data": basura,    "sound": 0 },
-	{ "data": tuberculo, "sound": 1 },
-	{ "data": piedra,    "sound": 2 },
-	{ "data": carbon,    "sound": 3 },
-	{ "data": hierro,    "sound": 4 },
-	{ "data": plata,     "sound": 5 },
-	{ "data": oro,       "sound": 6 },
-	{ "data": diamante,  "sound": 7 }
-	]
+	var minerales = [ nada, basura, tuberculo, piedra, carbon, hierro, plata, oro, diamante]
 	
 	for entry in minerales:
-		var intervalo = entry.data.intervalo
+		var intervalo = entry.intervalo
 		if mineral > intervalo.x and mineral <= intervalo.y:
-			object.data = entry.data
-			object.get_node("Sprite2D").texture = entry.data.get_texture()
-			mineral_sound = entry.sound
+			object.data = entry
+			object.get_node("Sprite2D").texture = entry.get_texture()
 			break
-	
+			
+	if object.data.nombre == "nada":
+		return
 		
 	var angulo = deg_to_rad(randi() % 361)
 	var dir = Vector2(cos(angulo),sin(angulo))  # o cualquier dirección (arriba, abajo, etc.)
@@ -122,6 +114,7 @@ func init_mineral() -> void:
 
 	# Reactivar collider cuando termine
 	tween.finished.connect(func(): shape.disabled = false)
+
 
 
 func init_world() -> void:
@@ -200,7 +193,6 @@ func _input(event):
 			shovel.get_node("succesfull_dig").play()
 			tile_map.bloque_cavado(mouse_pos)
 			init_mineral()
-			Vfx.play_mineral(mineral_sound)
 		else:
 			shovel.get_node("fail_dig").play()
 			player.erase_energy()
