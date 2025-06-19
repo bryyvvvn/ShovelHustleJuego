@@ -7,6 +7,7 @@ extends Control
 var _host = "ws://ucn-game-server.martux.cl:4010/"
 var _my_id = ""
 
+
 func _ready():
 	GlobalSettings.change_displayMode(0)
 	_client.connected_to_server.connect(_on_connected)
@@ -39,10 +40,16 @@ func _on_message_received(message: String):
 		"player-disconnected":
 			_remove_player(msg.data.id)
 		"match-request-received":
-			_show_invite_popup(msg.data.from)
+			_show_invite_popup(message)
 		"match-accepted":
 			status_label.text = "Match con %s" % msg.data.opponent
 			get_tree().change_scene_to_file("res://scenes/multiplayer/multiplayer.tscn")
+		"send-match-request":
+			if msg.status == "OK":
+				status_label.text = "Invitación enviada a %s" % msg.msg
+			else:
+				status_label.text = "Ha ocurrido un error"
+				
 
 func _send_get_user_list():
 	var msg = { "event": "get-connected-players" }
@@ -63,19 +70,20 @@ func _remove_player(id: String):
 func _on_player_selected(index: int):
 	var target = player_list.get_item_text(index)
 	var msg = {
-		"event": "match-invite",
-		"data": { "target": target }
+		"event": "send-match-request",
+		"data": {
+			"playerId": target,
+  }
 	}
 	_client.send(JSON.stringify(msg))
-	status_label.text = "Sent match invite to %s" % target
 
-func _show_invite_popup(from_id: String):
+func _show_invite_popup(message: String):
+	var mensaje = JSON.parse_string(message)
 	var popup = AcceptDialog.new()
-	popup.dialog_text = "%s challenged you to a match!" % from_id
+	popup.dialog_text = mensaje.msg
 	popup.confirmed.connect(func():
 		var msg = {
-			"event": "match-accepted", #AGREGAR LA REAL INTERACCIÓN. SE ABRE JUEGO Y SE EMPIEZAN A MANDAR MENSAJES CONSTANTEMENTE EN ESTE MISMO FORMATO var msg = { "event" : "ataque.ejemplo" } y data del jugador blabla
-			"data": { "opponent": from_id }
+			"event": "accept-match", #AGREGAR LA REAL INTERACCIÓN. SE ABRE JUEGO Y SE EMPIEZAN A MANDAR MENSAJES CONSTANTEMENTE EN ESTE MISMO FORMATO var msg = { "event" : "ataque.ejemplo" } y data del jugador blabla
 		}
 		_client.send(JSON.stringify(msg))
 	)
@@ -84,4 +92,5 @@ func _show_invite_popup(from_id: String):
 
 
 func _on_button_pressed() -> void:
+	WebSocketClient.close()
 	get_tree().change_scene_to_file("res://Scenes/Menu/menujugar.tscn")

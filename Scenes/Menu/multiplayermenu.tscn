@@ -57,6 +57,6 @@ offset_right = 26.0
 offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "BACK"
+text = "DESCONECTARSE"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

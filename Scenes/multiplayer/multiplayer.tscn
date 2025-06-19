@@ -24,6 +24,9 @@ inventory_Scene = ExtResource("6_y6r0j")
 inventory_inv = ExtResource("7_1qdgp")
 
 [node name="UI" type="CanvasLayer" parent="."]
+offset = Vector2(10.04, 10)
+scale = Vector2(1.645, 1.645)
+transform = Transform2D(1.645, 0, 0, 1.645, 10.04, 10)
 
 [node name="energia" parent="UI" instance=ExtResource("8_ux10c")]
 anchor_left = 0.5

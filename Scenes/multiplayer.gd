@@ -222,13 +222,11 @@ func _on_transition_done(success: bool):
 		get_tree().change_scene_to_file("res://Scenes/Menu/Menu.tscn")
 
 func pause_game():
-	get_tree().paused = true
 	var pause_menu = preload("res://scenes/pause_menu.tscn").instantiate()
 	pause_menu.name = "PauseMenu"
 	add_child(pause_menu)
 
 func unpause_game():
-	get_tree().paused = false
 	var existing = get_node_or_null("PauseMenu")
 	if existing:
 		existing.queue_free()
