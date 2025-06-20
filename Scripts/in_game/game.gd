@@ -34,6 +34,7 @@ var tienda_ui
 var bed
 
 
+
 #tiempo en el juego
 const total_seconds := 720.0  #12 minutos
 const morning := 8.0  #comienza a las 8:00
@@ -68,10 +69,10 @@ func init_bed()-> void:
 	
 	
 	
-func init_mineral() -> void:
+func init_mineral(potentior: int) -> void:
 	randomize()
 	var object = objects_scene.instantiate()
-	var mineral : float = randf() * 100
+	var mineral : float = (randf() * 100) + potentior
 	var tilemap = tile_map.get_node("TileMap")
 	var mouse_pos = get_global_mouse_position()
 	
@@ -192,7 +193,7 @@ func _input(event):
 		if await shovel.cavar(mouse_pos, day):
 			shovel.get_node("succesfull_dig").play()
 			tile_map.bloque_cavado(mouse_pos)
-			init_mineral()
+			init_mineral(tile_map.get_potentior(mouse_pos))
 		else:
 			shovel.get_node("fail_dig").play()
 			player.erase_energy()

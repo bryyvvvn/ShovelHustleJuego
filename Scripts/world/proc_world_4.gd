@@ -1,13 +1,15 @@
 extends Node2D
 
 #ruidos para ubicar arboles, lagos y arreglar la forma del mapa
-@export var noise_height_noise : NoiseTexture2D
-@export var noise_lakes_noise : NoiseTexture2D
-@export var noise_tree_text : NoiseTexture2D
+@export var noise_height_noise : NoiseTexture2D #forma de la isla
+@export var noise_lakes_noise : NoiseTexture2D #ubicacion de los lagos
+@export var noise_tree_text : NoiseTexture2D #ubicacion de los arboles
+@export var noise_rich_zones : NoiseTexture2D #zonas ricas
 
 var noise : Noise
 var noise_lakes : Noise
 var tree_noise : Noise
+var zones_noise : Noise
 
 
 #todas las capas del mapa
@@ -82,6 +84,11 @@ var disabled_dig : Dictionary
 #posicion anterior del jugador almacenada para ir borrando los tiles alrededor
 var pos_anterior = Vector2i(0,0)
 
+#diccionario que almacena el potenciador de cada posicion
+var potentior : Dictionary
+var multiplicador := 60
+var brecha := 25
+
 #funcion para pintar los tiles alrededor del jugador
 func tiles_arround(pos: Vector2i) -> void:
 	for i in range(-1, 2):
@@ -110,6 +117,13 @@ func enabled_dig(pos : Vector2i) -> bool:
 	if disabled_dig.has(pos):
 		return false
 	return true
+	
+
+
+func get_potentior(pos: Vector2i) -> float:
+	return potentior[pos]
+
+
 
 #funcion para generar mapa base
 func generar_mapa_base():
@@ -119,6 +133,8 @@ func generar_mapa_base():
 		for x in range(map_width):
 			var gx = x - map_mid_width
 			var gy = y - map_mid_height
+			
+			potentior[Vector2i(gx,gy)] = -zones_noise.get_noise_2d(gx, gy)*multiplicador
 
 			if x == 0 or y == 0 or x == map_width - 1 or y == map_height - 1:
 				mapa[y].append(0)
@@ -133,7 +149,7 @@ func generar_mapa_base():
 				mapa[y].append(1)
 			else:
 				mapa[y].append(0)
-
+				
 
 #funcion para suavizar los bordes
 func suavizar():
@@ -173,17 +189,29 @@ func aplicar_mapa():
 	var water_positions = []
 	var lake_positions = []
 	var sand_1_positions = []
+	var rich_zones = []
 	for y in range(map_height):
 		for x in range(map_width):
 			var gx = x - map_mid_width
 			var gy = y - map_mid_height
 			var pos = Vector2i(gx, gy)
 			
+			var max_dist = min(map_width, map_height) / 2.0
+			var dist_al_centro = Vector2(gx, gy).length()
+			var mascara = 1.0 - (dist_al_centro / max_dist)
+			
 			var noise_lake_val = noise_lakes.get_noise_2d(gx, gy)
 			var noise_tree_val = tree_noise.get_noise_2d(gx, gy)
 			
 			sand_tile_map_layer.set_cell(pos, atlas_id_arena, sand_elements.pick_random())
 			
+			
+			if potentior[pos] > brecha and mascara < 0.55:
+				rich_zones.append(pos)
+			else:
+				potentior[pos] = 0
+				
+				
 			if mapa[y][x] == 0:
 				water_positions.append(pos)
 				disabled_dig[pos] = 0
@@ -196,13 +224,8 @@ func aplicar_mapa():
 				if noise_tree_val > 0.915  and noise_lake_val < 0.43 :
 					disabled_dig[pos] = 0
 					enviroment_tile_map_layer.set_cell(pos/2, atlas_id_dessert_staff, sand_1_elements.pick_random())
-				
-				# Lagos internos
-				var max_dist = min(map_width, map_height) / 2.0
-				var dist_al_centro = Vector2(gx, gy).length()
-				var mascara = 1.0 - (dist_al_centro / max_dist)
 
-				if noise_lake_val > 0.43  and mascara > 0.4:
+				if noise_lake_val > 0.39  and mascara > 0.4 and mascara < 0.9:
 					disabled_dig[pos] = 0
 					lake_positions.append(pos)
 				
@@ -213,6 +236,10 @@ func aplicar_mapa():
 	lakes_tile_map_layer.set_cells_terrain_connect(lake_positions, atlas_id_water2, 0)
 	sand_2_tile_map_layer.set_cells_terrain_connect(sand_1_positions, atlas_id_arena, 0)
 	
+	##marcar las zonas ricas
+	for cell in rich_zones:
+		excavacion_tile_map_layer.set_cell(cell, 3, Vector2i(13,45))
+	
 	
 func _ready():
 	randomize()
@@ -222,6 +249,8 @@ func _ready():
 	noise_lakes.seed = randi()
 	tree_noise = noise_tree_text.noise
 	tree_noise.seed = randi()
+	zones_noise = noise_rich_zones.noise
+	zones_noise.seed = randi()
 
 	generar_mapa_base()
 	for i in range(smoothing_passes):

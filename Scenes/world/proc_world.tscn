@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dw6qhi0rj40s8"]
+[gd_scene load_steps=23 format=3 uid="uid://dw6qhi0rj40s8"]
 
 [ext_resource type="Script" uid="uid://x4dpoan1eegu" path="res://Scripts/world/proc_world_4.gd" id="1_36cwu"]
 [ext_resource type="Texture2D" uid="uid://bxjh8jw65kbrw" path="res://Assets/Sprites/Tile_set/Tilesets/FD_Desert_Ground.png" id="2_youan"]
@@ -26,6 +26,13 @@ fractal_octaves = 1
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bmgtb"]
 noise = SubResource("FastNoiseLite_wvkwt")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_otvdl"]
+noise_type = 0
+frequency = 0.0258
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_youan"]
+noise = SubResource("FastNoiseLite_otvdl")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a25o5"]
 bounce = 0.5
@@ -2547,6 +2554,7 @@ script = ExtResource("1_36cwu")
 noise_height_noise = SubResource("NoiseTexture2D_x28km")
 noise_lakes_noise = SubResource("NoiseTexture2D_wgjiu")
 noise_tree_text = SubResource("NoiseTexture2D_bmgtb")
+noise_rich_zones = SubResource("NoiseTexture2D_youan")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
