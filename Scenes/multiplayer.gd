@@ -31,6 +31,8 @@ var max_days: int = 7
 var cuota_diaria = 550
 var day_ended = false
 var mineral_sound : int
+var rocket_cooldown := 5.0
+var last_rocket_time := -10.0
 	
 func init_mineral() -> void:
 	randomize()
@@ -38,58 +40,63 @@ func init_mineral() -> void:
 	var mineral : float = randf() * 100
 	var tilemap = tile_map.get_node("TileMap")
 	var mouse_pos = get_global_mouse_position()
-	
-	var basura : objectData = preload("res://Assets/Recursos/Objects/basura.tres")
-	var tuberculo : objectData= preload("res://Assets/Recursos/Objects/tuberculo.tres")
-	var piedra : objectData= preload("res://Assets/Recursos/Objects/piedra.tres")
-	var carbon : objectData= preload("res://Assets/Recursos/Objects/carbon.tres")
-	var hierro : objectData= preload("res://Assets/Recursos/Objects/hierro.tres")
-	var plata : objectData= preload("res://Assets/Recursos/Objects/plata.tres")
-	var oro : objectData= preload("res://Assets/Recursos/Objects/oro.tres")
-	var diamante : objectData= preload("res://Assets/Recursos/Objects/diamante.tres")
-	
-	if mineral < basura.intervalo.x:
-		return
-	elif mineral < basura.intervalo.y and mineral > basura.intervalo.x:
-		object.data = basura
+	if randf() < 0.05:
+		object.data = preload("res://Assets/Recursos/Objects/cohete.tres")
 		object.get_node("Sprite2D").texture = object.data.get_texture()
 		mineral_sound = 0
 		
-	elif mineral > tuberculo.intervalo.x and mineral <= tuberculo.intervalo.y:
-		object.data = tuberculo
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 1
+	else:	
+		var basura : objectData = preload("res://Assets/Recursos/Objects/basura.tres")
+		var tuberculo : objectData= preload("res://Assets/Recursos/Objects/tuberculo.tres")
+		var piedra : objectData= preload("res://Assets/Recursos/Objects/piedra.tres")
+		var carbon : objectData= preload("res://Assets/Recursos/Objects/carbon.tres")
+		var hierro : objectData= preload("res://Assets/Recursos/Objects/hierro.tres")
+		var plata : objectData= preload("res://Assets/Recursos/Objects/plata.tres")
+		var oro : objectData= preload("res://Assets/Recursos/Objects/oro.tres")
+		var diamante : objectData= preload("res://Assets/Recursos/Objects/diamante.tres")
 		
-	elif mineral > piedra.intervalo.x and mineral <= piedra.intervalo.y:
-		object.data = piedra
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 2
+		if mineral < basura.intervalo.x:
+			return
+		elif mineral < basura.intervalo.y and mineral > basura.intervalo.x:
+			object.data = basura
+			object.get_node("Sprite2D").texture = object.data.get_texture()
+			mineral_sound = 0
+			
+		elif mineral > tuberculo.intervalo.x and mineral <= tuberculo.intervalo.y:
+			object.data = tuberculo
+			object.get_node("Sprite2D").texture = object.data.get_texture()
+			mineral_sound = 1
+			
+		elif mineral > piedra.intervalo.x and mineral <= piedra.intervalo.y:
+			object.data = piedra
+			object.get_node("Sprite2D").texture = object.data.get_texture()
+			mineral_sound = 2
+			
+		elif mineral > carbon.intervalo.x and mineral <= carbon.intervalo.y:
+			object.data = carbon
+			object.get_node("Sprite2D").texture = object.data.get_texture()
+			mineral_sound = 3
+
+		elif mineral > hierro.intervalo.x and mineral <= hierro.intervalo.y:
+			object.data = hierro
+			object.get_node("Sprite2D").texture = object.data.get_texture()
+			mineral_sound = 4
+
+		elif mineral > plata.intervalo.x and mineral <= plata.intervalo.y:
+			object.data = plata
+			object.get_node("Sprite2D").texture = object.data.get_texture()
+			mineral_sound = 5
+
+		elif mineral > oro.intervalo.x and mineral <= oro.intervalo.y :
+			object.data = oro
+			object.get_node("Sprite2D").texture = object.data.get_texture()
+			mineral_sound = 6
 		
-	elif mineral > carbon.intervalo.x and mineral <= carbon.intervalo.y:
-		object.data = carbon
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 3
-
-	elif mineral > hierro.intervalo.x and mineral <= hierro.intervalo.y:
-		object.data = hierro
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 4
-
-	elif mineral > plata.intervalo.x and mineral <= plata.intervalo.y:
-		object.data = plata
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 5
-
-	elif mineral > oro.intervalo.x and mineral <= oro.intervalo.y :
-		object.data = oro
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 6
-	
-	elif mineral > diamante.intervalo.x:
-		print(diamante.intervalo.x)
-		object.data = diamante
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 7
+		elif mineral > diamante.intervalo.x:
+			print(diamante.intervalo.x)
+			object.data = diamante
+			object.get_node("Sprite2D").texture = object.data.get_texture()
+			mineral_sound = 7
 		
 	var angulo = deg_to_rad(randi() % 361)
 	var dir = Vector2(cos(angulo),sin(angulo))  # o cualquier dirección (arriba, abajo, etc.)
@@ -144,6 +151,13 @@ func init_inventory() -> void:
 	var item = pala
 	
 	inventory_inv.insert(item)
+	
+func use_rocket() -> void:
+	var current_time = Time.get_ticks_msec() / 1000.0
+	if current_time - last_rocket_time < rocket_cooldown:
+		return
+	last_rocket_time = current_time
+	online._sendMessage("cohete", "")
 
 
 

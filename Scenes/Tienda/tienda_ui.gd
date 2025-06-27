@@ -15,6 +15,8 @@ func _ready() -> void:
 
 	for slot in slots:
 		slot.pressed.connect(Callable(self, "onSlotClicked").bind(slot))
+		if has_node("NinePatchRect/BuyRocket"):
+			$NinePatchRect/BuyRocket.pressed.connect(_on_buyrocket_pressed)
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("tienda"): 
@@ -68,3 +70,12 @@ func onSlotClicked(slot):
 		slot.insert(itemInHand)  # Este ya destruye el item
 		player_inventory_ui.itemInHand = null
 		player_inventory_ui.oldIndex = -1
+		
+func _on_buyrocket_pressed():
+	var game = get_parent().get_parent()
+	var player = game.get_node("player")
+	if player.money < 10:
+		return
+	player.update_money(-10)
+	var item: objectData = preload("res://Assets/Recursos/Objects/cohete.tres").duplicate()
+	game.inventory_inv.insert(item)

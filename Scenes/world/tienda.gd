@@ -24,3 +24,4 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if siguiente_anim != "":
 		$AnimatedSprite2D.play(siguiente_anim)
 		siguiente_anim = ""
+		

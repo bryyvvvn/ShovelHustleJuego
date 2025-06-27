@@ -189,7 +189,7 @@ func _input(event):
 					
 	
 	var mouse_pos = tilemap.local_to_map(get_global_mouse_position())
-	if mouse_pos in posiciones and tile_map.enabled_dig(mouse_pos):
+	if inventory_inv.has_item("pala") and mouse_pos in posiciones and tile_map.enabled_dig(mouse_pos):
 		if await shovel.cavar(mouse_pos, day):
 			shovel.get_node("succesfull_dig").play()
 			tile_map.bloque_cavado(mouse_pos)

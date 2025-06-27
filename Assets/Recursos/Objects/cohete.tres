@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="objectData" load_steps=3 format=3 uid="uid://c0e23ennbkavn"]
+
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_1kfof"]
+[ext_resource type="Texture2D" uid="uid://drb0j65bfxjtx" path="res://Assets/Sprites/objects/objects_16/cohete.png" id="2_1kfof"]
+
+[resource]
+script = ExtResource("1_1kfof")
+nombre = "cohete"
+tipo = "cohete"
+valor = 10
+rareza = 0.0
+descripcion = "Objeto que permite enviar una desventaja al rival"
+indice = 0
+texture = ExtResource("2_1kfof")
+texture_inventory = ExtResource("2_1kfof")
+StackSize = 99
+intervalo = Vector2(0, 0)
+alimentacion = 0
+metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"

@@ -71,6 +71,11 @@ func onSlotClicked_R(slot):
 			get_parent().get_parent().get_node("player").energy += 10
 			eraseItem(slot)
 			return
+			
+		elif slot.itemStackGui.InventorySlot.item.nombre == "cohete":
+			get_parent().get_parent().use_rocket()
+			eraseItem(slot)
+			return
 
 
 func onSlotClicked(slot):

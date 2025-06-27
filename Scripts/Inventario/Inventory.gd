@@ -50,3 +50,9 @@ func drop_loose_item(item_data: objectData, amount: int, drop_position: Vector2)
 		return
 	
 	item_dropped.emit(item_data, amount, drop_position)
+	
+func has_item(nombre: String) -> bool:
+	for slot in slots:
+		if slot and !slot.is_empty() and slot.item.nombre == nombre:
+			return true
+	return false
