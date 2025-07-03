@@ -13,6 +13,11 @@ class_name objectData
 @export var intervalo: Vector2
 @export var sonido: AudioStream
 @export var alimentacion: int
+@export var precio: int
 
 func get_texture()->Texture2D:
 	return texture
+
+
+func get_precio()->int:
+	return precio

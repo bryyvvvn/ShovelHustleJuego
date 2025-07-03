@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caakj7kwxj3ud"
-path="res://.godot/imported/cama.jpg-c907cca579fb18165cda1f0cee3daad2.ctex"
+uid="uid://bkfsrrs6dba3k"
+path="res://.godot/imported/HUD.png-ecfd1582d090c7da557448b8b23f7816.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/cama.jpg"
-dest_files=["res://.godot/imported/cama.jpg-c907cca579fb18165cda1f0cee3daad2.ctex"]
+source_file="res://Assets/Sprites/UI/HUD.png"
+dest_files=["res://.godot/imported/HUD.png-ecfd1582d090c7da557448b8b23f7816.ctex"]
 
 [params]
 

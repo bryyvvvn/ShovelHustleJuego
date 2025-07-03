@@ -18,5 +18,6 @@ texture_inventory = ExtResource("3_b6cfj")
 StackSize = 99
 intervalo = Vector2(50, 57)
 sonido = ExtResource("2_vsnhk")
-alimentacion = 0
+alimentacion = 5
+precio = 0
 metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"

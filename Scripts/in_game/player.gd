@@ -7,6 +7,8 @@ extends CharacterBody2D
 var tienda
 var game_scene : Node2D
 
+var block_zoom = false
+var enable_to_open := true
 var is_active := true
 var money := 1000
 var energy := 100.0
@@ -88,11 +90,11 @@ func _physics_process(delta):
 			$AnimatedSprite2D.animation = "idle_down" if last_direction.y > 0 else "idle_up"
 	$AnimatedSprite2D.play()
 	
-	if Input.is_action_just_pressed("zoom_in"):
+	if Input.is_action_just_pressed("zoom_in") and !block_zoom:
 		$Camera2D.zoom *= 1.1
-	elif Input.is_action_just_pressed("zoom_out"):
+	elif Input.is_action_just_pressed("zoom_out") and !block_zoom:
 		$Camera2D.zoom *= 0.9
-		
+	
 	$Camera2D.zoom.x = clamp($Camera2D.zoom.x, -1, 3)
 	$Camera2D.zoom.y = clamp($Camera2D.zoom.y, -1, 3)
 

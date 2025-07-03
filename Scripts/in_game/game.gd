@@ -56,6 +56,10 @@ func init_tienda()-> void:
 	add_child(tienda)
 	
 	
+	
+	
+	
+	
 func init_bed()-> void:
 	randomize()
 	var angulo = deg_to_rad(randi() % 361) ## el resto de una division siempre sera un numero entre 0 y el divisor
@@ -65,6 +69,9 @@ func init_bed()-> void:
 	bed = bed_scene.instantiate()
 	bed.position = bed_pos
 	add_child(bed)
+	
+	
+	
 	
 	
 	
@@ -115,6 +122,9 @@ func init_mineral(potentior: int) -> void:
 
 	# Reactivar collider cuando termine
 	tween.finished.connect(func(): shape.disabled = false)
+
+
+
 
 
 
@@ -197,8 +207,6 @@ func _input(event):
 		else:
 			shovel.get_node("fail_dig").play()
 			player.erase_energy()
-
-
 
 
 

@@ -1,20 +1,16 @@
-[gd_resource type="Resource" script_class="objectData" load_steps=5 format=3 uid="uid://bsu28w543pmmh"]
+[gd_resource type="Resource" script_class="objectData" load_steps=3 format=3 uid="uid://bsu28w543pmmh"]
 
 [ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_hvf5h"]
 [ext_resource type="AudioStream" uid="uid://fjoiq82v8ec4" path="res://Assets/Sonidos/Sonido_minerales/dig_trash.wav" id="2_maanq"]
-[ext_resource type="Texture2D" uid="uid://c2ptjl127yn6d" path="res://Assets/Sprites/objects/objects_16/basura.png" id="3_gx7cl"]
-[ext_resource type="Texture2D" uid="uid://ckabg304v2i3m" path="res://Assets/Sprites/objects/objects_32/basura.png" id="4_881qh"]
 
 [resource]
 script = ExtResource("1_hvf5h")
-nombre = "basura"
+nombre = "nada"
 tipo = "excavable"
 valor = 1
 rareza = 0.0
 descripcion = ""
 indice = 0
-texture = ExtResource("3_gx7cl")
-texture_inventory = ExtResource("4_881qh")
 StackSize = 99
 intervalo = Vector2(-10000, 25)
 sonido = ExtResource("2_maanq")

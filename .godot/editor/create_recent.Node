@@ -1,5 +1,8 @@
-AnimationPlayer
+ColorRect
 Sprite2D
+VBoxContainer
+ScrollContainer
+AnimationPlayer
 Label
 Button
 Control

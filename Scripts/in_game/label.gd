@@ -7,4 +7,4 @@ func set_bounty(a : int):
 	bounty = a
 
 func _process(delta):
-	text = str(player_ref.money) + "  CUOTA: " + str(bounty)
+	text = str(player_ref.money)

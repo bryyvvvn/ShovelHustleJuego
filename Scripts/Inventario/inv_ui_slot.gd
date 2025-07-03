@@ -6,6 +6,7 @@ var itemStackGui: ItemStackGui
 var index: int
 var inventory: Inv 
 
+
 func insert(isg: ItemStackGui):
 	itemStackGui = isg
 	container.add_child(itemStackGui)

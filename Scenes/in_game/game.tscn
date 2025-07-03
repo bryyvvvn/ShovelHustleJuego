@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c5q7r24fnv3r1"]
+[gd_scene load_steps=20 format=3 uid="uid://c5q7r24fnv3r1"]
 
 [ext_resource type="PackedScene" uid="uid://cp3jbpbcxvee6" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://cwkl3xsv42ugb" path="res://Scripts/in_game/game.gd" id="1_wrm1d"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bljlbbfyc6s7v" path="res://Scenes/world/cama.tscn" id="8_mq4wc"]
 [ext_resource type="PackedScene" uid="uid://dbe2ymyiloo68" path="res://Scenes/in_game/money.tscn" id="8_v158k"]
 [ext_resource type="PackedScene" uid="uid://c8pokw5frmagu" path="res://Scenes/Tienda/tienda_ui.tscn" id="9_1phco"]
+[ext_resource type="Texture2D" uid="uid://bkfsrrs6dba3k" path="res://Assets/Sprites/UI/HUD.png" id="11_kr2le"]
 [ext_resource type="PackedScene" uid="uid://csy3btsxv5ajf" path="res://Scenes/Menu/FpsLabel.tscn" id="11_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://bkfu1g7h1acj5" path="res://Scenes/in_game/day_transition.tscn" id="12_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://b3bljqjqx3jos" path="res://Scenes/quick_bar.tscn" id="14_nnt18"]
@@ -37,26 +38,37 @@ money_ref = NodePath("UI/money")
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
 
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+z_index = 1
+position = Vector2(435.5, 43.5)
+scale = Vector2(1.25333, 1.14125)
+texture = ExtResource("11_kr2le")
+
 [node name="energia" parent="UI" instance=ExtResource("6_1l0tm")]
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 5.0
-offset_left = 0.0
-offset_right = -22.0
-offset_bottom = -620.0
+offset_left = -29.5
+offset_top = 51.852
+offset_right = -26.5
+offset_bottom = -564.5
 
 [node name="time" parent="UI" instance=ExtResource("7_v158k")]
+z_index = 2
 anchors_preset = -1
-offset_left = 310.0
-offset_top = 6.0
-offset_right = -1150.0
-offset_bottom = -620.0
+offset_left = -151.0
+offset_top = 69.5
+offset_right = -46.0
+offset_bottom = 92.5
 
 [node name="money" parent="UI" instance=ExtResource("8_v158k")]
+z_index = 2
 anchors_preset = -1
 anchor_left = 0.02
-offset_left = -15.0
-offset_top = 6.0
+offset_left = 399.46
+offset_top = -20.0
+offset_right = -729.5
+offset_bottom = -668.0
 
 [node name="dayTransition" parent="UI" instance=ExtResource("12_rfjv2")]
 visible = false
@@ -74,10 +86,10 @@ offset_right = 410.0
 offset_bottom = 291.0
 
 [node name="VentanaControles" parent="UI" instance=ExtResource("15_ewbju")]
-offset_left = 12.5
-offset_top = 40.0
-offset_right = -1078.5
-offset_bottom = -577.0
+offset_left = 9.5
+offset_top = 21.5
+offset_right = -1081.5
+offset_bottom = -595.5
 
 [node name="FpsLabel" parent="." instance=ExtResource("11_o5yvi")]
 visible = false

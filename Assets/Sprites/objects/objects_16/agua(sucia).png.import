@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dplo116sxqjkw"
-valid=false
+uid="uid://rpekcpqc7epr"
+path="res://.godot/imported/agua(sucia).png-6fd2b7f060d25c7eee806fe2e2950748.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Assets/Sprites/objects/objects_16/agua(sucia).png"
+dest_files=["res://.godot/imported/agua(sucia).png-6fd2b7f060d25c7eee806fe2e2950748.ctex"]
 
 [params]
 
