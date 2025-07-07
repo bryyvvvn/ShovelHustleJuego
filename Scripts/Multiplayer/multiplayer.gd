@@ -222,6 +222,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_tienda_button_pressed() -> void:
 	if get_node("UI").get_node("Tienda_o_Ui").cerrado:
-		get_node("UI").get_node("TiendaUi").open()
+		get_node("UI").get_node("Tienda_o_Ui").open()
 	else:
 		get_node("UI"). get_node("Tienda_o_Ui").close()

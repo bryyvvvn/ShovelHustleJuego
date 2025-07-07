@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="objectData" load_steps=3 format=3 uid="uid://b0afut0plt3ws"]
+
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/Objetos/objectData.gd" id="1_0j7ka"]
+[ext_resource type="Texture2D" uid="uid://j5oco4fvul2g" path="res://Assets/Sprites/objects/objects_32/cohete1.png" id="2_1kfof"]
+
+[resource]
+script = ExtResource("1_0j7ka")
+nombre = "cohete"
+tipo = "weapon"
+valor = 0
+rareza = 0.0
+descripcion = ""
+indice = 0
+texture = ExtResource("2_1kfof")
+texture_inventory = ExtResource("2_1kfof")
+StackSize = 99
+intervalo = Vector2(0, 0)
+alimentacion = 0
+precio = 100
+metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"

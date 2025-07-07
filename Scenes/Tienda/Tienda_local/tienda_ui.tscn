@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cx25plwhja0ss" path="res://Scenes/objectsPhysics.tscn" id="2_4f8ra"]
 [ext_resource type="PackedScene" uid="uid://doqqigkspqyv1" path="res://Scenes/Inventario/inv_ui_slot.tscn" id="3_q2nur"]
 [ext_resource type="Script" uid="uid://q26us2fd6f3w" path="res://Scripts/Tienda/Tienda_local/scripts_venta/basura_ui_slot.gd" id="4_haok0"]
-[ext_resource type="Script" uid="uid://cvn2xyidk3cmr" path="res://Scripts/Tienda/Tienda_local/scripts_venta/venta_ui_slot.gd" id="4_x8o7e"]
+[ext_resource type="Script" uid="uid://cvn2xyidk3cmr" path="res://Scripts/Tienda/venta_ui_slot.gd" id="4_x8o7e"]
 [ext_resource type="Script" uid="uid://f5254om565bj" path="res://Scripts/Tienda/Tienda_local/scripts_venta/completo_ui_slot.gd" id="6_wbl3w"]
 [ext_resource type="Script" uid="uid://chal0g26vwm8l" path="res://Scripts/Tienda/Tienda_local/scripts_venta/pan_ui_slot.gd" id="7_afa6y"]
 [ext_resource type="Script" uid="uid://ds0xprk865nms" path="res://Scripts/Tienda/Tienda_local/scripts_venta/agua_ui_slot.gd" id="8_stf0i"]
