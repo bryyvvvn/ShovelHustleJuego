@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8pokw5frmagu"]
+
+[ext_resource type="Texture2D" uid="uid://b4jiyuklxpkbb" path="res://Assets/Sprites/Inventory/inventarioCapa.png" id="1_aa703"]
+[ext_resource type="Script" uid="uid://dk0iqrj6v8v54" path="res://Scenes/Tienda/tienda_ui.gd" id="1_q2nur"]
+[ext_resource type="PackedScene" uid="uid://doqqigkspqyv1" path="res://Scenes/Inventario/inv_ui_slot.tscn" id="3_q2nur"]
+[ext_resource type="Script" uid="uid://q26us2fd6f3w" path="res://Scripts/Inventario/tienda_ui_slot.gd" id="4_haok0"]
+
+[node name="TiendaUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q2nur")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.057
+anchor_top = 0.247
+anchor_right = 0.057
+anchor_bottom = 0.247
+offset_left = -49.664
+offset_top = -50.056
+offset_right = 50.336
+offset_bottom = 49.944
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_aa703")
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+z_index = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = 33.0
+offset_right = -33.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 20
+
+[node name="tienda_UI_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_q2nur")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+script = ExtResource("4_haok0")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://csy3btsxv5ajf"]
+
+[ext_resource type="FontFile" uid="uid://bvdg76kuywl8q" path="res://Assets/Fuentes/Kenney Pixel.ttf" id="1_g0qdm"]
+[ext_resource type="Script" uid="uid://d4da1ssc3yfmf" path="res://Scripts/Menú/fps_label.gd" id="2_f5kh8"]
+
+[node name="FpsLabel" type="Label"]
+scale = Vector2(0.993786, 1.07947)
+theme_override_fonts/font = ExtResource("1_g0qdm")
+text = "100"
+script = ExtResource("2_f5kh8")

@@ -1,0 +1,120 @@
+[gd_scene load_steps=6 format=3 uid="uid://dknqu0chyx5b3"]
+
+[ext_resource type="Script" uid="uid://ye4ixsy8gu7u" path="res://Scripts/Menú/menuopciones.gd" id="1_iemow"]
+[ext_resource type="Texture2D" uid="uid://c4k4ucsbwd1sq" path="res://Imagenes/Fondo.png" id="2_5luem"]
+[ext_resource type="Texture2D" uid="uid://c71jpcqkfwkp8" path="res://Imagenes/jugar.png" id="3_c6tic"]
+[ext_resource type="Texture2D" uid="uid://6nm61u18ofgv" path="res://Imagenes/opciones.png" id="4_0h5vj"]
+[ext_resource type="Texture2D" uid="uid://clgvkrdi6ruhi" path="res://Imagenes/salir.png" id="5_f0tn5"]
+
+[node name="MenuOpciones" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iemow")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.894118, 0.576471, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5luem")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.5
+offset_top = -50.0
+offset_right = 186.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 19
+
+[node name="Volumen" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "VOLUMEN"
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Volumen"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_c6tic")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Resolución" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "RESOLUCIÓN"
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Resolución"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.132
+offset_top = -58.3336
+offset_right = 25.868
+offset_bottom = 60.6664
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_0h5vj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Atrás" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "ATRÁS"
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Atrás"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -47.0
+offset_right = 35.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_f0tn5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="VBoxContainer/Volumen" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Volumen" to="." method="_on_volumen_pressed"]
+[connection signal="pressed" from="VBoxContainer/Resolución" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/Resolución" to="." method="_on_resolución_pressed"]
+[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="VBoxContainer/Atrás" to="." method="_on_atrás_pressed"]

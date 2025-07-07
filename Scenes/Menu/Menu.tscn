@@ -1,0 +1,240 @@
+[gd_scene load_steps=18 format=3 uid="uid://dxm8su0t4j3b6"]
+
+[ext_resource type="Script" uid="uid://c753k4crroeiy" path="res://Scripts/Menú/menú.gd" id="1_r7quk"]
+[ext_resource type="Texture2D" uid="uid://lev27gkk16pi" path="res://Assets/Sprites/parallax/1.png" id="2_ooplh"]
+[ext_resource type="Texture2D" uid="uid://bhqgmelvf1cpw" path="res://Assets/Sprites/parallax/2.png" id="3_i80xk"]
+[ext_resource type="FontFile" uid="uid://bvdg76kuywl8q" path="res://Assets/Fuentes/Kenney Pixel.ttf" id="3_l7xyq"]
+[ext_resource type="Texture2D" uid="uid://ctcjsvtubtf5v" path="res://Assets/Sprites/parallax/3.png" id="4_o0fcc"]
+[ext_resource type="Texture2D" uid="uid://dhen87855q3r" path="res://Assets/Sprites/parallax/4.png" id="5_1upnj"]
+[ext_resource type="Texture2D" uid="uid://cdpypdm1y83d2" path="res://Assets/Sprites/parallax/5.png" id="6_ofv6h"]
+[ext_resource type="Texture2D" uid="uid://c7c1slde8mi1p" path="res://Assets/Sprites/parallax/6.png" id="7_g5cqd"]
+[ext_resource type="PackedScene" uid="uid://ddcw54fd42gtd" path="res://Scenes/Menu/OpcionesMenu.tscn" id="7_h7084"]
+[ext_resource type="Texture2D" uid="uid://c4dfwcvyr43v1" path="res://Assets/Sprites/parallax/7.png" id="8_q10mx"]
+[ext_resource type="PackedScene" uid="uid://csy3btsxv5ajf" path="res://Scenes/Menu/FpsLabel.tscn" id="8_uw0ty"]
+[ext_resource type="Texture2D" uid="uid://d007uymodlbu1" path="res://Assets/Sprites/parallax/8.png" id="9_md428"]
+[ext_resource type="Texture2D" uid="uid://21jxhu8dhsbe" path="res://Assets/Sprites/parallax/9.png" id="10_0p4q6"]
+[ext_resource type="Texture2D" uid="uid://b67i3d5sswwnc" path="res://Assets/Sprites/parallax/10.png" id="11_i80xk"]
+[ext_resource type="Script" uid="uid://dayqspraya4l2" path="res://Scenes/Menu/spriteTitulo.gd" id="12_1upnj"]
+[ext_resource type="Script" uid="uid://ccubs7amjpqxg" path="res://Scenes/Menu/camera_2d.gd" id="12_o0fcc"]
+[ext_resource type="Script" uid="uid://dlpnak8tke828" path="res://Scripts/Menú/BotonHover.gd" id="16_ofv6h"]
+
+[node name="Menú" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r7quk")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1168, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(576, 328)
+scale = Vector2(3.65, 3.70556)
+texture = ExtResource("2_ooplh")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1167, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(575.5, 332)
+scale = Vector2(3.64687, 3.7)
+texture = ExtResource("3_i80xk")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1120, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(576, 256)
+scale = Vector2(3.6375, 2.92222)
+texture = ExtResource("4_o0fcc")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1168, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(161, 357)
+texture = ExtResource("5_1upnj")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1165, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(580, 308)
+scale = Vector2(3.64063, 2.66111)
+texture = ExtResource("6_ofv6h")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1186, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+position = Vector2(596, 332)
+scale = Vector2(3.70781, 3.47778)
+texture = ExtResource("7_g5cqd")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+position = Vector2(621, 291)
+scale = Vector2(4.07813, 4.28889)
+texture = ExtResource("8_q10mx")
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.02, 0.02)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
+position = Vector2(599, 325)
+scale = Vector2(4.2, 4.63889)
+texture = ExtResource("9_md428")
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9"]
+position = Vector2(574.5, 324.5)
+scale = Vector2(3.65312, 3.65)
+texture = ExtResource("10_0p4q6")
+
+[node name="ParallaxLayer10" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer10"]
+position = Vector2(576, 348)
+scale = Vector2(3.50312, 3.77222)
+texture = ExtResource("11_i80xk")
+script = ExtResource("12_1upnj")
+
+[node name="Camera2D" type="Camera2D" parent="ParallaxBackground"]
+position = Vector2(-6.10352e-05, -3.05176e-05)
+anchor_mode = 0
+script = ExtResource("12_o0fcc")
+
+[node name="ParallaxLayer11" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1, 0)
+
+[node name="OpcionesMenu" parent="." instance=ExtResource("7_h7084")]
+visible = false
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_left = 441.0
+offset_top = 309.0
+offset_right = 650.0
+offset_bottom = 530.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 19
+
+[node name="Jugar" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.252168, 0.611433, 0.826381, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_l7xyq")
+theme_override_font_sizes/font_size = 70
+text = "JUGAR"
+flat = true
+script = ExtResource("16_ofv6h")
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer/Jugar"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Opciones" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.25098, 0.611765, 0.827451, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_l7xyq")
+theme_override_font_sizes/font_size = 70
+text = "OPCIONES"
+flat = true
+script = ExtResource("16_ofv6h")
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer/Opciones"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -58.0
+offset_right = 26.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Salir" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.25098, 0.611765, 0.827451, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_l7xyq")
+theme_override_font_sizes/font_size = 70
+text = "SALIR"
+flat = true
+script = ExtResource("16_ofv6h")
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer/Salir"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -47.0
+offset_right = 31.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 431.0
+offset_top = 591.0
+offset_right = 829.0
+offset_bottom = 649.0
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("3_l7xyq")
+theme_override_font_sizes/font_size = 50
+text = "Fruna Games Inc."
+horizontal_alignment = 1
+
+[node name="FpsLabel" parent="CanvasLayer" instance=ExtResource("8_uw0ty")]
+offset_right = 35.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 35
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

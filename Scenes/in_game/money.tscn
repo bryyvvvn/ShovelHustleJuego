@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbe2ymyiloo68"]
+
+[ext_resource type="Script" uid="uid://cxjh5corcs5j" path="res://Scripts/in_game/label.gd" id="1_63yw1"]
+[ext_resource type="Script" uid="uid://0u2srj46qgk7" path="res://Scripts/in_game/money.gd" id="1_ehrwl"]
+[ext_resource type="Texture2D" uid="uid://cp8vyuosugyhr" path="res://Assets/Sprites/objects/coin_spin-Sheet.png" id="1_no3si"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63yw1"]
+atlas = ExtResource("1_no3si")
+region = Rect2(0, 0, 80.3002, 80)
+
+[node name="money" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ehrwl")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 147.0
+offset_bottom = 23.0
+
+[node name="moneylabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 65.0
+offset_bottom = 23.0
+text = "0"
+script = ExtResource("1_63yw1")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 85.0
+offset_bottom = 83.0
+scale = Vector2(0.2, 0.2)
+texture = SubResource("AtlasTexture_63yw1")
