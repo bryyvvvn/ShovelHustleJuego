@@ -1,8 +1,8 @@
-Button
-CanvasLayer
 Label
+Button
 HBoxContainer
 VBoxContainer
+CanvasLayer
 Panel
 LineEdit
 ColorRect

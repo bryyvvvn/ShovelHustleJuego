@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7udp6fonrcd3"]
+
+[ext_resource type="Script" uid="uid://dy1qjhu4qbwx7" path="res://Scenes/multiplayer/finish_game.gd" id="1_23g5p"]
+
+[node name="finishGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_23g5p")
+
+[node name="fade" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.471
+anchor_top = 0.458
+anchor_right = 0.471
+anchor_bottom = 0.458
+offset_left = -577.759
+offset_top = -326.12
+offset_right = 626.241
+offset_bottom = 354.88
+color = Color(0, 0, 0, 1)
+
+[node name="result" type="Label" parent="."]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 108.0
+offset_right = 974.0
+offset_bottom = 226.0
+theme_override_font_sizes/font_size = 60
+text = "RESULT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 560.0
+offset_top = 539.0
+offset_right = 1126.0
+offset_bottom = 608.0
+
+[node name="salir" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SALIR
+"
+
+[node name="rematch" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "REMATCH"
+
+[node name="request" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 557.0
+offset_top = 458.0
+offset_right = 1125.0
+offset_bottom = 531.0
+theme_override_font_sizes/font_size = 25
+text = "EL CONTRINCANTE HA SOLICITADO REVANCHA.
+CLICK EN \"REMATCH\" PARA ACEPTAR."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="HBoxContainer/rematch" to="." method="_on_rematch_pressed"]
