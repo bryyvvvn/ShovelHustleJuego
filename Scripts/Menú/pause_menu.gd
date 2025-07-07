@@ -6,12 +6,12 @@ func _ready():
 func _on_Reanudar_pressed():
 	
 	get_tree().paused = false
-	Vfx.play_vfx(0)
+	Vfx.play_sfx(2)
 	queue_free()
 
 	
 func _on_Salir_pressed():
-	Vfx.play_vfx(0)
+	Vfx.play_sfx(2)
 	Music.stop_song()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/Menu/Menu.tscn")

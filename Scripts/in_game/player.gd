@@ -64,6 +64,9 @@ func _physics_process(delta):
 		return
 	var direction = direccion()
 	if direction != Vector2.ZERO:
+		if !Vfx.is_playing_vfx():
+			Vfx.play_vfx(0)
+		
 		direction = direction.normalized()  # Diagonal speed fix
 		velocity = direction * speed
 		move_and_slide()
@@ -71,7 +74,7 @@ func _physics_process(delta):
 		last_direction = direction
 		
 		
-		Vfx.stop_music()
+		
 		if abs(direction.x) > abs(direction.y):
 			$AnimatedSprite2D.animation = "walk_right" if direction.x > 0 else "walk_left"
 		else:
@@ -79,8 +82,8 @@ func _physics_process(delta):
 		
 		
 	else:
-		if !Vfx.is_playing():
-			Vfx.play_vfx(1)
+		if Vfx.is_playing_vfx():
+			Vfx.stop_vfx()
 		
 		velocity = Vector2.ZERO
 		
@@ -106,7 +109,7 @@ func player():
 
 
 func collect(item):
-	
+	Vfx.play_sfx(1)
 	inv.insert(item)
 	
 	

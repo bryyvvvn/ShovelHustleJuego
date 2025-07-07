@@ -3,7 +3,7 @@ extends Node
 @onready var player = $AudioStreamPlayer
 @onready var player2 = $AudioStreamPlayer2
 @onready var player3 = $AudioStreamPlayer3
-
+var cont_vfx : bool = false
 var mineral = [
 	preload("res://Assets/Sonidos/Sonido_minerales/dig_trash.wav"),
 	preload("res://Assets/Sonidos/menu_click.wav"),
@@ -16,13 +16,13 @@ var mineral = [
 ]
 
 var sounds = [
-	preload("res://Assets/Sonidos/menu_click.wav"),
-	preload("res://Assets/Sonidos/sand_walking.wav"),
-	
+	preload("res://Assets/Sonidos/sand_walking.wav")
 ]
 
 var sfx = [
-	preload("res://Assets/Sonidos/item_sold.wav")
+	preload("res://Assets/Sonidos/item_sold.wav"),
+	preload("res://Assets/Sonidos/item_pickup.wav"),
+	preload("res://Assets/Sonidos/menu_click.wav")
 ]
 
 func play_mineral(index: int):
@@ -35,23 +35,35 @@ func play_mineral(index: int):
 
 func play_vfx(index: int):
 	if index >= 0 and index < sounds.size():
+		cont_vfx = true
 		player2.pitch_scale = randf_range(0.9, 1.2)
 		player2.stream = sounds[index]
 		player2.play()
 	else:
 		print("Índice de música fuera de rango.")
+	while cont_vfx:
+		await player2.finished
+		player.play()
+ 
+
+func stop_vfx():
+	cont_vfx = false
+	player2.stop()
+
+func is_playing_vfx():
+	return player2.playing
 
 func play_sfx(index: int):
-	if index >= 0 and index < sounds.size():
+	if index >= 0 and index < sfx.size():
 		player3.pitch_scale = randf_range(0.9, 1.2)
-		player3.stream = sounds[index]
+		player3.stream = sfx[index]
 		player3.play()
 	else:
 		print("Índice de música fuera de rango.")
 
 func stop_music():
-	player.stop()
-	
+	player2.stop()
+
 func change_volume(db: float):
 	player.volume_db = db
 	player2.volume_db = db

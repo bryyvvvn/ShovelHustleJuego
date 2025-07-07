@@ -34,7 +34,6 @@ var tienda_ui
 var bed
 
 
-
 #tiempo en el juego
 const total_seconds := 720.0  #12 minutos
 const morning := 8.0  #comienza a las 8:00
@@ -54,10 +53,6 @@ func init_tienda()-> void:
 	tienda = tienda_scene.instantiate()
 	tienda.position = tienda_pos
 	add_child(tienda)
-	
-	
-	
-	
 	
 	
 func init_bed()-> void:
@@ -122,9 +117,6 @@ func init_mineral(potentior: int) -> void:
 
 	# Reactivar collider cuando termine
 	tween.finished.connect(func(): shape.disabled = false)
-
-
-
 
 
 
@@ -232,9 +224,6 @@ func nextday(force: bool = false) -> void:
 	
 	
 	
-	
-	
-	
 func _on_transition_done(success: bool):
 	self.set_process(true)
 	if success:
@@ -245,6 +234,7 @@ func _on_transition_done(success: bool):
 		cuota_diaria = cuota_diaria*1.8
 		money_ref.set_bounty(cuota_diaria)
 		day_ended = false
+		Music.start_random_music()
 		
 	else:
 		get_tree().change_scene_to_file("res://Scenes/Menu/Menu.tscn")
@@ -281,6 +271,7 @@ func _physics_process(delta: float) -> void:
 	$UI/energia.set_energy(player.energy / player.max_energy)
 	
 	if player.energy <= 0:
+		Music.stop_song()
 		nextday(true)  # perdido por agotamiento
 		self.set_process(false)
 	#if player.is_in_bed:
@@ -289,10 +280,12 @@ func _physics_process(delta: float) -> void:
 	#calcular tiempo segun delta
 	time_elapsed += delta
 	if time_elapsed >= total_seconds:
+		Music.stop_song()
 		nextday(true)
 		self.set_process(false)
 		
 	if player.is_in_bed:
+		Music.stop_song()
 		nextday(false)
 		self.set_process(false)
 		
