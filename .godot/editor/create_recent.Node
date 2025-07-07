@@ -1,5 +1,6 @@
-Label
 Button
+CanvasLayer
+Label
 HBoxContainer
 VBoxContainer
 Panel
@@ -11,4 +12,3 @@ AnimationPlayer
 Control
 AudioStreamPlayer2D
 AudioStreamPlayer
-Node

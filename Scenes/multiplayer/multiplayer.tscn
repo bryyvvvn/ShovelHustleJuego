@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://wicjarahvlgm"]
+[gd_scene load_steps=18 format=3 uid="uid://wicjarahvlgm"]
 
 [ext_resource type="Script" uid="uid://okehnsyh83a2" path="res://Scenes/multiplayer.gd" id="1_kapfi"]
 [ext_resource type="PackedScene" uid="uid://itan8ubbvmkd" path="res://Scenes/multiplayer/multiplayer_world.tscn" id="2_lfuhp"]
@@ -7,42 +7,27 @@
 [ext_resource type="PackedScene" uid="uid://cx25plwhja0ss" path="res://Scenes/objectsPhysics.tscn" id="5_4wkfa"]
 [ext_resource type="PackedScene" uid="uid://b85177o806qdv" path="res://Scenes/Inventario/inv_ui.tscn" id="6_y6r0j"]
 [ext_resource type="Resource" uid="uid://ccm4h0afnl3q5" path="res://Scenes/Inventario/playerInv.tres" id="7_1qdgp"]
+[ext_resource type="PackedScene" uid="uid://c8pokw5frmagu" path="res://Scenes/Tienda/tienda_ui.tscn" id="7_ux10c"]
 [ext_resource type="PackedScene" uid="uid://bn0cf2f1oh5r1" path="res://Scenes/in_game/energia.tscn" id="8_ux10c"]
 [ext_resource type="PackedScene" uid="uid://dbe2ymyiloo68" path="res://Scenes/in_game/money.tscn" id="9_lssr4"]
+[ext_resource type="Texture2D" uid="uid://bkfsrrs6dba3k" path="res://Assets/Sprites/UI/HUD.png" id="10_1qdgp"]
 [ext_resource type="PackedScene" uid="uid://bkfu1g7h1acj5" path="res://Scenes/in_game/day_transition.tscn" id="10_68pri"]
 [ext_resource type="PackedScene" uid="uid://sds50rx7d78f" path="res://Scenes/in_game/time.tscn" id="11_lfuhp"]
 [ext_resource type="Script" uid="uid://dfuqiquiy7aqi" path="res://Scenes/multiplayer/online.gd" id="12_a0vfj"]
 [ext_resource type="AudioStream" uid="uid://cfkl6v6enrmb3" path="res://Assets/Sonidos/Background Music/desert_background.mp3" id="13_ib52u"]
+[ext_resource type="PackedScene" uid="uid://b3bljqjqx3jos" path="res://Scenes/quick_bar.tscn" id="15_ux10c"]
+[ext_resource type="PackedScene" uid="uid://c7av25r4rxq5" path="res://Scenes/ventana_controles.tscn" id="16_lssr4"]
 
-[node name="multiplayer" type="Node2D"]
+[node name="multiplayer" type="Node2D" node_paths=PackedStringArray("money_ref")]
 script = ExtResource("1_kapfi")
 tile_map_scene = ExtResource("2_lfuhp")
 player_scene = ExtResource("3_a0vfj")
 shovel_scene = ExtResource("4_ib52u")
 objects_scene = ExtResource("5_4wkfa")
 inventory_Scene = ExtResource("6_y6r0j")
+tienda_ui_scene = ExtResource("7_ux10c")
 inventory_inv = ExtResource("7_1qdgp")
-
-[node name="UI" type="CanvasLayer" parent="."]
-offset = Vector2(10.04, 10)
-scale = Vector2(1.645, 1.645)
-transform = Transform2D(1.645, 0, 0, 1.645, 10.04, 10)
-
-[node name="energia" parent="UI" instance=ExtResource("8_ux10c")]
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 5.0
-offset_left = -22.0
-offset_right = -22.0
-offset_bottom = 2619.35
-
-[node name="money" parent="UI" instance=ExtResource("9_lssr4")]
-
-[node name="dayTransition" parent="UI" instance=ExtResource("10_68pri")]
-visible = false
-offset_bottom = 6.10352e-05
-
-[node name="time" parent="UI" instance=ExtResource("11_lfuhp")]
+money_ref = NodePath("UI/money")
 
 [node name="online" type="Control" parent="."]
 layout_mode = 3
@@ -57,3 +42,80 @@ volume_db = -10.0
 
 [node name="mineral_sound" type="AudioStreamPlayer2D" parent="."]
 volume_db = 20.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="¡NO HAY CUOTA!" type="Label" parent="UI"]
+z_index = 2
+offset_left = 335.0
+offset_top = 28.0
+offset_right = 473.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 13
+text = "¡NO HAY CUOTA!"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+z_index = 1
+position = Vector2(435.5, 43.5)
+scale = Vector2(1.25333, 1.14125)
+texture = ExtResource("10_1qdgp")
+
+[node name="energia" parent="UI" instance=ExtResource("8_ux10c")]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 5.0
+offset_left = -29.5
+offset_top = 51.852
+offset_right = -26.5
+offset_bottom = -564.5
+
+[node name="time" parent="UI" instance=ExtResource("11_lfuhp")]
+z_index = 2
+anchors_preset = -1
+offset_left = -151.0
+offset_top = 69.5
+offset_right = -46.0
+offset_bottom = 92.5
+
+[node name="money" parent="UI" instance=ExtResource("9_lssr4")]
+z_index = 2
+anchors_preset = -1
+anchor_left = 0.02
+offset_left = 399.46
+offset_top = -20.0
+offset_right = -729.5
+offset_bottom = -668.0
+
+[node name="dayTransition" parent="UI" instance=ExtResource("10_68pri")]
+visible = false
+z_index = 100
+anchors_preset = -1
+anchor_right = 0.496
+anchor_bottom = 0.509
+offset_right = -0.392029
+offset_bottom = 0.167999
+
+[node name="QuickBar" parent="UI" instance=ExtResource("15_ux10c")]
+offset_left = 179.0
+offset_top = 257.0
+offset_right = 410.0
+offset_bottom = 291.0
+
+[node name="VentanaControles" parent="UI" instance=ExtResource("16_lssr4")]
+z_index = 3
+offset_left = 28.5
+offset_top = 40.0
+offset_right = -1062.5
+offset_bottom = -577.0
+
+[node name="TiendaButton" type="Button" parent="UI"]
+offset_left = 29.0
+offset_top = 5.0
+offset_right = 90.0
+offset_bottom = 36.0
+text = "Tienda"
+
+[connection signal="pressed" from="UI/TiendaButton" to="." method="_on_tienda_button_pressed"]

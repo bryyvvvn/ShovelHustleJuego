@@ -22,9 +22,9 @@ var zones_noise : Noise
 @onready var excavacion_tile_map_layer := $TileMap/excavacion
 
 #Tamaño del mapa y ciclos para suavizar bordes del mapa
-var map_width = 500
-var map_height = 500
-var smoothing_passes = 5
+var map_width = 105
+var map_height = 105
+var smoothing_passes = 4
 
 
 #arena, palmeras y decoraciones
@@ -140,9 +140,9 @@ func generar_mapa_base():
 				mapa[y].append(0)
 				continue
 
-			var max_dist = max(map_width, map_height) / 2.0
+			var max_dist = max(map_width, map_height) / 3
 			var ruido = noise.get_noise_2d(gx, gy)
-			var distancia = Vector2(gx + 120 * ruido, gy + 120 * ruido).length()
+			var distancia = Vector2(gx + 50 * ruido, gy + 50 * ruido).length()
 			var prob = 1.0 - (distancia / (max_dist * 0.7))
 
 			if randf() < prob:

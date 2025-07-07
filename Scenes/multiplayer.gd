@@ -5,6 +5,7 @@ extends Node2D
 @export var shovel_scene : PackedScene
 @export var objects_scene : PackedScene
 @export var inventory_Scene : PackedScene
+@export var tienda_ui_scene: PackedScene
 @export var inventory_inv : Inv
 @export var money_ref : Node
 
@@ -145,7 +146,10 @@ func init_inventory() -> void:
 	
 	inventory_inv.insert(item)
 
-
+func init_tienda_ui() -> void:
+		tienda_ui = tienda_ui_scene.instantiate()
+		$UI.add_child(tienda_ui)
+		get_node("UI"). get_node("TiendaUi").enabled = true;
 
 @onready var trans = $UI/dayTransition
 func _ready() -> void:
@@ -155,6 +159,7 @@ func _ready() -> void:
 	init_player()
 	init_shovel()
 	init_inventory()
+	init_tienda_ui()
 	var object = objects_scene.instantiate()
 	object.data = preload("res://Assets/Recursos/Objects/tuberculo.tres")
 	add_child(object)
@@ -164,8 +169,9 @@ func _ready() -> void:
 func _input(event):
 	#para el menú de pausa
 	if event.is_action_pressed("ui_cancel"):  # generalmente la tecla Esc
-		if get_tree().paused:
-			unpause_game()
+		var existing = get_node_or_null("PauseMenu")
+		if existing:
+			existing.queue_free()
 		else:
 			pause_game()
 	
@@ -188,41 +194,13 @@ func _input(event):
 			shovel.get_node("succesfull_dig").play()
 			tile_map.bloque_cavado(mouse_pos)
 			init_mineral()
-			online._sendMessage("succesful_dig",'')
 		else:
 			shovel.get_node("fail_dig").play()
 			energy -= 8
 
-func nextday(force : bool = false) -> void:
-	var moni = player.money
-	#if not player.is_in_bed or force:
-		#player.money -= randi_range(10, 30)  # quitar dinero si no se acostó
-		#victima_robo = true
-	if force: 
-		player.money -= randi_range(10,30)
-	# transición de día
-	var tiene_dinero = player.money >= cuota_diaria
-	moni -= player.money
-	trans.visible = true
-	trans.setup(day, player.money, cuota_diaria, tiene_dinero, moni)
-	day_ended = true
-	
-func _on_transition_done(success: bool):
-	self.set_process(true)
-	if success:
-		day += 1
-		time_elapsed = 0.0
-		energy = max_energy
-		player.money -= cuota_diaria
-		cuota_diaria = cuota_diaria*1.8
-		money_ref.set_bounty(cuota_diaria)
-		day_ended = false
-		
-	else:
-		get_tree().change_scene_to_file("res://Scenes/Menu/Menu.tscn")
 
 func pause_game():
-	var pause_menu = preload("res://scenes/pause_menu.tscn").instantiate()
+	var pause_menu = preload("res://scenes/Menu/in_game_menu.tscn").instantiate()
 	pause_menu.name = "PauseMenu"
 	add_child(pause_menu)
 
@@ -232,8 +210,6 @@ func unpause_game():
 		existing.queue_free()
 func _physics_process(delta: float) -> void:
 	
-	if day_ended:
-		return
 	
 	var tile_pos = tile_map.get_node("TileMap").local_to_map(player.get_node("CollisionShape2D").global_position)
 	tile_map.tiles_arround(tile_pos)
@@ -242,12 +218,8 @@ func _physics_process(delta: float) -> void:
 	$UI/energia.set_energy(energy / max_energy)
 	
 	if energy <= 0:
-		nextday(true)  # perdido por agotamiento
-		self.set_process(false)
-	#if player.is_in_bed:
-		
+		online.sendDefeat()
 	
-	#calcular tiempo segun delta
 	time_elapsed += delta
 	
 	var total_seconds := int(time_elapsed)
@@ -261,3 +233,10 @@ func _physics_process(delta: float) -> void:
 
 	
 	
+
+
+func _on_tienda_button_pressed() -> void:
+	if get_node("UI").get_node("TiendaUi").cerrado:
+		get_node("UI").get_node("TiendaUi").open()
+	else:
+		get_node("UI"). get_node("TiendaUi").close()

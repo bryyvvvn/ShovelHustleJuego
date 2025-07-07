@@ -34,10 +34,10 @@ frequency = 0.0258
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_youan"]
 noise = SubResource("FastNoiseLite_otvdl")
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a25o5"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_otvdl"]
 bounce = 0.5
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p0jxy"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_youan"]
 texture = ExtResource("2_youan")
 0:0/animation_columns = 4
 0:0/0 = 0
@@ -430,7 +430,7 @@ texture = ExtResource("2_youan")
 11:10/0 = 0
 13:13/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4t401"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_souqf"]
 texture = ExtResource("3_souqf")
 0:0/animation_columns = 4
 0:0/animation_separation = Vector2i(3, 0)
@@ -880,7 +880,7 @@ texture = ExtResource("3_souqf")
 2:17/0/terrains_peering_bit/top_left_corner = 0
 2:17/0/terrains_peering_bit/top_side = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qi1x6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drqv2"]
 texture = ExtResource("4_drqv2")
 0:0/animation_columns = 4
 0:0/animation_separation = Vector2i(3, 0)
@@ -1386,7 +1386,7 @@ texture = ExtResource("4_drqv2")
 2:22/animation_frame_3/duration = 1.0
 2:22/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a25o5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wubii"]
 texture = ExtResource("5_wubii")
 0:1/0 = 0
 1:1/0 = 0
@@ -2523,7 +2523,7 @@ texture = ExtResource("5_wubii")
 28:43/0 = 0
 28:42/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eiqbp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nk3ow"]
 texture = ExtResource("6_nk3ow")
 0:0/0 = 0
 1:0/0 = 0
@@ -2532,7 +2532,7 @@ texture = ExtResource("6_nk3ow")
 
 [sub_resource type="TileSet" id="TileSet_7qtpo"]
 physics_layer_0/collision_layer = 2
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_a25o5")
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_otvdl")
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "sand"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -2542,11 +2542,11 @@ terrain_set_1/terrain_0/color = Color(0.730238, 0, 0.0339079, 1)
 terrain_set_2/mode = 0
 terrain_set_2/terrain_0/name = "water2"
 terrain_set_2/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_p0jxy")
-sources/1 = SubResource("TileSetAtlasSource_4t401")
-sources/3 = SubResource("TileSetAtlasSource_a25o5")
-sources/2 = SubResource("TileSetAtlasSource_qi1x6")
-sources/6 = SubResource("TileSetAtlasSource_eiqbp")
+sources/0 = SubResource("TileSetAtlasSource_youan")
+sources/1 = SubResource("TileSetAtlasSource_souqf")
+sources/3 = SubResource("TileSetAtlasSource_wubii")
+sources/2 = SubResource("TileSetAtlasSource_drqv2")
+sources/6 = SubResource("TileSetAtlasSource_nk3ow")
 
 [node name="Proc_world" type="Node2D"]
 y_sort_enabled = true
