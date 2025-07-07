@@ -22,10 +22,6 @@ var inventory
 var tienda
 var tienda_o_ui
 
-#energía en el juego
-var energy := 100.0
-var max_energy := 100.0
-
 #tiempo en el juego
 var time_elapsed : float = 0.0
 var day: int = 1
@@ -106,6 +102,7 @@ func init_world() -> void:
 
 func init_player() -> void:
 	player = player_scene.instantiate() 
+	player.name = "player"
 	add_child(player)
 	$UI/money/Panel/moneylabel.player_ref = player
 
@@ -118,6 +115,7 @@ func init_shovel()->void:
 func init_inventory() -> void:
 	var pala = preload("res://Assets/Recursos/Objects/pala.tres").duplicate()
 	inventory = inventory_Scene.instantiate()
+	inventory.name = "inventory"
 	$UI.add_child(inventory)
 	
 	var item = pala
@@ -128,7 +126,10 @@ func init_tienda_ui() -> void:
 		tienda_o_ui = tienda_o_ui_scene.instantiate()
 		$UI.add_child(tienda_o_ui)
 
+
 @onready var trans = $UI/dayTransition
+
+
 func _ready() -> void:
 	$"AudioStreamPlayer2D"
 	$"AudioStreamPlayer2D".play()
@@ -136,10 +137,10 @@ func _ready() -> void:
 	init_player()
 	player.enable_to_open = true
 	init_shovel()
-	init_inventory()
 	init_tienda_ui()
+	init_inventory()
 	var object = objects_scene.instantiate()
-	object.data = preload("res://Assets/Recursos/Objects/tuberculo.tres")
+	object.data = preload("res://Assets/Recursos/Objects/pan.tres")
 	add_child(object)
 	
 	trans.connect("transition_done", Callable(self, "_on_transition_done"))
@@ -174,7 +175,7 @@ func _input(event):
 			init_mineral()
 		else:
 			shovel.get_node("fail_dig").play()
-			energy -= 8
+			player.energy -= 8
 
 
 
@@ -200,10 +201,10 @@ func _physics_process(delta: float) -> void:
 	var tile_pos = tile_map.get_node("TileMap").local_to_map(player.get_node("CollisionShape2D").global_position)
 	tile_map.tiles_arround(tile_pos)
 	
-	energy -= 0.1389 * delta  #agota la energia en un periodo de 12 minutos
-	$UI/energia.set_energy(energy / max_energy)
+	player.energy -= 0.1389 * delta  #agota la energia en un periodo de 12 minutos
+	$UI/energia.set_energy(player.energy / player.max_energy)
 	
-	if energy <= 0:
+	if player.energy <= 0:
 		online.sendDefeat()
 	
 	time_elapsed += delta

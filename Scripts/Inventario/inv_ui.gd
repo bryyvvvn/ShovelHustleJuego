@@ -64,9 +64,15 @@ func onSlotClicked_R(slot):
 		
 	if !itemInHand and slot.itemStackGui.InventorySlot.item != null:
 		if slot.itemStackGui.InventorySlot.item.tipo == "alimento":
+			print(get_parent().get_parent().get_node("player").energy)
+			print(slot.itemStackGui.InventorySlot.item.alimentacion)
 			get_parent().get_parent().get_node("player").energy += slot.itemStackGui.InventorySlot.item.alimentacion
 			eraseItem(slot)
 			return
+		elif slot.itemStackGui.InventorySlot.item.tipo == "weapon":
+			"aqui pon la señal del server"
+			eraseItem(slot)
+			return 
 
 
 func onSlotClicked(slot):
