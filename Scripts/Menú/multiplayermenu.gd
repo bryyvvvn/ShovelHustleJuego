@@ -7,9 +7,14 @@ extends Control
 @onready var input_message: LineEdit = $Panel/HBoxContainer/LineEdit
 @onready var send_button: Button = $Panel/HBoxContainer/enviar
 @onready var desconectarse: Button = $Button
+@onready var changeName := preload("res://Scenes/Menu/username.tscn")
+@onready var selectUser := preload("res://Scenes/Menu/select_user.tscn")
 
-var _host = "ws://ucn-game-server.martux.cl:4010/"
+
+var usersInfo = []
+var _host = "ws://ucn-game-server.martux.cl:4010/?gameId=G&playerName=ElGato"
 var _my_id = ""
+var _my_name = ""
 
 var unmsg = '{
 	"event": "match-request-received",
@@ -24,15 +29,19 @@ func _ready():
 	var err = _client.connect_to_url(_host)
 	if err != OK:
 		status_label.text = "Conexión fallida."
-
 	player_list.item_activated.connect(_on_player_selected)
 	
 	
 	#_show_invite_popup(unmsg)
 func _on_connected():
-	
+	var login =	{
+  			"event": "login",
+ 	 		"data": {
+				"gameKey": "BMJWU0"
+ 	 			}
+			}
+	_client.send(JSON.stringify(login))
 	status_label.text = "Conectado. Cargando jugadores..."
-	_send_get_user_list()
 
 func _on_disconnected():
 	status_label.text = "Desconectado del servidor."
@@ -41,16 +50,25 @@ func _on_message_received(message: String):
 	var msg = JSON.parse_string(message)
 	print("Mensaje recibido:", message)
 	match msg.event:
+		"login":
+			if msg.status == "OK":
+				_send_get_user_list()
 		"connected-to-server":
-			_my_id = msg.data.id  #agregar forma de ponerse nombre
-			status_label.text = "Conectado como %s" % _my_id
+			_my_name = msg.data.name
+			_my_id = msg.data.id
+			status_label.text = "Conectado como %s" % _my_name
 			desconectarse.text = "DESCONECTARSE"
-		"get-connected-players":
-			_update_player_list(msg.data)
+		"change-name":
+			_my_name = msg.data.name
+			status_label.text = "Conectado como %s" % _my_name
+		"online-players":
+			if msg.data != null:
+				_update_player_list(msg.data)
 		"player-connected":
-			player_list.add_item(msg.data.id)
+			player_list.add_item(msg.data.name)
+			_update_player_list(msg.data)
 		"player-disconnected":
-			_remove_player(msg.data.id)
+			_remove_player(msg.data.name)
 		"match-request-received":
 			_show_invite_popup(msg)
 		"match-accepted":
@@ -62,17 +80,29 @@ func _on_message_received(message: String):
 			else:
 				status_label.text = "Ha ocurrido un error"
 		"public-message":
-			_sendToChatDisplay("%s: %s" % [msg.data.id, msg.data.msg])
+			_sendToChatDisplay("%s: %s" % [msg.data.playerName, msg.data.playerMsg])
+		"send-public-message":
+			if msg.status == "OK":
+				_sendToChatDisplay("Yo: " + msg.data.message)
+		"private-message":
+			_sendToChatDisplay("(Susurro) %s: %s" % [msg.data.playerName, msg.data.playerMsg])
+		"player-name-changed": #cuando alguien se cambia el nombre
+			_sendGetUserListEvent()
+		"player-status-changed":
+			_sendGetUserListEvent()
 
 func _send_get_user_list():
-	var msg = { "event": "get-connected-players" }
+	var msg = { "event": "online-players" }
 	_client.send(JSON.stringify(msg))
 
 func _update_player_list(players: Array):
+	usersInfo.clear()
+	usersInfo = players
 	player_list.clear()
 	for p in players:
-		if p != _my_id:
-			player_list.add_item(p)
+		if p.id != _my_id:
+			var line = "(%s): %s" % [p.status,p.name]
+			player_list.add_item(line)
 
 func _remove_player(id: String):
 	for i in player_list.item_count:
@@ -81,8 +111,11 @@ func _remove_player(id: String):
 			return
 
 func _on_player_selected(index: int):
-	var target = player_list.get_item_text(index).strip_edges() 
-	#print(target)
+	var target = usersInfo.get_item_text(index).id.strip_edges() 
+	var selectUser = selectUser.instantiate()
+	
+	add_child(selectUser)
+	
 	var msg = {
 		"event": "send-match-request",
 		"data": {
@@ -118,20 +151,14 @@ func _show_invite_popup(message: String):
 	add_child(popup)
 	popup.popup_centered()
 
-
-func _on_button_pressed() -> void:
-	print("se apretó salir")
-	#var msg = {
-  	#	"event": "login",
-  	#	"data": {
-	#		"gameKey": "BMJWU0"
-  	#	}
-	#}
-	#_client.send(JSON.stringify(msg))
-	#WebSocketClient.close()
-	#get_tree().change_scene_to_file("res://Scenes/Menu/menujugar.tscn")
-
-
+func _on_username_pressed() -> void:
+	var nameChange = changeName.instantiate()
+	add_child(nameChange)  # Asegúrate que sea un nodo Control para que se muestre en la UI
+	
+	
+func _on_button_pressed() -> void: 
+	WebSocketClient.close()
+	get_tree().change_scene_to_file("res://Scenes/Menu/menujugar.tscn")
 
 ##CONTROLES PARA EL CHAT 
 
@@ -175,6 +202,6 @@ func _sendMessage(message: String, userId: String = ''):
 # Solicita la lista de usuarios activos al servidor
 func _sendGetUserListEvent():
 	var dataToSend = {
-		"event": 'get-connected-players'
+		"event": "online-players"
 	}
 	_client.send(JSON.stringify(dataToSend))

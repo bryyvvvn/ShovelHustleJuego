@@ -1,10 +1,12 @@
-ColorRect
-Sprite2D
-VBoxContainer
-ScrollContainer
-AnimationPlayer
 Label
 Button
+VBoxContainer
+Panel
+LineEdit
+ColorRect
+Sprite2D
+ScrollContainer
+AnimationPlayer
 Control
 AudioStreamPlayer2D
 AudioStreamPlayer

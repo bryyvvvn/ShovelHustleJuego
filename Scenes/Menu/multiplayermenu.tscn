@@ -94,6 +94,16 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "SALIR"
 
+[node name="username" type="Button" parent="."]
+layout_mode = 0
+offset_left = 990.0
+offset_top = 608.0
+offset_right = 1144.0
+offset_bottom = 639.0
+text = "CAMBIAR NOMBRE
+"
+
 [connection signal="text_submitted" from="Panel/HBoxContainer/LineEdit" to="." method="_on_input_submitted"]
 [connection signal="pressed" from="Panel/HBoxContainer/enviar" to="." method="_on_send_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="username" to="." method="_on_username_pressed"]
