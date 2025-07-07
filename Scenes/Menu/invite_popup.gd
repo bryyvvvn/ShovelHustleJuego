@@ -44,10 +44,7 @@ func _on_no_pressed() -> void:
 			"event": "reject-match"
 			}
 	online.send(JSON.stringify(msg)) 
-	pregunta.hide()
-	si.hide()
-	no.hide()
-	cancelar.show()
+	hide()
 
 
 func _on_cancelar_pressed() -> void:

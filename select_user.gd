@@ -11,7 +11,7 @@ var userId = ""
 var theirstatus = ""
 
 func _ready() -> void:
-	pass
+	online.message_received.connect(_on_message_received)
 
 func setup(username : String,target : String, status : String) -> void:
 	var user := $Panel/VBoxContainer/Label
