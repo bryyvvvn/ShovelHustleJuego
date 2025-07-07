@@ -199,13 +199,6 @@ func aplicar_mapa():
 			var noise_tree_val = tree_noise.get_noise_2d(gx, gy)
 			
 			sand_tile_map_layer.set_cell(pos, atlas_id_arena, sand_elements.pick_random())
-			
-			
-			if potentior[pos] > brecha and mascara < 0.55:
-				rich_zones.append(pos)
-			else:
-				potentior[pos] = 0
-				
 				
 			if mapa[y][x] == 0:
 				water_positions.append(pos)
