@@ -21,7 +21,7 @@ anchor_bottom = 0.31
 offset_left = -149.496
 offset_top = -151.88
 offset_right = 209.504
-offset_bottom = 0.119995
+offset_bottom = 44.12
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -54,7 +54,7 @@ text = "INVITAR A MATCH"
 
 [node name="cancelar" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "CANCELAR"
+text = "SALIR"
 
 [connection signal="text_submitted" from="Panel/VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_input_submitted"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/enviar" to="." method="_on_send_pressed"]

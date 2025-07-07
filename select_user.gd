@@ -10,6 +10,8 @@ var thename = ""
 var userId = ""
 var theirstatus = ""
 
+
+
 func _ready() -> void:
 	online.message_received.connect(_on_message_received)
 
@@ -40,6 +42,7 @@ func _on_invite_pressed() -> void:
  		 }
 	}
 	online.send(JSON.stringify(msg))
+	cancelar.hide()
 	# botón pa cancelar
 	var cancel_button := Button.new()
 	cancel_button.text = "CANCELAR SOLICITUD"

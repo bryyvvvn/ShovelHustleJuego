@@ -16,7 +16,6 @@ var usersInfo = []
 var _host = "ws://ucn-game-server.martux.cl:4010/?gameId=G&playerName=ElGato"
 var _my_id = ""
 var _my_name = ""
-
 var unmsg = '{
 	"event": "match-request-received",
 	"msg": "te invitaron a jugar"
@@ -75,7 +74,10 @@ func _on_message_received(message: String):
 			invitado.setup(_find_username(msg.data.playerId),msg.data.playerId,msg.data.matchId)
 			add_child(invitado)
 		"match-accepted":
-			status_label.text = "Match con %s" % msg.data.opponent
+			status_label.text = "¡MATCH!"
+			get_tree().change_scene_to_file("res://scenes/multiplayer/multiplayer.tscn")
+		"accept-match":
+			status_label.text = "¡MATCH!"
 			get_tree().change_scene_to_file("res://scenes/multiplayer/multiplayer.tscn")
 		"send-match-request":
 			if msg.status == "OK":
