@@ -10,7 +10,8 @@ var userId = ""
 var thematch = ""
 
 func _ready() -> void:
-	pass 
+	online.message_received.connect(_on_message_received)
+
 
 func setup(username : String,target : String,matchId : String) -> void:
 	var user := $Panel/VBoxContainer/username
@@ -19,6 +20,14 @@ func setup(username : String,target : String,matchId : String) -> void:
 	userId = target
 	thematch = matchId
 
+func _on_message_received(message: String):
+	var msg = JSON.parse_string(message)
+	print("Mensaje recibido:", message)
+	match msg.event:
+		"match-canceled-by-sender":
+			hide()
+			
+			
 
 func _on_si_pressed() -> void:
 	var msg = {
