@@ -5,7 +5,7 @@ extends Node2D
 @export var shovel_scene : PackedScene
 @export var objects_scene : PackedScene
 @export var inventory_Scene : PackedScene
-@export var tienda_ui_scene: PackedScene
+@export var tienda_o_ui_scene: PackedScene
 @export var inventory_inv : Inv
 @export var money_ref : Node
 
@@ -20,7 +20,7 @@ var shovel
 var mouse_pos 
 var inventory
 var tienda
-var tienda_ui
+var tienda_o_ui
 
 #energía en el juego
 var energy := 100.0
@@ -125,8 +125,8 @@ func init_inventory() -> void:
 	inventory_inv.insert(item)
 
 func init_tienda_ui() -> void:
-		tienda_ui = tienda_ui_scene.instantiate()
-		$UI.add_child(tienda_ui)
+		tienda_o_ui = tienda_o_ui_scene.instantiate()
+		$UI.add_child(tienda_o_ui)
 		get_node("UI"). get_node("Tienda_o_Ui").enabled = true;
 
 @onready var trans = $UI/dayTransition
@@ -135,7 +135,7 @@ func _ready() -> void:
 	$"AudioStreamPlayer2D".play()
 	init_world()
 	init_player()
-	player.enable_to_open = true
+	player.enable_to_open = false
 	init_shovel()
 	init_inventory()
 	init_tienda_ui()
@@ -221,7 +221,4 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_tienda_button_pressed() -> void:
-	if get_node("UI").get_node("Tienda_o_Ui").cerrado:
-		get_node("UI").get_node("Tienda_o_Ui").open()
-	else:
-		get_node("UI"). get_node("Tienda_o_Ui").close()
+	get_node("UI").get_node("Tienda_o_Ui").accionar()
