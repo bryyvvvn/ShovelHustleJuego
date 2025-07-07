@@ -96,10 +96,10 @@ text = "SALIR"
 
 [node name="username" type="Button" parent="."]
 layout_mode = 0
-offset_left = 990.0
-offset_top = 608.0
-offset_right = 1144.0
-offset_bottom = 639.0
+offset_left = 988.0
+offset_top = 8.0
+offset_right = 1142.0
+offset_bottom = 39.0
 text = "CAMBIAR NOMBRE
 "
 

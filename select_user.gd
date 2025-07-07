@@ -8,22 +8,40 @@ extends Control
 var online = WebSocketClient
 var thename = ""
 var userId = ""
+var theirstatus = ""
 
 func _ready() -> void:
 	pass
 
-func setup(username : String,target : String) -> void:
+func setup(username : String,target : String, status : String) -> void:
 	var user := $Panel/VBoxContainer/Label
 	user.text = "Nombre: %s\nId: %s" % [username, target]
 	thename = username
 	userId = target
+	theirstatus = status
 func _on_invite_pressed() -> void:
-	pass # Replace with function body.
+	var msg = {
+		"event": "send-match-request",
+		"data": {
+			"playerId": userId,
+ 		 }
+	}
+	online.send(JSON.stringify(msg))
+	# botón pa cancelar
+	var cancel_button := Button.new()
+	cancel_button.text = "CANCELAR SOLICITUD"
+	cancel_button.name = "cancelarMatch"  
+	cancel_button.pressed.connect(_on_cancel_request_pressed)
+	$Panel/VBoxContainer.add_child(cancel_button)
 
-
-func _on_chat_pressed() -> void:
-	pass # Replace with function body.
-
+func _on_cancel_request_pressed() -> void:
+	var cancel_msg = {
+		"event": "cancel-match-request",
+	}
+	online.send(JSON.stringify(cancel_msg))
+	var btn = $Panel/VBoxContainer.get_node("cancelarMatch")
+	if btn:
+		btn.queue_free()
 
 func _on_cancelar_pressed() -> void:
 	hide()

@@ -1,5 +1,6 @@
-Button
 Label
+Button
+HBoxContainer
 VBoxContainer
 Panel
 LineEdit

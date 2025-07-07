@@ -9,6 +9,7 @@ extends Control
 @onready var desconectarse: Button = $Button
 @onready var changeName := preload("res://Scenes/Menu/username.tscn")
 @onready var selectUser := preload("res://Scenes/Menu/select_user.tscn")
+@onready var invitePopup := preload("res://Scenes/Menu/invite_popup.tscn")
 
 
 var usersInfo = []
@@ -32,7 +33,7 @@ func _ready():
 	player_list.item_activated.connect(_on_player_selected)
 	
 	
-	#_show_invite_popup(unmsg)
+
 func _on_connected():
 	var login =	{
   			"event": "login",
@@ -70,7 +71,9 @@ func _on_message_received(message: String):
 		"player-disconnected":
 			_remove_player(msg.data.name)
 		"match-request-received":
-			_show_invite_popup(msg)
+			var invitado = invitePopup.instantiate()
+			invitado.setup(_find_username(msg.data.playerId),msg.data.playerId,msg.data.matchId)
+			add_child(invitado)
 		"match-accepted":
 			status_label.text = "Match con %s" % msg.data.opponent
 			get_tree().change_scene_to_file("res://scenes/multiplayer/multiplayer.tscn")
@@ -117,48 +120,15 @@ func _remove_player(id: String):
 func _on_player_selected(index: int):
 	var target = usersInfo[index].id.strip_edges() 
 	var username = usersInfo[index].name.strip_edges()
+	var status = usersInfo[index].status.strip_edges()
 	var selectUser = selectUser.instantiate()
-	selectUser.setup(username, target)
+	selectUser.setup(username, target,status)
 	add_child(selectUser)
-	
-	#var msg = {
-	#	"event": "send-match-request",
-	#	"data": {
-	#		"playerId": target,
- 	#	 }
-	#}
-	status_label.text = "Enviando solicitud..."
-	#_client.send(JSON.stringify(msg))
 
-
-func _show_invite_popup(message: String):
-	var mensaje = JSON.parse_string(message)
-	var popup = AcceptDialog.new()
-	popup.dialog_text = "¿Quieres aceptar la partida?"
-	popup.title = "Invitación"
-	popup.get_ok_button().text = "Aceptar"
-	var cancel_button = Button.new()
-	cancel_button.text = "NO"
-	popup.dialog_text = mensaje.msg
-	popup.confirmed.connect(func():
-		var msg = {
-			"event": "accept-match"
-		}
-		_client.send(JSON.stringify(msg))
-	)
-	cancel_button.pressed.connect(func(): 
-		var msg = {
-			"event": "reject-match"
-			}
-		_client.send(JSON.stringify(msg)) 
-		)
-	popup.add_child(cancel_button)
-	add_child(popup)
-	popup.popup_centered()
 
 func _on_username_pressed() -> void:
 	var nameChange = changeName.instantiate()
-	add_child(nameChange)  # Asegúrate que sea un nodo Control para que se muestre en la UI
+	add_child(nameChange)  
 	
 	
 func _on_button_pressed() -> void: 
@@ -207,3 +177,9 @@ func _sendGetUserListEvent():
 		"event": "online-players"
 	}
 	_client.send(JSON.stringify(dataToSend))
+
+func _find_username(id : String): 
+	for p in usersInfo:
+		if p.id == id:
+			return p.name
+	
