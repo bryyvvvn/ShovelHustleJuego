@@ -66,7 +66,7 @@ func _on_message_received(message: String):
 				_update_player_list(msg.data)
 		"player-connected":
 			player_list.add_item(msg.data.name)
-			_update_player_list(msg.data)
+			_sendGetUserListEvent()
 		"player-disconnected":
 			_remove_player(msg.data.name)
 		"match-request-received":
@@ -97,12 +97,13 @@ func _send_get_user_list():
 
 func _update_player_list(players: Array):
 	usersInfo.clear()
-	usersInfo = players
+	
 	player_list.clear()
 	for p in players:
 		if p.id != _my_id:
 			var line = "(%s): %s" % [p.status,p.name]
 			player_list.add_item(line)
+			usersInfo.append(p)
 
 func _remove_player(id: String):
 	for i in player_list.item_count:
@@ -111,19 +112,21 @@ func _remove_player(id: String):
 			return
 
 func _on_player_selected(index: int):
-	var target = usersInfo.get_item_text(index).id.strip_edges() 
+	var target = usersInfo[index].id.strip_edges() 
+	var username = usersInfo[index].name.strip_edges()
+	var targetText = "Nombre: %s\nId: %s" % [username, target]
 	var selectUser = selectUser.instantiate()
-	
+	selectUser.setup(targetText)
 	add_child(selectUser)
 	
-	var msg = {
-		"event": "send-match-request",
-		"data": {
-			"playerId": target,
- 		 }
-	}
+	#var msg = {
+	#	"event": "send-match-request",
+	#	"data": {
+	#		"playerId": target,
+ 	#	 }
+	#}
 	status_label.text = "Enviando solicitud..."
-	_client.send(JSON.stringify(msg))
+	#_client.send(JSON.stringify(msg))
 
 
 func _show_invite_popup(message: String):
