@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://wicjarahvlgm"]
+[gd_scene load_steps=18 format=3 uid="uid://wicjarahvlgm"]
 
 [ext_resource type="Script" uid="uid://okehnsyh83a2" path="res://Scripts/Multiplayer/multiplayer.gd" id="1_kapfi"]
 [ext_resource type="PackedScene" uid="uid://itan8ubbvmkd" path="res://Scenes/multiplayer/multiplayer_world.tscn" id="2_lfuhp"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cx25plwhja0ss" path="res://Scenes/objectsPhysics.tscn" id="5_4wkfa"]
 [ext_resource type="PackedScene" uid="uid://b85177o806qdv" path="res://Scenes/Inventario/inv_ui.tscn" id="6_y6r0j"]
 [ext_resource type="Resource" uid="uid://ccm4h0afnl3q5" path="res://Scenes/Inventario/playerInv.tres" id="7_1qdgp"]
+[ext_resource type="PackedScene" uid="uid://4v21wekain54" path="res://Scenes/Tienda/Tienda_online/tienda_o_ui.tscn" id="7_ux10c"]
 [ext_resource type="PackedScene" uid="uid://bn0cf2f1oh5r1" path="res://Scenes/in_game/energia.tscn" id="8_ux10c"]
 [ext_resource type="PackedScene" uid="uid://dbe2ymyiloo68" path="res://Scenes/in_game/money.tscn" id="9_lssr4"]
 [ext_resource type="Texture2D" uid="uid://bkfsrrs6dba3k" path="res://Assets/Sprites/UI/HUD.png" id="10_1qdgp"]
@@ -24,6 +25,7 @@ player_scene = ExtResource("3_a0vfj")
 shovel_scene = ExtResource("4_ib52u")
 objects_scene = ExtResource("5_4wkfa")
 inventory_Scene = ExtResource("6_y6r0j")
+tienda_o_ui_scene = ExtResource("7_ux10c")
 inventory_inv = ExtResource("7_1qdgp")
 money_ref = NodePath("UI/money")
 

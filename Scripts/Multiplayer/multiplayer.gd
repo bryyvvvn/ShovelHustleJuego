@@ -127,7 +127,6 @@ func init_inventory() -> void:
 func init_tienda_ui() -> void:
 		tienda_o_ui = tienda_o_ui_scene.instantiate()
 		$UI.add_child(tienda_o_ui)
-		get_node("UI"). get_node("Tienda_o_Ui").enabled = true;
 
 @onready var trans = $UI/dayTransition
 func _ready() -> void:
