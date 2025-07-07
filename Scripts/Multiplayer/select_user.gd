@@ -58,6 +58,7 @@ func _on_cancel_request_pressed() -> void:
 	var btn = $Panel/VBoxContainer.get_node("cancelarMatch")
 	if btn:
 		btn.queue_free()
+	cancelar.show()
 
 func _on_cancelar_pressed() -> void:
 	hide()
