@@ -19,6 +19,19 @@ func setup(username : String,target : String, status : String) -> void:
 	thename = username
 	userId = target
 	theirstatus = status
+	
+func _on_message_received(message: String):
+	var msg = JSON.parse_string(message)
+	print("Mensaje recibido:", message)
+	match msg.event:
+		"match-accepted":
+			hide()
+		"match-rejected":
+			var btn = $Panel/VBoxContainer.get_node("cancelarMatch")
+			if btn:
+				btn.queue_free()
+			hide()
+	
 func _on_invite_pressed() -> void:
 	var msg = {
 		"event": "send-match-request",
