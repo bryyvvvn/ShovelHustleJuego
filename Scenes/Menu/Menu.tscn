@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://d007uymodlbu1" path="res://Assets/Sprites/parallax/8.png" id="9_md428"]
 [ext_resource type="Texture2D" uid="uid://21jxhu8dhsbe" path="res://Assets/Sprites/parallax/9.png" id="10_0p4q6"]
 [ext_resource type="Texture2D" uid="uid://b67i3d5sswwnc" path="res://Assets/Sprites/parallax/10.png" id="11_i80xk"]
-[ext_resource type="Script" uid="uid://dayqspraya4l2" path="res://Scenes/Menu/spriteTitulo.gd" id="12_1upnj"]
-[ext_resource type="Script" uid="uid://ccubs7amjpqxg" path="res://Scenes/Menu/camera_2d.gd" id="12_o0fcc"]
+[ext_resource type="Script" uid="uid://dayqspraya4l2" path="res://Scripts/Menú/spriteTitulo.gd" id="12_1upnj"]
+[ext_resource type="Script" uid="uid://ccubs7amjpqxg" path="res://Scripts/Menú/camera_2d.gd" id="12_o0fcc"]
 [ext_resource type="Script" uid="uid://dlpnak8tke828" path="res://Scripts/Menú/BotonHover.gd" id="16_ofv6h"]
 
 [node name="Menú" type="Control"]

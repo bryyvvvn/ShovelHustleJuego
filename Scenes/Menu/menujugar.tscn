@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bh1yuks72x4jp" path="res://Assets/Sprites/parallax/9b.png" id="9_g5f6n"]
 [ext_resource type="Texture2D" uid="uid://csjw0wwgr7ysi" path="res://Assets/Sprites/parallax/10b.png" id="10_ybo1w"]
 [ext_resource type="Texture2D" uid="uid://21jxhu8dhsbe" path="res://Assets/Sprites/parallax/9.png" id="11_orye5"]
-[ext_resource type="Script" uid="uid://ccubs7amjpqxg" path="res://Scenes/Menu/camera_2d.gd" id="12_wlpt7"]
+[ext_resource type="Script" uid="uid://ccubs7amjpqxg" path="res://Scripts/Menú/camera_2d.gd" id="12_wlpt7"]
 [ext_resource type="Script" uid="uid://dlpnak8tke828" path="res://Scripts/Menú/BotonHover.gd" id="14_h8b27"]
 
 [node name="MenuJugar" type="Control"]

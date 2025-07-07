@@ -12,11 +12,15 @@ var itemInHand: ItemStackGui
 var enabled : bool
 var cerrado : bool = true
 
+
+
 func _ready() -> void:
 	visible = false
 
 	for slot in slots:
 		slot.pressed.connect(Callable(self, "onSlotClicked").bind(slot))
+
+
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("tienda"): 
@@ -37,6 +41,7 @@ func close():
 	cerrado = true
 
 func onSlotClicked(slot):
+	
 	if not slot.venta:
 		var object = objects_scene.instantiate()
 		object.data = slot.object_data
@@ -44,6 +49,8 @@ func onSlotClicked(slot):
 		object.global_position = get_parent().get_parent().get_node("player").global_position
 		get_parent().get_parent().add_child(object)
 		get_parent().get_parent().get_node("player").money += -slot.object_data.get_precio()
+		
+		
 	else:
 		
 		var player_inventory_ui := get_parent().get_node("Inv_UI")

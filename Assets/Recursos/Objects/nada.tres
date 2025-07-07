@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="objectData" load_steps=3 format=3 uid="uid://bsu28w543pmmh"]
 
-[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_hvf5h"]
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/Objetos/objectData.gd" id="1_hvf5h"]
 [ext_resource type="AudioStream" uid="uid://fjoiq82v8ec4" path="res://Assets/Sonidos/Sonido_minerales/dig_trash.wav" id="2_maanq"]
 
 [resource]

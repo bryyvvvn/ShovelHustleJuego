@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="objectData" load_steps=5 format=3 uid="uid://cqseixhab8fsl"]
 
-[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_c625a"]
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/Objetos/objectData.gd" id="1_c625a"]
 [ext_resource type="AudioStream" uid="uid://bdlycbhfmt1yu" path="res://Assets/Sonidos/Sonido_minerales/stone_dig.wav" id="2_20jci"]
 [ext_resource type="Texture2D" uid="uid://b87hsweuabrwy" path="res://Assets/Sprites/objects/objects_16/piedra.png" id="2_lhl1u"]
 [ext_resource type="Texture2D" uid="uid://b1jk7qnm3hpu" path="res://Assets/Sprites/objects/objects_32/piedra.png" id="3_20jci"]

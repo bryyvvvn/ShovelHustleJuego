@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="objectData" load_steps=5 format=3 uid="uid://d2rn7duhxpby3"]
 
-[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_e5a3u"]
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/Objetos/objectData.gd" id="1_e5a3u"]
 [ext_resource type="AudioStream" uid="uid://kpe6ry6akw2q" path="res://Assets/Sonidos/Sonido_minerales/coal_dig.wav" id="2_e5a3u"]
 [ext_resource type="Texture2D" uid="uid://rpekcpqc7epr" path="res://Assets/Sprites/objects/objects_16/agua(sucia).png" id="3_0umej"]
 [ext_resource type="Texture2D" uid="uid://2xxjn2a8s1dq" path="res://Assets/Sprites/objects/objects_32/agua(sucia).png" id="4_rgxxc"]

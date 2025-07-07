@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="objectData" load_steps=4 format=3 uid="uid://dqqa04ocaq4ti"]
 
-[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_0144n"]
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/Objetos/objectData.gd" id="1_0144n"]
 [ext_resource type="Texture2D" uid="uid://cgmkiq0h1177f" path="res://Assets/Sprites/objects/objects_16/agua.png" id="2_kb5n1"]
 [ext_resource type="Texture2D" uid="uid://d3a7oihnmhril" path="res://Assets/Sprites/objects/objects_32/agua.png" id="3_0144n"]
 

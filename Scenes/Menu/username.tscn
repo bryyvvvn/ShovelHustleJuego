@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cm1a3775ex00j"]
 
-[ext_resource type="Script" uid="uid://b5ncun7cibbvm" path="res://username.gd" id="1_c1i5g"]
+[ext_resource type="Script" uid="uid://b5ncun7cibbvm" path="res://Scripts/Multiplayer/username.gd" id="1_c1i5g"]
 
 [node name="username" type="Control"]
 layout_mode = 3

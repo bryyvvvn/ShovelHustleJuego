@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="objectData" load_steps=5 format=3 uid="uid://ci1v4d1okaf3g"]
 
-[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_hbpag"]
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/Objetos/objectData.gd" id="1_hbpag"]
 [ext_resource type="Texture2D" uid="uid://dx4pbx8imtjfk" path="res://Assets/Sprites/objects/objects_16/tuberculos.png" id="2_hbpag"]
 [ext_resource type="AudioStream" uid="uid://kpe6ry6akw2q" path="res://Assets/Sonidos/Sonido_minerales/coal_dig.wav" id="2_vsnhk"]
 [ext_resource type="Texture2D" uid="uid://dbyleqcju1cwc" path="res://Assets/Sprites/objects/objects_32/tuberculos.png" id="3_b6cfj"]

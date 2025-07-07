@@ -22,8 +22,3 @@ func _on_body_entered(body: Node2D) -> void:
 		player = body
 		player.collect(data)
 		self.queue_free()
-
-
-"""func _on_body_exited(body: Node2D) -> void:
-	if body.has_method("player"):
-		player_in_area == false """

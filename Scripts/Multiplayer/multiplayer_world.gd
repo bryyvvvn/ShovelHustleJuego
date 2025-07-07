@@ -4,12 +4,10 @@ extends Node2D
 @export var noise_height_noise : NoiseTexture2D #forma de la isla
 @export var noise_lakes_noise : NoiseTexture2D #ubicacion de los lagos
 @export var noise_tree_text : NoiseTexture2D #ubicacion de los arboles
-@export var noise_rich_zones : NoiseTexture2D #zonas ricas
 
 var noise : Noise
 var noise_lakes : Noise
 var tree_noise : Noise
-var zones_noise : Noise
 
 
 #todas las capas del mapa
@@ -29,8 +27,6 @@ var smoothing_passes = 4
 
 #arena, palmeras y decoraciones
 var sand_elements = [Vector2i(1,4), Vector2i(5,4), Vector2i(13,4)]#arenas
-var sand_1_elements = [Vector2i(9,1), Vector2i(11,1), Vector2i(9,3), Vector2i(11,3), Vector2(9,5), Vector2(11,5)]#palmeras
-var sand_2_elements = [Vector2i(1,3), Vector2i(2,3), Vector2i(3,5), Vector2i(0,5), Vector2(4,4), Vector2(5,1), Vector2(0,6)]#decoraciones
 var hole_elements = [Vector2i(0,0), Vector2i(1,0), Vector2i(2,0)]
 
 var cactus_secos = [
@@ -134,7 +130,6 @@ func generar_mapa_base():
 			var gx = x - map_mid_width
 			var gy = y - map_mid_height
 			
-			potentior[Vector2i(gx,gy)] = -zones_noise.get_noise_2d(gx, gy)*multiplicador
 
 			if x == 0 or y == 0 or x == map_width - 1 or y == map_height - 1:
 				mapa[y].append(0)
@@ -220,10 +215,6 @@ func aplicar_mapa():
 				if noise_tree_val < 0.8 and  noise_tree_val > 0.78 and noise_lake_val < 0.43 :
 					disabled_dig[pos] = 0
 					enviroment_tile_map_layer.set_cell(pos, atlas_id_cactus, cactus_muy_verdes.pick_random())
-					
-				if noise_tree_val > 0.915  and noise_lake_val < 0.43 :
-					disabled_dig[pos] = 0
-					enviroment_tile_map_layer.set_cell(pos/2, atlas_id_dessert_staff, sand_1_elements.pick_random())
 
 				if noise_lake_val > 0.39  and mascara > 0.4 and mascara < 0.9:
 					disabled_dig[pos] = 0
@@ -236,10 +227,6 @@ func aplicar_mapa():
 	lakes_tile_map_layer.set_cells_terrain_connect(lake_positions, atlas_id_water2, 0)
 	sand_2_tile_map_layer.set_cells_terrain_connect(sand_1_positions, atlas_id_arena, 0)
 	
-	##marcar las zonas ricas
-	for cell in rich_zones:
-		excavacion_tile_map_layer.set_cell(cell, 3, Vector2i(13,45))
-	
 	
 func _ready():
 	randomize()
@@ -249,8 +236,6 @@ func _ready():
 	noise_lakes.seed = randi()
 	tree_noise = noise_tree_text.noise
 	tree_noise.seed = randi()
-	zones_noise = noise_rich_zones.noise
-	zones_noise.seed = randi()
 
 	generar_mapa_base()
 	for i in range(smoothing_passes):

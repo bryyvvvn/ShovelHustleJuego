@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dgxt71me7eev1"]
 
-[ext_resource type="Script" uid="uid://c4qxe4eh8h4cm" path="res://Scenes/Menu/invite_popup.gd" id="1_afabu"]
+[ext_resource type="Script" uid="uid://c4qxe4eh8h4cm" path="res://Scripts/Multiplayer/invite_popup.gd" id="1_afabu"]
 
 [node name="invitePopup" type="Control"]
 layout_mode = 3

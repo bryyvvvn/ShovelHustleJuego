@@ -9,6 +9,7 @@ extends Node2D
 @export var inventory_inv : Inv
 @export var money_ref : Node
 
+
 #online interactions:
 @onready var online = $online
 
@@ -32,65 +33,41 @@ var max_days: int = 7
 var cuota_diaria = 550
 var day_ended = false
 var mineral_sound : int
-	
+
+var basura : objectData = preload("res://Assets/Recursos/Objects/basura.tres")
+var tuberculo : objectData= preload("res://Assets/Recursos/Objects/tuberculo.tres")
+var piedra : objectData= preload("res://Assets/Recursos/Objects/piedra.tres")
+var carbon : objectData= preload("res://Assets/Recursos/Objects/carbon.tres")
+var hierro : objectData= preload("res://Assets/Recursos/Objects/hierro.tres")
+var plata : objectData= preload("res://Assets/Recursos/Objects/plata.tres")
+var oro : objectData= preload("res://Assets/Recursos/Objects/oro.tres")
+var diamante : objectData= preload("res://Assets/Recursos/Objects/diamante.tres")
+var nada : objectData= preload("res://Assets/Recursos/Objects/nada.tres")
+
+
+
+
+
+
 func init_mineral() -> void:
 	randomize()
 	var object = objects_scene.instantiate()
-	var mineral : float = randf() * 100
+	var mineral : float = (randf() * 100)
 	var tilemap = tile_map.get_node("TileMap")
 	var mouse_pos = get_global_mouse_position()
 	
-	var basura : objectData = preload("res://Assets/Recursos/Objects/basura.tres")
-	var tuberculo : objectData= preload("res://Assets/Recursos/Objects/tuberculo.tres")
-	var piedra : objectData= preload("res://Assets/Recursos/Objects/piedra.tres")
-	var carbon : objectData= preload("res://Assets/Recursos/Objects/carbon.tres")
-	var hierro : objectData= preload("res://Assets/Recursos/Objects/hierro.tres")
-	var plata : objectData= preload("res://Assets/Recursos/Objects/plata.tres")
-	var oro : objectData= preload("res://Assets/Recursos/Objects/oro.tres")
-	var diamante : objectData= preload("res://Assets/Recursos/Objects/diamante.tres")
 	
-	if mineral < basura.intervalo.x:
+	var minerales = [ nada, basura, tuberculo, piedra, carbon, hierro, plata, oro, diamante]
+	
+	for entry in minerales:
+		var intervalo = entry.intervalo
+		if mineral > intervalo.x and mineral <= intervalo.y:
+			object.data = entry
+			object.get_node("Sprite2D").texture = entry.get_texture()
+			break
+			
+	if object.data.nombre == "nada":
 		return
-	elif mineral < basura.intervalo.y and mineral > basura.intervalo.x:
-		object.data = basura
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 0
-		
-	elif mineral > tuberculo.intervalo.x and mineral <= tuberculo.intervalo.y:
-		object.data = tuberculo
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 1
-		
-	elif mineral > piedra.intervalo.x and mineral <= piedra.intervalo.y:
-		object.data = piedra
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 2
-		
-	elif mineral > carbon.intervalo.x and mineral <= carbon.intervalo.y:
-		object.data = carbon
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 3
-
-	elif mineral > hierro.intervalo.x and mineral <= hierro.intervalo.y:
-		object.data = hierro
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 4
-
-	elif mineral > plata.intervalo.x and mineral <= plata.intervalo.y:
-		object.data = plata
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 5
-
-	elif mineral > oro.intervalo.x and mineral <= oro.intervalo.y :
-		object.data = oro
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 6
-	
-	elif mineral > diamante.intervalo.x:
-		print(diamante.intervalo.x)
-		object.data = diamante
-		object.get_node("Sprite2D").texture = object.data.get_texture()
-		mineral_sound = 7
 		
 	var angulo = deg_to_rad(randi() % 361)
 	var dir = Vector2(cos(angulo),sin(angulo))  # o cualquier dirección (arriba, abajo, etc.)
@@ -118,6 +95,7 @@ func init_mineral() -> void:
 
 	# Reactivar collider cuando termine
 	tween.finished.connect(func(): shape.disabled = false)
+
 
 
 
@@ -149,7 +127,7 @@ func init_inventory() -> void:
 func init_tienda_ui() -> void:
 		tienda_ui = tienda_ui_scene.instantiate()
 		$UI.add_child(tienda_ui)
-		get_node("UI"). get_node("TiendaUi").enabled = true;
+		get_node("UI"). get_node("Tienda_o_Ui").enabled = true;
 
 @onready var trans = $UI/dayTransition
 func _ready() -> void:
@@ -157,6 +135,7 @@ func _ready() -> void:
 	$"AudioStreamPlayer2D".play()
 	init_world()
 	init_player()
+	player.enable_to_open = true
 	init_shovel()
 	init_inventory()
 	init_tienda_ui()
@@ -199,17 +178,25 @@ func _input(event):
 			energy -= 8
 
 
+
+
 func pause_game():
 	var pause_menu = preload("res://scenes/Menu/in_game_menu.tscn").instantiate()
 	pause_menu.name = "PauseMenu"
 	add_child(pause_menu)
 
+
+
 func unpause_game():
 	var existing = get_node_or_null("PauseMenu")
 	if existing:
 		existing.queue_free()
+
+
+
+
+
 func _physics_process(delta: float) -> void:
-	
 	
 	var tile_pos = tile_map.get_node("TileMap").local_to_map(player.get_node("CollisionShape2D").global_position)
 	tile_map.tiles_arround(tile_pos)
@@ -228,15 +215,13 @@ func _physics_process(delta: float) -> void:
 
 	$UI/time/clockContainer/hora.text = "%02d:%02d" % [mins, secs]
 	
-	
-	
 
-	
-	
+
+
 
 
 func _on_tienda_button_pressed() -> void:
-	if get_node("UI").get_node("TiendaUi").cerrado:
+	if get_node("UI").get_node("Tienda_o_Ui").cerrado:
 		get_node("UI").get_node("TiendaUi").open()
 	else:
-		get_node("UI"). get_node("TiendaUi").close()
+		get_node("UI"). get_node("Tienda_o_Ui").close()

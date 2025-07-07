@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="objectData" load_steps=5 format=3 uid="uid://dfjf8u313dlxv"]
 
-[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_f1wrc"]
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/Objetos/objectData.gd" id="1_f1wrc"]
 [ext_resource type="Texture2D" uid="uid://ca5s40fcwm477" path="res://Assets/Sprites/objects/objects_16/oro.png" id="2_1byod"]
 [ext_resource type="AudioStream" uid="uid://d1q4r7rwv3ayh" path="res://Assets/Sonidos/Sonido_minerales/gold_dig.wav" id="2_n5xbi"]
 [ext_resource type="Texture2D" uid="uid://bnjg05s1kw3k3" path="res://Assets/Sprites/objects/objects_32/oro.png" id="3_n5xbi"]

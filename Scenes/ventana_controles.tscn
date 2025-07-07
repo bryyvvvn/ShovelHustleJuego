@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c7av25r4rxq5"]
 
-[ext_resource type="Script" uid="uid://bd8ns5hysdkbj" path="res://Scripts/ventana_controles.gd" id="1_dkbt4"]
+[ext_resource type="Script" uid="uid://bd8ns5hysdkbj" path="res://Scripts/Menú/ventana_controles.gd" id="1_dkbt4"]
 [ext_resource type="Texture2D" uid="uid://b4jiyuklxpkbb" path="res://Assets/Sprites/Inventory/inventarioCapa.png" id="2_eoj6b"]
 [ext_resource type="Texture2D" uid="uid://bqah8jvqksi6v" path="res://Assets/Sprites/Tutorial/7177433.png" id="3_7vq2l"]
 [ext_resource type="Texture2D" uid="uid://c426nr71vyu40" path="res://Assets/Sprites/Tutorial/unnamed__1_-removebg-preview.png" id="4_7geid"]
