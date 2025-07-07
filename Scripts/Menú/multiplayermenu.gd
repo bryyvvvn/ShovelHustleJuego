@@ -84,6 +84,9 @@ func _on_message_received(message: String):
 		"send-public-message":
 			if msg.status == "OK":
 				_sendToChatDisplay("Yo: " + msg.data.message)
+		"send-private-message":
+			if msg.status == "OK":
+				_sendToChatDisplay("(Susurro): %s" % [msg.data.message])
 		"private-message":
 			_sendToChatDisplay("(Susurro) %s: %s" % [msg.data.playerName, msg.data.playerMsg])
 		"player-name-changed": #cuando alguien se cambia el nombre
@@ -114,9 +117,8 @@ func _remove_player(id: String):
 func _on_player_selected(index: int):
 	var target = usersInfo[index].id.strip_edges() 
 	var username = usersInfo[index].name.strip_edges()
-	var targetText = "Nombre: %s\nId: %s" % [username, target]
 	var selectUser = selectUser.instantiate()
-	selectUser.setup(targetText)
+	selectUser.setup(username, target)
 	add_child(selectUser)
 	
 	#var msg = {
@@ -188,10 +190,7 @@ func _sendToChatDisplay(msg):
 # Envía un mensaje a un usuario o al chat grupal y manda la solicitud al servidor
 func _sendMessage(message: String, userId: String = ''):
 	var action
-	if (userId != ''):
-		action = 'send-private-message'
-	else:
-		action = 'send-public-message'
+	action = 'send-public-message'
 		
 	var dataToSend = {
 		"event": action,
