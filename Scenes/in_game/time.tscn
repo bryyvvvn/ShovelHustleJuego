@@ -10,13 +10,13 @@ grow_horizontal = 2
 [node name="clockContainer" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 20.0
-offset_right = 107.0
-offset_bottom = 23.0
+offset_right = 20.0
 
 [node name="hora" type="Label" parent="clockContainer"]
 layout_mode = 0
 offset_left = 10.0
 offset_right = 78.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
 text = "HORA"
 horizontal_alignment = 1

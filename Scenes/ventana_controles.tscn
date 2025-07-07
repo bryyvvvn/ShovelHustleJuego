@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7av25r4rxq5"]
+[gd_scene load_steps=8 format=3 uid="uid://c7av25r4rxq5"]
 
 [ext_resource type="Script" uid="uid://bd8ns5hysdkbj" path="res://Scripts/ventana_controles.gd" id="1_dkbt4"]
 [ext_resource type="Texture2D" uid="uid://b4jiyuklxpkbb" path="res://Assets/Sprites/Inventory/inventarioCapa.png" id="2_eoj6b"]
+[ext_resource type="Texture2D" uid="uid://bqah8jvqksi6v" path="res://Assets/Sprites/Tutorial/7177433.png" id="3_7vq2l"]
+[ext_resource type="Texture2D" uid="uid://c426nr71vyu40" path="res://Assets/Sprites/Tutorial/unnamed__1_-removebg-preview.png" id="4_7geid"]
+[ext_resource type="Texture2D" uid="uid://6k6hdryjiufk" path="res://Assets/Sprites/Tutorial/242baeb7-4ae4-4752-ab76-31415455f861-removebg-preview.png" id="5_6fc1m"]
+[ext_resource type="Texture2D" uid="uid://cqbagu43dbnvg" path="res://Assets/Sprites/Tutorial/unnamed-removebg-preview.png" id="6_imgon"]
+[ext_resource type="Texture2D" uid="uid://cn7v300mxlcht" path="res://Assets/Sprites/Tutorial/31532.png" id="7_cyplf"]
 
 [node name="VentanaControles" type="Button"]
 anchors_preset = 15
@@ -15,13 +20,11 @@ text = "Ayuda"
 script = ExtResource("1_dkbt4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(263, 126)
+position = Vector2(264, 123)
 scale = Vector2(0.38855, 0.439527)
 texture = ExtResource("2_eoj6b")
 
 [node name="Label" type="Label" parent="Sprite2D"]
-z_index = 2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -29,16 +32,79 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -962.0
 offset_top = -486.5
-offset_right = -524.0
-offset_bottom = -280.5
+offset_right = -766.0
+offset_bottom = -463.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-text = "Movimiento Wasd
+text = "Controles de movimiento"
 
-abrir inventario con E
+[node name="Label2" type="Label" parent="Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.649
+offset_top = -486.816
+offset_right = -230.649
+offset_bottom = -463.816
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "cavar"
 
-para el minijuego, manten presionado en algunos de los 
-circulos al lado del pesonaje, para iniciar. Haz click derecho
-para hacer que la pala llegue a lo alto, trata de hacer 
-que caiga en el rectangulo amarillo"
+[node name="Label3" type="Label" parent="Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -918.64
+offset_top = -266.124
+offset_right = -797.64
+offset_bottom = -243.124
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "abrir inventario"
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-262.514, -72.8055)
+scale = Vector2(0.404493, 0.33114)
+texture = ExtResource("3_7vq2l")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(213.615, -86.4566)
+scale = Vector2(0.419475, 0.36871)
+texture = ExtResource("4_7geid")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-285.678, 134.235)
+scale = Vector2(0.25, 0.222)
+texture = ExtResource("5_6fc1m")
+
+[node name="Label4" type="Label" parent="Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -627.815
+offset_top = -263.849
+offset_right = -506.815
+offset_bottom = -240.849
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "Interactuar"
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-36.3973, 131.987)
+scale = Vector2(0.238242, 0.200108)
+texture = ExtResource("6_imgon")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(319.135, -91.0069)
+scale = Vector2(0.319706, 0.27057)
+texture = ExtResource("7_cyplf")

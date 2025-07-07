@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkfyurl1ln3il"
-valid=false
+uid="uid://ci8j2mjjts84d"
+path="res://.godot/imported/diamante.png-426068734f7ac2ec168c86f3808b1aba.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Assets/Sprites/objects/objects_16/diamante.png"
+dest_files=["res://.godot/imported/diamante.png-426068734f7ac2ec168c86f3808b1aba.ctex"]
 
 [params]
 

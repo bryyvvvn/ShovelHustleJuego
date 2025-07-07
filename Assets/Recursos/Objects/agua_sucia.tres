@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="objectData" load_steps=5 format=3 uid="uid://d2rn7duhxpby3"]
+
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/objectData.gd" id="1_e5a3u"]
+[ext_resource type="AudioStream" uid="uid://kpe6ry6akw2q" path="res://Assets/Sonidos/Sonido_minerales/coal_dig.wav" id="2_e5a3u"]
+[ext_resource type="Texture2D" uid="uid://rpekcpqc7epr" path="res://Assets/Sprites/objects/objects_16/agua(sucia).png" id="3_0umej"]
+[ext_resource type="Texture2D" uid="uid://2xxjn2a8s1dq" path="res://Assets/Sprites/objects/objects_32/agua(sucia).png" id="4_rgxxc"]
+
+[resource]
+script = ExtResource("1_e5a3u")
+nombre = "agua sucia"
+tipo = "alimento"
+valor = 2
+rareza = 0.0
+descripcion = ""
+indice = 0
+texture = ExtResource("3_0umej")
+texture_inventory = ExtResource("4_rgxxc")
+StackSize = 99
+intervalo = Vector2(0, 0)
+sonido = ExtResource("2_e5a3u")
+alimentacion = 3
+precio = 0
+metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"

@@ -1,50 +1,119 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8pokw5frmagu"]
+[gd_scene load_steps=11 format=3 uid="uid://c8pokw5frmagu"]
 
 [ext_resource type="Texture2D" uid="uid://b4jiyuklxpkbb" path="res://Assets/Sprites/Inventory/inventarioCapa.png" id="1_aa703"]
 [ext_resource type="Script" uid="uid://dk0iqrj6v8v54" path="res://Scenes/Tienda/tienda_ui.gd" id="1_q2nur"]
+[ext_resource type="PackedScene" uid="uid://cx25plwhja0ss" path="res://Scenes/objectsPhysics.tscn" id="2_4f8ra"]
 [ext_resource type="PackedScene" uid="uid://doqqigkspqyv1" path="res://Scenes/Inventario/inv_ui_slot.tscn" id="3_q2nur"]
-[ext_resource type="Script" uid="uid://q26us2fd6f3w" path="res://Scripts/Inventario/tienda_ui_slot.gd" id="4_haok0"]
+[ext_resource type="Script" uid="uid://q26us2fd6f3w" path="res://Scripts/Inventario/scripts_venta/basura_ui_slot.gd" id="4_haok0"]
+[ext_resource type="Script" uid="uid://cvn2xyidk3cmr" path="res://Scripts/Inventario/scripts_venta/venta_ui_slot.gd" id="4_x8o7e"]
+[ext_resource type="Script" uid="uid://f5254om565bj" path="res://Scripts/Inventario/scripts_venta/completo_ui_slot.gd" id="6_wbl3w"]
+[ext_resource type="Script" uid="uid://chal0g26vwm8l" path="res://Scripts/Inventario/scripts_venta/pan_ui_slot.gd" id="7_afa6y"]
+[ext_resource type="Script" uid="uid://ds0xprk865nms" path="res://Scripts/Inventario/scripts_venta/agua_ui_slot.gd" id="8_stf0i"]
+[ext_resource type="Script" uid="uid://cfqd20t25wns0" path="res://Scripts/Inventario/scripts_venta/pala_ui_slot.gd" id="9_4dljr"]
 
 [node name="TiendaUi" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = 52.0
+offset_right = 70.0
+offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q2nur")
+objects_scene = ExtResource("2_4f8ra")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.057
-anchor_top = 0.247
+anchor_top = 0.191
 anchor_right = 0.057
-anchor_bottom = 0.247
-offset_left = -49.664
-offset_top = -50.056
-offset_right = 50.336
-offset_bottom = 49.944
+anchor_bottom = 0.191
+offset_left = -118.664
+offset_top = -82.768
+offset_right = -16.664
+offset_bottom = 89.232
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_aa703")
 
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
-z_index = 3
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 33.0
-offset_top = 33.0
-offset_right = -33.0
-offset_bottom = -33.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 20
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.497
+anchor_right = 0.5
+anchor_bottom = 0.497
+offset_left = -47.0
+offset_top = -74.484
+offset_right = 48.0
+offset_bottom = 74.516
 
-[node name="tienda_UI_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_q2nur")]
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+z_index = 3
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 1
+
+[node name="tienda_UI_slot" parent="NinePatchRect/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("3_q2nur")]
 custom_minimum_size = Vector2(34, 34)
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "Vender
+"
+alignment = 2
+script = ExtResource("4_x8o7e")
+
+[node name="tienda_UI_slot2" parent="NinePatchRect/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("3_q2nur")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Completo
+50"
+alignment = 2
+script = ExtResource("6_wbl3w")
+
+[node name="tienda_UI_slot3" parent="NinePatchRect/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("3_q2nur")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Pan
+100"
+alignment = 2
+script = ExtResource("7_afa6y")
+
+[node name="tienda_UI_slot4" parent="NinePatchRect/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("3_q2nur")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Agua
+20"
+alignment = 2
+script = ExtResource("8_stf0i")
+
+[node name="tienda_UI_slot5" parent="NinePatchRect/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("3_q2nur")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Pala
+100"
+alignment = 2
+script = ExtResource("9_4dljr")
+
+[node name="tienda_UI_slot6" parent="NinePatchRect/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("3_q2nur")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Basura
+0"
+alignment = 2
 script = ExtResource("4_haok0")

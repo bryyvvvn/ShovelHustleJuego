@@ -1,7 +1,9 @@
 extends Control
 
-@onready var slots := $NinePatchRect/GridContainer.get_children()
+@onready var slots := $NinePatchRect/ScrollContainer/VBoxContainer/GridContainer.get_children()
 @onready var ItemStackGuiClass = preload("res://Scenes/Inventario/itemsStackGui.tscn")
+@onready var inventario = get_parent().get_node("inv_ui")
+@export var objects_scene : PackedScene
 
 # Referencia al inventario del jugador (para leer itemInHand)
 
@@ -34,37 +36,27 @@ func close():
 	visible = false 
 	cerrado = true
 
-
-func _on_slot_pressed(slot):
-	
-	var player_inventory_ui := get_parent().get_node("Inv_UI")
-	var item = player_inventory_ui.itemInHand
-	
-	if item:
-		# BORRAR el objeto como si lo "vendieras"
-		
-		item.InventorySlot.amount = 0
-		item.queue_free()
-		
-		# Limpiar mano del jugador
-		player_inventory_ui.itemInHand = null
-		player_inventory_ui.oldIndex = -1
-		
 func onSlotClicked(slot):
-	
-	var player_inventory_ui := get_parent().get_node("Inv_UI")
-	itemInHand = player_inventory_ui.itemInHand
-	if itemInHand == null:
-		return
-	Vfx.play_sfx(0)
-	var precio = itemInHand.InventorySlot.item.valor
-	var cantidad = itemInHand.InventorySlot.amount
-	get_parent().get_parent().get_node("player").update_money(precio*cantidad)
-
-	if slot.isEmpty():
-		if !itemInHand:
-			return
+	if not slot.venta:
+		var object = objects_scene.instantiate()
+		object.data = slot.object_data
+		object.get_node("Sprite2D").texture = slot.object_data.get_texture()
+		object.global_position = get_parent().get_parent().get_node("player").global_position
+		get_parent().get_parent().add_child(object)
+		get_parent().get_parent().get_node("player").money += -slot.object_data.get_precio()
+	else:
 		
-		slot.insert(itemInHand)  # Este ya destruye el item
-		player_inventory_ui.itemInHand = null
-		player_inventory_ui.oldIndex = -1
+		var player_inventory_ui := get_parent().get_node("Inv_UI")
+		itemInHand = player_inventory_ui.itemInHand
+		if itemInHand == null:
+			return
+
+		Vfx.play_sfx(0)
+		var precio = itemInHand.InventorySlot.item.valor
+		var cantidad = itemInHand.InventorySlot.amount
+		get_parent().get_parent().get_node("player").update_money(precio * cantidad)
+
+		if slot.isEmpty():
+			slot.insert(itemInHand)  # Este ya destruye el item
+			player_inventory_ui.itemInHand = null
+			player_inventory_ui.oldIndex = -1

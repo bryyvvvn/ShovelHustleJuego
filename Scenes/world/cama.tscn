@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bljlbbfyc6s7v"]
 
 [ext_resource type="Script" uid="uid://btbyojrmlmo2" path="res://Scripts/in_game/cama.gd" id="1_kkdsb"]
-[ext_resource type="Texture2D" uid="uid://caakj7kwxj3ud" path="res://Assets/Sprites/cama.jpg" id="2_kkdsb"]
+[ext_resource type="Texture2D" uid="uid://djpw8ddn7aghq" path="res://Assets/Sprites/cama.png" id="2_kkdsb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1x23"]
 radius = 43.0
@@ -28,7 +28,7 @@ collision_mask = 0
 y_sort_enabled = true
 position = Vector2(7.62939e-06, 1.4375)
 scale = Vector2(1, 0.96875)
-polygon = PackedVector2Array(17, 0.580645, 16, -5.6129, 6.99999, -9.74194, -15, 1.6129, -16, 7.80645, -4.00001, 11.9355)
+polygon = PackedVector2Array(30, -11.8065, -29, -11.8065, -30, 22.2581, 12, 23.2903, 12, 28.4516, 19, 28.4516, 19, 23.2903, 30, 23.2903)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

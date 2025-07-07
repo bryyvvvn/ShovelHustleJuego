@@ -1,0 +1,11 @@
+ColorRect
+Sprite2D
+VBoxContainer
+ScrollContainer
+AnimationPlayer
+Label
+Button
+Control
+AudioStreamPlayer2D
+AudioStreamPlayer
+Node

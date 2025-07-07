@@ -4,6 +4,7 @@ extends Control
 @onready var QuickBarSlots: Array = $NinePatchRect/HBoxContainer.get_children()
 @onready var slots: Array = QuickBarSlots + $NinePatchRect/GridContainer.get_children() 
 @onready var ItemStackGuiClass = preload("res://Scenes/Inventario/itemsStackGui.tscn")
+@onready var player = get_parent().get_parent().get_node("player")
 
 var is_open = false
 var itemInHand: ItemStackGui
@@ -46,13 +47,8 @@ func update_slots():
 			
 		itemStackGui.InventorySlot = inventorySlot
 		itemStackGui.update()
-
-func _process(delta):
-	if Input.is_action_just_pressed("inventory"):
-		if is_open:
-			close()
-		else:
-			open() 
+		
+		
 
 func open():
 	self.visible = true 
@@ -68,7 +64,7 @@ func onSlotClicked_R(slot):
 		
 	if !itemInHand and slot.itemStackGui.InventorySlot.item != null:
 		if slot.itemStackGui.InventorySlot.item.tipo == "alimento":
-			get_parent().get_parent().get_node("player").energy += 10
+			get_parent().get_parent().get_node("player").energy += slot.itemStackGui.InventorySlot.item.alimentacion
 			eraseItem(slot)
 			return
 
@@ -167,9 +163,27 @@ func putItemBack():
 	oldIndex = -1 # Reseteamos el índice antiguo
 
 func _input(event: InputEvent) -> void:
+	
+	if player.enable_to_open and event.is_action_pressed("inventory"):
+		if is_open:
+			close()
+			player.block_zoom = false
+		else:
+			open()
+			player.block_zoom = true
+	
+	if !player.enable_to_open and event.is_action_pressed("tienda"):
+		if is_open:
+			close()
+			player.block_zoom = false
+		else:
+			open()
+			player.block_zoom = true
+			
 	if itemInHand && Input.is_action_just_pressed("rightClick"):
 		putItemBack()
 	updateItemInHand()
+
 	
 
 func removeItemInHandFromInventory():

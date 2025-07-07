@@ -146,7 +146,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nv4vc")
 }, {
-"duration": 1.0,
+"duration": 4.0,
 "texture": SubResource("AtlasTexture_8gxox")
 }],
 "loop": true,
@@ -214,7 +214,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l6n3p")
 }, {
-"duration": 1.0,
+"duration": 4.0,
 "texture": SubResource("AtlasTexture_olqyp")
 }],
 "loop": true,
@@ -288,7 +288,11 @@ tienda_scene = ExtResource("3_x3wgy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_8erm5")
+<<<<<<< HEAD
 animation = &"idle_up"
+=======
+animation = &"walk_up"
+>>>>>>> aae8681960f0174837492907a9e0b4c15c78b8b2
 autoplay = "idle_down"
 offset = Vector2(0, -15)
 
