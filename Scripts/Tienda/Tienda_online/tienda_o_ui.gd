@@ -25,12 +25,16 @@ func accionar() -> void:
 	if cerrado:
 		open()
 		get_parent().get_parent().get_node("player").enable_to_open = false
+		inventario.open()
+		
 	elif !cerrado:
 		close()
 		get_parent().get_parent().get_node("player").enable_to_open = true
+		inventario.close()
+
+
 
 func open():
-	
 	visible = true
 	cerrado = false
 

@@ -134,7 +134,7 @@ func _ready() -> void:
 	$"AudioStreamPlayer2D".play()
 	init_world()
 	init_player()
-	player.enable_to_open = false
+	player.enable_to_open = true
 	init_shovel()
 	init_inventory()
 	init_tienda_ui()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://4v21wekain54"]
+[gd_scene load_steps=7 format=3 uid="uid://4v21wekain54"]
 
 [ext_resource type="Script" uid="uid://bdvv6h4q8ybw6" path="res://Scripts/Tienda/Tienda_online/tienda_o_ui.gd" id="1_xv28h"]
+[ext_resource type="PackedScene" uid="uid://cx25plwhja0ss" path="res://Scenes/objectsPhysics.tscn" id="2_7jkqk"]
 [ext_resource type="Texture2D" uid="uid://b4jiyuklxpkbb" path="res://Assets/Sprites/Inventory/inventarioCapa.png" id="3_yrftc"]
 [ext_resource type="PackedScene" uid="uid://doqqigkspqyv1" path="res://Scenes/Inventario/inv_ui_slot.tscn" id="4_l3nhc"]
 [ext_resource type="Script" uid="uid://cvn2xyidk3cmr" path="res://Scripts/Tienda/venta_ui_slot.gd" id="5_dwvxd"]
@@ -18,6 +19,7 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xv28h")
+objects_scene = ExtResource("2_7jkqk")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
