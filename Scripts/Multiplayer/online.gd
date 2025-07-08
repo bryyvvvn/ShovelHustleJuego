@@ -13,7 +13,7 @@ func _ready():
 
 func _on_message_received(message: String):
 	var msg = JSON.parse_string(message)
-	print("Mensaje recibido:", message)
+	
 	match msg.event:
 		"players-ready":
 			pingMatch()
@@ -22,9 +22,12 @@ func _on_message_received(message: String):
 		"receive-game-data":
 			receiveData(msg.data)
 		"finish-game":
+			print("Mensaje recibido:", message)
 			if msg.status == "OK":
 				get_parent().win()
 		"game-ended":
+			
+			print("Mensaje recibido:", message)
 			get_parent().lose()
 		"close-match":
 			get_parent().queue_free()

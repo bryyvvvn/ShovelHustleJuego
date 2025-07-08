@@ -14,4 +14,6 @@ func _on_Salir_pressed():
 	Vfx.play_sfx(2)
 	Music.stop_song()
 	get_parent().get_node("online").quitMatch()
-	get_tree().change_scene_to_file("res://Scripts/Menú/multiplayermenu.gd")
+	#queue_free()
+	get_tree().change_scene_to_file("res://Scenes/Menu/multiplayermenu.tscn")
+	

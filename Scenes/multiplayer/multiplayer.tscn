@@ -106,7 +106,6 @@ offset_right = 410.0
 offset_bottom = 291.0
 
 [node name="VentanaControles" parent="UI" instance=ExtResource("16_lssr4")]
-visible = false
 z_index = 3
 offset_left = 28.5
 offset_top = 40.0
