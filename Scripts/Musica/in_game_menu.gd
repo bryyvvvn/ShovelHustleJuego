@@ -1,6 +1,7 @@
 extends CanvasLayer
 
-# Called when the node enters the scene tree for the first time.
+#signal quit_pressed
+
 func _ready() -> void:
 	pass
 
@@ -12,5 +13,7 @@ func _on_Reanudar_pressed():
 func _on_Salir_pressed():
 	Vfx.play_sfx(2)
 	Music.stop_song()
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/Menu/Menu.tscn")
+	get_parent().get_node("online").quitMatch()
+	#queue_free()
+	get_tree().change_scene_to_file("res://Scenes/Menu/multiplayermenu.tscn")
+	
