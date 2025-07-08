@@ -224,7 +224,7 @@ func win():
 	var finishScene = preload("res://Scenes/multiplayer/finish_game.tscn").instantiate()
 	finishScene.setup("¡Ganaste!")
 
-	# Cierra la escena anterior, si existe
+	# Cierra la escena anterior
 	if get_tree().current_scene:
 		get_tree().current_scene.queue_free()
 
@@ -236,7 +236,7 @@ func lose():
 	var finishScene = preload("res://Scenes/multiplayer/finish_game.tscn").instantiate()
 	finishScene.setup("¡Perdiste!")
 
-	# Cierra la escena anterior, si existe
+	# Cierra la escena anterior
 	if get_tree().current_scene:
 		get_tree().current_scene.queue_free()
 

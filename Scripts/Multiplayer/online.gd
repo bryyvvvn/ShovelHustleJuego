@@ -16,7 +16,9 @@ func _on_message_received(message: String):
 	
 	match msg.event:
 		"players-ready":
+			_client.connect_to_url("ws://ucn-game-server.martux.cl:4010/?gameId=G&playerName=ElGato")
 			pingMatch()
+			#get_tree().reload_current_scene()
 		"match-start":
 			get_parent().time_elapsed = 0
 		"receive-game-data":
@@ -30,8 +32,8 @@ func _on_message_received(message: String):
 			print("Mensaje recibido:", message)
 			get_parent().lose()
 		"close-match":
-			get_parent().queue_free()
-
+			get_tree().change_scene_to_file("res://Scenes/Menu/multiplayermenu.tscn")
+			
 
 func receiveData(datos):
 	if datos.has("defeat"):
