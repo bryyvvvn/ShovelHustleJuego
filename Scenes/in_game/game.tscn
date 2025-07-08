@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c5q7r24fnv3r1"]
+[gd_scene load_steps=21 format=3 uid="uid://c5q7r24fnv3r1"]
 
 [ext_resource type="PackedScene" uid="uid://cp3jbpbcxvee6" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://cwkl3xsv42ugb" path="res://Scripts/in_game/game.gd" id="1_wrm1d"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bljlbbfyc6s7v" path="res://Scenes/world/cama.tscn" id="8_mq4wc"]
 [ext_resource type="PackedScene" uid="uid://dbe2ymyiloo68" path="res://Scenes/in_game/money.tscn" id="8_v158k"]
 [ext_resource type="PackedScene" uid="uid://c8pokw5frmagu" path="res://Scenes/Tienda/Tienda_local/tienda_ui.tscn" id="9_1phco"]
+[ext_resource type="PackedScene" uid="uid://cybppgdaoifeo" path="res://Scenes/in_game/Fin.tscn" id="11_3bkhe"]
 [ext_resource type="Texture2D" uid="uid://bkfsrrs6dba3k" path="res://Assets/Sprites/UI/HUD.png" id="11_kr2le"]
 [ext_resource type="PackedScene" uid="uid://csy3btsxv5ajf" path="res://Scenes/Menu/FpsLabel.tscn" id="11_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://bkfu1g7h1acj5" path="res://Scenes/in_game/day_transition.tscn" id="12_rfjv2"]
@@ -33,6 +34,7 @@ bed_scene = ExtResource("8_mq4wc")
 inventory_inv = ExtResource("6_ldgsr")
 tienda_ui_scene = ExtResource("9_1phco")
 money_ref = NodePath("UI/money")
+end_screen_scene = ExtResource("11_3bkhe")
 
 [node name="UI" type="CanvasLayer" parent="."]
 scale = Vector2(2, 2)

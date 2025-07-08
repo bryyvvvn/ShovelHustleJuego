@@ -10,6 +10,7 @@ extends Node2D
 @export var inventory_inv : Inv
 @export var tienda_ui_scene: PackedScene
 @export var money_ref : Node
+@export var end_screen_scene: PackedScene
 
 @onready var trans = $UI/dayTransition
 @onready var cuota = $UI/cuota
@@ -215,6 +216,10 @@ func nextday(force: bool = false) -> void:
 			dinero_perdido = randi_range(0, moni)
 			fue_robado = true
 		# Si está en cama y force == true, simplemente pasa el día sin robo
+		
+	if day == 7:
+		get_tree().change_scene_to_packed(end_screen_scene)
+		return
 
 	# transición de día
 	var descuento_total = cuota_diaria + dinero_perdido

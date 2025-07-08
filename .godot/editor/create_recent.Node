@@ -1,8 +1,10 @@
+Button
+VBoxContainer
+TextureRect
+Control
 Label
 TileMapLayer
-Button
 HBoxContainer
-VBoxContainer
 CanvasLayer
 Panel
 LineEdit
@@ -10,5 +12,3 @@ ColorRect
 Sprite2D
 ScrollContainer
 AnimationPlayer
-Control
-AudioStreamPlayer2D
