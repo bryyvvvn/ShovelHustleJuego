@@ -127,7 +127,7 @@ func init_tienda_ui() -> void:
 		$UI.add_child(tienda_o_ui)
 
 
-@onready var trans = $UI/dayTransition
+
 
 
 func _ready() -> void:
@@ -142,8 +142,8 @@ func _ready() -> void:
 	var object = objects_scene.instantiate()
 	object.data = preload("res://Assets/Recursos/Objects/pan.tres")
 	add_child(object)
+	online.connectMatch()
 	
-	trans.connect("transition_done", Callable(self, "_on_transition_done"))
 
 func _input(event):
 	#para el menú de pausa
@@ -183,6 +183,7 @@ func _input(event):
 func pause_game():
 	var pause_menu = preload("res://scenes/Menu/in_game_menu.tscn").instantiate()
 	pause_menu.name = "PauseMenu"
+	#pause_menu.connect("quit_pressed", Callable($online, "quit_match"))
 	add_child(pause_menu)
 
 
@@ -201,6 +202,8 @@ func _physics_process(delta: float) -> void:
 	var tile_pos = tile_map.get_node("TileMap").local_to_map(player.get_node("CollisionShape2D").global_position)
 	tile_map.tiles_arround(tile_pos)
 	
+	online.sendHP(player.energy / player.max_energy)
+	
 	player.energy -= 0.1389 * delta  #agota la energia en un periodo de 12 minutos
 	$UI/energia.set_energy(player.energy / player.max_energy)
 	
@@ -217,8 +220,17 @@ func _physics_process(delta: float) -> void:
 	
 
 
+func win():
+	var winScreen = preload("res://Scenes/multiplayer/finish_game.tscn").instantiate()
+	winScreen.name = "winScreen"
+	winScreen.setup("¡HAS GANADO!")
+	add_child(winScreen)
 
-
+func lose():
+	var loseScreen = preload("res://Scenes/multiplayer/finish_game.tscn").instantiate()
+	loseScreen.name = "loseScreen"
+	loseScreen.setup("¡ERES UN PERDEDOR!")
+	add_child(loseScreen)
 
 func _on_tienda_button_pressed() -> void:
 	get_node("UI").get_node("Tienda_o_Ui").accionar()

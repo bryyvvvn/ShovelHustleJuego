@@ -70,7 +70,7 @@ func onSlotClicked_R(slot):
 			eraseItem(slot)
 			return
 		elif slot.itemStackGui.InventorySlot.item.tipo == "weapon":
-			"aqui pon la señal del server"
+			get_parent().get_parent().get_node("online").attack()
 			eraseItem(slot)
 			return 
 		elif slot.itemStackGui.InventorySlot.item.tipo == "posion":

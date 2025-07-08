@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://wicjarahvlgm"]
+[gd_scene load_steps=19 format=3 uid="uid://wicjarahvlgm"]
 
 [ext_resource type="Script" uid="uid://okehnsyh83a2" path="res://Scripts/Multiplayer/multiplayer.gd" id="1_kapfi"]
 [ext_resource type="PackedScene" uid="uid://itan8ubbvmkd" path="res://Scenes/multiplayer/multiplayer_world.tscn" id="2_lfuhp"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cfkl6v6enrmb3" path="res://Assets/Sonidos/Background Music/desert_background.mp3" id="13_ib52u"]
 [ext_resource type="PackedScene" uid="uid://b3bljqjqx3jos" path="res://Scenes/quick_bar.tscn" id="15_ux10c"]
 [ext_resource type="PackedScene" uid="uid://c7av25r4rxq5" path="res://Scenes/ventana_controles.tscn" id="16_lssr4"]
+[ext_resource type="PackedScene" uid="uid://bn8ujypvh66mg" path="res://Scenes/multiplayer/enemy.tscn" id="18_lssr4"]
 
 [node name="multiplayer" type="Node2D" node_paths=PackedStringArray("money_ref")]
 script = ExtResource("1_kapfi")
@@ -47,19 +48,19 @@ volume_db = 20.0
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
 
-[node name="¡NO HAY CUOTA!" type="Label" parent="UI"]
+[node name="NO HAY CUOTA" type="Label" parent="UI"]
 z_index = 2
-offset_left = 335.0
-offset_top = 28.0
-offset_right = 473.0
-offset_bottom = 50.0
+offset_left = 361.0
+offset_top = 4.0
+offset_right = 499.0
+offset_bottom = 26.0
 theme_override_font_sizes/font_size = 13
 text = "¡NO HAY CUOTA!"
 horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="UI"]
 z_index = 1
-position = Vector2(435.5, 43.5)
+position = Vector2(462, 18.5)
 scale = Vector2(1.25333, 1.14125)
 texture = ExtResource("10_1qdgp")
 
@@ -67,27 +68,27 @@ texture = ExtResource("10_1qdgp")
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 5.0
-offset_left = -29.5
-offset_top = 51.852
-offset_right = -26.5
-offset_bottom = -564.5
+offset_left = -216.0
+offset_top = 27.352
+offset_right = 21.0
+offset_bottom = -3197.0
 
 [node name="time" parent="UI" instance=ExtResource("11_lfuhp")]
 z_index = 2
 anchors_preset = -1
-offset_left = -151.0
-offset_top = 69.5
-offset_right = -46.0
-offset_bottom = 92.5
+offset_left = -127.5
+offset_top = 45.0
+offset_right = -22.5
+offset_bottom = 68.0
 
 [node name="money" parent="UI" instance=ExtResource("9_lssr4")]
 z_index = 2
 anchors_preset = -1
 anchor_left = 0.02
-offset_left = 399.46
-offset_top = -20.0
-offset_right = -729.5
-offset_bottom = -668.0
+offset_left = 428.46
+offset_top = -46.5
+offset_right = -700.5
+offset_bottom = -694.5
 
 [node name="dayTransition" parent="UI" instance=ExtResource("10_68pri")]
 visible = false
@@ -105,6 +106,7 @@ offset_right = 410.0
 offset_bottom = 291.0
 
 [node name="VentanaControles" parent="UI" instance=ExtResource("16_lssr4")]
+visible = false
 z_index = 3
 offset_left = 28.5
 offset_top = 40.0
@@ -117,5 +119,11 @@ offset_top = 5.0
 offset_right = 90.0
 offset_bottom = 36.0
 text = "Tienda"
+
+[node name="enemy" parent="UI" instance=ExtResource("18_lssr4")]
+offset_left = 326.5
+offset_top = 45.0
+offset_right = -569.5
+offset_bottom = -520.0
 
 [connection signal="pressed" from="UI/TiendaButton" to="." method="_on_tienda_button_pressed"]

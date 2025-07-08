@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn8ujypvh66mg"]
+
+[ext_resource type="Script" uid="uid://8ybuysovt42q" path="res://Scenes/multiplayer/enemy.gd" id="1_gjmn2"]
+[ext_resource type="Texture2D" uid="uid://vuhwhr78lied" path="res://Assets/Sprites/UI/enemyhp.png" id="2_aoibd"]
+
+[node name="enemy" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 896.0
+offset_bottom = -565.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gjmn2")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.918
+anchor_right = 1.0
+anchor_bottom = 0.001
+offset_left = -198.008
+offset_top = 24.0
+offset_right = -86.472
+offset_bottom = 35.352
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -4.0
+offset_right = 210.0
+offset_bottom = 15.0
+color = Color(0.670588, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(144, 57)
+scale = Vector2(1.25333, 1.14125)
+texture = ExtResource("2_aoibd")
