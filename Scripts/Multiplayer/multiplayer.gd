@@ -221,38 +221,28 @@ func _physics_process(delta: float) -> void:
 
 
 func win():
-	var winScreen = preload("res://Scenes/multiplayer/finish_game.tscn").instantiate()
-	winScreen.name = "winScreen"
-	
-	$UI.add_child(winScreen)
-	winScreen.anchor_left = 0.5
-	winScreen.anchor_right = 0.5
-	winScreen.anchor_top = 0.5
-	winScreen.anchor_bottom = 0.5
-	winScreen.offset_left = -200
-	winScreen.offset_right = 200
-	winScreen.offset_top = -100
-	winScreen.offset_bottom = 100
-	winScreen.z_index = 1000
-	winScreen.z_as_relative = false
-	winScreen.setup("¡HAS GANADO!")
+	var finishScene = preload("res://Scenes/multiplayer/finish_game.tscn").instantiate()
+	finishScene.setup("¡Ganaste!")
+
+	# Cierra la escena anterior, si existe
+	if get_tree().current_scene:
+		get_tree().current_scene.queue_free()
+
+	# Agrega la nueva escena
+	get_tree().root.add_child(finishScene)
+	get_tree().current_scene = finishScene
 
 func lose():
-	var loseScreen = preload("res://Scenes/multiplayer/finish_game.tscn").instantiate()
-	loseScreen.name = "loseScreen"
-	
-	$UI.add_child(loseScreen)
-	loseScreen.anchor_left = 0.5
-	loseScreen.anchor_right = 0.5
-	loseScreen.anchor_top = 0.5
-	loseScreen.anchor_bottom = 0.5
-	loseScreen.offset_left = -200
-	loseScreen.offset_right = 200
-	loseScreen.offset_top = -100
-	loseScreen.offset_bottom = 100
-	loseScreen.z_index = 1000
-	loseScreen.z_as_relative = false
-	loseScreen.setup("¡ERES UN PERDEDOR!")
+	var finishScene = preload("res://Scenes/multiplayer/finish_game.tscn").instantiate()
+	finishScene.setup("¡Perdiste!")
+
+	# Cierra la escena anterior, si existe
+	if get_tree().current_scene:
+		get_tree().current_scene.queue_free()
+
+	# Agrega la nueva escena
+	get_tree().root.add_child(finishScene)
+	get_tree().current_scene = finishScene
 
 func _on_tienda_button_pressed() -> void:
 	get_node("UI").get_node("Tienda_o_Ui").accionar()

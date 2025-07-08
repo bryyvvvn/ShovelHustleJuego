@@ -9,8 +9,11 @@ func _ready() -> void:
 	print(result.name)
 
 func setup(theresult : String):
-	print("result node:", result)
-	result.text = theresult
+	var resultNode = get_node("result")
+	if resultNode:
+		resultNode.text = theresult
+	else:
+		print("Nodo 'result' no encontrado")
 
 func _on_message_received(message: String):
 	var msg = JSON.parse_string(message)
