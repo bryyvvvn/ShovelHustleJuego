@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dw6qhi0rj40s8"]
+[gd_scene load_steps=24 format=3 uid="uid://dw6qhi0rj40s8"]
 
 [ext_resource type="Script" uid="uid://x4dpoan1eegu" path="res://Scripts/world/proc_world_4.gd" id="1_36cwu"]
 [ext_resource type="Texture2D" uid="uid://bxjh8jw65kbrw" path="res://Assets/Sprites/Tile_set/Tilesets/FD_Desert_Ground.png" id="2_youan"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://m1hruucc1x6l" path="res://Assets/Sprites/Tile_set/Tilesets/FD_Animated_Water.png" id="4_drqv2"]
 [ext_resource type="Texture2D" uid="uid://cf1tk611krawn" path="res://Assets/Sprites/Tile_set/Tilesets/FD_Ground_Tiles.png" id="5_wubii"]
 [ext_resource type="Texture2D" uid="uid://bqeqbem6bwdw7" path="res://Assets/Sprites/Tile_set/Tilesets/Agujeros.png" id="6_nk3ow"]
-[ext_resource type="TileSet" uid="uid://b7ge3x1h1aggc" path="res://Assets/Recursos/tile_1_set.tres" id="7_otvdl"]
+[ext_resource type="TileSet" uid="uid://b7ge3x1h1aggc" path="res://Assets/Recursos/Objects/tile_1_set.tres" id="7_otvdl"]
+[ext_resource type="TileSet" uid="uid://b7ge3x1h1aggc" path="res://Assets/Recursos/tile_1_set.tres" id="8_youan"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_36cwu"]
 frequency = 0.0022
@@ -2560,6 +2561,9 @@ noise_rich_zones = SubResource("NoiseTexture2D_youan")
 y_sort_enabled = true
 tile_set = SubResource("TileSet_7qtpo")
 format = 2
+
+[node name="rich_zones" type="TileMapLayer" parent="TileMap"]
+tile_set = ExtResource("8_youan")
 
 [node name="sand" type="TileMapLayer" parent="TileMap"]
 y_sort_enabled = true

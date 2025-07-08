@@ -73,6 +73,21 @@ func onSlotClicked_R(slot):
 			"aqui pon la señal del server"
 			eraseItem(slot)
 			return 
+		elif slot.itemStackGui.InventorySlot.item.tipo == "posion":
+			var type = slot.itemStackGui.InventorySlot.item.get_index()
+			
+			if type == 0:
+				player.reduce_speed_temporarily(15, 2)
+			elif type == 1:
+				player.reduce_speed_temporarily(15, 0.3)
+			elif type == 2:
+				player.activate_water_afect(20)
+			else:
+				player.get_parent().tile_map.show_rich_zones_for(5.0)
+				
+			eraseItem(slot)
+			
+			return 
 
 
 func onSlotClicked(slot):

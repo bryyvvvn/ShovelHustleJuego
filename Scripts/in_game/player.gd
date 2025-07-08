@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var inv: Inv
-@export var speed := 100.0
+@export var speed_base := 100.0
 @export var tienda_scene : PackedScene
 
 var tienda
@@ -15,6 +15,15 @@ var energy := 100.0
 var max_energy := 100.0
 var can_sleep := false
 var is_in_bed:= false
+var water_speed = speed_base * 0.5
+var speed = speed_base
+
+var water_afect := true
+var _water_timer := Timer.new()
+
+var original_speed = speed
+var speed_timer = Timer.new()
+
 
 
 func erase_energy():
@@ -28,6 +37,38 @@ func res_energy():
 func _ready():
 	
 	$Camera2D.zoom = Vector2(1, 1) 
+	add_child(speed_timer)
+	speed_timer.connect("timeout", Callable(self, "_on_speed_timer_timeout"))
+	add_child(_water_timer)
+	_water_timer.connect("timeout", Callable(self, "_on_water_timer_timeout"))
+
+
+func reduce_speed_temporarily(duration: float, factor: float) -> void:
+	if speed_timer.is_stopped():
+		original_speed = speed_base
+		speed_base *= factor
+		speed_timer.start(duration)
+	else:
+		speed_timer.stop()
+		speed_base = original_speed * factor
+		speed_timer.start(duration)
+
+func _on_speed_timer_timeout():
+	speed_base = original_speed
+
+
+
+func activate_water_afect(duration: float) -> void:
+	water_afect = false
+	_water_timer.start(duration)
+	
+
+
+func _on_water_timer_timeout():
+	water_afect = true
+
+
+
 
 var last_direction := Vector2.DOWN #la última dirección que tuvo el personaje (para play idle animations)
 
@@ -49,7 +90,6 @@ func direccion() -> Vector2:
 
 
 func _physics_process(delta):
-
 
 	if(can_sleep):
 		if Input.is_action_just_pressed("tienda"):

@@ -42,6 +42,7 @@ var day: int = 1
 var max_days: int = 7
 var cuota_diaria = 550
 var day_ended = false
+var energy_punish = 0.135
 
 
 func init_tienda()-> void:
@@ -260,14 +261,22 @@ func unpause_game():
 		
 		
 func _physics_process(delta: float) -> void:
-	
+	var _speed = player.speed_base 
 	if day_ended:
 		return
 	
 	var tile_pos = tile_map.get_node("TileMap").local_to_map(player.get_node("CollisionShape2D").global_position)
 	tile_map.tiles_arround(tile_pos)
 	
-	player.energy -= 0.1389 * delta  #agota la energia en un periodo de 12 minutos
+	if tile_pos in tile_map.lake_positions and player.water_afect:
+			player.speed = player.water_speed
+			energy_punish = 4
+	else:
+		player.speed = player.speed_base
+		energy_punish = 0.135
+	
+	
+	player.energy -= energy_punish * delta  #agota la energia en un periodo de 12 minutos
 	$UI/energia.set_energy(player.energy / player.max_energy)
 	
 	if player.energy <= 0:

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="objectData" load_steps=4 format=3 uid="uid://bi4tyev4t2qxt"]
+
+[ext_resource type="Script" uid="uid://dnvt5s0mrcxp5" path="res://Scripts/in_game/Objetos/objectData.gd" id="1_pmb50"]
+[ext_resource type="Texture2D" uid="uid://c5254njquu30o" path="res://Assets/Sprites/objects/objects_16/pocion4.png" id="2_pmb50"]
+[ext_resource type="Texture2D" uid="uid://d3ixw2c4j8b81" path="res://Assets/Sprites/objects/objects_32/pocion4.png" id="3_ul8ge"]
+
+[resource]
+script = ExtResource("1_pmb50")
+nombre = "posion agua"
+tipo = "posion"
+valor = 0
+rareza = 0.0
+descripcion = ""
+indice = 2
+texture = ExtResource("2_pmb50")
+texture_inventory = ExtResource("3_ul8ge")
+StackSize = 99
+intervalo = Vector2(0, 0)
+alimentacion = -10
+precio = 200
+metadata/_custom_type_script = "uid://dnvt5s0mrcxp5"

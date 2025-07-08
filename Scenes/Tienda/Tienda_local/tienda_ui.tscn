@@ -1,15 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8pokw5frmagu"]
+[gd_scene load_steps=14 format=3 uid="uid://c8pokw5frmagu"]
 
 [ext_resource type="Texture2D" uid="uid://b4jiyuklxpkbb" path="res://Assets/Sprites/Inventory/inventarioCapa.png" id="1_aa703"]
 [ext_resource type="Script" uid="uid://dk0iqrj6v8v54" path="res://Scripts/Tienda/Tienda_local/tienda_ui.gd" id="1_q2nur"]
 [ext_resource type="PackedScene" uid="uid://cx25plwhja0ss" path="res://Scenes/objectsPhysics.tscn" id="2_4f8ra"]
 [ext_resource type="PackedScene" uid="uid://doqqigkspqyv1" path="res://Scenes/Inventario/inv_ui_slot.tscn" id="3_q2nur"]
-[ext_resource type="Script" uid="uid://q26us2fd6f3w" path="res://Scripts/Tienda/Tienda_local/scripts_venta/basura_ui_slot.gd" id="4_haok0"]
 [ext_resource type="Script" uid="uid://cvn2xyidk3cmr" path="res://Scripts/Tienda/venta_ui_slot.gd" id="4_x8o7e"]
 [ext_resource type="Script" uid="uid://f5254om565bj" path="res://Scripts/Tienda/Tienda_local/scripts_venta/completo_ui_slot.gd" id="6_wbl3w"]
 [ext_resource type="Script" uid="uid://chal0g26vwm8l" path="res://Scripts/Tienda/Tienda_local/scripts_venta/pan_ui_slot.gd" id="7_afa6y"]
 [ext_resource type="Script" uid="uid://ds0xprk865nms" path="res://Scripts/Tienda/Tienda_local/scripts_venta/agua_ui_slot.gd" id="8_stf0i"]
 [ext_resource type="Script" uid="uid://cfqd20t25wns0" path="res://Scripts/Tienda/Tienda_local/scripts_venta/pala_ui_slot.gd" id="9_4dljr"]
+[ext_resource type="Script" uid="uid://cptsgmdd1k77f" path="res://Scripts/Tienda/Tienda_local/scripts_venta/posion_r_ui_slot.gd" id="10_l8m1l"]
+[ext_resource type="Script" uid="uid://k7057vac6ymr" path="res://Scripts/Tienda/Tienda_local/scripts_venta/posion_a_ui_slot.gd" id="11_85fjm"]
+[ext_resource type="Script" uid="uid://camtdkedxb1eh" path="res://Scripts/Tienda/Tienda_local/scripts_venta/posion_l_ui_slot.gd" id="12_nt3rj"]
+[ext_resource type="Script" uid="uid://yijq6vl3o54j" path="res://Scripts/Tienda/Tienda_local/scripts_venta/posion_v_ui_slot.gd" id="13_5mbkt"]
 
 [node name="TiendaUi" type="Control"]
 layout_mode = 3
@@ -116,4 +119,31 @@ theme_override_font_sizes/font_size = 10
 text = "Basura
 0"
 alignment = 2
-script = ExtResource("4_haok0")
+script = ExtResource("10_l8m1l")
+
+[node name="tienda_UI_slot7" parent="NinePatchRect/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("3_q2nur")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Basura
+0"
+alignment = 2
+script = ExtResource("11_85fjm")
+
+[node name="tienda_UI_slot8" parent="NinePatchRect/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("3_q2nur")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Basura
+0"
+alignment = 2
+script = ExtResource("12_nt3rj")
+
+[node name="tienda_UI_slot9" parent="NinePatchRect/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("3_q2nur")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Basura
+0"
+alignment = 2
+script = ExtResource("13_5mbkt")

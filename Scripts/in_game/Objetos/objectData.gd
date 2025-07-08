@@ -21,3 +21,6 @@ func get_texture()->Texture2D:
 
 func get_precio()->int:
 	return precio
+
+func get_index()->int:
+	return indice

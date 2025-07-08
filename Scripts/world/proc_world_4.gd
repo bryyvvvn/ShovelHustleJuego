@@ -20,11 +20,16 @@ var zones_noise : Noise
 @onready var enviroment_tile_map_layer := $TileMap/enviroment
 @onready var tiles_arround_tile_map_layer := $TileMap/bloques_alrededor
 @onready var excavacion_tile_map_layer := $TileMap/excavacion
+@onready var rich_zones_tile_map_layer := $TileMap/rich_zones
+
 
 #Tamaño del mapa y ciclos para suavizar bordes del mapa
 var map_width = 500
 var map_height = 500
 var smoothing_passes = 5
+
+
+var _rich_zones_timer := Timer.new()
 
 
 #arena, palmeras y decoraciones
@@ -77,6 +82,8 @@ var map_mid_height = map_height / 2
 
 #array donde se almacenan la posicion de los tiles de agua y arena para generar el mundo
 var mapa = [] # Matriz 2D: 0 = agua, 1 = arena
+
+var lake_positions = []
 
 #posiciónes en las que no se puede cavar
 var disabled_dig : Dictionary
@@ -187,7 +194,6 @@ func contar_vecinos(x: int, y: int) -> int:
 #finalmente se genera el mapa final, con suavizacion y todo
 func aplicar_mapa():
 	var water_positions = []
-	var lake_positions = []
 	var sand_1_positions = []
 	var rich_zones = []
 	for y in range(map_height):
@@ -238,10 +244,13 @@ func aplicar_mapa():
 	
 	##marcar las zonas ricas
 	for cell in rich_zones:
-		excavacion_tile_map_layer.set_cell(cell, 3, Vector2i(13,45))
+		rich_zones_tile_map_layer.set_cell(cell, 3, Vector2i(33,5))
 	
 	
 func _ready():
+	add_child(_rich_zones_timer)
+	_rich_zones_timer.one_shot = true
+	_rich_zones_timer.connect("timeout", Callable(self, "_on_rich_zones_timeout"))
 	randomize()
 	noise = noise_height_noise.noise
 	noise.seed = randi()
@@ -256,3 +265,14 @@ func _ready():
 	for i in range(smoothing_passes):
 		suavizar()
 	aplicar_mapa()
+	
+	rich_zones_tile_map_layer.visible = false
+
+
+
+func show_rich_zones_for(seconds: float) -> void:
+	rich_zones_tile_map_layer.visible = true
+	_rich_zones_timer.start(seconds)
+	
+func _on_rich_zones_timeout():
+	rich_zones_tile_map_layer.visible = false
