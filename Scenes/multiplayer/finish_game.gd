@@ -8,6 +8,7 @@ func _ready() -> void:
 	online.message_received.connect(_on_message_received)
 
 func setup(theresult : String):
+	print("result node:", result)
 	result.text = theresult
 
 func _on_message_received(message: String):
