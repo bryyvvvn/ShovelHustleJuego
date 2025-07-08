@@ -16,7 +16,7 @@ func _on_message_received(message: String):
 	
 	match msg.event:
 		"players-ready":
-			_client.connect_to_url("ws://ucn-game-server.martux.cl:4010/?gameId=G&playerName=ElGato")
+			#_client.connect_to_url("ws://ucn-game-server.martux.cl:4010/?gameId=G&playerName=ElGato")
 			pingMatch()
 			#get_tree().reload_current_scene()
 		"match-start":

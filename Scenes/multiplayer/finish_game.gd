@@ -30,8 +30,9 @@ func _on_message_received(message: String):
 			#get_parent().get_node("online").pingMatch()
 			#get_tree().change_scene_to_file("res://Scenes/multiplayer/multiplayer.tscn")
 			#queue_free() #aquí agregar código para, en paralelo con multiplayer, aquí cerrar con hide() y allá manejar un reinicio de partida con get_tree().reload_current_scene()
-			#get_tree().change_scene_to_file("res://Scenes/multiplayer/multiplayer.tscn")
-			pass
+			
+			get_tree().change_scene_to_file("res://Scenes/multiplayer/multiplayer.tscn")
+			
 
 
 func _on_salir_pressed() -> void:
