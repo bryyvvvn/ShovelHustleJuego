@@ -51,9 +51,9 @@ transform = Transform2D(2, 0, 0, 2, 0, 0)
 
 [node name="NO HAY CUOTA" type="Label" parent="UI"]
 z_index = 2
-offset_left = 361.0
+offset_left = 355.0
 offset_top = 4.0
-offset_right = 499.0
+offset_right = 493.0
 offset_bottom = 26.0
 theme_override_font_sizes/font_size = 13
 text = "¡NO HAY CUOTA!"
@@ -61,18 +61,18 @@ horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="UI"]
 z_index = 1
-position = Vector2(462, 18.5)
-scale = Vector2(1.25333, 1.14125)
+position = Vector2(456, 19)
+scale = Vector2(1.23, 1.14125)
 texture = ExtResource("10_1qdgp")
 
 [node name="energia" parent="UI" instance=ExtResource("8_ux10c")]
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 5.0
-offset_left = -216.0
-offset_top = 27.352
-offset_right = 21.0
-offset_bottom = -3197.0
+offset_left = -223.0
+offset_top = 26.352
+offset_right = 14.0
+offset_bottom = -3198.0
 
 [node name="time" parent="UI" instance=ExtResource("11_lfuhp")]
 z_index = 2
@@ -86,9 +86,9 @@ offset_bottom = 68.0
 z_index = 2
 anchors_preset = -1
 anchor_left = 0.02
-offset_left = 428.46
+offset_left = 421.46
 offset_top = -46.5
-offset_right = -700.5
+offset_right = -707.5
 offset_bottom = -694.5
 
 [node name="dayTransition" parent="UI" instance=ExtResource("10_68pri")]
@@ -121,9 +121,9 @@ offset_bottom = 36.0
 text = "Tienda"
 
 [node name="enemy" parent="UI" instance=ExtResource("18_lssr4")]
-offset_left = 326.5
+offset_left = 316.5
 offset_top = 45.0
-offset_right = -569.5
-offset_bottom = -520.0
+offset_right = -583.5
+offset_bottom = -526.0
 
 [connection signal="pressed" from="UI/TiendaButton" to="." method="_on_tienda_button_pressed"]

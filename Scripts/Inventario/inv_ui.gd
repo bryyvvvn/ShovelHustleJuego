@@ -205,7 +205,15 @@ func _input(event: InputEvent) -> void:
 		putItemBack()
 	updateItemInHand()
 
-	
+
+func contar_palas() -> int:
+	var total_palas := 0
+	for slot in inv.slots:
+		if slot.item and slot.item.nombre == "pala":
+			total_palas += slot.amount
+	return total_palas
+
+
 
 func removeItemInHandFromInventory():
 	if itemInHand:

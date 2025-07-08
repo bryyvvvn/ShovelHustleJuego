@@ -23,7 +23,7 @@ var speed_timer = Timer.new()
 
 # --- Propiedades con protección ---
 var _energy := 100.0
-var _money := 1000
+var _money := 0
 
 var energy:
 	get:

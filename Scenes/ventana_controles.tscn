@@ -20,8 +20,8 @@ text = "Ayuda"
 script = ExtResource("1_dkbt4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(264, 123)
-scale = Vector2(0.38855, 0.439527)
+position = Vector2(122.016, 110.758)
+scale = Vector2(0.232391, 0.274747)
 texture = ExtResource("2_eoj6b")
 
 [node name="Label" type="Label" parent="Sprite2D"]

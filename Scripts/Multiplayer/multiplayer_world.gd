@@ -85,6 +85,8 @@ var potentior : Dictionary
 var multiplicador := 60
 var brecha := 25
 
+var rich_zones = []
+
 #funcion para pintar los tiles alrededor del jugador
 func tiles_arround(pos: Vector2i) -> void:
 	for i in range(-1, 2):

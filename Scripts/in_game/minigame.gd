@@ -4,7 +4,7 @@ signal minigame_result(success: bool)
 
 @export var base_gravity := 500.0
 @export var base_lift := -300.0
-@export var green_zone_base_height := 30.0
+@export var green_zone_base_height := 40.0
 
 var right_click_pressed: bool = false
 var velocity: float = 0.0
@@ -19,6 +19,10 @@ var gravedad: float
 var impulso: float
 var green_zone_height: float
 var dificultad: float
+var facilidad: float
+
+var right_click_just_pressed := false
+@onready var modo_alternativo: bool = get_parent().get_parent().shovel.modo_alternativo
 
 @onready var cursor := $Bar/pala
 @onready var green_zone := $Bar/zonaOro
@@ -26,50 +30,53 @@ var dificultad: float
 
 func setup(dia: int, pala: int) -> void:
 	await ready  
-	dificultad = clamp((dia - 1) / 9.0, 0.0, 1.0)
-
+	dificultad = clamp((dia - 1) / 4, 0.0, 1.0)
+	facilidad = clamp((pala - 1) / 4, 0.0, dificultad)
 	gravedad = lerp(base_gravity, base_gravity * 1.5, dificultad)
 	impulso = lerp(base_lift, base_lift * 0.05, dificultad)
 
-	green_zone_height = clamp(green_zone_base_height * (1.0 - dificultad), 10.0, 100.0)
+	green_zone_height = clamp(green_zone_base_height * (1 - (dificultad-facilidad)), 5.0, 130.0)
 	green_zone.size = Vector2(green_zone.size.x, green_zone_height)
 
 	cursor.position.y = 210
 	green_zone.position.y = 60
 
 func _process(delta):
-	if !active:
+	if not active:
 		return
 
-	var cursor = $Bar/pala
-	var y = cursor.position.y
-
-	# Right click makes the shovel go up
-	if right_click_pressed:
-		velocity = -lift_force
+	# Aplicar física a la pala
+	if right_click_just_pressed:
+		if velocity >= 0:  # Solo permite bombear si no está subiendo
+			velocity = -lift_force
+		right_click_just_pressed = false
 	else:
-		velocity += gravity * delta*1.5  
+		velocity += gravity * delta * 1.5
 
+	var y = cursor.position.y
 	y += velocity * delta
-	y = clamp(y, 0, $Bar.size.y - cursor.size.y)
+	y = clamp(y, 0, bar.size.y - cursor.size.y)
 	cursor.position.y = y
 
-	
-	var zone = $Bar/zonaOro
-	zone.position.y += direction * zone_speed * delta
-
-	if zone.position.y <= 0:
-		direction = 1
-	elif zone.position.y + zone.size.y >= $Bar.size.y:
-		direction = -1
+	# Movimiento de la zona verde
+	if modo_alternativo:
+		var t = Time.get_ticks_msec() / 1000.0
+		var erratic = sin(t * 4.5) * 0.5 + sin(t * 3.8) * 0.3
+		var pos = lerp(0.0, bar.size.y - green_zone.size.y, erratic * 0.5 + 0.5)
+		green_zone.position.y = pos
+	else:
+		green_zone.position.y += direction * zone_speed * delta
+		if green_zone.position.y <= 0:
+			direction = 1
+		elif green_zone.position.y + green_zone.size.y >= bar.size.y:
+			direction = -1
 
 func _input(event):
 	if event is InputEventMouseButton:
-		# Right click controls lift
 		if event.button_index == MOUSE_BUTTON_RIGHT:
-			right_click_pressed = event.pressed
+			if event.pressed:
+				right_click_just_pressed = true
 
-		# Left click ends game when released
 		elif event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
 			active = false
 			var success = cursor_in_green_zone()

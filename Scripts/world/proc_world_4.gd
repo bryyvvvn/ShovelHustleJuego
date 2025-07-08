@@ -93,6 +93,7 @@ var pos_anterior = Vector2i(0,0)
 
 #diccionario que almacena el potenciador de cada posicion
 var potentior : Dictionary
+var rich_zones = []
 var multiplicador := 60
 var brecha := 25
 
@@ -195,7 +196,6 @@ func contar_vecinos(x: int, y: int) -> int:
 func aplicar_mapa():
 	var water_positions = []
 	var sand_1_positions = []
-	var rich_zones = []
 	for y in range(map_height):
 		for x in range(map_width):
 			var gx = x - map_mid_width

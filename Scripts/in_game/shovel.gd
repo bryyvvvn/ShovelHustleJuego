@@ -5,9 +5,17 @@ extends Node
 
 var current_tile := Vector2i.ZERO
 var shovel_level: int = 1
+var modo_alternativo = false
+
 
 func cavar(tile_pos: Vector2i, day: int)->bool: ##poquito redundante, pero más intuitivo (de pala se llama a cavar)
 	current_tile = tile_pos
+	shovel_level = get_parent().inventory.contar_palas()
+	print(shovel_level)
+	if tile_pos in get_parent().tile_map.rich_zones:
+		modo_alternativo = true
+	else:
+		modo_alternativo = false
 	return await show_minigame(day, shovel_level)
 	
 
