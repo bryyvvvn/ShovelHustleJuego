@@ -2,10 +2,11 @@ extends Control
 @onready var result: Label = $result
 @onready var request: Label = $request
 var online = WebSocketClient
-
+ 
 
 func _ready() -> void:
 	online.message_received.connect(_on_message_received)
+	print(result.name)
 
 func setup(theresult : String):
 	print("result node:", result)
@@ -32,7 +33,7 @@ func _on_salir_pressed() -> void:
 		"event" : "quit-match",
 	}
 	online.send(JSON.stringify(msg))
-	get_tree().change_scene_to_file("res://Scripts/Menú/multiplayermenu.gd")
+	get_tree().change_scene_to_file("res://Scenes/Menu/multiplayermenu.tscn")
 
 
 func _on_rematch_pressed() -> void:
