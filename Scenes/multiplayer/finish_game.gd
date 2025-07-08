@@ -1,4 +1,5 @@
 extends Control
+@onready var result: Label = $result
 @onready var request: Label = $request
 var online = WebSocketClient
 
@@ -6,8 +7,8 @@ var online = WebSocketClient
 func _ready() -> void:
 	online.message_received.connect(_on_message_received)
 
-func setup(result : String):
-	request.text = result
+func setup(theresult : String):
+	result.text = theresult
 
 func _on_message_received(message: String):
 	var msg = JSON.parse_string(message)
