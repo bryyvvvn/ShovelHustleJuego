@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c7av25r4rxq5" path="res://Scenes/ventana_controles.tscn" id="16_lssr4"]
 
 [node name="multiplayer" type="Node2D" node_paths=PackedStringArray("money_ref")]
+y_sort_enabled = true
 script = ExtResource("1_kapfi")
 tile_map_scene = ExtResource("2_lfuhp")
 player_scene = ExtResource("3_a0vfj")

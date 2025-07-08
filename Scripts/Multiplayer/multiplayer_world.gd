@@ -20,8 +20,8 @@ var tree_noise : Noise
 @onready var excavacion_tile_map_layer := $TileMap/excavacion
 
 #Tamaño del mapa y ciclos para suavizar bordes del mapa
-var map_width = 105
-var map_height = 105
+var map_width = 130
+var map_height = 130
 var smoothing_passes = 4
 
 

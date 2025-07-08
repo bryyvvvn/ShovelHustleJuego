@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://4v21wekain54"]
+[gd_scene load_steps=9 format=3 uid="uid://4v21wekain54"]
 
 [ext_resource type="Script" uid="uid://bdvv6h4q8ybw6" path="res://Scripts/Tienda/Tienda_online/tienda_o_ui.gd" id="1_xv28h"]
 [ext_resource type="PackedScene" uid="uid://cx25plwhja0ss" path="res://Scenes/objectsPhysics.tscn" id="2_7jkqk"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://doqqigkspqyv1" path="res://Scenes/Inventario/inv_ui_slot.tscn" id="4_l3nhc"]
 [ext_resource type="Script" uid="uid://cvn2xyidk3cmr" path="res://Scripts/Tienda/venta_ui_slot.gd" id="5_dwvxd"]
 [ext_resource type="Script" uid="uid://dggwoe3idmq3a" path="res://Scripts/Tienda/Tienda_online/scripts_venta/cohete_ui_slot.gd" id="6_7jkqk"]
+[ext_resource type="Script" uid="uid://f5254om565bj" path="res://Scripts/Tienda/Tienda_local/scripts_venta/completo_ui_slot.gd" id="7_reb3y"]
+[ext_resource type="Script" uid="uid://chal0g26vwm8l" path="res://Scripts/Tienda/Tienda_local/scripts_venta/pan_ui_slot.gd" id="8_3yc3d"]
 
 [node name="Tienda_o_Ui" type="Control"]
 layout_mode = 3
@@ -73,7 +75,25 @@ script = ExtResource("5_dwvxd")
 custom_minimum_size = Vector2(34, 34)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
+text = "Cohete
+100"
+alignment = 2
+script = ExtResource("6_7jkqk")
+
+[node name="tienda_UI_slot3" parent="NinePatchRect/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_l3nhc")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
 text = "Completo
 50"
 alignment = 2
-script = ExtResource("6_7jkqk")
+script = ExtResource("7_reb3y")
+
+[node name="tienda_UI_slot4" parent="NinePatchRect/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_l3nhc")]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Pan
+100"
+alignment = 2
+script = ExtResource("8_3yc3d")

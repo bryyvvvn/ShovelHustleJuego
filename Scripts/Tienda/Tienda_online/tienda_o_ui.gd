@@ -44,12 +44,13 @@ func close():
 func onSlotClicked(slot):
 	
 	if not slot.venta:
-		var object = objects_scene.instantiate()
-		object.data = slot.object_data
-		object.get_node("Sprite2D").texture = slot.object_data.get_texture()
-		object.global_position = get_parent().get_parent().get_node("player").global_position
-		get_parent().get_parent().add_child(object)
-		get_parent().get_parent().get_node("player").money += -slot.object_data.get_precio()
+		if get_parent().get_parent().get_node("player").money >= slot.object_data.get_precio():
+			var object = objects_scene.instantiate()
+			object.data = slot.object_data
+			object.get_node("Sprite2D").texture = slot.object_data.get_texture()
+			object.global_position = get_parent().get_parent().get_node("player").global_position
+			get_parent().get_parent().add_child(object)
+			get_parent().get_parent().get_node("player").money += -slot.object_data.get_precio()
 		
 		
 	else:
