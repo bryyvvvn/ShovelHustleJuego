@@ -39,7 +39,11 @@ func setup(dia: int, pala: int) -> void:
 	green_zone.size = Vector2(green_zone.size.x, green_zone_height)
 
 	cursor.position.y = 210
-	green_zone.position.y = 60
+	green_zone.position.y = randf_range(0, bar.size.y - green_zone.size.y)
+	if randf() < 0.5:
+		direction = -1
+	else:
+		direction = 1
 
 func _process(delta):
 	if not active:
