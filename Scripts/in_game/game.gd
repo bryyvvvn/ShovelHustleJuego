@@ -12,6 +12,7 @@ extends Node2D
 @export var money_ref : Node
 
 @onready var trans = $UI/dayTransition
+@onready var cuota = $UI/cuota
 
 var basura : objectData = preload("res://Assets/Recursos/Objects/basura.tres")
 var tuberculo : objectData= preload("res://Assets/Recursos/Objects/tuberculo.tres")
@@ -43,6 +44,7 @@ var max_days: int = 7
 var cuota_diaria = 550
 var day_ended = false
 var energy_punish = 0.135
+
 
 
 func init_tienda()-> void:
@@ -163,7 +165,7 @@ func _ready() -> void:
 	init_tienda_ui()
 	init_inventory()
 	trans.connect("transition_done", Callable(self, "_on_transition_done"))
-	
+	cuota.text = str(cuota_diaria)
 	Music.play_track(1)
 	Music.start_random_music()
 
@@ -233,6 +235,7 @@ func _on_transition_done(success: bool):
 		player.res_energy()
 		player.money -= cuota_diaria
 		cuota_diaria = cuota_diaria*1.8
+		cuota.text = str(cuota_diaria)
 		money_ref.set_bounty(cuota_diaria)
 		day_ended = false
 		Music.start_random_music()

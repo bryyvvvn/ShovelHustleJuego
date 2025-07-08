@@ -86,10 +86,21 @@ offset_right = 410.0
 offset_bottom = 291.0
 
 [node name="VentanaControles" parent="UI" instance=ExtResource("15_ewbju")]
+z_index = 7
 offset_left = 9.5
 offset_top = 21.5
 offset_right = -1081.5
 offset_bottom = -595.5
+
+[node name="cuota" type="Label" parent="UI"]
+z_index = 1
+offset_left = 348.0
+offset_top = 26.0
+offset_right = 460.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 15
+text = "CUOTA DIARIA"
+horizontal_alignment = 1
 
 [node name="FpsLabel" parent="." instance=ExtResource("11_o5yvi")]
 visible = false

@@ -1,5 +1,5 @@
-TileMapLayer
 Label
+TileMapLayer
 Button
 HBoxContainer
 VBoxContainer
@@ -12,4 +12,3 @@ ScrollContainer
 AnimationPlayer
 Control
 AudioStreamPlayer2D
-AudioStreamPlayer
