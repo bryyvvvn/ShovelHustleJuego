@@ -1,8 +1,7 @@
 extends Control
 @onready var result: Label = $result
 @onready var request: Label = $request
-var online = WebSocketClient
- 
+@onready var online: WebSocketClient = WebSocketClient
 
 func _ready() -> void:
 	online.message_received.connect(_on_message_received)
@@ -30,7 +29,10 @@ func _on_message_received(message: String):
 			#get_parent().get_node("online").pingMatch()
 			#get_tree().change_scene_to_file("res://Scenes/multiplayer/multiplayer.tscn")
 			#queue_free() #aquí agregar código para, en paralelo con multiplayer, aquí cerrar con hide() y allá manejar un reinicio de partida con get_tree().reload_current_scene()
-			
+			var msg2 = {
+				"event" : "ping-match"
+			}
+			online.send(JSON.stringify(msg2))
 			get_tree().change_scene_to_file("res://Scenes/multiplayer/multiplayer.tscn")
 			
 
